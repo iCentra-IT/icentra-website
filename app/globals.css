@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+:root {
+  /* --background: #ffffff;
+  --foreground: #171717; */
+}
+
+@theme {
+  /* iCentra Brand Colors */
+  --color-main: #0C236C;
+  --color-secondary:  #1875F0;
+  --color-deep-blue: #010F37;
+  --color-glass: #00AFEB;
+  --color-light-blue: #00DBFF;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* --background: #0a0a0a;
+    --foreground: #ededed; */
+  }
+}
+
+

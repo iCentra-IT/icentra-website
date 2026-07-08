@@ -1,0 +1,480 @@
+import BlogCard from "@/components/ui/cards/blog-card";
+import PageHero from "@/components/ui/page-hero";
+import Image from "next/image";
+import Link from "next/link";
+
+
+/* ─────────────────────────────────────────
+   DATA
+───────────────────────────────────────── */
+const services = [
+  {
+    title: "Cyber Risk Assessment & Strategy",
+    desc: "We identify vulnerabilities, assess your risk exposure, and create a practical, business-aligned roadmap to strengthen your security posture.",
+  },
+  {
+    title: "Threat Detection & Incident Response",
+    desc: "We implement 24/7 threat monitoring, incident response playbooks, and threat intelligence systems to detect and respond in real time.",
+  },
+  {
+    title: "Security Architecture & Implementation",
+    desc: "We design and deploy secure IT infrastructure, applications, and cloud environments that meet your business and compliance requirements.",
+  },
+  {
+    title: "Vulnerability & Penetration Testing",
+    desc: "We proactively test your networks, applications, and systems to identify and fix weaknesses before attackers exploit them.",
+  },
+  {
+    title: "Security Information & Event Management (SIEM)",
+    desc: "We deploy advanced SIEM platforms that centralize event data, provide real-time alerts, and deliver deep visibility across your environment.",
+  },
+];
+
+const howItWorks = [
+  {
+    step: "01",
+    title: "Assess & Identify",
+    desc: "We begin with a full assessment of your current security posture, technology stack, and regulatory gaps.",
+  },
+  {
+    step: "02",
+    title: "Design & Plan",
+    desc: "We craft a prioritized cybersecurity roadmap tailored to your business needs and risk appetite.",
+  },
+  {
+    step: "03",
+    title: "Implement & Monitor",
+    desc: "We deploy leading security tools, integrate controls, and establish real-time monitoring and incident response.",
+  },
+  {
+    step: "04",
+    title: "Train & Evolve",
+    desc: "We strengthen your people through awareness training, simulate threats, and ensure your defenses evolve with the threat landscape.",
+  },
+];
+
+const testimonials = [
+  {
+    name: "Crystal Maiden",
+    role: "UX Designer",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80",
+    stars: 5,
+    text: "This is but this one is the best. The attention to detail and quality is truly amazing for all designers. I highly recommend it for any type of project.",
+  },
+  {
+    name: "Dazzle Healer",
+    role: "Front End Developer",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80",
+    stars: 5,
+    text: "I've used other kits, but this one is the best. The attention to detail and usability are truly amazing for all designers. I highly recommend it for any type of project.",
+  },
+  {
+    name: "Crystal Maiden",
+    role: "UX/UI Designer",
+    avatar: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=80&q=80",
+    stars: 5,
+    text: "This UI kit is incredibly helpful for my design process. Components are clean, modern, and save me a lot of time for beginners and professionals alike.",
+  },
+];
+
+const projects = [
+  {
+    bgImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80",
+    logoText: "NRS",
+    title: "Journey to Information Security Excellence at NRS",
+    desc: "NNPC Limited's Information Technology Division (ITD) embarked on a transformative...",
+    href: "/case-studies/nrs-information-security",
+  },
+  {
+    bgImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80",
+    logoText: "CBN",
+    title: "Transforming Project Management at CBN",
+    desc: "NNPC Limited's Information Technology Division (ITD) embarked on a transformative...",
+    href: "/case-studies/cbn-project-management",
+  },
+  {
+    bgImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
+    logoText: "NNPC",
+    title: "Driving Agile Transformation at NNPC Limited IT Division.",
+    desc: "NNPC Limited's Information Technology Division (ITD) embarked on a transformative...",
+    href: "/case-studies/nnpc-agile-transformation",
+  },
+];
+
+const insightCards = [
+  {
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80",
+    title: "The New Operating Model for Sustainable Performance",
+    date: "2nd Sep 2025",
+    readTime: "2 min",
+    href: "/news/new-operating-model",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&q=80",
+    title: "AI & Cybersecurity Governance: Getting Leadership By-In",
+    date: "2nd Sep 2025",
+    readTime: "2 min",
+    href: "/news/ai-governance",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80",
+    title: "5 Ai Driven Threats Organizations Can't Ignore In 2026",
+    date: "2nd Sep 2025",
+    readTime: "2 min",
+    href: "/news/ai-threats",
+  },
+];
+
+/* ─────────────────────────────────────────
+   STAR RATING
+───────────────────────────────────────── */
+function StarRating({ count = 5 }: { count?: number }) {
+  return (
+    <div className="flex gap-0.5">
+      {Array.from({ length: count }).map((_, i) => (
+        <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────
+   SHARED CTA BUTTON
+───────────────────────────────────────── */
+function ConsultationBtn({ href = "/contact" }: { href?: string }) {
+  return (
+    <Link
+      href={href}
+      className="inline-flex items-center px-7 py-3 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#00DBFF] hover:text-[#1A274F] transition-colors"
+    >
+      Schedule a Consultation
+    </Link>
+  );
+}
+
+/* ─────────────────────────────────────────
+   PAGE
+───────────────────────────────────────── */
+export default function CybersecurityPage() {
+  return (
+    <main className="w-full overflow-x-hidden">
+
+      {/* ══════════════════════════════════════
+          1. HERO — PageHero + bg photo + CTA link
+      ══════════════════════════════════════ */}
+      <div className="relative">
+        {/* Background photo layer */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=1600&q=80"
+            alt=""
+            fill
+            className="object-cover opacity-20"
+            sizes="100vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1B4D]/95 via-[#16266E]/85 to-[#1A274F]/60" />
+        </div>
+        <div className="relative z-10">
+          <PageHero
+            headline={"Secure Today. Safeguard\nTomorrow"}
+            subtext="Protecting your business against evolving threats in a digital world."
+          >
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 text-[#00DBFF] text-[14px] font-semibold group"
+            >
+              <span className="border-b border-[#00DBFF]/50 group-hover:border-[#00DBFF] transition-colors">
+                Schedule a Consultation
+              </span>
+              <span className="w-7 h-7 rounded-full bg-[#0066FF] flex items-center justify-center group-hover:bg-[#00DBFF] transition-colors shrink-0">
+                <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </Link>
+          </PageHero>
+        </div>
+      </div>
+
+      {/* ══════════════════════════════════════
+          2. INTRO — 2 paragraphs
+      ══════════════════════════════════════ */}
+      <section className="bg-white py-14 lg:py-16">
+        <div className="max-w-[1280px] mx-auto px-6 flex flex-col gap-4 max-w-[900px]">
+          <p className="text-[#374151] text-[15px] leading-[1.85]">
+            In today&apos;s hyper-connected world, cyber threats are evolving faster than ever, targeting
+            vulnerabilities in systems, people, and processes. Many organizations are exposed due to
+            outdated infrastructure, poor visibility, or lack of preparedness.
+          </p>
+          <p className="text-[#374151] text-[15px] leading-[1.85]">
+            Just one breach can compromise customer trust, disrupt operations, and result in regulatory
+            penalties. That&apos;s why cyber resilience is no longer optional — it&apos;s critical. At iCentra,
+            we help businesses build a strong, adaptive cybersecurity posture by protecting digital
+            assets, managing risks, and ensuring regulatory compliance. Our approach is strategic,
+            proactive, and tailored to your unique environment.
+          </p>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          3. FULL-WIDTH CYBER IMAGE
+      ══════════════════════════════════════ */}
+      <div className="w-full max-w-[1280px] mx-auto px-6 pb-14">
+        <div className="relative w-full h-[240px] sm:h-[320px] lg:h-[400px] rounded-2xl overflow-hidden">
+          <Image
+            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1400&q=80"
+            alt="Cybersecurity"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-[#0B1B4D]/40" />
+          {/* Keyhole lock icon overlay */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <svg className="w-20 h-20 text-[#00DBFF]/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      {/* ══════════════════════════════════════
+          4. SERVICES — intro + 5-tile grid
+      ══════════════════════════════════════ */}
+      <section className="bg-white pb-14 lg:pb-16">
+        <div className="max-w-[1280px] mx-auto px-6">
+          <p className="text-[#374151] text-[15px] leading-[1.85] max-w-[900px] mb-3">
+            From proactive risk assessments to real-time threat detection, our cybersecurity services
+            are designed to protect every layer of your digital ecosystem — helping you stay ahead of
+            threats, meet compliance demands, and build long-term resilience.
+          </p>
+          <p className="text-[#1A274F] text-[15px] font-bold mb-8">
+            Our Cybersecurity Solutions Cover the Full Threat Landscape
+          </p>
+
+          {/* First 3 services */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            {services.slice(0, 3).map((s) => (
+              <div key={s.title}>
+                <h4 className="text-[#1A274F] text-[14px] font-bold mb-1.5">{s.title}</h4>
+                <p className="text-[#6B7280] text-[13px] leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Last 2 services */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[860px]">
+            {services.slice(3).map((s) => (
+              <div key={s.title}>
+                <h4 className="text-[#1A274F] text-[14px] font-bold mb-1.5">{s.title}</h4>
+                <p className="text-[#6B7280] text-[13px] leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          5. LET'S FORTIFY — dark navy CTA banner
+      ══════════════════════════════════════ */}
+      <section className="relative bg-[#1A274F] overflow-hidden py-14 lg:py-16">
+        <div className="absolute inset-0 pointer-events-none opacity-[0.07]">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <pattern id="fortifyDots" x="0" y="0" width="64" height="64" patternUnits="userSpaceOnUse">
+                <circle cx="32" cy="32" r="26" fill="none" stroke="white" strokeWidth="1.5" />
+                <circle cx="0" cy="0" r="26" fill="none" stroke="white" strokeWidth="1.5" />
+                <circle cx="64" cy="0" r="26" fill="none" stroke="white" strokeWidth="1.5" />
+                <circle cx="0" cy="64" r="26" fill="none" stroke="white" strokeWidth="1.5" />
+                <circle cx="64" cy="64" r="26" fill="none" stroke="white" strokeWidth="1.5" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#fortifyDots)" />
+          </svg>
+        </div>
+        <div className="relative z-10 max-w-[680px] mx-auto px-6 flex flex-col items-center text-center gap-4">
+          <h2 className="text-white text-[26px] lg:text-[34px] font-extrabold leading-tight">
+            Let&apos;s Fortify Your Cyber Defences
+          </h2>
+          <p className="text-white/60 text-[14px] leading-relaxed">
+            Partner with iCentra to build the capability to evolve continuously.
+          </p>
+          <div className="mt-2">
+            <ConsultationBtn />
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          6. HOW IT WORKS — 4-column process
+      ══════════════════════════════════════ */}
+      <section className="bg-white py-16 lg:py-20">
+        <div className="max-w-[1280px] mx-auto px-6">
+          <h2 className="text-[#1A274F] text-[26px] lg:text-[30px] font-bold mb-1">How It Works</h2>
+          <p className="text-[#6B7280] text-[14px] mb-12">
+            Our cybersecurity approach is structured, comprehensive, and business-aligned.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {howItWorks.map((step) => (
+              <div key={step.step} className="flex flex-col gap-3">
+                {/* Step number */}
+                <span className="text-[#DCE0E8] text-[36px] font-extrabold leading-none">{step.step}</span>
+                <h4 className="text-[#1A274F] text-[15px] font-bold">{step.title}</h4>
+                <p className="text-[#6B7280] text-[13px] leading-relaxed">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          7. CYBERSECURITY IS NOT OPTIONAL — dark navy banner
+      ══════════════════════════════════════ */}
+      <section className="relative bg-[#25429A] overflow-hidden py-14 lg:py-16">
+        <div className="absolute inset-0 pointer-events-none opacity-[0.08]">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <pattern id="criticalDots" x="0" y="0" width="64" height="64" patternUnits="userSpaceOnUse">
+                <circle cx="32" cy="32" r="26" fill="none" stroke="white" strokeWidth="1.5" />
+                <circle cx="0" cy="0" r="26" fill="none" stroke="white" strokeWidth="1.5" />
+                <circle cx="64" cy="0" r="26" fill="none" stroke="white" strokeWidth="1.5" />
+                <circle cx="0" cy="64" r="26" fill="none" stroke="white" strokeWidth="1.5" />
+                <circle cx="64" cy="64" r="26" fill="none" stroke="white" strokeWidth="1.5" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#criticalDots)" />
+          </svg>
+        </div>
+        <div className="relative z-10 max-w-[740px] mx-auto px-6 flex flex-col items-center text-center gap-4">
+          <h2 className="text-white text-[24px] lg:text-[32px] font-extrabold leading-tight">
+            Cybersecurity Is Not Optional — It&apos;s Critical
+          </h2>
+          <p className="text-white/60 text-[14px] leading-relaxed">
+            Partner with iCentra to build the capability to evolve continuously.
+          </p>
+          <div className="mt-2">
+            <ConsultationBtn />
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          8. WHAT OUR CLIENT SAY ABOUT US
+      ══════════════════════════════════════ */}
+      <section className="bg-white py-16 lg:py-20">
+        <div className="max-w-[1280px] mx-auto px-6">
+          <h2 className="text-[#1A274F] text-[22px] lg:text-[28px] font-bold text-center mb-10">
+            What Our{" "}
+            <span className="relative inline-block">
+              Client
+              <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-[#0066FF] rounded-full" />
+            </span>{" "}
+            Say About Us
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {testimonials.map((t, i) => (
+              <div key={i} className="bg-[#F7F9FC] rounded-2xl p-6 flex flex-col gap-4 border border-[#DCE0E8]">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0 bg-[#A8B8F8]">
+                      <Image src={t.avatar} alt={t.name} fill className="object-cover" sizes="40px" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-[#1A274F] text-[13px] font-semibold truncate">{t.name}</p>
+                      <p className="text-[#6B7280] text-[11px] truncate">{t.role}</p>
+                    </div>
+                  </div>
+                  <StarRating count={t.stars} />
+                </div>
+                <p className="text-[#374151] text-[13px] leading-relaxed flex-1">
+                  &ldquo;{t.text}&rdquo;
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          9. HIGHLIGHTED TRANSFORMATION PROJECTS
+      ══════════════════════════════════════ */}
+      <section className="bg-[#F7F9FC] py-14 lg:py-20">
+        <div className="max-w-[1280px] mx-auto px-6">
+          <div className="flex items-center justify-between gap-4 mb-3">
+            <h2 className="text-[#1A274F] text-[22px] lg:text-[28px] font-bold">
+              Highlighted Transformation Projects
+            </h2>
+            <div className="flex gap-2 shrink-0">
+              {["left", "right"].map((d) => (
+                <button key={d} aria-label={d === "left" ? "Previous" : "Next"}
+                  className="w-9 h-9 rounded-full border border-[#DCE0E8] flex items-center justify-center text-[#1A274F] hover:border-[#0066FF] hover:text-[#0066FF] transition-colors">
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d={d === "left" ? "M15 19l-7-7 7-7" : "M9 5l7 7-7 7"} />
+                  </svg>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {projects.map((p) => (
+              <div key={p.title} className="bg-white rounded-2xl overflow-hidden border border-[#DCE0E8] flex flex-col">
+                <div className="relative h-[180px] overflow-hidden bg-[#EAF3FB]">
+                  <Image src={p.bgImage} alt={p.title} fill className="object-cover opacity-40" sizes="400px" />
+                  <div className="absolute inset-0 bg-[#1A274F]/30" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-white text-[28px] font-extrabold tracking-widest drop-shadow">{p.logoText}</span>
+                  </div>
+                </div>
+                <div className="p-5 flex flex-col flex-1 gap-2">
+                  <h3 className="text-[#1A274F] text-[14px] font-semibold leading-snug">{p.title}</h3>
+                  <p className="text-[#6B7280] text-[13px] leading-relaxed flex-1">{p.desc}</p>
+                  <div className="mt-3">
+                    <Link href={p.href} className="inline-flex items-center px-5 py-2 rounded-full bg-[#0066FF] text-white text-[13px] font-medium hover:bg-[#25429A] transition-colors">
+                      Read More
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          10. INSIGHT ARTICLE — BlogCard ×3
+      ══════════════════════════════════════ */}
+      <section className="bg-white py-14 lg:py-20">
+        <div className="max-w-[1280px] mx-auto px-6">
+          <h2 className="text-[#1A274F] text-[22px] lg:text-[28px] font-bold mb-10">
+            <span className="relative inline-block mr-1">
+              Insight
+              <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-[#0066FF] rounded-full" />
+            </span>{" "}
+            Article
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {insightCards.map((card) => (
+              <div key={card.href} className="[&>div]:max-w-none [&>div]:w-full">
+                <BlogCard
+                  image={card.image}
+                  title={card.title}
+                  date={card.date}
+                  readTime={card.readTime}
+                  href={card.href}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+    </main>
+  );
+}
