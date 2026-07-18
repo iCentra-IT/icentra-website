@@ -1,58 +1,13 @@
 
 import BlogCard from "@/components/ui/cards/blog-card";
 import PageHero from "@/components/ui/page-hero";
+import { spotlightCards, newsCards } from "@/lib/data";
 import Link from "next/link";
 
 /* ─────────────────────────────────────────
    DATA
 ───────────────────────────────────────── */
-const spotlightCards = [
-  {
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
-    title: "iCentra Bags Global Awards",
-    date: "2nd Sep 2025",
-    readTime: "2 min",
-    href: "/news/icentra-bags-global-awards",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1560472355-536de3962603?w=600&q=80",
-    title: "AI & Cybersecurity Governance: Getting Leadership By-In",
-    date: "2nd Sep 2025",
-    readTime: "2 min",
-    href: "/news/ai-cybersecurity-governance",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80",
-    title: "5 Ai Driven Threats Organizations Can't Ignore In 2026",
-    date: "2nd Sep 2025",
-    readTime: "2 min",
-    href: "/news/5-ai-driven-threats",
-  },
-];
 
-const newsCards = [
-  {
-    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80",
-    title: "The New Operating Model for Sustainable Performance",
-    date: "2nd Sep 2025",
-    readTime: "2 min",
-    href: "/news/new-operating-model",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80",
-    title: "AI & Cybersecurity Governance: Getting Leadership By-In",
-    date: "2nd Sep 2025",
-    readTime: "2 min",
-    href: "/news/ai-governance-leadership",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80",
-    title: "5 Ai Driven Threats Organizations Can't Ignore In 2026",
-    date: "2nd Sep 2025",
-    readTime: "2 min",
-    href: "/news/ai-threats-2026",
-  },
-];
 
 /* ─────────────────────────────────────────
    SECTION HEADING — full-width dark underline
@@ -134,7 +89,7 @@ export default function NewsInsightPage() {
         
 
         <div className="relative z-10 flex flex-col items-center text-center gap-7 px-6">
-          <h2 className="text-white text-[24px] sm:text-[30px] lg:text-[36px] font-bold leading-tight max-w-[620px]">
+          <h2 className="text-white text-[24px] sm:text-[30px] lg:text-[36px] font-bold leading-tight max-w-155">
             Company brand assets (downloadable logos) in all format
           </h2>
           <Link

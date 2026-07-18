@@ -1,3 +1,4 @@
+import TrustedPartners from "@/components/sections/home/partners";
 import BlogCard from "@/components/ui/cards/blog-card";
 import PageHero from "@/components/ui/page-hero";
 import Image from "next/image";
@@ -36,17 +37,6 @@ const projects = [
     desc: "NNPC Limited's Information Technology Division (ITD) embarked on a transformative...",
     href: "#",
   },
-];
-
-const partners = [
-  { name: "NNPC",      src: "https://placehold.co/110x36/1A274F/ffffff?text=NNPC" },
-  { name: "Partner 2", src: "https://placehold.co/110x36/1A274F/ffffff?text=Partner" },
-  { name: "NRS",       src: "https://placehold.co/110x36/1A274F/ffffff?text=NRS" },
-  { name: "Partner 4", src: "https://placehold.co/110x36/1A274F/ffffff?text=Partner" },
-  { name: "Microvis",  src: "https://placehold.co/110x36/1A274F/ffffff?text=Microvis" },
-  { name: "Partner 6", src: "https://placehold.co/110x36/1A274F/ffffff?text=Partner" },
-  { name: "Partner 7", src: "https://placehold.co/110x36/1A274F/ffffff?text=Partner" },
-  { name: "Partner 8", src: "https://placehold.co/110x36/1A274F/ffffff?text=Partner" },
 ];
 
 const testimonials = [
@@ -230,27 +220,9 @@ export default function IndustriesPage() {
       {/* ══════════════════════════════════════
           3. OUR TRUSTED PARTNERS
       ══════════════════════════════════════ */}
-      <section className="bg-[#F7F9FC] py-12 lg:py-16 border-y border-[#DCE0E8]">
-        <div className="max-w-[1280px] mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[22px] lg:text-[26px] font-bold mb-1">
-            <span className="relative inline-block mr-2">
-              Our
-              <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-[#0066FF] rounded-full" />
-            </span>
-            Trusted Partners
-          </h2>
-          <p className="text-[#6B7280] text-[13px] mb-8">
-            Proudly collaborating with global standards organizations and technology leaders.
-          </p>
-          <div className="flex flex-wrap items-center gap-6 lg:gap-10">
-            {partners.map((p) => (
-              <div key={p.name} className="relative h-8 w-[100px] grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
-                <Image src={p.src} alt={p.name} fill className="object-contain" sizes="100px" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* <section className="bg-[#F7F9FC] py-12 lg:py-16 border-y border-[#DCE0E8]"> */}
+        <TrustedPartners />
+      {/* </section> */}
 
       {/* ══════════════════════════════════════
           4. WHAT OUR CLIENTS ARE SAYING

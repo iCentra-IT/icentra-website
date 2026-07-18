@@ -30,7 +30,7 @@ export default function Navbar() {
     <>
       {/* ── Desktop & Mobile Header ── */}
       <header className="sticky top-0 z-50 bg-white border border-[#DCE0E8] shadow-sm">
-        <div className="max-w-[1280px] mx-auto px-6 h-[68px] flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 h-17 flex items-center justify-between">
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
@@ -50,12 +50,12 @@ export default function Navbar() {
                 <div key={link.label} className="relative group">
                   <button
                     onClick={() => setDropdownOpen((v) => !v)}
-                    className="flex items-center gap-1 text-[15px] font-medium text-[#1A274F] hover:text-[#1875F0] transition-colors"
+                    className="flex items-center gap-1 text-[15px] cursor-pointer font-medium text-[#1A274F] hover:text-secondary transition-colors"
                   >
                     {link.label}
                     {/* Chevron */}
                     <svg
-                      className={`w-4 h-4 text-[#010F37] transition-transform duration-200 ${
+                      className={`w-4 h-4 text-deep-blue transition-transform duration-200 group-hover:text-secondary ${
                         dropdownOpen ? "rotate-180" : ""
                       }`}
                       fill="none"
@@ -74,7 +74,7 @@ export default function Navbar() {
                         <Link
                           key={item.label}
                           href={item.href}
-                          className="block px-4 py-2.5 text-sm text-[#1A274F] hover:bg-[#eef1fb] hover:text-[#1875F0] transition-colors"
+                          className="block px-4 py-2.5 text-sm text-[#1A274F] hover:bg-[#eef1fb] hover:text-secondary transition-colors"
                           onClick={() => setDropdownOpen(false)}
                         >
                           {item.label}
@@ -98,27 +98,27 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <Link
             href="/contact"
-            className="hidden lg:inline-flex items-center px-6 py-2.5 rounded-full bg-[#1875F0] text-white text-[15px] font-semibold hover:bg-[#010F37] transition-colors"
+            className="hidden lg:inline-flex items-center px-6 py-2.5 rounded-full bg-secondary text-white text-[15px] font-semibold transition-colors"
           >
             Contact Us
           </Link>
 
           {/* Mobile Hamburger */}
           <button
-            className="lg:hidden flex flex-col justify-center items-center gap-[5px] w-9 h-9"
+            className="lg:hidden flex flex-col justify-center items-center gap-1.25 w-9 h-9"
             onClick={() => setMobileOpen(true)}
             aria-label="Open menu"
           >
-            <span className="w-6 h-[2px] bg-[#1A274F] rounded-full" />
-            <span className="w-6 h-[2px] bg-[#1A274F] rounded-full" />
-            <span className="w-6 h-[2px] bg-[#1A274F] rounded-full" />
+            <span className="w-6 h-0.5 bg-[#1A274F] rounded-full" />
+            <span className="w-6 h-0.5 bg-[#1A274F] rounded-full" />
+            <span className="w-6 h-0.5 bg-[#1A274F] rounded-full" />
           </button>
         </div>
       </header>
 
       {/* ── Mobile Drawer ── */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-[100] flex">
+        <div className="fixed inset-0 z-100 flex">
           {/* Overlay */}
           <div
             className="absolute inset-0 bg-black/40"
@@ -126,7 +126,7 @@ export default function Navbar() {
           />
 
           {/* Drawer Panel */}
-          <div className="relative ml-auto w-full max-w-[420px] h-full bg-[#25429A] flex flex-col px-8 pt-10 pb-12 overflow-y-auto">
+          <div className="relative ml-auto w-full max-w-105 h-full bg-[#25429A] flex flex-col px-8 pt-10 pb-12 overflow-y-auto">
             {/* Close button */}
             <button
               onClick={() => setMobileOpen(false)}
@@ -185,7 +185,7 @@ export default function Navbar() {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="py-5 text-[22px] font-semibold text-white border-b border-white/10 hover:text-[#00DBFF] transition-colors"
+                    className="py-5 text-[22px] font-semibold text-white border-b border-white/10 hover:text-light-blue transition-colors"
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}

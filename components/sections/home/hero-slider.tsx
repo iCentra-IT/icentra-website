@@ -130,7 +130,7 @@ export default function HeroSlider() {
                 {/* Headline */}
                 <h1 className="text-[42px] lg:text-[62px] font-extrabold leading-[1.05] max-w-175">
                   {slide.headlineItalic && (
-                    <span className="block italic text-[#0066FF] font-extrabold">
+                    <span className="block italic text-secondary font-extrabold">
                       {slide.headlineItalic}
                     </span>
                   )}
@@ -149,7 +149,7 @@ export default function HeroSlider() {
                       href={cta.href}
                       className={`px-7 py-3.5 rounded-md text-[14px] font-semibold transition-colors ${
                         cta.primary
-                          ? "bg-[#0066FF] text-white hover:bg-light-blue hover:text-[#1A274F]"
+                          ? "bg-[#0066FF] text-white "
                           : "bg-black/3 border border-black/15 text-[#0D1B3E] hover:bg-black/6"
                       }`}
                     >

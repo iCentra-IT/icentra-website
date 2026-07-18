@@ -19,7 +19,7 @@ export default function SolutionCard({
   return (
     <Link
       href={href}
-      className="group relative block w-full max-w-75 aspect-3/4 rounded-2xl overflow-hidden cursor-pointer"
+      className="group relative block w-ful max-w-75 h-[60vh]! aspect-3/4 rounded-2xl overflow-hidden cursor-pointer"
     >
       {/* Background image */}
       <Image
@@ -29,7 +29,8 @@ export default function SolutionCard({
         className="object-cover transition-transform duration-500 group-hover:scale-105"
         sizes="(max-width: 768px) 100vw, 300px"
       />
-
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-secondary/20" />
       {/* Glass label — default state (bottom strip) */}
       <div
         className="
@@ -44,13 +45,13 @@ export default function SolutionCard({
         <div
           className="
             relative
-            bg-white/10 backdrop-blur-md border border-white/20
+            bg-glass/50 backdrop-blur-md border border-white/20
             transition-all duration-500 ease-in-out
-            group-hover:bg-white/15 group-hover:border-white/30
+            group-hover:bg-glass/15 group-hover:border-white/30
           "
         >
           {/* Title row — always visible */}
-          <div className="px-4 pt-4 pb-3">
+          <div className="pt-4 p-5">
             <h3 className="text-white text-[20px] font-bold leading-tight">
               {title}
             </h3>
@@ -68,10 +69,20 @@ export default function SolutionCard({
             <p className="text-white/85 text-[14px] leading-relaxed">
               {description}
             </p>
-            <span className="inline-flex items-center gap-1 mt-3 text-[#00DBFF] text-[13px] font-medium">
+            <span className="inline-flex items-center gap-1 mt-3 text-light-blue text-[13px] font-medium">
               Learn more
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              <svg
+                className="w-3.5 h-3.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </span>
           </div>
