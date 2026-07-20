@@ -35,7 +35,7 @@ export function CardCarouselSection<T>({
           <h2 className="text-[#1A274F] text-[22px] lg:text-[28px] font-bold">
             <span className="relative inline-block">
               {underlineWord}
-              <span className="absolute left-0 -bottom-1 h-[2px] w-full bg-[#1A274F]" />
+              <span className="absolute left-0 -bottom-1 h-0.5 w-1/3 bg-main" />
             </span>
             {headingParts[1]}
           </h2>

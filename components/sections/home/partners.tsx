@@ -9,7 +9,7 @@ const partners = [
   { name: "FCTA", src: "/images/partners/FCTA.png" },
   { name: "NRS", src: "/images/partners/NRS.png" },
   { name: "NASENI", src: "/images/partners/NASENI.png" },
-  { name: "Nigerian Economic Summit Group", src: "/images/partners/NESG.png" },
+  { name: "Nigerian Economic Summit Group", src: "/images/partners/nesg.png" },
   { name: "Microvis MFBank", src: "/images/partners/microvis.png" },
   { name: "Institute of Transport", src: "/images/partners/NITTZ.png" },
   { name: "Seal", src: "/images/partners/Ogun.png" },

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -22,9 +23,17 @@ const navLinks = [
   { label: "Careers", href: "/careers" },
 ];
 
+// Exact match for "/", prefix match for everything else so nested routes
+// (e.g. /industry/healthcare) still highlight the parent "Industry" link.
+function isActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(href + "/");
+}
+
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <>
@@ -45,54 +54,87 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) =>
-              link.dropdown ? (
-                <div key={link.label} className="relative group">
-                  <button
-                    onClick={() => setDropdownOpen((v) => !v)}
-                    className="flex items-center gap-1 text-[15px] cursor-pointer font-medium text-[#1A274F] hover:text-secondary transition-colors"
-                  >
-                    {link.label}
-                    {/* Chevron */}
-                    <svg
-                      className={`w-4 h-4 text-deep-blue transition-transform duration-200 group-hover:text-secondary ${
-                        dropdownOpen ? "rotate-180" : ""
-                      }`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
+            {navLinks.map((link) => {
+              if (link.dropdown) {
+                const parentActive = link.dropdown.some((item) =>
+                  isActive(pathname, item.href)
+                );
 
-                  {/* Dropdown */}
-                  {dropdownOpen && (
-                    <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-[#DCE0E8] rounded-xl shadow-lg py-2 z-50">
-                      {link.dropdown.map((item) => (
-                        <Link
-                          key={item.label}
-                          href={item.href}
-                          className="block px-4 py-2.5 text-sm text-[#1A274F] hover:bg-[#eef1fb] hover:text-secondary transition-colors"
-                          onClick={() => setDropdownOpen(false)}
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
+                return (
+                  <div key={link.label} className="relative group">
+                    <button
+                      onClick={() => setDropdownOpen((v) => !v)}
+                      className={`flex items-center gap-1 text-[15px] cursor-pointer font-medium transition-colors ${
+                        parentActive
+                          ? "text-[#0066FF]"
+                          : "text-[#1A274F] hover:text-secondary"
+                      }`}
+                    >
+                      {link.label}
+                      {/* Chevron */}
+                      <svg
+                        className={`w-4 h-4 transition-transform duration-200 group-hover:text-secondary ${
+                          parentActive ? "text-[#0066FF]" : "text-deep-blue"
+                        } ${dropdownOpen ? "rotate-180" : ""}`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+
+                    {/* Active indicator underline */}
+                    {parentActive && (
+                      <span className="absolute -bottom-2 left-0 right-0 h-0.5 bg-[#0066FF] rounded-full" />
+                    )}
+
+                    {/* Dropdown */}
+                    {dropdownOpen && (
+                      <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-[#DCE0E8] rounded-xl shadow-lg py-2 z-50">
+                        {link.dropdown.map((item) => {
+                          const itemActive = isActive(pathname, item.href);
+                          return (
+                            <Link
+                              key={item.label}
+                              href={item.href}
+                              className={`block px-4 py-2.5 text-sm transition-colors ${
+                                itemActive
+                                  ? "bg-[#eef1fb] text-[#0066FF] font-medium"
+                                  : "text-[#1A274F] hover:bg-[#eef1fb] hover:text-secondary"
+                              }`}
+                              onClick={() => setDropdownOpen(false)}
+                            >
+                              {item.label}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              const active = isActive(pathname, link.href);
+
+              return (
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="text-[15px] font-medium text-[#1A274F] hover:text-[#0066FF] transition-colors"
+                  className={`relative text-[15px] font-medium transition-colors ${
+                    active
+                      ? "text-[#0066FF]"
+                      : "text-[#1A274F] hover:text-[#0066FF]"
+                  }`}
                 >
                   {link.label}
+                  {active && (
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#0066FF] rounded-full" />
+                  )}
                 </Link>
-              )
-            )}
+              );
+            })}
           </nav>
 
           {/* Desktop CTA */}
@@ -146,52 +188,73 @@ export default function Navbar() {
 
             {/* Mobile Links */}
             <nav className="mt-10 flex flex-col gap-0">
-              {navLinks.map((link) =>
-                link.dropdown ? (
-                  <div key={link.label}>
-                    <button
-                      onClick={() => setDropdownOpen((v) => !v)}
-                      className="flex items-center gap-2 w-full py-5 text-[22px] font-semibold text-white border-b border-white/10 text-left"
-                    >
-                      {link.label}
-                      <svg
-                        className={`w-5 h-5 transition-transform duration-200 ${
-                          dropdownOpen ? "rotate-180" : ""
+              {navLinks.map((link) => {
+                if (link.dropdown) {
+                  const parentActive = link.dropdown.some((item) =>
+                    isActive(pathname, item.href)
+                  );
+
+                  return (
+                    <div key={link.label}>
+                      <button
+                        onClick={() => setDropdownOpen((v) => !v)}
+                        className={`flex items-center gap-2 w-full py-5 text-[22px] font-semibold border-b border-white/10 text-left transition-colors ${
+                          parentActive ? "text-[#8FB2FF]" : "text-white"
                         }`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                    {dropdownOpen && (
-                      <div className="pl-4 pb-2 flex flex-col gap-1">
-                        {link.dropdown.map((item) => (
-                          <Link
-                            key={item.label}
-                            href={item.href}
-                            className="py-2 text-[16px] text-white/80 hover:text-white transition-colors"
-                            onClick={() => setMobileOpen(false)}
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : (
+                        {link.label}
+                        <svg
+                          className={`w-5 h-5 transition-transform duration-200 ${
+                            dropdownOpen ? "rotate-180" : ""
+                          }`}
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                      {dropdownOpen && (
+                        <div className="pl-4 pb-2 flex flex-col gap-1">
+                          {link.dropdown.map((item) => {
+                            const itemActive = isActive(pathname, item.href);
+                            return (
+                              <Link
+                                key={item.label}
+                                href={item.href}
+                                className={`py-2 text-[16px] transition-colors ${
+                                  itemActive
+                                    ? "text-white font-semibold"
+                                    : "text-white/80 hover:text-white"
+                                }`}
+                                onClick={() => setMobileOpen(false)}
+                              >
+                                {item.label}
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
+                const active = isActive(pathname, link.href);
+
+                return (
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="py-5 text-[22px] font-semibold text-white border-b border-white/10 hover:text-light-blue transition-colors"
+                    className={`py-5 text-[22px] font-semibold border-b border-white/10 transition-colors ${
+                      active ? "text-[#8FB2FF]" : "text-white hover:text-light-blue"
+                    }`}
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}
                   </Link>
-                )
-              )}
+                );
+              })}
             </nav>
 
             {/* Mobile CTA */}

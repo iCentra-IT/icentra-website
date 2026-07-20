@@ -255,7 +255,7 @@ export default function HomePage() {
         subtext="Learn how we help organizations achieve measurable results through innovation and strategy."
         primaryCta={{ label: "Download Brochure", href: "/brochure" }}
         secondaryCta={{ label: "Explore Capabilities", href: "/capabilities" }}
-        image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+        image="/images/banner/discover-icentra.png"
         imageAlt={"Banner Image"}
       />
 
@@ -314,7 +314,7 @@ export default function HomePage() {
         subtext="Stay ahead with expert insights on transformation, cybersecurity, and performance delivery."
         primaryCta={{ label: "Explore Insights", href: "/insights" }}
         // secondaryCta={{ label: "Explore Capabilities", href: "/capabilities" }}
-        image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80"
+        image="/images/banner/thought-leadership.png"
         imageAlt={"Baner Image"}
       />
 

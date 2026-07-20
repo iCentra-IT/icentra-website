@@ -23,7 +23,7 @@ export default function ServiceCard({
   return (
     <Link
       href={href}
-      className="group relative block w-full max-w-[280px] aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer"
+      className="group relative block w-full max-w-70 aspect-3/4 rounded-2xl overflow-hidden cursor-pointer"
     >
       {/* Background image — scales & dims on hover */}
       <Image
@@ -35,7 +35,7 @@ export default function ServiceCard({
       />
 
       {/* Persistent dark blue overlay */}
-      <div className="absolute inset-0 bg-[#1A274F]/50 group-hover:bg-[#1A274F]/65 transition-colors duration-500" />
+      {/* <div className="absolute inset-0 bg-secondary/90 group-hover:bg-[#1A274F]/65 transition-colors duration-500" /> */}
 
       {/* ── DEFAULT STATE ── */}
       <div
@@ -70,7 +70,7 @@ export default function ServiceCard({
         <ul className="flex flex-col gap-2.5">
           {items.map((item) => (
             <li key={item} className="flex items-start gap-2.5 text-white/90 text-[14px] leading-snug">
-              <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-white shrink-0" />
+              <span className="mt-1.75 w-1.5 h-1.5 rounded-full bg-white shrink-0" />
               {item}
             </li>
           ))}

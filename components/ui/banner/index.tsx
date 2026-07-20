@@ -47,14 +47,14 @@ export default function DiscoverBanner({
           <div className="flex flex-wrap gap-3">
             <Link
               href={primaryCta.href}
-              className="inline-flex items-center px-6 py-3 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors"
+              className="inline-flex items-center px-6 py-3 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold transition-colors"
             >
               {primaryCta.label}
             </Link>
             {secondaryCta && (
               <Link
                 href={secondaryCta.href}
-                className="inline-flex items-center px-6 py-3 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors"
+                className="inline-flex items-center px-6 py-3 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold transition-colors"
               >
                 {secondaryCta.label}
               </Link>

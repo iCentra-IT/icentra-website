@@ -23,7 +23,7 @@ export function TeamCard({ member }: TeamCardProps) {
       {/* Card */}
       <button
         onClick={() => setOpen(true)}
-        className="group relative w-full max-w-[260px] aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0066FF]"
+        className="group relative w-full max-w-65 aspect-3/4 rounded-2xl overflow-hidden cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0066FF]"
       >
         {/* Photo */}
         <Image
@@ -35,7 +35,7 @@ export function TeamCard({ member }: TeamCardProps) {
         />
 
         {/* Bottom label */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1A274F]/90 via-[#1A274F]/50 to-transparent pt-10 pb-4 px-4">
+        <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-[#1A274F]/90 via-[#1A274F]/50 to-transparent pt-10 pb-4 px-4">
           <p className="text-white text-[17px] font-semibold leading-tight">{member.name}</p>
           <p className="text-[#A8B8F8] text-[13px] mt-0.5">{member.role}</p>
         </div>
@@ -44,11 +44,11 @@ export function TeamCard({ member }: TeamCardProps) {
       {/* Modal */}
       {open && (
         <div
-          className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+          className="fixed inset-0 z-200 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
           onClick={() => setOpen(false)}
         >
           <div
-            className="relative bg-white rounded-2xl w-full max-w-[860px] max-h-[90vh] overflow-y-auto shadow-2xl"
+            className="relative bg-white rounded-2xl w-full max-w-215 max-h-[90vh] overflow-y-auto shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close */}
@@ -65,7 +65,7 @@ export function TeamCard({ member }: TeamCardProps) {
             <div className="flex flex-col md:flex-row gap-0">
               {/* Left — photo + name */}
               <div className="md:w-[320px] shrink-0 flex flex-col">
-                <div className="relative w-full aspect-[3/4] rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none overflow-hidden bg-[#EAF3FB]">
+                <div className="relative w-full aspect-3/4 rounded-t-2xl md:rounded-l-2x md:rounded-tr-none overflow-hidden bg-[#EAF3FB]">
                   <Image
                     src={member.image}
                     alt={member.name}

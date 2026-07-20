@@ -10,7 +10,7 @@ import Link from "next/link";
 const leaders = [
   {
     image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80",
+      "/images/about/mansur.png",
     name: "Mansur Ahmed",
     role: "Non-Executive Director",
     linkedin: "https://linkedin.com",
@@ -21,7 +21,7 @@ const leaders = [
   },
   {
     image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
+      "/images/about/taopheek.png",
     name: "Taopheek Babayeju",
     role: "Founder & CEO",
     linkedin: "https://linkedin.com",
@@ -33,7 +33,7 @@ const leaders = [
   },
   {
     image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80",
+      "/images/about/tunde.png",
     name: "Tunde Ibikunle",
     role: "Chief Technology Officer",
     linkedin: "https://linkedin.com",
@@ -44,7 +44,7 @@ const leaders = [
   },
   {
     image:
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80",
+      "/images/about/edith.png",
     name: "Edith Udeagu",
     role: "Non-Executive Director",
     linkedin: "https://linkedin.com",
@@ -55,7 +55,7 @@ const leaders = [
   },
   {
     image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80",
+      "/images/about/akin.png",
     name: "Akin Oparison",
     role: "Non-Executive Director",
     linkedin: "https://linkedin.com",
@@ -66,7 +66,7 @@ const leaders = [
   },
   {
     image:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80",
+      "/images/about/giwa.png",
     name: "Shewudeen Giwa",
     role: "Non-Executive Director",
     linkedin: "https://linkedin.com",
@@ -131,7 +131,7 @@ export default function AboutPage() {
           2. COMPANY STORY — 4 paragraphs + 2 stacked images
       ══════════════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
-        <div className="max-w-[1280px] mx-auto px-6 flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
           {/* Left — body copy */}
           <div className="flex-1 min-w-0 flex flex-col gap-5">
             <p className="text-[#374151] text-[15px] leading-[1.8]">
@@ -162,25 +162,17 @@ export default function AboutPage() {
           </div>
 
           {/* Right — 2 stacked landscape images */}
-          <div className="flex flex-col gap-4 shrink-0 w-full lg:w-[360px]">
-            <div className="relative w-full h-[200px] rounded-2xl overflow-hidden">
+          <div className="flex flex-col gap-4 shrink-0 w-full lg:w-90">
+            <div className="relative w-full h-90 rounded-2xl overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80"
+                src="/images/about/hero.png"
                 alt="iCentra team collaboration"
                 fill
                 className="object-cover"
                 sizes="360px"
               />
             </div>
-            <div className="relative w-full h-[200px] rounded-2xl overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700&q=80"
-                alt="iCentra professionals"
-                fill
-                className="object-cover"
-                sizes="360px"
-              />
-            </div>
+            
           </div>
         </div>
       </section>
@@ -188,21 +180,25 @@ export default function AboutPage() {
       {/* ══════════════════════════════════════════════
           3. VISION & MISSION — 2 dark side-by-side cards
       ══════════════════════════════════════════════ */}
-      <section className="bg-[#F7F9FC] py-12 lg:py-14">
-        <div className="max-w-[1280px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+      <section className="p-12">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Vision */}
-          <div className="bg-[#1A274F] rounded-2xl px-8 py-10 lg:px-10 lg:py-12 flex flex-col gap-3">
+          <div className="bg-[#1A274F] rounded-2xl px-8 py-10 lg:px-10 h-80 lg:py-12 flex flex-col justify-center gap-3 bg-no-repeat" style={{
+            "backgroundImage": "url('/images/about/vision.png')"
+          }}>
             <h3 className="text-white text-[19px] font-bold">Our Vision</h3>
-            <p className="text-white/65 text-[14px] leading-relaxed">
+            <p className="text-white/65 text-base leading-relaxed">
               To be the Centre of excellence where people and organizations find
               tools and resources to thrive, innovate, and create new
               opportunities.
             </p>
           </div>
           {/* Mission */}
-          <div className="bg-[#25429A] rounded-2xl px-8 py-10 lg:px-10 lg:py-12 flex flex-col gap-3">
+          <div className="bg-[#25429A] rounded-2xl px-8 py-10 lg:px-10 h-80 lg:py-12 flex flex-col justify-center gap-3 bg-no-repeat" style={{
+            "backgroundImage": "url('/images/about/mission.png')"
+          }}>
             <h3 className="text-white text-[19px] font-bold">Our Mission</h3>
-            <p className="text-white/65 text-[14px] leading-relaxed">
+            <p className="text-white/65 text-base leading-relaxed">
               Leveraging innovation and technology to transform people and
               organizations for excellent performance.
             </p>
@@ -221,7 +217,7 @@ export default function AboutPage() {
         subtext="Our expertise includes Enterprise Transformation, Cybersecurity, Strategy & Execution, and Learning & Talent."
         primaryCta={{ label: "Contact Us", href: "/contact" }}
         secondaryCta={{ label: "Our Services", href: "/services" }}
-        image="https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=85"
+        image="/images/about/discover-icentra.png"
         imageAlt="iCentra professionals at work"
       />
 
@@ -229,13 +225,13 @@ export default function AboutPage() {
           5. CORE VALUES — ring wheel + 6 values
       ══════════════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-24">
-        <div className="max-w-[1280px] mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-[#1A274F] text-[24px] lg:text-[32px] font-bold mb-14 lg:mb-20">
             Our Core Values
           </h2>
 
           {/* 3-col layout: values-left | ring-center | values-right */}
-          <div className="flex justify-center items-center gap-10 max-w-[1040px] mx-auto">
+          <div className="flex justify-center items-center gap-10 max-w-260 mx-auto">
 
             <Image 
             src="/core-value.svg"
@@ -255,7 +251,7 @@ export default function AboutPage() {
           6. OUR LEADERSHIP — TeamCard grid 4 + 2
       ══════════════════════════════════════════════ */}
       <section className="bg-[#F7F9FC] py-16 lg:py-20">
-        <div className="max-w-[1280px] mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-[#1A274F] text-[24px] lg:text-[32px] font-bold mb-10">
             Our Leadership
           </h2>
@@ -265,7 +261,7 @@ export default function AboutPage() {
             {leaders.slice(0, 4).map((member) => (
               <div
                 key={member.name}
-                className="[&>button]:w-full [&>button]:max-w-none [&>button]:h-[280px] sm:[&>button]:h-[300px] lg:[&>button]:h-[340px]"
+                className="[&>button]:w-full [&>button]:max-w-none [&>button]:h-70 sm:[&>button]:h-75 lg:[&>button]:h-85"
               >
                 <TeamCard member={member} />
               </div>
@@ -277,7 +273,7 @@ export default function AboutPage() {
             {leaders.slice(4, 6).map((member) => (
               <div
                 key={member.name}
-                className="[&>button]:w-full [&>button]:max-w-none [&>button]:h-[280px] sm:[&>button]:h-[300px] lg:[&>button]:h-[340px]"
+                className="[&>button]:w-full [&>button]:max-w-none [&>button]:h-70 sm:[&>button]:h-75 lg:[&>button]:h-85"
               >
                 <TeamCard member={member} />
               </div>
@@ -290,7 +286,7 @@ export default function AboutPage() {
           7. TRANSFORMING LIVES
       ══════════════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
-        <div className="max-w-[1280px] mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-[#1A274F] text-[24px] lg:text-[32px] font-bold mb-10">
             Transforming Lives
           </h2>
@@ -335,9 +331,9 @@ export default function AboutPage() {
             </div>
 
             {/* Image */}
-            <div className="relative shrink-0 w-full lg:w-[400px] h-[300px] lg:h-[360px] rounded-2xl overflow-hidden">
+            <div className="relative shrink-0 w-full lg:w-100 h-75 lg:h-90 rounded-2xl overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80"
+                src="/images/about/transformation.png"
                 alt="iCentra community event"
                 fill
                 className="object-cover"
@@ -352,11 +348,11 @@ export default function AboutPage() {
           8. TAB DEVELOPMENT INITIATIVES
       ══════════════════════════════════════════════ */}
       <section className="bg-[#F7F9FC] py-16 lg:py-20">
-        <div className="max-w-[1280px] mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-[#1A274F] text-[24px] lg:text-[32px] font-bold mb-3">
             TAB Development Initiatives
           </h2>
-          <p className="text-[#6B7280] text-[14px] leading-[1.8] max-w-[800px] mb-10">
+          <p className="text-[#6B7280] text-[14px] leading-[1.8] max-w-200 mb-10">
             TAB Development Initiatives, spearheaded by Taopheek Babayeju
             (Powered by iCentra), aim to promote professional excellence,
             inclusivity, and community resilience in the global technology and
@@ -369,7 +365,7 @@ export default function AboutPage() {
           {/* 3 initiative cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {/* Project 1500 — deep navy */}
-            <div className="bg-[#1A274F] rounded-2xl p-7 flex flex-col gap-4 min-h-[360px]">
+            <div className="bg-[#1A274F] rounded-2xl p-7 flex flex-col gap-4 min-h-90">
               <h3 className="text-white text-[26px] font-extrabold">
                 Project 1500
               </h3>
@@ -384,14 +380,14 @@ export default function AboutPage() {
               </p>
               <Link
                 href="#"
-                className="text-[#00DBFF] text-[13px] font-semibold hover:underline w-fit mt-auto"
+                className="text-light-blue text-[13px] font-semibold hover:underline w-fit mt-auto"
               >
                 Read more →
               </Link>
             </div>
 
             {/* Tosin Agetusin — primary blue */}
-            <div className="bg-[#25429A] rounded-2xl p-7 flex flex-col gap-4 min-h-[360px]">
+            <div className="bg-[#25429A] rounded-2xl p-7 flex flex-col gap-4 min-h-90">
               <div>
                 <p className="text-white/55 text-[11px] font-semibold uppercase tracking-widest mb-1">
                   Tosin Agetusin
@@ -410,14 +406,14 @@ export default function AboutPage() {
               </p>
               <Link
                 href="#"
-                className="text-[#00DBFF] text-[13px] font-semibold hover:underline w-fit mt-auto"
+                className="text-light-blue text-[13px] font-semibold hover:underline w-fit mt-auto"
               >
                 Read more →
               </Link>
             </div>
 
             {/* Fast-Track — bright blue */}
-            <div className="bg-[#0066FF] rounded-2xl p-7 flex flex-col gap-4 min-h-[360px]">
+            <div className="bg-[#0066FF] rounded-2xl p-7 flex flex-col gap-4 min-h-90">
               <div>
                 <p className="text-white/80 text-[11px] font-extrabold uppercase tracking-[0.22em] mb-2">
                   FAST-TRACK
@@ -452,15 +448,15 @@ export default function AboutPage() {
       ══════════════════════════════════════════════ */}
       <section className="bg-[#1A274F] py-16 lg:py-24">
         <div className="flex flex-col items-center text-center gap-5 px-6">
-          <h2 className="text-white text-[26px] lg:text-[36px] font-extrabold leading-tight max-w-[480px]">
+          <h2 className="text-white text-[26px] lg:text-[36px] font-extrabold leading-tight max-w-120">
             Become a Volunteer
           </h2>
-          <p className="text-white/60 text-[14px] leading-relaxed max-w-[400px]">
+          <p className="text-white/60 text-[14px] leading-relaxed max-w-100">
             Here is an opportunity to make a difference in the lives of people.
           </p>
           <Link
             href="/volunteer"
-            className="inline-flex items-center px-8 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#00DBFF] hover:text-[#1A274F] transition-colors mt-2"
+            className="inline-flex items-center px-8 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors mt-2"
           >
             Continue Here
           </Link>

@@ -26,7 +26,7 @@ export default function PageHero({ headline, subtext, children }: PageHeroProps)
     <section className="relative w-full overflow-hidden bg-[#1e3494]">
 
       {/* ── Content ── */}
-      <div className="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-10 pt-20 pb-16 lg:pt-24 lg:pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-20 pb-16 lg:pt-24 lg:pb-20">
 
         {/* Headline */}
         <h1 className="text-white font-extrabold leading-[1.05] text-3xl sm:text-4xl lg:text-5xl max-w-4xl">
@@ -36,7 +36,7 @@ export default function PageHero({ headline, subtext, children }: PageHeroProps)
         </h1>
 
         {/* Cyan underline accent */}
-        <div className="mt-4 mb-7 w-27.5 h-1 rounded-full bg-[#00DBFF]" />
+        <div className="mt-4 mb-7 w-27.5 h-1 rounded-full bg-light-blue" />
 
         {/* Subtext */}
         {subtext && (
