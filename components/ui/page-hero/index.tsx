@@ -23,7 +23,9 @@ interface PageHeroProps {
  */
 export default function PageHero({ headline, subtext, children }: PageHeroProps) {
   return (
-    <section className="relative w-full overflow-hidden bg-[#1e3494]">
+    <section className="relative w-full overflow-hidden bg-no-repeat bg-cover" style={{
+      backgroundImage: "url('/images/bg.jpg')"
+    }}>
 
       {/* ── Content ── */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-20 pb-16 lg:pt-24 lg:pb-20">

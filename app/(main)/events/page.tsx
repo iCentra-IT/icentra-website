@@ -66,7 +66,7 @@ export default function EventsPage() {
         headline={"Stay Ahead With Insightful\nConversations That Drive\nTransformation"}
         subtext="At iCentra, we don't just deliver solutions—we create platforms for meaningful dialogue, innovation, and growth. Our event series brings together industry leaders, visionaries, policymakers, innovators, and professionals to explore ideas that shape the future of work, business, governance, technology, and society."
       >
-        <p className="text-white/65 text-[14px] leading-[1.8] max-w-[740px] -mt-3">
+        <p className="text-white/65 text-[14px] leading-[1.8] max-w-185 -mt-3">
           Through thought-provoking conversations, strategic engagements, and cutting-edge insights,
           iCentra Events empower individuals and organizations to adapt, evolve, and lead in an
           ever-changing world. Whether virtual or in-person, each event is designed to spark
@@ -79,7 +79,7 @@ export default function EventsPage() {
           2. UPCOMING EVENTS
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
-        <div className="max-w-[1280px] mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           {/* Heading */}
           <h2 className="text-[#1A274F] text-[26px] lg:text-[30px] font-bold pb-3 border-b-2 border-[#1A274F] inline-block mb-3">
             Upcoming Events
@@ -96,7 +96,7 @@ export default function EventsPage() {
                 className="flex flex-col sm:flex-row gap-4 bg-[#F7F9FC] rounded-2xl overflow-hidden border border-[#E5E7EB]"
               >
                 {/* Thumbnail */}
-                <div className="relative shrink-0 w-full sm:w-[180px] h-[160px] sm:h-auto">
+                <div className="relative shrink-0 w-full sm:w-45 h-40 sm:h-auto">
                   <Image
                     src={event.image}
                     alt={event.title}
@@ -235,7 +235,7 @@ export default function EventsPage() {
           5. THE TRANSFORM WEBINAR — text left + brand graphic right
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
-        <div className="max-w-[1280px] mx-auto px-6 flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* Left — content */}
           <div className="flex-1 min-w-0">
@@ -262,22 +262,15 @@ export default function EventsPage() {
           </div>
 
           {/* Right — TRANSFORM branded graphic */}
-          <div className="shrink-0 w-full lg:w-[320px] xl:w-[360px]">
-            <div className="relative bg-white rounded-2xl border border-[#E5E7EB] overflow-hidden flex flex-col items-center justify-center aspect-square shadow-sm">
-              {/* Big grey circle background */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[75%] aspect-square rounded-full bg-[#F3F4F6]" />
-              </div>
-              {/* TRANSFORM text */}
-              <div className="relative z-10 text-center px-6">
-                <p className="text-[#1A274F] text-[28px] lg:text-[32px] font-extrabold tracking-tight leading-none">
-                  TRANSF
-                  <span className="inline-block w-7 h-7 lg:w-8 lg:h-8 rounded-full border-2 border-[#1A274F] align-middle mx-0.5" />
-                  RM
-                </p>
-                <p className="text-[#6B7280] text-[13px] tracking-widest mt-2">by iCentra</p>
-              </div>
-            </div>
+          <div className="w-full">
+            <Image
+              src="/images/event/transform-webinar.png"
+              alt="The Transform Webinar"
+              width={600}
+              height={400}
+              className="w-full h-auto object-cover"
+            />
+          
           </div>
         </div>
       </section>
@@ -286,7 +279,7 @@ export default function EventsPage() {
           6. PAST WEBINARS
       ══════════════════════════════════════ */}
       <section className="bg-[#F7F9FC] py-14 lg:py-20">
-        <div className="max-w-[1280px] mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-[#1A274F] text-[24px] lg:text-[28px] font-bold pb-3 border-b-2 border-[#1A274F] inline-block mb-3">
             Past Webinars
           </h2>

@@ -163,13 +163,13 @@ export default function IndustriesPage() {
           2. PROJECTS THAT DELIVERED TRANSFORMATION
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
-        <div className="max-w-[1280px] mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           {/* Header */}
           <div className="flex items-start justify-between gap-4 mb-3">
             <h2 className="text-[#1A274F] text-[24px] lg:text-[30px] font-bold">
               <span className="relative inline-block mr-2">
                 Projects
-                <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-[#0066FF] rounded-full" />
+                <span className="absolute -bottom-1 left-0 w-full h-0.75 bg-[#0066FF] rounded-full" />
               </span>
               That Delivered Transformation
             </h2>
@@ -195,7 +195,7 @@ export default function IndustriesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {projects.map((p) => (
               <div key={p.title} className="bg-white rounded-2xl overflow-hidden border border-[#DCE0E8] flex flex-col">
-                <div className="relative h-[180px] overflow-hidden bg-[#EAF3FB]">
+                <div className="relative h-45 overflow-hidden bg-[#EAF3FB]">
                   <Image src={p.bgImage} alt={p.title} fill className="object-cover opacity-40" sizes="400px" />
                   <div className="absolute inset-0 bg-[#1A274F]/30" />
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -228,12 +228,12 @@ export default function IndustriesPage() {
           4. WHAT OUR CLIENTS ARE SAYING
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
-        <div className="max-w-[1280px] mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-[#1A274F] text-[22px] lg:text-[28px] font-bold text-center mb-10">
             What Our{" "}
             <span className="relative inline-block">
               Clients
-              <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-[#0066FF] rounded-full" />
+              <span className="absolute -bottom-1 left-0 w-full h-0.75 bg-[#0066FF] rounded-full" />
             </span>{" "}
             Are Saying
           </h2>
@@ -265,8 +265,8 @@ export default function IndustriesPage() {
       {/* ══════════════════════════════════════
           5. READY TO START? — dark navy CTA banner
       ══════════════════════════════════════ */}
-      <section className="bg-[#1A274F] py-14 lg:py-16">
-        <div className="max-w-[680px] mx-auto px-6 flex flex-col items-center text-center gap-4">
+      <section className="bg-main py-14 lg:py-16">
+        <div className="max-w-170 mx-auto px-6 flex flex-col items-center text-center gap-4">
           <h2 className="text-white text-[24px] lg:text-[32px] font-extrabold leading-tight">
             Ready to Start Your Transformation?
           </h2>
@@ -275,7 +275,7 @@ export default function IndustriesPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#00DBFF] hover:text-[#1A274F] transition-colors mt-2"
+            className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold transition-colors mt-2"
           >
             Get In Touch
           </Link>
@@ -286,7 +286,7 @@ export default function IndustriesPage() {
           6. INSIGHTS — search/filter + BlogCard 2×3 grid
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
-        <div className="max-w-[1280px] mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-[#1A274F] text-[24px] lg:text-[28px] font-bold mb-1">Insights</h2>
           <p className="text-[#6B7280] text-[13px] mb-8">
             Original insights, reports, and events that spark transformation and drive results.
@@ -295,7 +295,7 @@ export default function IndustriesPage() {
           {/* Search + filter bar */}
           <div className="flex flex-col sm:flex-row gap-3 mb-10">
             {/* Search */}
-            <div className="relative flex-1 max-w-[340px]">
+            <div className="relative flex-1 max-w-85">
               <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9CA3AF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
@@ -341,7 +341,7 @@ export default function IndustriesPage() {
           7. STAY IN THE KNOW — light blue newsletter banner
       ══════════════════════════════════════ */}
       <section className="bg-[#EAF3FB] py-14 lg:py-16">
-        <div className="max-w-[600px] mx-auto px-6 flex flex-col items-center text-center gap-4">
+        <div className="max-w-150 mx-auto px-6 flex flex-col items-center text-center gap-4">
           <h2 className="text-[#1A274F] text-[24px] lg:text-[30px] font-bold leading-tight">
             Stay in the Know
           </h2>
@@ -361,11 +361,11 @@ export default function IndustriesPage() {
           8. WHITE PAPERS & REPORTS
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
-        <div className="max-w-[1280px] mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-[#1A274F] text-[24px] lg:text-[28px] font-bold mb-2">
             White Papers &amp; Reports
           </h2>
-          <p className="text-[#6B7280] text-[13px] mb-10 max-w-[560px]">
+          <p className="text-[#6B7280] text-[13px] mb-10 max-w-140">
             Download strategic documents, original research, and practical frameworks created by our experts to support your transformation journey.
           </p>
 
@@ -376,7 +376,7 @@ export default function IndustriesPage() {
                 href={wp.href}
                 className="group flex flex-col gap-3"
               >
-                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
+                <div className="relative w-full aspect-4/3 rounded-2xl overflow-hidden">
                   <Image
                     src={wp.image}
                     alt={wp.title}
@@ -397,18 +397,18 @@ export default function IndustriesPage() {
       {/* ══════════════════════════════════════
           9. TRANSFORMATION STARTS WITH CONVERSATION — dark CTA banner
       ══════════════════════════════════════ */}
-      <section className="bg-[#1A274F] py-16 lg:py-20">
-        <div className="max-w-[700px] mx-auto px-6 flex flex-col items-center text-center gap-5">
+      <section className="bg-main py-16 lg:py-20">
+        <div className="max-w-175 mx-auto px-6 flex flex-col items-center text-center gap-5">
           <h2 className="text-white text-[24px] lg:text-[34px] font-extrabold leading-tight">
             Transformation starts with conversation.
           </h2>
-          <p className="text-white/60 text-[14px] leading-relaxed max-w-[540px]">
+          <p className="text-white/60 text-[14px] leading-relaxed max-w-135">
             Join our monthly webinar series, Transform by iCentra, where we bring together leading voices in business, technology, and strategy to discuss key issues, share best practices, and inspire action.
           </p>
           <div className="flex flex-wrap gap-3 justify-center mt-2">
             <Link
               href="/events/register"
-              className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#00DBFF] hover:text-[#1A274F] transition-colors"
+              className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold transition-colors"
             >
               Register Now
             </Link>

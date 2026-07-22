@@ -41,7 +41,7 @@ export default function NewsInsightPage() {
           2. SPOTLIGHT — 3 BlogCards
       ══════════════════════════════════════ */}
       <section className="bg-white pt-16 lg:pt-20 pb-14">
-        <div className="max-w-[1280px] mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <SectionHeading>Spotlight</SectionHeading>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {spotlightCards.map((card) => (

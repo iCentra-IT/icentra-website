@@ -24,9 +24,9 @@ export default function DiscoverBanner({
       {/* ── LEFT — blue panel with hex pattern ── */}
       <div
         className="relative flex-1 flex items-center px-10 py-14 lg:px-16 lg:py-20"
-        style={{
-          background: "linear-gradient(135deg, #1a2f6b 0%, #1e3a8a 40%, #1A274F 100%)",
-        }}
+        bg-no-repeat bg-cover style={{
+      backgroundImage: "url('/images/bg.jpg')"
+    }}
       >
         
         {/* Content */}
