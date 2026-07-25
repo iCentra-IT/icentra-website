@@ -15,10 +15,10 @@ const aboutLinks = [
   { label: "Media Room", href: "/media" },
 ];
 
-const solutionLinks = [
-  { label: "Continuous Transformation", href: "/solutions/continuous-transformation" },
-  { label: "Our solution", href: "/solutions" },
-  { label: "Platforms", href: "/solutions/platforms" },
+const whatWeDo = [
+  { label: "Continuous Transformation", href: "/what-we-do/continuous-transformation" },
+  { label: "Our solution", href: "/what-we-do/solutions" },
+  { label: "Platforms", href: "/what-we-do/platforms" },
 ];
 
 const legalLinks = [
@@ -124,11 +124,11 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Our solution */}
+            {/* What We Do */}
             <div>
-              <h3 className="text-[15px] font-semibold text-white mb-5">Our solution</h3>
+              <h3 className="text-[15px] font-semibold text-white mb-5">What We Do</h3>
               <ul className="flex flex-col gap-3">
-                {solutionLinks.map((l) => (
+                {whatWeDo.map((l) => (
                   <li key={l.label}>
                     <Link
                       href={l.href}

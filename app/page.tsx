@@ -73,49 +73,20 @@ export default function HomePage() {
           1. HERO
       ══════════════════════════════════════ */}
       <section className="relative bg-[#1A274F] overflow-hidden">
-        {/* Decorative concentric rings — right side */}
-        {/* <div className="absolute right-0 top-0 w-[520px] h-[520px] pointer-events-none overflow-hidden">
-          {[0,1,2,3,4,5,6].map((i) => (
-            <div
-              key={i}
-              className="absolute rounded-full border border-[#0066FF]/30"
-              style={{ inset: `${i * 38}px` }}
-            />
-          ))}
-          <div className="absolute right-[80px] top-[80px] w-10 h-10 rounded-full bg-[#00DBFF]/40 blur-xl" />
-        </div>
+        <HeroSlider overlay/>
 
-        <div className="relative z-10 max-w-[1280px] mx-auto px-6 pt-20 pb-0 lg:pt-24">
-          <div className="max-w-[580px] pb-16">
-            <h1 className="text-white text-[36px] md:text-[46px] lg:text-[52px] font-extrabold leading-[1.1] mb-5">
-              Transforming Organizations
-              <br />and People for{" "}
-              <span className="text-[#00DBFF]">Excellent Performance</span>
-            </h1>
-            <p className="text-white/60 text-[14px] lg:text-[15px] leading-relaxed max-w-[420px] mb-8">
-              We help enterprises strengthen strategy, secure operations, optimize talent, and execute transformation programs that deliver measurable business results.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0066FF] text-white font-semibold text-[14px] hover:bg-[#00DBFF] hover:text-[#1A274F] transition-colors"
-            >
-              Start Transformation
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
-        </div> */}
-        <HeroSlider />
-        {/* Stats bar — white strip at bottom of hero */}
+        {/* Stats bar */}
         <div className="relative z-10 bg-main">
-          <div className="max-w-7xl mx-auto px-6 py-6 grid grid-cols-3 divide-x divide-[#DCE0E8]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 sm:py-6 grid grid-cols-3 divide-x divide-[#DCE0E8]">
             {stats.map((s) => (
-              <div key={s.label} className="flex flex-col items-center px-4">
-                <span className="text-white text-[28px] lg:text-[38px] font-extrabold leading-none">
+              <div
+                key={s.label}
+                className="flex flex-col items-center px-2 sm:px-4"
+              >
+                <span className="text-white text-[20px] sm:text-[28px] lg:text-[38px] font-extrabold leading-none">
                   {s.value}
                 </span>
-                <span className="text-white/60 text-[11px] lg:text-[13px] mt-1 text-center">
+                <span className="text-white/60 text-[10px] sm:text-[11px] lg:text-[13px] mt-1 text-center">
                   {s.label}
                 </span>
               </div>
@@ -281,7 +252,7 @@ export default function HomePage() {
               >
                 <StarRating />
                 <p className="text-[#1A274F]/70 text-[13px] leading-relaxed flex-1">
-                  {` "{t.text}"`}
+                  {t.text}
                 </p>
                 <div className="flex items-center gap-3 pt-3 border-t border-[#DCE0E8]">
                   <div className="relative w-9 h-9 rounded-full overflow-hidden shrink-0 bg-[#A8B8F8]">

@@ -180,8 +180,8 @@ export default function AboutPage() {
       {/* ══════════════════════════════════════════════
           3. VISION & MISSION — 2 dark side-by-side cards
       ══════════════════════════════════════════════ */}
-      <section className="p-12">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+      <section className="p-6 md:p-12">
+        <div className="max-w-7xl mx-auto md:px-6 grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Vision */}
           <div className="bg-[#1A274F] rounded-2xl px-8 py-10 lg:px-10 h-80 lg:py-12 flex flex-col justify-center gap-3 bg-no-repeat" style={{
             "backgroundImage": "url('/images/about/vision.png')"
@@ -257,11 +257,11 @@ export default function AboutPage() {
           </h2>
 
           {/* Row 1 — 4 leaders */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-4">
             {leaders.slice(0, 4).map((member) => (
               <div
                 key={member.name}
-                className="[&>button]:w-full [&>button]:max-w-none [&>button]:h-70 sm:[&>button]:h-75 lg:[&>button]:h-85"
+                className="[&>button]:w-full [&>button]:max-w-none [&>button]:h-75 lg:[&>button]:h-85"
               >
                 <TeamCard member={member} />
               </div>
@@ -269,11 +269,11 @@ export default function AboutPage() {
           </div>
 
           {/* Row 2 — 2 leaders (left-aligned via same 4-col grid) */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
             {leaders.slice(4, 6).map((member) => (
               <div
                 key={member.name}
-                className="[&>button]:w-full [&>button]:max-w-none [&>button]:h-70 sm:[&>button]:h-75 lg:[&>button]:h-85"
+                className="[&>button]:w-full [&>button]:max-w-none [&>button]:h-75 lg:[&>button]:h-85"
               >
                 <TeamCard member={member} />
               </div>
