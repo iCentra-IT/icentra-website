@@ -67,7 +67,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#010F37] text-white">
+    <footer className="bg-deep-blue text-white">
       <div className="max-w-7xl mx-auto px-6 pt-14 pb-8">
 
         {/* Top section */}
@@ -84,7 +84,7 @@ export default function Footer() {
                 priority
               />
             </Link>
-            <p className="text-[14px] text-white/75 leading-relaxed max-w-[240px]">
+            <p className="text-[14px] text-white/75 leading-relaxed max-w-60">
               Transforming people &amp; organizations for excellent performance
             </p>
             {/* Socials */}
@@ -182,7 +182,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-6 text-center text-[13px] text-white/50">
-          © 2025 iCentra. All rights reserved .
+          © {new Date().getFullYear()} iCentra. All rights reserved .
         </div>
       </div>
     </footer>

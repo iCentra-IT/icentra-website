@@ -1,12 +1,14 @@
 "use client";
+import { ResourceDownloadModal } from "@/components/forms/all-forms";
 import HeroSlider from "@/components/sections/home/hero-slider";
 import TrustedPartners from "@/components/sections/home/partners";
+import StatsBar from "@/components/sections/home/stat";
 import DiscoverBanner from "@/components/ui/banner";
 import BlogCard from "@/components/ui/cards/blog-card";
 import SolutionCard from "@/components/ui/cards/solution-card";
 import { CardCarouselSection } from "@/components/ui/carousel/carouselComponent";
+import SectionHeading from "@/components/ui/section-heading";
 import {
-  stats,
   insightCards,
   solutionCards,
   projects,
@@ -35,34 +37,6 @@ function StarRating() {
   );
 }
 
-function CarouselArrows() {
-  return (
-    <div className="flex gap-2 shrink-0">
-      {["left", "right"].map((d) => (
-        <button
-          key={d}
-          aria-label={d === "left" ? "Previous" : "Next"}
-          className="w-9 h-9 rounded-full border border-[#DCE0E8] flex items-center justify-center text-[#1A274F] hover:border-[#0066FF] hover:text-[#0066FF] transition-colors"
-        >
-          <svg
-            className="w-4 h-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d={d === "left" ? "M15 19l-7-7 7-7" : "M9 5l7 7-7 7"}
-            />
-          </svg>
-        </button>
-      ))}
-    </div>
-  );
-}
-
 /* ─────────────────────────────────────────
    PAGE
 ───────────────────────────────────────── */
@@ -73,26 +47,10 @@ export default function HomePage() {
           1. HERO
       ══════════════════════════════════════ */}
       <section className="relative bg-[#1A274F] overflow-hidden">
-        <HeroSlider overlay/>
+        <HeroSlider overlay />
 
         {/* Stats bar */}
-        <div className="relative z-10 bg-main">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 sm:py-6 grid grid-cols-3 divide-x divide-[#DCE0E8]">
-            {stats.map((s) => (
-              <div
-                key={s.label}
-                className="flex flex-col items-center px-2 sm:px-4"
-              >
-                <span className="text-white text-[20px] sm:text-[28px] lg:text-[38px] font-extrabold leading-none">
-                  {s.value}
-                </span>
-                <span className="text-white/60 text-[10px] sm:text-[11px] lg:text-[13px] mt-1 text-center">
-                  {s.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
+        <StatsBar />
       </section>
 
       {/* ══════════════════════════════════════
@@ -114,42 +72,16 @@ export default function HomePage() {
           />
         )}
       />
-      {/* <section className="bg-white py-14 lg:py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-[#1A274F] text-[22px] lg:text-[28px] font-bold">
-              Transformation Insights
-            </h2>
-            <CarouselArrows />
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {insightCards.map((card) => (
-              <div
-                key={card.href}
-                className="[&>div]:max-w-none [&>div]:w-full"
-              >
-                <BlogCard
-                  image={card.image}
-                  title={card.title}
-                  date={card.date}
-                  readTime={card.readTime}
-                  href={card.href}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
 
       {/* ══════════════════════════════════════
           3. TECHNOLOGY & BUSINESS SOLUTIONS — SolutionCard
       ══════════════════════════════════════ */}
       <section className="bg-white pb-14 lg:pb-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-main text-[22px] lg:text-[28px] font-bold mb-8">
-            Technology and Business Solutions That Deliver Impact
-          </h2>
+          <SectionHeading
+            title="Technology and Business Solutions That Deliver Impact"
+            className="mb-8"
+          />
           {/* 3 SolutionCards — equal columns, fixed height */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {solutionCards.map((s) => (
@@ -192,30 +124,6 @@ export default function HomePage() {
           />
         )}
       />
-      {/* <section className="bg-[#F7F9FC] py-14 lg:py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-[#1A274F] text-[22px] lg:text-[28px] font-bold">
-              Highlighted Transformation Projects
-            </h2>
-            <CarouselArrows />
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {projects.map((p) => (
-              <div key={p.href} className="[&>div]:max-w-none [&>div]:w-full">
-                <BlogCard
-                  image={p.bgImage}
-                  title={p.title}
-                  // date={p.date}
-                  href={p.href}
-                  excerpt={p.desc}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
 
       {/* ══════════════════════════════════════
           6. DISCOVER iCENTRA — CTA BANNER
@@ -224,8 +132,11 @@ export default function HomePage() {
       <DiscoverBanner
         headline={"Discover iCentra.\nExplore Our Expertise."}
         subtext="Learn how we help organizations achieve measurable results through innovation and strategy."
-        primaryCta={{ label: "Download Brochure", href: "/brochure" }}
-        secondaryCta={{ label: "Explore Capabilities", href: "/capabilities" }}
+        primaryCta={{
+          label: "Download Brochure",
+          modal: <ResourceDownloadModal triggerLabel="Download Brochure" />,
+        }}
+        secondaryCta={{ label: "Explore Capabilities", href: "/what-we-do/solutions" }}
         image="/images/banner/discover-icentra.png"
         imageAlt={"Banner Image"}
       />
@@ -235,14 +146,10 @@ export default function HomePage() {
       ══════════════════════════════════════ */}
       <section className="bg-white py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[22px] lg:text-[28px] font-bold mb-10">
-            What Our{" "}
-            <span className="relative inline-block">
-              Client
-              <span className="absolute -bottom-1 left-0 w-full h-0.75 bg-[#0066FF] rounded-full" />
-            </span>{" "}
-            Say About Us
-          </h2>
+          <SectionHeading
+            title="What Our Client Say About Us"
+            className="mb-8"
+          />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
@@ -283,10 +190,9 @@ export default function HomePage() {
       <DiscoverBanner
         headline={"Thought Leadership for a Changing World\n"}
         subtext="Stay ahead with expert insights on transformation, cybersecurity, and performance delivery."
-        primaryCta={{ label: "Explore Insights", href: "/insights" }}
-        // secondaryCta={{ label: "Explore Capabilities", href: "/capabilities" }}
+        primaryCta={{ label: "Explore Insights", href: "/news" }}
         image="/images/banner/thought-leadership.png"
-        imageAlt={"Baner Image"}
+        imageAlt={"Banner Image"}
       />
 
       {/* ══════════════════════════════════════
@@ -294,17 +200,12 @@ export default function HomePage() {
       ══════════════════════════════════════ */}
       <section className="bg-white py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[22px] lg:text-[28px] font-bold mb-2">
-            <span className="relative inline-block">
-              Stay
-              <span className="absolute -bottom-1 left-0 w-full h-0.75 bg-[#0066FF] rounded-full" />
-            </span>{" "}
-            Updated with Resources, Blogs &amp; News
-          </h2>
-          <p className="text-[#4B6CB7] text-[13px] mt-4 mb-10">
-            Get the latest insights, expert articles, and company updates all in
-            one place.
-          </p>
+          <SectionHeading
+            title="Stay Updated with Resources, Blogs &amp; News"
+            subtitle="Get the latest insights, expert articles, and company updates all in
+            one place."
+            className="mb-8"
+          />
 
           {/* 3 BlogCards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

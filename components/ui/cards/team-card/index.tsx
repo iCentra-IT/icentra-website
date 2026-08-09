@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface TeamMember {
   image: string;
@@ -21,8 +22,12 @@ export function TeamCard({ member }: TeamCardProps) {
   return (
     <>
       {/* Card */}
-      <button
+      <motion.button
         onClick={() => setOpen(true)}
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className="group relative w-full max-w-65 aspect-3/4 rounded-2xl overflow-hidden cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0066FF]"
       >
         {/* Photo */}
@@ -39,7 +44,7 @@ export function TeamCard({ member }: TeamCardProps) {
           <p className="text-white text-[17px] font-semibold leading-tight">{member.name}</p>
           <p className="text-[#A8B8F8] text-[13px] mt-0.5">{member.role}</p>
         </div>
-      </button>
+      </motion.button>
 
       {/* Modal */}
       {open && (

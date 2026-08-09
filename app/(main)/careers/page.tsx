@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import PageHero from "@/components/ui/page-hero";
+import SectionHeading from "@/components/ui/section-heading";
+import JobCard from "@/components/ui/cards/job-card";
+import { StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
+import { jobListings } from "@/lib/data";
 
 /* ─────────────────────────────────────────
    DATA
@@ -99,20 +102,6 @@ const teamVideos = [
     name: "Ngozi Bello",
     role: "Product Designer",
     image: "",
-  },
-];
-
-const jobListings = [
-  {
-    title: "Accountant",
-    dept: "Finance (Internship)",
-    location: "Remote - USA",
-  },
-  { title: "Web Developer", dept: "Technology", location: "Remote - USA" },
-  {
-    title: "Human Resources Specialist",
-    dept: "Human Resources",
-    location: "Remote - USA",
   },
 ];
 
@@ -256,13 +245,11 @@ export default function CareersPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[24px] lg:text-3xl font-bold mb-1 relative inline-block">
-            Career Levels
-            <span className="absolute -bottom-1 left-0 w-12 h-0.75 bg-[#0066FF] rounded-full" />
-          </h2>
-          <p className="text-[#6B7280] text-base mt-4 mb-14">
-            You are just 7 steps to the top of your career.
-          </p>
+          <SectionHeading
+            title="Career Levels"
+            subtitle="You are just 7 steps to the top of your career."
+            className="mb-14"
+          />
 
           {/* Step bars */}
           <div className="flex items-end justify-center sm:gap-">
@@ -320,10 +307,7 @@ export default function CareersPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white pb-16 lg:pb-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[24px] lg:text-[28px] font-bold mb-10 relative inline-block">
-            iCentra Culture
-            <span className="absolute -bottom-1 left-0 w-12 h-0.75 bg-[#0066FF] rounded-full" />
-          </h2>
+          <SectionHeading title="iCentra Culture" className="mb-10" />
 
           {/* 3 columns */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14 pb-14 border-b border-[#E5E7EB]">
@@ -358,13 +342,7 @@ export default function CareersPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white pb-16 lg:pb-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#1A274F] text-2xl lg:text-[28px] font-bold mb-4">
-            <span className="relative inline-block">
-              Life
-              <span className="absolute -bottom-1 left-0 w-8 h-0.75 bg-[#0066FF] rounded-full" />
-            </span>{" "}
-            at iCentra Through the Eyes of Our Team
-          </h2>
+          <SectionHeading title="Life at iCentra Through the Eyes of Our Team" className="mb-4" />
           <p className="text-[#6B7280] text-base leading-relaxed max-w- mb-10">
             Our team members bring their unique perspectives, talents, and
             experiences to work every day, and together, we create something
@@ -420,13 +398,7 @@ export default function CareersPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white pb-20 lg:pb-24">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[24px] lg:text-[28px] font-bold mb-4">
-            <span className="relative inline-block">
-              Join
-              <span className="absolute -bottom-1 left-0 w-8 h-0.75 bg-[#0066FF] rounded-full" />
-            </span>{" "}
-            Us Transform People &amp; Organizations Together.
-          </h2>
+          <SectionHeading title="Join Us Transform People & Organizations Together." className="mb-4" />
           <p className="text-[#6B7280] text-base leading-relaxed mb-2">
             We are always on the lookout for people who are curious, committed,
             and ready to lead change. Whether you&apos;re an experienced
@@ -439,35 +411,20 @@ export default function CareersPage() {
             talents looking to gain valuable hands-on experience.
           </p>
 
-          {/* Job listing rows */}
-          <div className="border-t border-[#E5E7EB]">
-            {jobListings.map((job, i) => (
-              <div
-                key={i}
-                className="grid grid-cols-2 md:grid-cols-3 items-center gap-4 sm:gap-6 py-5 border-b border-[#E5E7EB]"
-              >
-                <div>
-                  <p className="text-[#1A274F] text-base font-semibold">
-                    {job.title}
-                  </p>
-                  <p className="text-[#9CA3AF] text-[10px]">{job.dept}</p>
-                </div>
-
-                <div className="hidden sm:block">
-                  <p className="text-[#1A274F] text-[14px] font-medium">
-                    {job.location}
-                  </p>
-                </div>
-
-                <Link
-                  href="#"
-                  className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#0066FF] text-white text-[13px] font-semibold hover:bg-[#25429A] transition-colors shrink-0 w-fit justify-self-end"
-                >
-                  Apply
-                </Link>
-              </div>
+          {/* Job listing cards */}
+          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {jobListings.map((job) => (
+              <StaggerItem key={job.slug}>
+                <JobCard
+                  slug={job.slug}
+                  title={job.title}
+                  dept={job.dept}
+                  location={job.location}
+                  type={job.type}
+                />
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </section>
     </main>

@@ -1,5 +1,6 @@
 import SolutionCard from "@/components/ui/cards/solution-card";
 import PageHero from "@/components/ui/page-hero";
+import SectionHeading from "@/components/ui/section-heading";
 import Link from "next/link";
 
 /* ─────────────────────────────────────────
@@ -11,28 +12,28 @@ const subServices = [
     title: "AI & Intelligent Automation",
     description:
       "We help organizations design and deploy AI and automation solutions that streamline operations, reduce costs, and unlock new levels of productivity across business functions.",
-    href: "/solutions/enterprise-transformation/ai-automation",
+    href: "/what-we-do/solutions",
   },
   {
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=80",
     title: "Digital Transformation",
     description:
       "From digital strategy to full-scale implementation, we guide organizations through the complexities of digital change — modernizing systems, processes, and people.",
-    href: "/solutions/enterprise-transformation/digital-transformation",
+    href: "/what-we-do/solutions",
   },
   {
     image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&q=80",
     title: "Organizational Transformation",
     description:
       "We partner with leadership teams to redesign organizational structures, cultures, and operating models that support sustained performance and adaptability.",
-    href: "/solutions/enterprise-transformation/organizational-transformation",
+    href: "/what-we-do/solutions",
   },
   {
     image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=700&q=80",
     title: "Agile Transformation",
     description:
       "We build agile capabilities across your enterprise — helping teams deliver faster, respond to change, and continuously improve through proven frameworks and coaching.",
-    href: "/solutions/enterprise-transformation/agile-transformation",
+    href: "/what-we-do/solutions",
   },
 ];
 
@@ -58,13 +59,7 @@ export default function EnterpriseTransformationPage() {
         <div className="max-w-[1280px] mx-auto px-6">
 
           {/* Heading */}
-          <h2 className="text-[#1A274F] text-[28px] lg:text-[36px] font-bold mb-4">
-            <span className="relative inline-block mr-3">
-              How
-              <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-[#0066FF] rounded-full" />
-            </span>
-            We Do It
-          </h2>
+          <SectionHeading title="How We Do It" className="mb-4" />
           <p className="text-[#374151] text-[14px] lg:text-[15px] leading-[1.8] max-w-[860px] mb-12">
             At iCentra, we understand that transformation is not a one-size-fits-all journey.
             Our experts work collaboratively with clients to develop tailored, innovative solutions

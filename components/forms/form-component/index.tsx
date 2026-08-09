@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { InputHTMLAttributes, SelectHTMLAttributes, TextareaHTMLAttributes } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 /* ═══════════════════════════════════════════════════
    SHARED STYLE CONSTANTS
@@ -257,6 +258,77 @@ export function FormSubmit({ label = "Submit" }: { label?: string }) {
         {label}
       </button>
     </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════
+   FORM MODAL WRAPPER
+   Wraps any form in a centred modal with backdrop.
+   Usage:
+     const [open, setOpen] = useState(false);
+     <FormModal open={open} onClose={() => setOpen(false)}>
+       <GeneralContactFormA />
+     </FormModal>
+═══════════════════════════════════════════════════ */
+export function FormModal({
+  open,
+  onClose,
+  children,
+}: {
+  open: boolean;
+  onClose: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <AnimatePresence>
+      {open && (
+        <div
+          className="fixed inset-0 z-[300] flex items-center justify-center p-4"
+          role="dialog"
+          aria-modal="true"
+        >
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={onClose}
+            aria-hidden="true"
+          />
+
+          {/* Panel — scrollable when content is tall */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 12 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 12 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="relative z-10 w-full max-w-[720px] max-h-[92vh] overflow-y-auto rounded-3xl shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={onClose}
+              aria-label="Close form"
+              className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white/80 hover:bg-white flex items-center justify-center shadow-sm transition-colors"
+            >
+              <svg
+                className="w-4 h-4 text-[#1A274F]"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {children}
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
   );
 }
 

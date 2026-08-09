@@ -1,8 +1,22 @@
 /* ─────────────────────────────────────────
    DATA
 ───────────────────────────────────────── */
-export const stats = [
-  { value: "15+", label: "Years of Excellence" },
+export function getYearsOfExperience(
+  startYear = 2009,
+  anchorMonth = 10, // October
+  anchorDay = 19
+) {
+  const now = new Date();
+  const anchor = new Date(now.getFullYear(), anchorMonth - 1, anchorDay);
+
+  let years = now.getFullYear() - startYear;
+  if (now < anchor) years -= 1; // this year's anniversary hasn't happened yet
+
+  return years;
+}
+
+export const getStats = () => [
+  { value: `${getYearsOfExperience()}+`, label: "Years of Excellence" },
   { value: "5000+", label: "Clients Served" },
   { value: "99.9%", label: "Success Rate" },
 ];
@@ -14,7 +28,9 @@ export const insightCards = [
     title: "Strategy is disconnected from execution",
     date: "2nd Sep 2025",
     readTime: "2 min",
-    href: "/blog/strategy-execution",
+    slug: "strategy-execution",
+    href: "/news/strategy-execution",
+    category: "Insight" as const,
   },
   {
     image:
@@ -22,7 +38,9 @@ export const insightCards = [
     title: "Workforce capability lags behind change",
     date: "2nd Sep 2025",
     readTime: "3 min",
-    href: "/blog/workforce-capability",
+    slug: "workforce-capability",
+    href: "/news/workforce-capability",
+    category: "Insight" as const,
   },
   {
     image:
@@ -30,7 +48,9 @@ export const insightCards = [
     title: "Workforce capability lags behind change",
     date: "2nd Sep 2025",
     readTime: "3 min",
-    href: "/blog/workforce-capability-2",
+    slug: "workforce-capability-2",
+    href: "/news/workforce-capability-2",
+    category: "Insight" as const,
   },
   {
     image:
@@ -38,23 +58,9 @@ export const insightCards = [
     title: "Workforce capability lags behind change",
     date: "2nd Sep 2025",
     readTime: "4 min",
-    href: "/blog/workforce-capability-3",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80",
-    title: "Workforce capability lags behind change",
-    date: "2nd Sep 2025",
-    readTime: "3 min",
-    href: "/blog/workforce-capability-2",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80",
-    title: "Workforce capability lags behind change",
-    date: "2nd Sep 2025",
-    readTime: "4 min",
-    href: "/blog/workforce-capability-3",
+    slug: "workforce-capability-3",
+    href: "/news/workforce-capability-3",
+    category: "Insight" as const,
   },
 ];
 
@@ -65,7 +71,7 @@ export const solutionCards = [
     title: "Continuous Transformation",
     description:
       "We help organizations build the capability to continuously evolve — from strategy through to execution and beyond.",
-    href: "/solutions/continuous-transformation",
+    href: "/what-we-do/continuous-transformation",
   },
   {
     image:
@@ -73,7 +79,7 @@ export const solutionCards = [
     title: "Solutions",
     description:
       "End-to-end technology and business solutions tailored to your sector's specific challenges and growth ambitions.",
-    href: "/solutions",
+    href: "/what-we-do/solutions",
   },
   {
     image:
@@ -81,7 +87,7 @@ export const solutionCards = [
     title: "Platforms",
     description:
       "Scalable digital platforms that accelerate delivery, improve visibility, and create lasting competitive advantage.",
-    href: "/solutions/platforms",
+    href: "/what-we-do/platforms",
   },
 ];
 
@@ -127,7 +133,7 @@ export const projects = [
     // logoText: "NRS",
     title: "Journey to Information Security Excellence at NRS",
     desc: "iCentra's Information Technology Division (ITD) embarked on a transformative journey...",
-    href: "#",
+    href: "/industry/case-study",
   },
   {
     bgImage:
@@ -135,7 +141,7 @@ export const projects = [
     logoText: "CSN",
     title: "Transforming Project Management at CSN",
     desc: "iCentra's Information Technology Division (ITD) embarked on a transformative journey...",
-    href: "#",
+    href: "/industry/case-study",
   },
   {
     bgImage:
@@ -143,7 +149,7 @@ export const projects = [
     logoText: "NNPC",
     title: "Driving Agile Transformation at NNPC Limited IT Division",
     desc: "iCentra's Information Technology Division (ITD) embarked on a transformative journey...",
-    href: "#",
+    href: "/industry/case-study",
   },
   {
     bgImage:
@@ -151,7 +157,7 @@ export const projects = [
     logoText: "CSN",
     title: "Transforming Project Management at CSN",
     desc: "iCentra's Information Technology Division (ITD) embarked on a transformative journey...",
-    href: "#",
+    href: "/industry/case-study",
   },
 ];
 
@@ -186,7 +192,9 @@ export const blogCards = [
     title: "The New Operating Model for Performance",
     date: "2nd Sep 2025",
     readTime: "2 min",
-    href: "/blog/operating-model",
+    slug: "operating-model",
+    href: "/news/operating-model",
+    category: "Blog" as const,
   },
   {
     image:
@@ -194,7 +202,9 @@ export const blogCards = [
     title: "AI & Cybersecurity Governance: Getting Leadership Buy-In",
     date: "2nd Sep 2025",
     readTime: "3 min",
-    href: "/blog/ai-governance",
+    slug: "ai-governance",
+    href: "/news/ai-governance",
+    category: "Blog" as const,
   },
   {
     image:
@@ -202,15 +212,9 @@ export const blogCards = [
     title: "5 AI Driven Threats Organizations Can't Ignore in 2025",
     date: "2nd Sep 2025",
     readTime: "3 min",
-    href: "/blog/ai-threats",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&q=80",
-    title: "AI & Cybersecurity Governance: Getting Leadership Buy-In",
-    date: "2nd Sep 2025",
-    readTime: "3 min",
-    href: "/blog/ai-governance",
+    slug: "ai-threats",
+    href: "/news/ai-threats",
+    category: "Blog" as const,
   },
 ];
 
@@ -220,21 +224,27 @@ export const spotlightCards = [
     title: "iCentra Bags Global Awards",
     date: "2nd Sep 2025",
     readTime: "2 min",
+    slug: "icentra-bags-global-awards",
     href: "/news/icentra-bags-global-awards",
+    category: "Spotlight" as const,
   },
   {
     image: "https://images.unsplash.com/photo-1560472355-536de3962603?w=600&q=80",
     title: "AI & Cybersecurity Governance: Getting Leadership By-In",
     date: "2nd Sep 2025",
     readTime: "2 min",
+    slug: "ai-cybersecurity-governance",
     href: "/news/ai-cybersecurity-governance",
+    category: "Spotlight" as const,
   },
   {
     image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80",
     title: "5 Ai Driven Threats Organizations Can't Ignore In 2026",
     date: "2nd Sep 2025",
     readTime: "2 min",
+    slug: "5-ai-driven-threats",
     href: "/news/5-ai-driven-threats",
+    category: "Spotlight" as const,
   },
 ];
 
@@ -244,20 +254,134 @@ export const newsCards = [
     title: "The New Operating Model for Sustainable Performance",
     date: "2nd Sep 2025",
     readTime: "2 min",
+    slug: "new-operating-model",
     href: "/news/new-operating-model",
+    category: "News" as const,
   },
   {
     image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80",
     title: "AI & Cybersecurity Governance: Getting Leadership By-In",
     date: "2nd Sep 2025",
     readTime: "2 min",
+    slug: "ai-governance-leadership",
     href: "/news/ai-governance-leadership",
+    category: "News" as const,
   },
   {
     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80",
     title: "5 Ai Driven Threats Organizations Can't Ignore In 2026",
     date: "2nd Sep 2025",
     readTime: "2 min",
+    slug: "ai-threats-2026",
     href: "/news/ai-threats-2026",
+    category: "News" as const,
   },
 ];
+
+/* ─────────────────────────────────────────
+   COMBINED ARTICLE LOOKUP — powers /news/[slug]
+───────────────────────────────────────── */
+export type Article = {
+  image: string;
+  title: string;
+  date: string;
+  readTime: string;
+  slug: string;
+  href: string;
+  category: "Spotlight" | "News" | "Insight" | "Blog";
+};
+
+export const allArticles: Article[] = [
+  ...spotlightCards,
+  ...newsCards,
+  ...insightCards,
+  ...blogCards,
+];
+
+export function getArticleBySlug(slug: string): Article | undefined {
+  return allArticles.find((article) => article.slug === slug);
+}
+
+/* ─────────────────────────────────────────
+   JOB LISTINGS — powers /careers and /careers/[slug]
+───────────────────────────────────────── */
+export type JobListing = {
+  slug: string;
+  title: string;
+  dept: string;
+  location: string;
+  type: string;
+  description: string;
+  responsibilities: string[];
+  requirements: string[];
+};
+
+export const jobListings: JobListing[] = [
+  {
+    slug: "accountant",
+    title: "Accountant",
+    dept: "Finance (Internship)",
+    location: "Remote - USA",
+    type: "Internship",
+    description:
+      "Support the finance team with day-to-day bookkeeping, reconciliations, and reporting as part of iCentra's finance internship programme, gaining hands-on exposure to enterprise financial operations.",
+    responsibilities: [
+      "Assist with accounts payable and receivable processing",
+      "Reconcile bank statements and general ledger entries",
+      "Support month-end and year-end close activities",
+      "Prepare financial reports and summaries for the finance team",
+    ],
+    requirements: [
+      "Currently pursuing or recently completed a degree in Accounting, Finance, or a related field",
+      "Working knowledge of spreadsheets and basic accounting principles",
+      "Strong attention to detail and organizational skills",
+      "Ability to work independently in a remote environment",
+    ],
+  },
+  {
+    slug: "web-developer",
+    title: "Web Developer",
+    dept: "Technology",
+    location: "Remote - USA",
+    type: "Full-time",
+    description:
+      "Build and maintain web applications that power iCentra's client-facing platforms and internal tools, working closely with design and product teams to ship polished, reliable features.",
+    responsibilities: [
+      "Develop and maintain responsive web applications",
+      "Collaborate with designers and product managers on new features",
+      "Write clean, tested, maintainable code",
+      "Participate in code reviews and technical planning",
+    ],
+    requirements: [
+      "Experience with modern JavaScript/TypeScript and a frontend framework (React or similar)",
+      "Familiarity with REST APIs and version control (Git)",
+      "Comfort working in a fully remote, distributed team",
+      "Strong problem-solving and communication skills",
+    ],
+  },
+  {
+    slug: "human-resources-specialist",
+    title: "Human Resources Specialist",
+    dept: "Human Resources",
+    location: "Remote - USA",
+    type: "Full-time",
+    description:
+      "Support recruitment, onboarding, and employee engagement initiatives that help iCentra attract, develop, and retain top talent across every region we operate in.",
+    responsibilities: [
+      "Coordinate end-to-end recruitment and onboarding processes",
+      "Support employee engagement and culture initiatives",
+      "Maintain accurate employee records and HR documentation",
+      "Assist with performance review cycles and policy communication",
+    ],
+    requirements: [
+      "Degree in Human Resources, Business Administration, or related field",
+      "Prior experience in an HR or recruitment coordination role",
+      "Excellent interpersonal and organizational skills",
+      "Discretion when handling confidential employee information",
+    ],
+  },
+];
+
+export function getJobBySlug(slug: string): JobListing | undefined {
+  return jobListings.find((job) => job.slug === slug);
+}

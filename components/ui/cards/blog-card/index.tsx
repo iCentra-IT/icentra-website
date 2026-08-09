@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export interface BlogCardProps {
   image: string;
@@ -19,7 +22,13 @@ export default function BlogCard({
   excerpt,
 }: BlogCardProps) {
   return (
-    <div className="bg-[#EAF3FB] rounded-2xl p-3 w-full max-w-[320px]">
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="bg-[#EAF3FB] rounded-2xl p-3 w-full max-w-[320px]"
+    >
       {/* Thumbnail */}
       <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden">
         <Image
@@ -57,6 +66,6 @@ export default function BlogCard({
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

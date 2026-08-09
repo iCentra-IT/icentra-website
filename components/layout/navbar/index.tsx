@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -159,16 +160,26 @@ export default function Navbar() {
       </header>
 
       {/* ── Mobile Drawer ── */}
-      {mobileOpen && (
+      <AnimatePresence>
+        {mobileOpen && (
         <div className="fixed inset-0 z-100 flex">
           {/* Overlay */}
-          <div
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
             className="absolute inset-0 bg-black/40"
             onClick={() => setMobileOpen(false)}
           />
 
           {/* Drawer Panel */}
-          <div className="relative ml-auto w-full max-w-105 h-full bg-[#25429A] flex flex-col px-8 pt-10 pb-12 overflow-y-auto">
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="relative ml-auto w-full max-w-105 h-full bg-[#25429A] flex flex-col px-8 pt-10 pb-12 overflow-y-auto">
             {/* Close button */}
             <button
               onClick={() => setMobileOpen(false)}
@@ -267,9 +278,10 @@ export default function Navbar() {
                 Contact Us
               </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
-      )}
+        )}
+      </AnimatePresence>
     </>
   );
 }

@@ -2,6 +2,7 @@ import TrustedPartners from "@/components/sections/home/partners";
 import BlogCard from "@/components/ui/cards/blog-card";
 import ServiceCard from "@/components/ui/cards/service-card";
 import PageHero from "@/components/ui/page-hero";
+import SectionHeading from "@/components/ui/section-heading";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -35,7 +36,7 @@ const serviceCards = [
     title: "Utilize Innovation For Improved Value Delivery",
     activeTitle: "Enterprise Transformation",
     items: ["AI & Intelligent Automation", "Digital Transformation", "Organizational Transformation", "Agile Transformation"],
-    href: "/solutions/enterprise-transformation",
+    href: "/enterprise",
   },
   {
     image: "/images/solution/2.jpg",
@@ -43,7 +44,7 @@ const serviceCards = [
     title: "Mitigate Business Challenges Seamlessly",
     activeTitle: "Cybersecurity & GRC",
     items: ["Security Operations", "Risk & Compliance", "Identity Management", "Incident Response"],
-    href: "/solutions/cybersecurity-grc",
+    href: "/what-we-do/solutions/cybersecurity",
   },
   {
     image: "/images/solution/3.jpg",
@@ -51,7 +52,7 @@ const serviceCards = [
     title: "Achieve Your Objectives With Strategic Goals",
     activeTitle: "Strategy & Execution",
     items: ["Portfolio Management", "Programme Delivery", "Change Management", "Benefits Realisation"],
-    href: "/solutions/strategy-execution",
+    href: "/what-we-do/solutions",
   },
   {
     image: "/images/solution/4.jpg",
@@ -59,7 +60,7 @@ const serviceCards = [
     title: "Accelerate Your Growth With Refined Knowledge",
     activeTitle: "Learning & Talent",
     items: ["Leadership Development", "Digital Skills Training", "Certification Programmes", "Coaching & Mentoring"],
-    href: "/solutions/learning-talent",
+    href: "/what-we-do/solutions",
   },
 ];
 
@@ -87,38 +88,23 @@ const blogCards = [
     title: "The New Operating Model for Sustainable Performance",
     date: "2nd Sep 2025",
     readTime: "2 min",
-    href: "/blog/new-operating-model",
+    href: "/news/new-operating-model",
   },
   {
     image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&q=80",
     title: "AI & Cybersecurity Governance: Getting Leadership By-In",
     date: "2nd Sep 2025",
     readTime: "2 min",
-    href: "/blog/ai-governance",
+    href: "/news/ai-governance",
   },
   {
     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80",
     title: "5 Ai Driven Threats Organizations Can't Ignore In 2026",
     date: "2nd Sep 2025",
     readTime: "2 min",
-    href: "/blog/ai-threats",
+    href: "/news/ai-threats",
   },
 ];
-
-/* ─────────────────────────────────────────
-   UNDERLINE HEADING HELPER
-───────────────────────────────────────── */
-function UnderlineWord({ word, rest }: { word: string; rest: string }) {
-  return (
-    <h2 className="text-[#1A274F] text-[26px] lg:text-[32px] font-bold mb-6">
-      <span className="relative inline-block mr-2">
-        {word}
-        <span className="absolute -bottom-1 left-0 w-full h-0.75 bg-[#0066FF] rounded-full" />
-      </span>
-      {rest}
-    </h2>
-  );
-}
 
 /* ─────────────────────────────────────────
    PAGE
@@ -217,7 +203,7 @@ export default function ContinuousTransformationPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white pb-14 lg:pb-20">
         <div className="max-w-7xl mx-auto px-6">
-          <UnderlineWord word="Why" rest="Traditional Transformation No Longer Works" />
+          <SectionHeading title="Why Traditional Transformation No Longer Works" className="mb-6" />
 
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
             {/* Left — bullet list */}
@@ -260,7 +246,7 @@ export default function ContinuousTransformationPage() {
 
           {/* Left */}
           <div className="flex-1 min-w-0">
-            <UnderlineWord word="The" rest="New Operating Model" />
+            <SectionHeading title="The New Operating Model" className="mb-6" />
             <p className="text-[#374151] text-base leading-[1.8] mb-4">
               Continuous Transformation moves organizations from episodic change to sustained
               evolution. It integrates:
@@ -302,7 +288,7 @@ export default function ContinuousTransformationPage() {
       ══════════════════════════════════════ */}
       <section className="bg-[#F7F9FC] py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <UnderlineWord word="A" rest="Structured System for Continuous Transformation" />
+          <SectionHeading title="A Structured System for Continuous Transformation" className="mb-6" />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
             {structuredSystem.map((item) => (
@@ -315,7 +301,7 @@ export default function ContinuousTransformationPage() {
 
           <div className="flex justify-center">
             <Link
-              href="/solutions/framework"
+              href="/what-we-do/solutions"
               className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-base font-semibold hover:bg-[#25429A] transition-colors"
             >
               Explore our framework

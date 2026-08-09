@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const MotionLink = motion.create(Link);
 
 interface SolutionCardProps {
   image: string;
@@ -17,8 +20,12 @@ export default function SolutionCard({
   href,
 }: SolutionCardProps) {
   return (
-    <Link
+    <MotionLink
       href={href}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className="group relative block w-ful max-w-75 h-[60vh]! aspect-3/4 rounded-2xl overflow-hidden cursor-pointer"
     >
       {/* Background image */}
@@ -88,6 +95,6 @@ export default function SolutionCard({
           </div>
         </div>
       </div>
-    </Link>
+    </MotionLink>
   );
 }

@@ -1,4 +1,5 @@
 import ServiceCard from "@/components/ui/cards/service-card";
+import SectionHeading from "@/components/ui/section-heading";
 import Link from "next/link";
 
 /* ─────────────────────────────────────────
@@ -31,7 +32,7 @@ const solutionCards = [
       "Organizational Transformation",
       "Agile Transformation",
     ],
-    href: "/solutions/enterprise-transformation",
+    href: "/enterprise",
   },
   {
     image: "/images/solution/2.jpg",
@@ -44,7 +45,7 @@ const solutionCards = [
       "Identity Management",
       "Incident Response",
     ],
-    href: "/solutions/cybersecurity-grc.png",
+    href: "/what-we-do/solutions/cybersecurity",
   },
   {
     image: "/images/solution/3.jpg",
@@ -57,7 +58,7 @@ const solutionCards = [
       "Change Management",
       "Benefits Realisation",
     ],
-    href: "/solutions/strategy-execution",
+    href: "/what-we-do/solutions",
   },
   {
     image: "/images/solution/4.jpg",
@@ -70,7 +71,7 @@ const solutionCards = [
       "Certification Programmes",
       "Coaching & Mentoring",
     ],
-    href: "/solutions/learning-talent",
+    href: "/what-we-do/solutions",
   },
 ];
 
@@ -163,17 +164,11 @@ export default function OurSolutionsPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[26px] lg:text-[32px] font-bold mb-3">
-            <span className="relative inline-block">
-              Our
-              <span className="absolute -bottom-1 left-0 w-8 h-0.75 bg-[#0066FF] rounded-full" />
-            </span>{" "}
-            Approach
-          </h2>
-          <p className="text-[#374151] text-base mb-10 max-w-175">
-            At iCentra, we address your organization&apos;s end-to-end business needs using the
-            effective ICE Approach.
-          </p>
+          <SectionHeading
+            title="Our Approach"
+            subtitle="At iCentra, we address your organization's end-to-end business needs using the effective ICE Approach."
+            className="mb-10"
+          />
 
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center justify-between">
 

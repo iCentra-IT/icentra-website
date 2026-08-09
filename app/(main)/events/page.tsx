@@ -1,3 +1,4 @@
+import { WebinarRegistrationModal } from "@/components/forms/all-forms";
 import DiscoverBanner from "@/components/ui/banner";
 import PageHero from "@/components/ui/page-hero";
 import Image from "next/image";
@@ -32,14 +33,14 @@ const pastWebinars = [
     title: "Integrating Information Security into Your Organizational Culture: May Transform Webinar Recap",
     date: "2nd Sep 2025",
     platform: "Google Meet",
-    href: "#",
+    href: "/news",
   },
   {
     image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80",
     title: "Industry Leaders Redefine the Role of PMOs at iCentra's Transform Webinar",
     date: "2nd Sep 2025",
     platform: "Google Meet",
-    href: "#",
+    href: "/news",
   },
 ];
 
@@ -122,12 +123,7 @@ export default function EventsPage() {
                     <span>{event.location}</span>
                   </div>
                   <div className="mt-2">
-                    <Link
-                      href={event.href}
-                      className="inline-flex items-center px-5 py-2 rounded-full bg-[#0066FF] text-white text-[12px] font-semibold hover:bg-[#25429A] transition-colors"
-                    >
-                      Reserve Your Spot
-                    </Link>
+                    <WebinarRegistrationModal triggerLabel="Reserve Your Spot" />
                   </div>
                 </div>
               </div>
@@ -184,17 +180,10 @@ export default function EventsPage() {
                 Each edition is themed around critical areas influencing national and organizational
                 competitiveness.
               </p>
-              <Link
-                href="#"
-                className="inline-flex items-center gap-2 text-[#0066FF] text-[14px] font-semibold hover:gap-3 transition-all group"
-              >
-                Learn More
-                <span className="w-7 h-7 rounded-full bg-[#0066FF] flex items-center justify-center group-hover:bg-[#25429A] transition-colors">
-                  <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
-                </span>
-              </Link>
+              <WebinarRegistrationModal
+                triggerLabel="Learn More →"
+                triggerClassName="inline-flex items-center gap-2 text-[#0066FF] text-[14px] font-semibold hover:gap-3 transition-all cursor-pointer"
+              />
             </div>
           </div>
         </div>

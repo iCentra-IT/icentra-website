@@ -1,6 +1,11 @@
+"use client";
+
 import TrustedPartners from "@/components/sections/home/partners";
 import BlogCard from "@/components/ui/cards/blog-card";
 import PageHero from "@/components/ui/page-hero";
+import SectionHeading from "@/components/ui/section-heading";
+import { CardCarouselSection } from "@/components/ui/carousel/carouselComponent";
+import { NewsletterModal, WebinarRegistrationModal } from "@/components/forms/all-forms";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -21,21 +26,21 @@ const projects = [
     logoText: "NRS",
     title: "Journey to Information Security Excellence at NRS",
     desc: "NNPC Limited's Information Technology Division (ITD) embarked on a transformative...",
-    href: "#",
+    href: "/industry/case-study",
   },
   {
     bgImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80",
     logoText: "CSN",
     title: "Transforming Project Management at CSN",
     desc: "NNPC Limited's Information Technology Division (ITD) embarked on a transformative...",
-    href: "#",
+    href: "/industry/case-study",
   },
   {
     bgImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80",
     logoText: "NNPC",
     title: "Driving Agile Transformation at NNPC Limited IT Division",
     desc: "NNPC Limited's Information Technology Division (ITD) embarked on a transformative...",
-    href: "#",
+    href: "/industry/case-study",
   },
 ];
 
@@ -103,17 +108,17 @@ const whitepapers = [
   {
     image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80",
     title: "Project Management Trends 2025",
-    href: "#",
+    href: "/news",
   },
   {
     image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80",
     title: "Agile Transformation in African Enterprises",
-    href: "#",
+    href: "/news",
   },
   {
     image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&q=80",
     title: "Cybersecurity Readiness in a Digital World",
-    href: "#",
+    href: "/news",
   },
 ];
 
@@ -162,60 +167,34 @@ export default function IndustriesPage() {
       {/* ══════════════════════════════════════
           2. PROJECTS THAT DELIVERED TRANSFORMATION
       ══════════════════════════════════════ */}
-      <section className="bg-white py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          {/* Header */}
-          <div className="flex items-start justify-between gap-4 mb-3">
-            <h2 className="text-[#1A274F] text-[24px] lg:text-[30px] font-bold">
-              <span className="relative inline-block mr-2">
-                Projects
-                <span className="absolute -bottom-1 left-0 w-full h-0.75 bg-[#0066FF] rounded-full" />
-              </span>
-              That Delivered Transformation
-            </h2>
-            {/* Carousel arrows */}
-            <div className="flex gap-2 shrink-0 mt-1">
-              {["left", "right"].map((d) => (
-                <button
-                  key={d}
-                  aria-label={d === "left" ? "Previous" : "Next"}
-                  className="w-9 h-9 rounded-full border border-[#DCE0E8] flex items-center justify-center text-[#1A274F] hover:border-[#0066FF] hover:text-[#0066FF] transition-colors"
-                >
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d={d === "left" ? "M15 19l-7-7 7-7" : "M9 5l7 7-7 7"} />
-                  </svg>
-                </button>
-              ))}
+      <CardCarouselSection
+        items={projects}
+        getKey={(p) => p.title}
+        heading="Projects That Delivered Transformation"
+        underlineWord="Projects"
+        subtitle="We believe in showing. These case studies highlight the kind of change we've helped our clients achieve."
+        bgClassName="bg-white"
+        renderCard={(p) => (
+          <div className="bg-white rounded-2xl overflow-hidden border border-[#DCE0E8] flex flex-col h-full">
+            <div className="relative h-45 overflow-hidden bg-[#EAF3FB]">
+              <Image src={p.bgImage} alt={p.title} fill className="object-cover opacity-40" sizes="400px" />
+              <div className="absolute inset-0 bg-[#1A274F]/30" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-white text-[28px] font-extrabold tracking-widest drop-shadow">{p.logoText}</span>
+              </div>
+            </div>
+            <div className="p-5 flex flex-col flex-1 gap-2">
+              <h3 className="text-[#1A274F] text-[14px] font-semibold leading-snug">{p.title}</h3>
+              <p className="text-[#6B7280] text-[13px] leading-relaxed flex-1">{p.desc}</p>
+              <div className="mt-3">
+                <Link href={p.href} className="inline-flex items-center px-5 py-2 rounded-full bg-[#0066FF] text-white text-[13px] font-medium hover:bg-[#25429A] transition-colors">
+                  Read More
+                </Link>
+              </div>
             </div>
           </div>
-          <p className="text-[#6B7280] text-[14px] mb-10">
-            We believe in showing. These case studies highlight the kind of change we&apos;ve helped our clients achieve.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {projects.map((p) => (
-              <div key={p.title} className="bg-white rounded-2xl overflow-hidden border border-[#DCE0E8] flex flex-col">
-                <div className="relative h-45 overflow-hidden bg-[#EAF3FB]">
-                  <Image src={p.bgImage} alt={p.title} fill className="object-cover opacity-40" sizes="400px" />
-                  <div className="absolute inset-0 bg-[#1A274F]/30" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-white text-[28px] font-extrabold tracking-widest drop-shadow">{p.logoText}</span>
-                  </div>
-                </div>
-                <div className="p-5 flex flex-col flex-1 gap-2">
-                  <h3 className="text-[#1A274F] text-[14px] font-semibold leading-snug">{p.title}</h3>
-                  <p className="text-[#6B7280] text-[13px] leading-relaxed flex-1">{p.desc}</p>
-                  <div className="mt-3">
-                    <Link href={p.href} className="inline-flex items-center px-5 py-2 rounded-full bg-[#0066FF] text-white text-[13px] font-medium hover:bg-[#25429A] transition-colors">
-                      Read More
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        )}
+      />
 
       {/* ══════════════════════════════════════
           3. OUR TRUSTED PARTNERS
@@ -229,14 +208,9 @@ export default function IndustriesPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[22px] lg:text-[28px] font-bold text-center mb-10">
-            What Our{" "}
-            <span className="relative inline-block">
-              Clients
-              <span className="absolute -bottom-1 left-0 w-full h-0.75 bg-[#0066FF] rounded-full" />
-            </span>{" "}
-            Are Saying
-          </h2>
+          <div className="text-center mb-10">
+            <SectionHeading title="What Our Clients Are Saying" />
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
@@ -348,12 +322,7 @@ export default function IndustriesPage() {
           <p className="text-[#6B7280] text-[14px] leading-relaxed">
             Subscribe to receive the latest articles, reports, and event invitations delivered straight to your inbox.
           </p>
-          <Link
-            href="/subscribe"
-            className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#25429A] transition-colors mt-1"
-          >
-            Sign up, stay connected
-          </Link>
+          <NewsletterModal triggerClassName="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#25429A] transition-colors mt-1" />
         </div>
       </section>
 
@@ -406,14 +375,9 @@ export default function IndustriesPage() {
             Join our monthly webinar series, Transform by iCentra, where we bring together leading voices in business, technology, and strategy to discuss key issues, share best practices, and inspire action.
           </p>
           <div className="flex flex-wrap gap-3 justify-center mt-2">
+            <WebinarRegistrationModal triggerClassName="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold transition-colors" />
             <Link
-              href="/events/register"
-              className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold transition-colors"
-            >
-              Register Now
-            </Link>
-            <Link
-              href="/events/recordings"
+              href="/events"
               className="inline-flex items-center px-7 py-3.5 rounded-full border border-white/30 text-white text-[14px] font-semibold hover:bg-white/10 transition-colors"
             >
               View Past Recordings

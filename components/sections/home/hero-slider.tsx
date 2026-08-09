@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 
 /* ─────────────────────────────────────────
    SLIDE DATA
@@ -28,7 +29,7 @@ const slides: Slide[] = [
     headlineBold: "Transformation.\n Sustain Performance.",
     ctas: [
       { label: "Explore iCentra", href: "/about", primary: true },
-      { label: "Our Services", href: "/services", primary: false },
+      { label: "Our Services", href: "/what-we-do/solutions", primary: false },
     ],
     helperText: "Transforming people and organizations for sustainable performance",
   },
@@ -39,8 +40,8 @@ const slides: Slide[] = [
     headlineItalic: "TRANSFORMATION ",
     headlineBold: "Is NOT A Project.\n It's a Capability.",
     ctas: [
-      { label: "Discover Our Approach", href: "/approach", primary: true },
-      { label: "Our Services", href: "/services", primary: false },
+      { label: "Discover Our Approach", href: "/what-we-do/continuous-transformation", primary: true },
+      { label: "Our Services", href: "/what-we-do/solutions", primary: false },
     ],
     helperText: "Traditional transformation ends. Continuous transformation builds the system - strategy, governance, execution, and people that sustain performance",
   },
@@ -51,8 +52,8 @@ const slides: Slide[] = [
     headlineItalic: "Integrated Solutions.",
     headlineBold: "For Enterprise Performance.\n",
     ctas: [
-      { label: "Explore Solutions", href: "/solutions", primary: true },
-      { label: "Our Services", href: "/services", primary: false },
+      { label: "Explore Solutions", href: "/what-we-do/solutions", primary: true },
+      { label: "Our Services", href: "/what-we-do/solutions", primary: false },
     ],
     helperText: "From strategy to execution, governance to capacity - we deliver transformation across four domains",
   },
@@ -71,20 +72,14 @@ interface HeroSliderProps {
 
 export default function HeroSlider({ overlay = false }: HeroSliderProps) {
   const [current, setCurrent] = useState(0);
-  const [animating, setAnimating] = useState(false);
 
   const total = slides.length;
 
   const goTo = useCallback(
     (index: number) => {
-      if (animating || index === current) return;
-      setAnimating(true);
-      setTimeout(() => {
-        setCurrent(index);
-        setAnimating(false);
-      }, 300);
+      setCurrent(index);
     },
-    [animating, current],
+    [],
   );
 
   const prev = () => goTo((current - 1 + total) % total);
@@ -145,11 +140,15 @@ export default function HeroSlider({ overlay = false }: HeroSliderProps) {
         lg:h-[calc(100vh-80px)] lg:min-h-130 lg:max-h-187.5"
     >
       {/* ── SLIDE CONTENT ── */}
-      <div
-        className={`relative lg:absolute lg:inset-0 transition-opacity duration-500 ${
-          animating ? "opacity-0" : "opacity-100"
-        }`}
-      >
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -16 }}
+          transition={{ duration: 0.45, ease: "easeInOut" }}
+          className="relative lg:absolute lg:inset-0"
+        >
         <div className={`relative w-full h-auto lg:h-full ${theme.panelBg} transition-colors duration-500`}>
           {/* Full-bleed overlay background image + scrim — overlay mode only */}
           {overlay && (
@@ -221,7 +220,7 @@ export default function HeroSlider({ overlay = false }: HeroSliderProps) {
                 {/* Headline */}
                 <h1 className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] xl:text-[62px] font-extrabold leading-[1.1] lg:leading-[1.05] max-w-full lg:max-w-175">
                   {slide.headlineItalic && (
-                    <span className={`block italic font-extrabold ${theme.italicText}`}>
+                    <span className={`block itali font-extrabold ${theme.italicText}`}>
                       {slide.headlineItalic}
                     </span>
                   )}
@@ -318,7 +317,8 @@ export default function HeroSlider({ overlay = false }: HeroSliderProps) {
             </span>
           </div>
         </div>
-      </div>
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }

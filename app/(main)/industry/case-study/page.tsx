@@ -17,21 +17,21 @@ const relatedCaseStudies = [
     title: "Journey to Information Security Excellence at NRS",
     date: "2nd Sep 2025",
     readTime: "3 min",
-    href: "/case-studies/nrs-information-security",
+    href: "/industry",
   },
   {
     image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80",
     title: "Transforming Project Management at CBN",
     date: "2nd Sep 2025",
     readTime: "3 min",
-    href: "/case-studies/cbn-project-management",
+    href: "/industry",
   },
   {
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
     title: "Driving Agile Transformation at NNPC Limited IT Division.",
     date: "2nd Sep 2025",
     readTime: "3 min",
-    href: "/case-studies/nnpc-agile-transformation",
+    href: "/industry",
   },
 ];
 
@@ -133,7 +133,7 @@ export default function CaseStudyPage() {
           <div className="flex items-center gap-3 text-white/70 text-[13px]">
             <span>January 18, 2026.</span>
             <Link
-              href="/case-studies"
+              href="/industry"
               className="text-[#00DBFF] hover:text-white underline underline-offset-2 transition-colors"
             >
               Case study

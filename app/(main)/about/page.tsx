@@ -1,8 +1,10 @@
+import { VolunteerRegistrationModal, IndividualLearningModal } from "@/components/forms/all-forms";
 import DiscoverBanner from "@/components/ui/banner";
 import { TeamCard } from "@/components/ui/cards/team-card";
 import PageHero from "@/components/ui/page-hero";
+import SectionHeading from "@/components/ui/section-heading";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 import Image from "next/image";
-import Link from "next/link";
 
 /* ─────────────────────────────────────────
    LEADERSHIP DATA
@@ -133,7 +135,7 @@ export default function AboutPage() {
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
           {/* Left — body copy */}
-          <div className="flex-1 min-w-0 flex flex-col gap-5">
+          <Reveal className="flex-1 min-w-0 flex flex-col gap-5">
             <p className="text-[#374151] text-[15px] leading-[1.8]">
               Our name, iCentra (Innovation Centre), was coined from our
               aspiration to be the center of excellence in innovation, from
@@ -159,10 +161,10 @@ export default function AboutPage() {
               knowledge with cutting-edge technology solutions to tackle complex
               challenges and drive sustainable success.
             </p>
-          </div>
+          </Reveal>
 
           {/* Right — 2 stacked landscape images */}
-          <div className="flex flex-col gap-4 shrink-0 w-full lg:w-90">
+          <Reveal delay={0.15} className="flex flex-col gap-4 shrink-0 w-full lg:w-90">
             <div className="relative w-full h-90 rounded-2xl overflow-hidden">
               <Image
                 src="/images/about/hero.png"
@@ -172,8 +174,7 @@ export default function AboutPage() {
                 sizes="360px"
               />
             </div>
-            
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -181,29 +182,35 @@ export default function AboutPage() {
           3. VISION & MISSION — 2 dark side-by-side cards
       ══════════════════════════════════════════════ */}
       <section className="p-6 md:p-12">
-        <div className="max-w-7xl mx-auto md:px-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+        <StaggerGroup className="max-w-7xl mx-auto md:px-6 grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Vision */}
-          <div className="bg-[#1A274F] rounded-2xl px-8 py-10 lg:px-10 h-80 lg:py-12 flex flex-col justify-center gap-3 bg-no-repeat" style={{
-            "backgroundImage": "url('/images/about/vision.png')"
-          }}>
-            <h3 className="text-white text-[19px] font-bold">Our Vision</h3>
-            <p className="text-white/65 text-base leading-relaxed">
-              To be the Centre of excellence where people and organizations find
-              tools and resources to thrive, innovate, and create new
-              opportunities.
-            </p>
-          </div>
+          <StaggerItem>
+            <div
+              className="bg-[#1A274F] rounded-2xl px-8 py-10 lg:px-10 h-80 lg:py-12 flex flex-col justify-center gap-3 bg-no-repeat"
+              style={{ backgroundImage: "url('/images/about/vision.png')" }}
+            >
+              <h3 className="text-white text-[19px] font-bold">Our Vision</h3>
+              <p className="text-white/65 text-base leading-relaxed">
+                To be the Centre of excellence where people and organizations find
+                tools and resources to thrive, innovate, and create new
+                opportunities.
+              </p>
+            </div>
+          </StaggerItem>
           {/* Mission */}
-          <div className="bg-[#25429A] rounded-2xl px-8 py-10 lg:px-10 h-80 lg:py-12 flex flex-col justify-center gap-3 bg-no-repeat" style={{
-            "backgroundImage": "url('/images/about/mission.png')"
-          }}>
-            <h3 className="text-white text-[19px] font-bold">Our Mission</h3>
-            <p className="text-white/65 text-base leading-relaxed">
-              Leveraging innovation and technology to transform people and
-              organizations for excellent performance.
-            </p>
-          </div>
-        </div>
+          <StaggerItem>
+            <div
+              className="bg-[#25429A] rounded-2xl px-8 py-10 lg:px-10 h-80 lg:py-12 flex flex-col justify-center gap-3 bg-no-repeat"
+              style={{ backgroundImage: "url('/images/about/mission.png')" }}
+            >
+              <h3 className="text-white text-[19px] font-bold">Our Mission</h3>
+              <p className="text-white/65 text-base leading-relaxed">
+                Leveraging innovation and technology to transform people and
+                organizations for excellent performance.
+              </p>
+            </div>
+          </StaggerItem>
+        </StaggerGroup>
       </section>
 
       {/* ══════════════════════════════════════════════
@@ -216,7 +223,7 @@ export default function AboutPage() {
         }
         subtext="Our expertise includes Enterprise Transformation, Cybersecurity, Strategy & Execution, and Learning & Talent."
         primaryCta={{ label: "Contact Us", href: "/contact" }}
-        secondaryCta={{ label: "Our Services", href: "/services" }}
+        secondaryCta={{ label: "Our Services", href: "/what-we-do/solutions" }}
         image="/images/about/discover-icentra.png"
         imageAlt="iCentra professionals at work"
       />
@@ -226,24 +233,18 @@ export default function AboutPage() {
       ══════════════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[24px] lg:text-[32px] font-bold mb-14 lg:mb-20">
-            Our Core Values
-          </h2>
+          <SectionHeading title="Our Core Values" className="mb-14 lg:mb-20" />
 
           {/* 3-col layout: values-left | ring-center | values-right */}
-          <div className="flex justify-center items-center gap-10 max-w-260 mx-auto">
-
-            <Image 
-            src="/core-value.svg"
-            alt="iCentra core values"
-            width={1000}
-            height={1000}
-            className="object-cover"
-
+          <Reveal className="flex justify-center items-center gap-10 max-w-260 mx-auto">
+            <Image
+              src="/core-value.svg"
+              alt="iCentra core values"
+              width={1000}
+              height={1000}
+              className="object-cover"
             />
-
-            
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -252,9 +253,7 @@ export default function AboutPage() {
       ══════════════════════════════════════════════ */}
       <section className="bg-[#F7F9FC] py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[24px] lg:text-[32px] font-bold mb-10">
-            Our Leadership
-          </h2>
+          <SectionHeading title="Our Leadership" className="mb-10" />
 
           {/* Row 1 — 4 leaders */}
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-4">
@@ -287,13 +286,11 @@ export default function AboutPage() {
       ══════════════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[24px] lg:text-[32px] font-bold mb-10">
-            Transforming Lives
-          </h2>
+          <SectionHeading title="Transforming Lives" className="mb-10" />
 
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
             {/* Text — 2 sub-sections */}
-            <div className="flex-1 min-w-0 flex flex-col gap-8">
+            <Reveal className="flex-1 min-w-0 flex flex-col gap-8">
               <div>
                 <h3 className="text-[#1A274F] text-[17px] font-bold mb-3">
                   iCentra Cares
@@ -328,10 +325,10 @@ export default function AboutPage() {
                   about the future.`}
                 </p>
               </div>
-            </div>
+            </Reveal>
 
             {/* Image */}
-            <div className="relative shrink-0 w-full lg:w-100 h-75 lg:h-90 rounded-2xl overflow-hidden">
+            <Reveal delay={0.15} className="relative shrink-0 w-full lg:w-100 h-75 lg:h-90 rounded-2xl overflow-hidden">
               <Image
                 src="/images/about/transformation.png"
                 alt="iCentra community event"
@@ -339,7 +336,7 @@ export default function AboutPage() {
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 400px"
               />
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -349,23 +346,16 @@ export default function AboutPage() {
       ══════════════════════════════════════════════ */}
       <section className="bg-[#F7F9FC] py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[24px] lg:text-[32px] font-bold mb-3">
-            TAB Development Initiatives
-          </h2>
-          <p className="text-[#6B7280] text-[14px] leading-[1.8] max-w-200 mb-10">
-            TAB Development Initiatives, spearheaded by Taopheek Babayeju
-            (Powered by iCentra), aim to promote professional excellence,
-            inclusivity, and community resilience in the global technology and
-            management sector. These initiatives focus on bridging gaps in
-            access to training, certifications, and professional development
-            opportunities for both emerging and experienced project
-            professionals, especially those from under-served communities.
-          </p>
+          <SectionHeading
+            title="TAB Development Initiatives"
+            subtitle="TAB Development Initiatives, spearheaded by Taopheek Babayeju (Powered by iCentra), aim to promote professional excellence, inclusivity, and community resilience in the global technology and management sector. These initiatives focus on bridging gaps in access to training, certifications, and professional development opportunities for both emerging and experienced project professionals, especially those from under-served communities."
+            className="mb-10"
+          />
 
           {/* 3 initiative cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {/* Project 1500 — deep navy */}
-            <div className="bg-[#1A274F] rounded-2xl p-7 flex flex-col gap-4 min-h-90">
+            <StaggerItem className="bg-[#1A274F] rounded-2xl p-7 flex flex-col gap-4 min-h-90">
               <h3 className="text-white text-[26px] font-extrabold">
                 Project 1500
               </h3>
@@ -378,16 +368,14 @@ export default function AboutPage() {
                 about technology and management can benefit. Registration starts
                 in January 2025.
               </p>
-              <Link
-                href="#"
-                className="text-light-blue text-[13px] font-semibold hover:underline w-fit mt-auto"
-              >
-                Read more →
-              </Link>
-            </div>
+              <IndividualLearningModal
+                triggerLabel="Read more →"
+                triggerClassName="text-light-blue text-[13px] font-semibold hover:underline w-fit mt-auto cursor-pointer"
+              />
+            </StaggerItem>
 
             {/* Tosin Agetusin — primary blue */}
-            <div className="bg-[#25429A] rounded-2xl p-7 flex flex-col gap-4 min-h-90">
+            <StaggerItem className="bg-[#25429A] rounded-2xl p-7 flex flex-col gap-4 min-h-90">
               <div>
                 <p className="text-white/55 text-[11px] font-semibold uppercase tracking-widest mb-1">
                   Tosin Agetusin
@@ -404,16 +392,14 @@ export default function AboutPage() {
                 financial support needed to pursue new career milestones. This
                 grant covers certification exam fees.
               </p>
-              <Link
-                href="#"
-                className="text-light-blue text-[13px] font-semibold hover:underline w-fit mt-auto"
-              >
-                Read more →
-              </Link>
-            </div>
+              <IndividualLearningModal
+                triggerLabel="Read more →"
+                triggerClassName="text-light-blue text-[13px] font-semibold hover:underline w-fit mt-auto cursor-pointer"
+              />
+            </StaggerItem>
 
             {/* Fast-Track — bright blue */}
-            <div className="bg-[#0066FF] rounded-2xl p-7 flex flex-col gap-4 min-h-90">
+            <StaggerItem className="bg-[#0066FF] rounded-2xl p-7 flex flex-col gap-4 min-h-90">
               <div>
                 <p className="text-white/80 text-[11px] font-extrabold uppercase tracking-[0.22em] mb-2">
                   FAST-TRACK
@@ -432,35 +418,28 @@ export default function AboutPage() {
                 your needs. This programme supports your road to world-class
                 career outcomes.`}
               </p>
-              <Link
-                href="#"
-                className="text-white text-[13px] font-semibold hover:underline w-fit mt-auto"
-              >
-                Read more →
-              </Link>
-            </div>
-          </div>
+              <IndividualLearningModal
+                triggerLabel="Read more →"
+                triggerClassName="text-white text-[13px] font-semibold hover:underline w-fit mt-auto cursor-pointer"
+              />
+            </StaggerItem>
+          </StaggerGroup>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════════
           9. BECOME A VOLUNTEER — centered dark CTA
       ══════════════════════════════════════════════ */}
-      <section className="bg-[#1A274F] py-16 lg:py-24">
-        <div className="flex flex-col items-center text-center gap-5 px-6">
+      <section className="bg-main py-16 lg:py-24">
+        <Reveal className="flex flex-col items-center text-center gap-5 px-6">
           <h2 className="text-white text-[26px] lg:text-[36px] font-extrabold leading-tight max-w-120">
             Become a Volunteer
           </h2>
           <p className="text-white/60 text-[14px] leading-relaxed max-w-100">
             Here is an opportunity to make a difference in the lives of people.
           </p>
-          <Link
-            href="/volunteer"
-            className="inline-flex items-center px-8 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors mt-2"
-          >
-            Continue Here
-          </Link>
-        </div>
+          <VolunteerRegistrationModal triggerLabel="Continue Here" />
+        </Reveal>
       </section>
     </main>
   );

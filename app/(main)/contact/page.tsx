@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import PageHero from "@/components/ui/page-hero";
+import SectionHeading from "@/components/ui/section-heading";
 
 /* ─────────────────────────────────────────
    OFFICE DATA
@@ -327,13 +328,7 @@ export default function ContactPage() {
       <section className="bg-white pb-20 lg:pb-24">
         <div className="max-w-[1280px] mx-auto px-6">
           {/* Heading */}
-          <h2 className="text-[#1A274F] text-[28px] lg:text-[36px] font-bold mb-3">
-            <span className="relative inline-block mr-2">
-              Our
-              <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-[#0066FF] rounded-full" />
-            </span>
-            Offices
-          </h2>
+          <SectionHeading title="Our Offices" className="mb-3" />
           <p className="text-[#374151] text-[14px] leading-[1.8] max-w-[780px] mb-10">
             Need to find a local office? We have 3 worldwide. To contact us, please complete the
             form below. We will use your information to communicate with you regarding your inquiry

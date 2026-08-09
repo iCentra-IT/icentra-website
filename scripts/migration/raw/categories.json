@@ -1,0 +1,3084 @@
+[
+  {
+    "id": 10,
+    "count": 4,
+    "description": "",
+    "link": "https://icentra.com/category/insights/agile-transformation/",
+    "name": "Agile Transformation",
+    "slug": "agile-transformation",
+    "taxonomy": "category",
+    "parent": 5,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/insights/agile-transformation/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"position\":2,\"name\":\"Insights\",\"item\":\"https:\\/\\/icentra.com\\/category\\/insights\\/\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/agile-transformation\\/#listItem\",\"name\":\"Agile Transformation\"},\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/agile-transformation\\/#listItem\",\"position\":3,\"name\":\"Agile Transformation\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"Agile Transformation - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "Agile Transformation - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/insights/agile-transformation/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/#listItem",
+                "position": 2,
+                "name": "Insights",
+                "item": "https://icentra.com/category/insights/",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/agile-transformation/#listItem",
+                  "name": "Agile Transformation"
+                },
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/agile-transformation/#listItem",
+                "position": 3,
+                "name": "Agile Transformation",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "Agile Transformation - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com/category/insights/\" title=\"Insights\">Insights</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tAgile Transformation\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "Insights",
+        "link": "https://icentra.com/category/insights/"
+      },
+      {
+        "label": "Agile Transformation",
+        "link": "https://icentra.com/category/insights/agile-transformation/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/10",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://icentra.com/wp-json/wp/v2/categories/5"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=10"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 82,
+    "count": 15,
+    "description": "",
+    "link": "https://icentra.com/category/case-study/",
+    "name": "Case study",
+    "slug": "case-study",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/case-study/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/case-study\\/#listItem\",\"name\":\"Case study\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/case-study\\/#listItem\",\"position\":2,\"name\":\"Case study\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"Case study - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "Case study - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/case-study/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/case-study/#listItem",
+                  "name": "Case study"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/case-study/#listItem",
+                "position": 2,
+                "name": "Case study",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "Case study - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tCase study\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "Case study",
+        "link": "https://icentra.com/category/case-study/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/82",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=82"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 78,
+    "count": 8,
+    "description": "",
+    "link": "https://icentra.com/category/insights/cybersecurity/",
+    "name": "Cybersecurity",
+    "slug": "cybersecurity",
+    "taxonomy": "category",
+    "parent": 5,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/insights/cybersecurity/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"position\":2,\"name\":\"Insights\",\"item\":\"https:\\/\\/icentra.com\\/category\\/insights\\/\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/cybersecurity\\/#listItem\",\"name\":\"Cybersecurity\"},\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/cybersecurity\\/#listItem\",\"position\":3,\"name\":\"Cybersecurity\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"Cybersecurity - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "Cybersecurity - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/insights/cybersecurity/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/#listItem",
+                "position": 2,
+                "name": "Insights",
+                "item": "https://icentra.com/category/insights/",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/cybersecurity/#listItem",
+                  "name": "Cybersecurity"
+                },
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/cybersecurity/#listItem",
+                "position": 3,
+                "name": "Cybersecurity",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "Cybersecurity - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com/category/insights/\" title=\"Insights\">Insights</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tCybersecurity\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "Insights",
+        "link": "https://icentra.com/category/insights/"
+      },
+      {
+        "label": "Cybersecurity",
+        "link": "https://icentra.com/category/insights/cybersecurity/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/78",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://icentra.com/wp-json/wp/v2/categories/5"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=78"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "count": 6,
+    "description": "",
+    "link": "https://icentra.com/category/insights/digital-transformation/",
+    "name": "Digital Transformation",
+    "slug": "digital-transformation",
+    "taxonomy": "category",
+    "parent": 5,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/insights/digital-transformation/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"position\":2,\"name\":\"Insights\",\"item\":\"https:\\/\\/icentra.com\\/category\\/insights\\/\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/digital-transformation\\/#listItem\",\"name\":\"Digital Transformation\"},\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/digital-transformation\\/#listItem\",\"position\":3,\"name\":\"Digital Transformation\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"Digital Transformation - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "Digital Transformation - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/insights/digital-transformation/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/#listItem",
+                "position": 2,
+                "name": "Insights",
+                "item": "https://icentra.com/category/insights/",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/digital-transformation/#listItem",
+                  "name": "Digital Transformation"
+                },
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/digital-transformation/#listItem",
+                "position": 3,
+                "name": "Digital Transformation",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "Digital Transformation - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com/category/insights/\" title=\"Insights\">Insights</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tDigital Transformation\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "Insights",
+        "link": "https://icentra.com/category/insights/"
+      },
+      {
+        "label": "Digital Transformation",
+        "link": "https://icentra.com/category/insights/digital-transformation/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/3",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://icentra.com/wp-json/wp/v2/categories/5"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=3"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 85,
+    "count": 5,
+    "description": "",
+    "link": "https://icentra.com/category/events/",
+    "name": "Events",
+    "slug": "events",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/events/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/events\\/#listItem\",\"name\":\"Events\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/events\\/#listItem\",\"position\":2,\"name\":\"Events\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"Events - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "Events - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/events/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/events/#listItem",
+                  "name": "Events"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/events/#listItem",
+                "position": 2,
+                "name": "Events",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "Events - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tEvents\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "Events",
+        "link": "https://icentra.com/category/events/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/85",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=85"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 79,
+    "count": 10,
+    "description": "",
+    "link": "https://icentra.com/category/insights/executive-training/",
+    "name": "Executive Training",
+    "slug": "executive-training",
+    "taxonomy": "category",
+    "parent": 5,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/insights/executive-training/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"position\":2,\"name\":\"Insights\",\"item\":\"https:\\/\\/icentra.com\\/category\\/insights\\/\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/executive-training\\/#listItem\",\"name\":\"Executive Training\"},\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/executive-training\\/#listItem\",\"position\":3,\"name\":\"Executive Training\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"Executive Training - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "Executive Training - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/insights/executive-training/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/#listItem",
+                "position": 2,
+                "name": "Insights",
+                "item": "https://icentra.com/category/insights/",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/executive-training/#listItem",
+                  "name": "Executive Training"
+                },
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/executive-training/#listItem",
+                "position": 3,
+                "name": "Executive Training",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "Executive Training - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com/category/insights/\" title=\"Insights\">Insights</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tExecutive Training\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "Insights",
+        "link": "https://icentra.com/category/insights/"
+      },
+      {
+        "label": "Executive Training",
+        "link": "https://icentra.com/category/insights/executive-training/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/79",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://icentra.com/wp-json/wp/v2/categories/5"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=79"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 88,
+    "count": 0,
+    "description": "",
+    "link": "https://icentra.com/category/inntech-past/",
+    "name": "inntech past",
+    "slug": "inntech-past",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/inntech-past/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/inntech-past\\/#listItem\",\"name\":\"inntech past\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/inntech-past\\/#listItem\",\"position\":2,\"name\":\"inntech past\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"inntech past - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "inntech past - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/inntech-past/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/inntech-past/#listItem",
+                  "name": "inntech past"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/inntech-past/#listItem",
+                "position": 2,
+                "name": "inntech past",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "inntech past - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tinntech past\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "inntech past",
+        "link": "https://icentra.com/category/inntech-past/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/88",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=88"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 87,
+    "count": 1,
+    "description": "",
+    "link": "https://icentra.com/category/inntech-upcoming/",
+    "name": "inntech upcoming",
+    "slug": "inntech-upcoming",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/inntech-upcoming/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/inntech-upcoming\\/#listItem\",\"name\":\"inntech upcoming\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/inntech-upcoming\\/#listItem\",\"position\":2,\"name\":\"inntech upcoming\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"inntech upcoming - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "inntech upcoming - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/inntech-upcoming/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/inntech-upcoming/#listItem",
+                  "name": "inntech upcoming"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/inntech-upcoming/#listItem",
+                "position": 2,
+                "name": "inntech upcoming",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "inntech upcoming - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tinntech upcoming\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "inntech upcoming",
+        "link": "https://icentra.com/category/inntech-upcoming/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/87",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=87"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "count": 96,
+    "description": "",
+    "link": "https://icentra.com/category/insights/",
+    "name": "Insights",
+    "slug": "insights",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/insights/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"position\":2,\"name\":\"Insights\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"Insights - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "Insights - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/insights/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/#listItem",
+                "position": 2,
+                "name": "Insights",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "Insights - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tInsights\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "Insights",
+        "link": "https://icentra.com/category/insights/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/5",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=5"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 75,
+    "count": 1,
+    "description": "",
+    "link": "https://icentra.com/category/insights/isms-iso/",
+    "name": "ISMS ISO",
+    "slug": "isms-iso",
+    "taxonomy": "category",
+    "parent": 5,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/insights/isms-iso/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"position\":2,\"name\":\"Insights\",\"item\":\"https:\\/\\/icentra.com\\/category\\/insights\\/\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/isms-iso\\/#listItem\",\"name\":\"ISMS ISO\"},\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/isms-iso\\/#listItem\",\"position\":3,\"name\":\"ISMS ISO\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"ISMS ISO - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "ISMS ISO - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/insights/isms-iso/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/#listItem",
+                "position": 2,
+                "name": "Insights",
+                "item": "https://icentra.com/category/insights/",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/isms-iso/#listItem",
+                  "name": "ISMS ISO"
+                },
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/isms-iso/#listItem",
+                "position": 3,
+                "name": "ISMS ISO",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "ISMS ISO - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com/category/insights/\" title=\"Insights\">Insights</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tISMS ISO\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "Insights",
+        "link": "https://icentra.com/category/insights/"
+      },
+      {
+        "label": "ISMS ISO",
+        "link": "https://icentra.com/category/insights/isms-iso/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/75",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://icentra.com/wp-json/wp/v2/categories/5"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=75"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 81,
+    "count": 3,
+    "description": "",
+    "link": "https://icentra.com/category/job-listing/",
+    "name": "Job-listing",
+    "slug": "job-listing",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/job-listing/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/job-listing\\/#listItem\",\"name\":\"Job-listing\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/job-listing\\/#listItem\",\"position\":2,\"name\":\"Job-listing\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"Job-listing - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "Job-listing - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/job-listing/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/job-listing/#listItem",
+                  "name": "Job-listing"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/job-listing/#listItem",
+                "position": 2,
+                "name": "Job-listing",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "Job-listing - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tJob-listing\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "Job-listing",
+        "link": "https://icentra.com/category/job-listing/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/81",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=81"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "count": 1,
+    "description": "",
+    "link": "https://icentra.com/category/insights/organizational-transformation/",
+    "name": "Organizational Transformation",
+    "slug": "organizational-transformation",
+    "taxonomy": "category",
+    "parent": 5,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/insights/organizational-transformation/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"position\":2,\"name\":\"Insights\",\"item\":\"https:\\/\\/icentra.com\\/category\\/insights\\/\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/organizational-transformation\\/#listItem\",\"name\":\"Organizational Transformation\"},\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/organizational-transformation\\/#listItem\",\"position\":3,\"name\":\"Organizational Transformation\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"Organizational Transformation - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "Organizational Transformation - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/insights/organizational-transformation/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/#listItem",
+                "position": 2,
+                "name": "Insights",
+                "item": "https://icentra.com/category/insights/",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/organizational-transformation/#listItem",
+                  "name": "Organizational Transformation"
+                },
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/organizational-transformation/#listItem",
+                "position": 3,
+                "name": "Organizational Transformation",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "Organizational Transformation - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com/category/insights/\" title=\"Insights\">Insights</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tOrganizational Transformation\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "Insights",
+        "link": "https://icentra.com/category/insights/"
+      },
+      {
+        "label": "Organizational Transformation",
+        "link": "https://icentra.com/category/insights/organizational-transformation/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/16",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://icentra.com/wp-json/wp/v2/categories/5"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=16"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "count": 8,
+    "description": "",
+    "link": "https://icentra.com/category/insights/pmo-solution/",
+    "name": "PMO Solution",
+    "slug": "pmo-solution",
+    "taxonomy": "category",
+    "parent": 5,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/insights/pmo-solution/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"position\":2,\"name\":\"Insights\",\"item\":\"https:\\/\\/icentra.com\\/category\\/insights\\/\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/pmo-solution\\/#listItem\",\"name\":\"PMO Solution\"},\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/pmo-solution\\/#listItem\",\"position\":3,\"name\":\"PMO Solution\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"PMO Solution - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "PMO Solution - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/insights/pmo-solution/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/#listItem",
+                "position": 2,
+                "name": "Insights",
+                "item": "https://icentra.com/category/insights/",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/pmo-solution/#listItem",
+                  "name": "PMO Solution"
+                },
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/pmo-solution/#listItem",
+                "position": 3,
+                "name": "PMO Solution",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "PMO Solution - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com/category/insights/\" title=\"Insights\">Insights</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tPMO Solution\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "Insights",
+        "link": "https://icentra.com/category/insights/"
+      },
+      {
+        "label": "PMO Solution",
+        "link": "https://icentra.com/category/insights/pmo-solution/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/11",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://icentra.com/wp-json/wp/v2/categories/5"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=11"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 65,
+    "count": 1,
+    "description": "",
+    "link": "https://icentra.com/category/insights/project-resourcing/",
+    "name": "Project Resourcing",
+    "slug": "project-resourcing",
+    "taxonomy": "category",
+    "parent": 5,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/insights/project-resourcing/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"position\":2,\"name\":\"Insights\",\"item\":\"https:\\/\\/icentra.com\\/category\\/insights\\/\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/project-resourcing\\/#listItem\",\"name\":\"Project Resourcing\"},\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/project-resourcing\\/#listItem\",\"position\":3,\"name\":\"Project Resourcing\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"Project Resourcing - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "Project Resourcing - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/insights/project-resourcing/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/#listItem",
+                "position": 2,
+                "name": "Insights",
+                "item": "https://icentra.com/category/insights/",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/project-resourcing/#listItem",
+                  "name": "Project Resourcing"
+                },
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/project-resourcing/#listItem",
+                "position": 3,
+                "name": "Project Resourcing",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "Project Resourcing - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com/category/insights/\" title=\"Insights\">Insights</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tProject Resourcing\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "Insights",
+        "link": "https://icentra.com/category/insights/"
+      },
+      {
+        "label": "Project Resourcing",
+        "link": "https://icentra.com/category/insights/project-resourcing/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/65",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://icentra.com/wp-json/wp/v2/categories/5"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=65"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "count": 1,
+    "description": "",
+    "link": "https://icentra.com/category/insights/risk-management/",
+    "name": "Risk Management",
+    "slug": "risk-management",
+    "taxonomy": "category",
+    "parent": 5,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/insights/risk-management/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"position\":2,\"name\":\"Insights\",\"item\":\"https:\\/\\/icentra.com\\/category\\/insights\\/\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/risk-management\\/#listItem\",\"name\":\"Risk Management\"},\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/risk-management\\/#listItem\",\"position\":3,\"name\":\"Risk Management\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"Risk Management - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "Risk Management - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/insights/risk-management/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/#listItem",
+                "position": 2,
+                "name": "Insights",
+                "item": "https://icentra.com/category/insights/",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/risk-management/#listItem",
+                  "name": "Risk Management"
+                },
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/risk-management/#listItem",
+                "position": 3,
+                "name": "Risk Management",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "Risk Management - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com/category/insights/\" title=\"Insights\">Insights</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tRisk Management\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "Insights",
+        "link": "https://icentra.com/category/insights/"
+      },
+      {
+        "label": "Risk Management",
+        "link": "https://icentra.com/category/insights/risk-management/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/7",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://icentra.com/wp-json/wp/v2/categories/5"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=7"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 66,
+    "count": 33,
+    "description": "",
+    "link": "https://icentra.com/category/spotlights/",
+    "name": "spotlights",
+    "slug": "spotlights",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/spotlights/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/spotlights\\/#listItem\",\"name\":\"spotlights\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/spotlights\\/#listItem\",\"position\":2,\"name\":\"spotlights\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"spotlights - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "spotlights - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/spotlights/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/spotlights/#listItem",
+                  "name": "spotlights"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/spotlights/#listItem",
+                "position": 2,
+                "name": "spotlights",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "spotlights - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tspotlights\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "spotlights",
+        "link": "https://icentra.com/category/spotlights/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/66",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=66"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "count": 6,
+    "description": "",
+    "link": "https://icentra.com/category/insights/strategy-management/",
+    "name": "Strategy Management",
+    "slug": "strategy-management",
+    "taxonomy": "category",
+    "parent": 5,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/insights/strategy-management/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"position\":2,\"name\":\"Insights\",\"item\":\"https:\\/\\/icentra.com\\/category\\/insights\\/\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/strategy-management\\/#listItem\",\"name\":\"Strategy Management\"},\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/strategy-management\\/#listItem\",\"position\":3,\"name\":\"Strategy Management\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/insights\\/#listItem\",\"name\":\"Insights\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"Strategy Management - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "Strategy Management - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/insights/strategy-management/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/#listItem",
+                "position": 2,
+                "name": "Insights",
+                "item": "https://icentra.com/category/insights/",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/strategy-management/#listItem",
+                  "name": "Strategy Management"
+                },
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/insights/strategy-management/#listItem",
+                "position": 3,
+                "name": "Strategy Management",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/insights/#listItem",
+                  "name": "Insights"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "Strategy Management - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com/category/insights/\" title=\"Insights\">Insights</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tStrategy Management\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "Insights",
+        "link": "https://icentra.com/category/insights/"
+      },
+      {
+        "label": "Strategy Management",
+        "link": "https://icentra.com/category/insights/strategy-management/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/4",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://icentra.com/wp-json/wp/v2/categories/5"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=4"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 1,
+    "count": 18,
+    "description": "",
+    "link": "https://icentra.com/category/uncategorized/",
+    "name": "uncategorized",
+    "slug": "uncategorized",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/uncategorized/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/uncategorized\\/#listItem\",\"name\":\"uncategorized\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/uncategorized\\/#listItem\",\"position\":2,\"name\":\"uncategorized\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"uncategorized - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "uncategorized - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/uncategorized/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/uncategorized/#listItem",
+                  "name": "uncategorized"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/uncategorized/#listItem",
+                "position": 2,
+                "name": "uncategorized",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "uncategorized - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tuncategorized\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "uncategorized",
+        "link": "https://icentra.com/category/uncategorized/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/1",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=1"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 86,
+    "count": 0,
+    "description": "",
+    "link": "https://icentra.com/category/events-2/",
+    "name": "Upcoming Event",
+    "slug": "events-2",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "aioseo_head": "\n\t\t<!-- All in One SEO 4.9.10 - aioseo.com -->\n\t<meta name=\"robots\" content=\"max-image-preview:large\" />\n\t<link rel=\"canonical\" href=\"https://icentra.com/category/events-2/\" />\n\t<meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.9.10\" />\n\t\t<script type=\"application/ld+json\" class=\"aioseo-schema\">\n\t\t\t{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\",\"itemListElement\":[{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/icentra.com\",\"nextItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/events-2\\/#listItem\",\"name\":\"Upcoming Event\"}},{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com\\/category\\/events-2\\/#listItem\",\"position\":2,\"name\":\"Upcoming Event\",\"previousItem\":{\"@type\":\"ListItem\",\"@id\":\"https:\\/\\/icentra.com#listItem\",\"name\":\"Home\"}}]},{\"@type\":\"CollectionPage\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#collectionpage\",\"url\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/\",\"name\":\"Upcoming Event - iCentra\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https:\\/\\/icentra.com\\/#website\"},\"breadcrumb\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#breadcrumblist\"}},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/icentra.com\\/#organization\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"url\":\"https:\\/\\/icentra.com\\/\",\"telephone\":\"+2348076757797\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/icentra.com\\/wp-content\\/uploads\\/2023\\/06\\/logo-1.png\",\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\",\"width\":597,\"height\":240},\"image\":{\"@id\":\"https:\\/\\/icentra.com\\/wp-json\\/wp\\/v2\\/categories\\/#organizationLogo\"},\"sameAs\":[\"https:\\/\\/www.facebook.com\\/icentra\",\"https:\\/\\/twitter.com\\/icentra\",\"https:\\/\\/www.linkedin.com\\/company\\/icentra-group\\/\"]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/icentra.com\\/#website\",\"url\":\"https:\\/\\/icentra.com\\/\",\"name\":\"iCentra\",\"description\":\"Transforming people and organizations for success\",\"inLanguage\":\"en-US\",\"publisher\":{\"@id\":\"https:\\/\\/icentra.com\\/#organization\"}}]}\n\t\t</script>\n\t\t<!-- All in One SEO -->\n\n",
+    "aioseo_head_json": {
+      "title": "Upcoming Event - iCentra",
+      "description": "",
+      "canonical_url": "https://icentra.com/category/events-2/",
+      "robots": "max-image-preview:large",
+      "keywords": "",
+      "webmasterTools": {
+        "miscellaneous": ""
+      },
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com#listItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://icentra.com",
+                "nextItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com/category/events-2/#listItem",
+                  "name": "Upcoming Event"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "@id": "https://icentra.com/category/events-2/#listItem",
+                "position": 2,
+                "name": "Upcoming Event",
+                "previousItem": {
+                  "@type": "ListItem",
+                  "@id": "https://icentra.com#listItem",
+                  "name": "Home"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://icentra.com/wp-json/wp/v2/categories/#collectionpage",
+            "url": "https://icentra.com/wp-json/wp/v2/categories/",
+            "name": "Upcoming Event - iCentra",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://icentra.com/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#breadcrumblist"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://icentra.com/#organization",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "url": "https://icentra.com/",
+            "telephone": "+2348076757797",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://icentra.com/wp-content/uploads/2023/06/logo-1.png",
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo",
+              "width": 597,
+              "height": 240
+            },
+            "image": {
+              "@id": "https://icentra.com/wp-json/wp/v2/categories/#organizationLogo"
+            },
+            "sameAs": [
+              "https://www.facebook.com/icentra",
+              "https://twitter.com/icentra",
+              "https://www.linkedin.com/company/icentra-group/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://icentra.com/#website",
+            "url": "https://icentra.com/",
+            "name": "iCentra",
+            "description": "Transforming people and organizations for success",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://icentra.com/#organization"
+            }
+          }
+        ]
+      }
+    },
+    "aioseo_breadcrumb": "<div class=\"aioseo-breadcrumbs\"><span class=\"aioseo-breadcrumb\">\n\t\t\t<a href=\"https://icentra.com\" title=\"Home\">Home</a>\n\t\t</span><span class=\"aioseo-breadcrumb-separator\">&raquo;</span><span class=\"aioseo-breadcrumb\">\n\t\t\tUpcoming Event\n\t\t</span></div>",
+    "aioseo_breadcrumb_json": [
+      {
+        "label": "Home",
+        "link": "https://icentra.com"
+      },
+      {
+        "label": "Upcoming Event",
+        "link": "https://icentra.com/category/events-2/"
+      }
+    ],
+    "_links": {
+      "self": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories/86",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://icentra.com/wp-json/wp/v2/posts?categories=86"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]

@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const MotionLink = motion.create(Link);
 
 interface ServiceCardProps {
   image: string;
@@ -21,8 +24,12 @@ export default function ServiceCard({
   href,
 }: ServiceCardProps) {
   return (
-    <Link
+    <MotionLink
       href={href}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className="group relative block w-full max-w-70 aspect-3/4 rounded-2xl overflow-hidden cursor-pointer"
     >
       {/* Background image — scales & dims on hover */}
@@ -76,6 +83,6 @@ export default function ServiceCard({
           ))}
         </ul>
       </div>
-    </Link>
+    </MotionLink>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import SectionHeading from "@/components/ui/section-heading";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
@@ -61,19 +62,13 @@ export default function TrustedPartners({
 
   return (
     <section className="relative bg-white border-[#DCE0E8] py-12 lg:py-16 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-[#1A274F] text-[22px] lg:text-[28px] font-bold mb-2">
-          <span className="relative inline-block">
-            Our
-            <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-secondary " />
-          </span>{" "}
-          Trusted Partners
-        </h2>
-
-        <p className="text-[#6B7A99] text-[13px] mb-8">
-          Proudly collaborating with global standards organizations and
-          technology leaders.
-        </p>
+      <div className="max-w-7xl mx-auto">
+        <SectionHeading
+          title="Our Trusted Partners"
+          subtitle="Proudly collaborating with global standards organizations and
+          technology leaders."
+          className="mb-8"
+        />
       </div>
 
       <div className="relative w-full mask-[linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
@@ -84,10 +79,7 @@ export default function TrustedPartners({
           className="flex w-max items-center gap-16 will-change-transform"
         >
           {[...partners, ...partners].map((p, i) => (
-            <div
-              key={`${p.name}-${i}`}
-              className="relative h-18 w-24 shrink-0"
-            >
+            <div key={`${p.name}-${i}`} className="relative h-18 w-24 shrink-0">
               <Image
                 src={p.src}
                 alt={p.name}

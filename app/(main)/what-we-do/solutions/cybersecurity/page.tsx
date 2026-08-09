@@ -1,5 +1,6 @@
 import BlogCard from "@/components/ui/cards/blog-card";
 import PageHero from "@/components/ui/page-hero";
+import SectionHeading from "@/components/ui/section-heading";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -83,21 +84,21 @@ const projects = [
     logoText: "NRS",
     title: "Journey to Information Security Excellence at NRS",
     desc: "NNPC Limited's Information Technology Division (ITD) embarked on a transformative...",
-    href: "/case-studies/nrs-information-security",
+    href: "/industry/case-study",
   },
   {
     bgImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80",
     logoText: "CBN",
     title: "Transforming Project Management at CBN",
     desc: "NNPC Limited's Information Technology Division (ITD) embarked on a transformative...",
-    href: "/case-studies/cbn-project-management",
+    href: "/industry/case-study",
   },
   {
     bgImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
     logoText: "NNPC",
     title: "Driving Agile Transformation at NNPC Limited IT Division.",
     desc: "NNPC Limited's Information Technology Division (ITD) embarked on a transformative...",
-    href: "/case-studies/nnpc-agile-transformation",
+    href: "/industry/case-study",
   },
 ];
 
@@ -367,14 +368,9 @@ export default function CybersecurityPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-[1280px] mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[22px] lg:text-[28px] font-bold text-center mb-10">
-            What Our{" "}
-            <span className="relative inline-block">
-              Client
-              <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-[#0066FF] rounded-full" />
-            </span>{" "}
-            Say About Us
-          </h2>
+          <div className="text-center mb-10">
+            <SectionHeading title="What Our Client Say About Us" />
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
@@ -451,13 +447,7 @@ export default function CybersecurityPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white py-14 lg:py-20">
         <div className="max-w-[1280px] mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[22px] lg:text-[28px] font-bold mb-10">
-            <span className="relative inline-block mr-1">
-              Insight
-              <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-[#0066FF] rounded-full" />
-            </span>{" "}
-            Article
-          </h2>
+          <SectionHeading title="Insight Article" className="mb-10" />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {insightCards.map((card) => (

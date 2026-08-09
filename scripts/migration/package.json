@@ -1,0 +1,21 @@
+{
+  "name": "migration",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@sanity/block-tools": "^3.70.0",
+    "@sanity/client": "^7.25.0",
+    "@sanity/schema": "^6.7.0",
+    "dotenv": "^17.4.2",
+    "jsdom": "^29.1.1",
+    "node-fetch": "^3.3.2"
+  }
+}
