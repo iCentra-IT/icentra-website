@@ -77608,7 +77608,14 @@
         "_ref": "wp-category-5",
         "_key": "cat-5"
       }
-    ]
+    ],
+    "mainImage": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-5f3dcac08e5eaaedb0ceba3689edde032ad672e0-1350x600-jpg"
+      }
+    }
   },
   {
     "_type": "post",

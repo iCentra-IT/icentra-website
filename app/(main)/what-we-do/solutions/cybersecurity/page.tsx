@@ -1,6 +1,8 @@
 import BlogCard from "@/components/ui/cards/blog-card";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
+import { CardCarouselSection } from "@/components/ui/carousel/carouselComponent";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -204,7 +206,7 @@ export default function CybersecurityPage() {
           2. INTRO — 2 paragraphs
       ══════════════════════════════════════ */}
       <section className="bg-white py-14 lg:py-16">
-        <div className="max-w-[1280px] mx-auto px-6 flex flex-col gap-4 max-w-[900px]">
+        <Reveal className="max-w-[1280px] mx-auto px-6 flex flex-col gap-4 max-w-[900px]">
           <p className="text-[#374151] text-[15px] leading-[1.85]">
             In today&apos;s hyper-connected world, cyber threats are evolving faster than ever, targeting
             vulnerabilities in systems, people, and processes. Many organizations are exposed due to
@@ -217,13 +219,13 @@ export default function CybersecurityPage() {
             assets, managing risks, and ensuring regulatory compliance. Our approach is strategic,
             proactive, and tailored to your unique environment.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       {/* ══════════════════════════════════════
           3. FULL-WIDTH CYBER IMAGE
       ══════════════════════════════════════ */}
-      <div className="w-full max-w-[1280px] mx-auto px-6 pb-14">
+      <Reveal as="div" className="w-full max-w-[1280px] mx-auto px-6 pb-14">
         <div className="relative w-full h-[240px] sm:h-[320px] lg:h-[400px] rounded-2xl overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1400&q=80"
@@ -240,7 +242,7 @@ export default function CybersecurityPage() {
             </svg>
           </div>
         </div>
-      </div>
+      </Reveal>
 
       {/* ══════════════════════════════════════
           4. SERVICES — intro + 5-tile grid
@@ -257,24 +259,24 @@ export default function CybersecurityPage() {
           </p>
 
           {/* First 3 services */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             {services.slice(0, 3).map((s) => (
-              <div key={s.title}>
+              <StaggerItem key={s.title}>
                 <h4 className="text-[#1A274F] text-[14px] font-bold mb-1.5">{s.title}</h4>
                 <p className="text-[#6B7280] text-[13px] leading-relaxed">{s.desc}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
 
           {/* Last 2 services */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[860px]">
+          <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[860px]">
             {services.slice(3).map((s) => (
-              <div key={s.title}>
+              <StaggerItem key={s.title}>
                 <h4 className="text-[#1A274F] text-[14px] font-bold mb-1.5">{s.title}</h4>
                 <p className="text-[#6B7280] text-[13px] leading-relaxed">{s.desc}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </section>
 
@@ -296,7 +298,7 @@ export default function CybersecurityPage() {
             <rect width="100%" height="100%" fill="url(#fortifyDots)" />
           </svg>
         </div>
-        <div className="relative z-10 max-w-[680px] mx-auto px-6 flex flex-col items-center text-center gap-4">
+        <Reveal className="relative z-10 max-w-[680px] mx-auto px-6 flex flex-col items-center text-center gap-4">
           <h2 className="text-white text-[26px] lg:text-[34px] font-extrabold leading-tight">
             Let&apos;s Fortify Your Cyber Defences
           </h2>
@@ -306,7 +308,7 @@ export default function CybersecurityPage() {
           <div className="mt-2">
             <ConsultationBtn />
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* ══════════════════════════════════════
@@ -314,21 +316,22 @@ export default function CybersecurityPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-[1280px] mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[26px] lg:text-[30px] font-bold mb-1">How It Works</h2>
-          <p className="text-[#6B7280] text-[14px] mb-12">
-            Our cybersecurity approach is structured, comprehensive, and business-aligned.
-          </p>
+          <SectionHeading
+            title="How It Works"
+            subtitle="Our cybersecurity approach is structured, comprehensive, and business-aligned."
+            className="mb-1"
+          />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
             {howItWorks.map((step) => (
-              <div key={step.step} className="flex flex-col gap-3">
+              <StaggerItem key={step.step} className="flex flex-col gap-3">
                 {/* Step number */}
                 <span className="text-[#DCE0E8] text-[36px] font-extrabold leading-none">{step.step}</span>
                 <h4 className="text-[#1A274F] text-[15px] font-bold">{step.title}</h4>
                 <p className="text-[#6B7280] text-[13px] leading-relaxed">{step.desc}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </section>
 
@@ -350,7 +353,7 @@ export default function CybersecurityPage() {
             <rect width="100%" height="100%" fill="url(#criticalDots)" />
           </svg>
         </div>
-        <div className="relative z-10 max-w-[740px] mx-auto px-6 flex flex-col items-center text-center gap-4">
+        <Reveal className="relative z-10 max-w-[740px] mx-auto px-6 flex flex-col items-center text-center gap-4">
           <h2 className="text-white text-[24px] lg:text-[32px] font-extrabold leading-tight">
             Cybersecurity Is Not Optional — It&apos;s Critical
           </h2>
@@ -360,7 +363,7 @@ export default function CybersecurityPage() {
           <div className="mt-2">
             <ConsultationBtn />
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* ══════════════════════════════════════
@@ -372,9 +375,9 @@ export default function CybersecurityPage() {
             <SectionHeading title="What Our Client Say About Us" />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
-              <div key={i} className="bg-[#F7F9FC] rounded-2xl p-6 flex flex-col gap-4 border border-[#DCE0E8]">
+              <StaggerItem key={i} className="bg-[#F7F9FC] rounded-2xl p-6 flex flex-col gap-4 border border-[#DCE0E8]">
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3 min-w-0">
                     <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0 bg-[#A8B8F8]">
@@ -390,57 +393,42 @@ export default function CybersecurityPage() {
                 <p className="text-[#374151] text-[13px] leading-relaxed flex-1">
                   &ldquo;{t.text}&rdquo;
                 </p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </section>
 
       {/* ══════════════════════════════════════
           9. HIGHLIGHTED TRANSFORMATION PROJECTS
       ══════════════════════════════════════ */}
-      <section className="bg-[#F7F9FC] py-14 lg:py-20">
-        <div className="max-w-[1280px] mx-auto px-6">
-          <div className="flex items-center justify-between gap-4 mb-3">
-            <h2 className="text-[#1A274F] text-[22px] lg:text-[28px] font-bold">
-              Highlighted Transformation Projects
-            </h2>
-            <div className="flex gap-2 shrink-0">
-              {["left", "right"].map((d) => (
-                <button key={d} aria-label={d === "left" ? "Previous" : "Next"}
-                  className="w-9 h-9 rounded-full border border-[#DCE0E8] flex items-center justify-center text-[#1A274F] hover:border-[#0066FF] hover:text-[#0066FF] transition-colors">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d={d === "left" ? "M15 19l-7-7 7-7" : "M9 5l7 7-7 7"} />
-                  </svg>
-                </button>
-              ))}
+      <CardCarouselSection
+        items={projects}
+        getKey={(p) => p.title}
+        heading="Highlighted Transformation Projects"
+        underlineWord="Highlighted"
+        bgClassName="bg-[#F7F9FC]"
+        renderCard={(p) => (
+          <div className="bg-white rounded-2xl overflow-hidden border border-[#DCE0E8] flex flex-col h-full">
+            <div className="relative h-[180px] overflow-hidden bg-[#EAF3FB]">
+              <Image src={p.bgImage} alt={p.title} fill className="object-cover opacity-40" sizes="400px" />
+              <div className="absolute inset-0 bg-[#1A274F]/30" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-white text-[28px] font-extrabold tracking-widest drop-shadow">{p.logoText}</span>
+              </div>
+            </div>
+            <div className="p-5 flex flex-col flex-1 gap-2">
+              <h3 className="text-[#1A274F] text-[14px] font-semibold leading-snug">{p.title}</h3>
+              <p className="text-[#6B7280] text-[13px] leading-relaxed flex-1">{p.desc}</p>
+              <div className="mt-3">
+                <Link href={p.href} className="inline-flex items-center px-5 py-2 rounded-full bg-[#0066FF] text-white text-[13px] font-medium hover:bg-[#25429A] transition-colors">
+                  Read More
+                </Link>
+              </div>
             </div>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {projects.map((p) => (
-              <div key={p.title} className="bg-white rounded-2xl overflow-hidden border border-[#DCE0E8] flex flex-col">
-                <div className="relative h-[180px] overflow-hidden bg-[#EAF3FB]">
-                  <Image src={p.bgImage} alt={p.title} fill className="object-cover opacity-40" sizes="400px" />
-                  <div className="absolute inset-0 bg-[#1A274F]/30" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-white text-[28px] font-extrabold tracking-widest drop-shadow">{p.logoText}</span>
-                  </div>
-                </div>
-                <div className="p-5 flex flex-col flex-1 gap-2">
-                  <h3 className="text-[#1A274F] text-[14px] font-semibold leading-snug">{p.title}</h3>
-                  <p className="text-[#6B7280] text-[13px] leading-relaxed flex-1">{p.desc}</p>
-                  <div className="mt-3">
-                    <Link href={p.href} className="inline-flex items-center px-5 py-2 rounded-full bg-[#0066FF] text-white text-[13px] font-medium hover:bg-[#25429A] transition-colors">
-                      Read More
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        )}
+      />
 
       {/* ══════════════════════════════════════
           10. INSIGHT ARTICLE — BlogCard ×3

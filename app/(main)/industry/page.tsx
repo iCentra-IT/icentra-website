@@ -6,6 +6,7 @@ import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
 import { CardCarouselSection } from "@/components/ui/carousel/carouselComponent";
 import { NewsletterModal, WebinarRegistrationModal } from "@/components/forms/all-forms";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -212,9 +213,9 @@ export default function IndustriesPage() {
             <SectionHeading title="What Our Clients Are Saying" />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
-              <div key={i} className="bg-[#F7F9FC] rounded-2xl p-6 flex flex-col gap-4 border border-[#DCE0E8]">
+              <StaggerItem key={i} className="bg-[#F7F9FC] rounded-2xl p-6 flex flex-col gap-4 border border-[#DCE0E8]">
                 <div className="flex items-center gap-3">
                   <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0 bg-[#A8B8F8]">
                     <Image src={t.avatar} alt={t.name} fill className="object-cover" sizes="40px" />
@@ -230,9 +231,9 @@ export default function IndustriesPage() {
                 <p className="text-[#374151] text-[13px] leading-relaxed flex-1">
                   &ldquo;{t.text}&rdquo;
                 </p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </section>
 
@@ -240,7 +241,7 @@ export default function IndustriesPage() {
           5. READY TO START? — dark navy CTA banner
       ══════════════════════════════════════ */}
       <section className="bg-main py-14 lg:py-16">
-        <div className="max-w-170 mx-auto px-6 flex flex-col items-center text-center gap-4">
+        <Reveal className="max-w-170 mx-auto px-6 flex flex-col items-center text-center gap-4">
           <h2 className="text-white text-[24px] lg:text-[32px] font-extrabold leading-tight">
             Ready to Start Your Transformation?
           </h2>
@@ -253,7 +254,7 @@ export default function IndustriesPage() {
           >
             Get In Touch
           </Link>
-        </div>
+        </Reveal>
       </section>
 
       {/* ══════════════════════════════════════
@@ -261,13 +262,14 @@ export default function IndustriesPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[24px] lg:text-[28px] font-bold mb-1">Insights</h2>
-          <p className="text-[#6B7280] text-[13px] mb-8">
-            Original insights, reports, and events that spark transformation and drive results.
-          </p>
+          <SectionHeading
+            title="Insights"
+            subtitle="Original insights, reports, and events that spark transformation and drive results."
+            className="mb-2"
+          />
 
           {/* Search + filter bar */}
-          <div className="flex flex-col sm:flex-row gap-3 mb-10">
+          <div className="flex flex-col sm:flex-row gap-3 mb-10 mt-8">
             {/* Search */}
             <div className="relative flex-1 max-w-85">
               <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9CA3AF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -315,7 +317,7 @@ export default function IndustriesPage() {
           7. STAY IN THE KNOW — light blue newsletter banner
       ══════════════════════════════════════ */}
       <section className="bg-[#EAF3FB] py-14 lg:py-16">
-        <div className="max-w-150 mx-auto px-6 flex flex-col items-center text-center gap-4">
+        <Reveal className="max-w-150 mx-auto px-6 flex flex-col items-center text-center gap-4">
           <h2 className="text-[#1A274F] text-[24px] lg:text-[30px] font-bold leading-tight">
             Stay in the Know
           </h2>
@@ -323,7 +325,7 @@ export default function IndustriesPage() {
             Subscribe to receive the latest articles, reports, and event invitations delivered straight to your inbox.
           </p>
           <NewsletterModal triggerClassName="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#25429A] transition-colors mt-1" />
-        </div>
+        </Reveal>
       </section>
 
       {/* ══════════════════════════════════════
@@ -331,35 +333,35 @@ export default function IndustriesPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[24px] lg:text-[28px] font-bold mb-2">
-            White Papers &amp; Reports
-          </h2>
-          <p className="text-[#6B7280] text-[13px] mb-10 max-w-140">
-            Download strategic documents, original research, and practical frameworks created by our experts to support your transformation journey.
-          </p>
+          <SectionHeading
+            title="White Papers & Reports"
+            subtitle="Download strategic documents, original research, and practical frameworks created by our experts to support your transformation journey."
+            className="mb-2"
+          />
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8">
             {whitepapers.map((wp) => (
-              <Link
-                key={wp.title}
-                href={wp.href}
-                className="group flex flex-col gap-3"
-              >
-                <div className="relative w-full aspect-4/3 rounded-2xl overflow-hidden">
-                  <Image
-                    src={wp.image}
-                    alt={wp.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-                <p className="text-[#1A274F] text-[15px] font-semibold leading-snug group-hover:text-[#0066FF] transition-colors">
-                  {wp.title}
-                </p>
-              </Link>
+              <StaggerItem key={wp.title}>
+                <Link
+                  href={wp.href}
+                  className="group flex flex-col gap-3"
+                >
+                  <div className="relative w-full aspect-4/3 rounded-2xl overflow-hidden">
+                    <Image
+                      src={wp.image}
+                      alt={wp.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <p className="text-[#1A274F] text-[15px] font-semibold leading-snug group-hover:text-[#0066FF] transition-colors">
+                    {wp.title}
+                  </p>
+                </Link>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </section>
 
@@ -367,7 +369,7 @@ export default function IndustriesPage() {
           9. TRANSFORMATION STARTS WITH CONVERSATION — dark CTA banner
       ══════════════════════════════════════ */}
       <section className="bg-main py-16 lg:py-20">
-        <div className="max-w-175 mx-auto px-6 flex flex-col items-center text-center gap-5">
+        <Reveal className="max-w-175 mx-auto px-6 flex flex-col items-center text-center gap-5">
           <h2 className="text-white text-[24px] lg:text-[34px] font-extrabold leading-tight">
             Transformation starts with conversation.
           </h2>
@@ -383,7 +385,7 @@ export default function IndustriesPage() {
               View Past Recordings
             </Link>
           </div>
-        </div>
+        </Reveal>
       </section>
 
     </main>

@@ -3,6 +3,7 @@ import BlogCard from "@/components/ui/cards/blog-card";
 import ServiceCard from "@/components/ui/cards/service-card";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -158,7 +159,7 @@ export default function ContinuousTransformationPage() {
         <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
 
           {/* Left */}
-          <div className="flex-1 min-w-0">
+          <Reveal className="flex-1 min-w-0">
             <h2 className="text-[#1A274F] text-[19px] lg:text-[22px] font-bold leading-snug mb-5">
               Transformation Is No Longer A One-Time Initiative — It Is A Continuous Capability
             </h2>
@@ -174,10 +175,10 @@ export default function ContinuousTransformationPage() {
                 strategy, governance, execution, and workforce capability.
               </p>
             </div>
-          </div>
+          </Reveal>
 
           {/* Right — branded office image */}
-          <div className="relative shrink-0 w-full lg:w-100 h-70 lg:h-80 rounded-2xl overflow-hidden">
+          <Reveal delay={0.15} className="relative shrink-0 w-full lg:w-100 h-70 lg:h-80 rounded-2xl overflow-hidden">
             <Image
               src="/images/cont-trans/cont1.png"
               alt="iCentra team"
@@ -194,7 +195,7 @@ export default function ContinuousTransformationPage() {
               </div>
               <span className="text-[#1A274F] text-[12px] font-bold">iCentra</span>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -207,7 +208,7 @@ export default function ContinuousTransformationPage() {
 
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
             {/* Left — bullet list */}
-            <div className="flex-1 min-w-0">
+            <Reveal className="flex-1 min-w-0">
               <p className="text-[#1A274F] text-base font-semibold mb-3">
                 Many organizations experience:
               </p>
@@ -225,15 +226,15 @@ export default function ContinuousTransformationPage() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
 
             {/* Right — result */}
-            <div className="lg:w-85 shrink-0">
+            <Reveal delay={0.15} className="lg:w-85 shrink-0">
               <p className="text-[#1A274F] text-base font-semibold mb-3">The result?</p>
               <p className="text-[#374151] text-base leading-[1.8]">
                 Repeated transformation efforts without lasting performance improvement.
               </p>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -245,7 +246,7 @@ export default function ContinuousTransformationPage() {
         <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
 
           {/* Left */}
-          <div className="flex-1 min-w-0">
+          <Reveal className="flex-1 min-w-0">
             <SectionHeading title="The New Operating Model" className="mb-6" />
             <p className="text-[#374151] text-base leading-[1.8] mb-4">
               Continuous Transformation moves organizations from episodic change to sustained
@@ -268,10 +269,10 @@ export default function ContinuousTransformationPage() {
               into a unified operating system.<br />
               Transformation becomes continuous measurable and sustainable.
             </p>
-          </div>
+          </Reveal>
 
           {/* Right — image */}
-          <div className="relative shrink-0 w-full lg:w-105 h-75 lg:h-85 rounded-2xl overflow-hidden">
+          <Reveal delay={0.15} className="relative shrink-0 w-full lg:w-105 h-75 lg:h-85 rounded-2xl overflow-hidden">
             <Image
               src="/images/cont-trans/cont2.png"
               alt="iCentra operating model"
@@ -279,7 +280,7 @@ export default function ContinuousTransformationPage() {
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 420px"
             />
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -290,14 +291,14 @@ export default function ContinuousTransformationPage() {
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading title="A Structured System for Continuous Transformation" className="mb-6" />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+          <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
             {structuredSystem.map((item) => (
-              <div key={item.title}>
+              <StaggerItem key={item.title}>
                 <h4 className="text-[#1A274F] text-base font-bold mb-2">{item.title}</h4>
                 <p className="text-[#6B7280] text-base leading-relaxed">{item.desc}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
 
           <div className="flex justify-center">
             <Link
@@ -315,14 +316,13 @@ export default function ContinuousTransformationPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[26px] lg:text-[30px] font-bold mb-2">
-            Built to Work as One System
-          </h2>
-          <p className="text-[#6B7280] text-base mb-10">
-            Each pillar strengthens your continuous transformation capability.
-          </p>
+          <SectionHeading
+            title="Built to Work as One System"
+            subtitle="Each pillar strengthens your continuous transformation capability."
+            className="mb-2"
+          />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-8">
             {serviceCards.map((card) => (
               <div key={card.href} className="[&>a]:max-w-none [&>a]:w-full [&>a]:aspect-auto [&>a]:h-95">
                 <ServiceCard
@@ -343,16 +343,16 @@ export default function ContinuousTransformationPage() {
           7. STATS BAR — dark navy, 4 metrics
       ══════════════════════════════════════ */}
       <section className="bg-main py-10 lg:py-12">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
+        <StaggerGroup className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
           {stats.map((s) => (
-            <div key={s.label} className="flex flex-col items-center text-center px-4 py-4 lg:py-0">
+            <StaggerItem key={s.label} className="flex flex-col items-center text-center px-4 py-4 lg:py-0">
               <span className="text-white text-[32px] lg:text-[40px] font-extrabold leading-none">
                 {s.value}
               </span>
               <span className="text-white/55 text-[12px] lg:text-[13px] mt-1.5">{s.label}</span>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </section>
 
       {/* ══════════════════════════════════════
@@ -367,13 +367,11 @@ export default function ContinuousTransformationPage() {
       ══════════════════════════════════════ */}
       <section className="">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[24px] lg:text-[30px] font-bold mb-8">
-            Transformation Readiness Assessment™
-          </h2>
+          <SectionHeading title="Transformation Readiness Assessment™" className="mb-8" />
 
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 items-start">
             {/* Left — Understand */}
-            <div className="flex-1 min-w-0">
+            <Reveal className="flex-1 min-w-0">
               <p className="text-[#1A274F] text-base font-semibold mb-3">
                 Understand your organization&apos;s transformation maturity across:
               </p>
@@ -390,10 +388,10 @@ export default function ContinuousTransformationPage() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
 
             {/* Right — Receive */}
-            <div className="flex-1 min-w-0">
+            <Reveal delay={0.15} className="flex-1 min-w-0">
               <p className="text-[#1A274F] text-base font-semibold mb-3">Receive:</p>
               <ul className="flex flex-col gap-2">
                 {[
@@ -407,7 +405,7 @@ export default function ContinuousTransformationPage() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -417,9 +415,7 @@ export default function ContinuousTransformationPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[26px] lg:text-[32px] font-bold mb-10">
-            Why Continuous Transformation is the New Competitive Advantage
-          </h2>
+          <SectionHeading title="Why Continuous Transformation is the New Competitive Advantage" className="mb-10" />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {blogCards.map((card) => (
@@ -441,7 +437,7 @@ export default function ContinuousTransformationPage() {
           11. FINAL CTA BANNER — centered dark navy
       ══════════════════════════════════════ */}
       <section className="bg-main py-16 lg:py-24">
-        <div className="max-w-170 mx-auto px-6 flex flex-col items-center text-center gap-5">
+        <Reveal className="max-w-170 mx-auto px-6 flex flex-col items-center text-center gap-5">
           <h2 className="text-white text-[26px] lg:text-[36px] font-extrabold leading-tight">
             The Future Belongs to Organizations That Experience Continuous Transformation
           </h2>
@@ -454,7 +450,7 @@ export default function ContinuousTransformationPage() {
           >
             Talk to us today
           </Link>
-        </div>
+        </Reveal>
       </section>
 
     </main>

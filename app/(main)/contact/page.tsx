@@ -1,34 +1,46 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  ComposableMap,
+  Geographies,
+  Geography,
+  Marker,
+} from "react-simple-maps";
+import worldTopoJson from "world-atlas/countries-110m.json";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
+import { StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 
 /* ─────────────────────────────────────────
-   OFFICE DATA
+   OFFICE DATA — coordinates are real [longitude, latitude]
 ───────────────────────────────────────── */
 const offices = [
   {
     country: "United States",
-    address: "110 W Randol Mill Road,\nArlington, Texas, TX 76011",
+    city: "Arlington, Texas",
+    address: "110 W Randol Mill Road, Arlington, Texas, TX 76011",
     phone: "+1 682 373 2737",
     email: "texas@icentra.com",
-    position: "top-left",
+    coordinates: [-97.1075, 32.7357] as [number, number],
   },
   {
     country: "United Kingdom",
-    address: "20-22 Wenlock Road\nLondon, N1 7GU.",
+    city: "London",
+    address: "20-22 Wenlock Road, London, N1 7GU",
     phone: "+44 800 043 4946",
     email: "london@icentra.com",
-    position: "top-right",
+    coordinates: [-0.1278, 51.5074] as [number, number],
   },
   {
     country: "Nigeria",
-    address: "47B Kumasi Crescent Wuse II,\nAbuja, 900288",
+    city: "Abuja",
+    address: "47B Kumasi Crescent Wuse II, Abuja, 900288",
     phone: "+234 807 675 7797",
     email: "abuja@icentra.com",
-    position: "bottom-right",
+    coordinates: [7.4951, 9.0765] as [number, number],
   },
 ];
 
@@ -56,18 +68,61 @@ function EmailIcon() {
     </svg>
   );
 }
+function CopyIcon() {
+  return (
+    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <rect x="9" y="9" width="11" height="11" rx="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 15H4a1 1 0 01-1-1V4a1 1 0 011-1h10a1 1 0 011 1v1" />
+    </svg>
+  );
+}
+function CheckIcon() {
+  return (
+    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+    </svg>
+  );
+}
 
 /* ─────────────────────────────────────────
-   OFFICE CARD
+   OFFICE CARD — click anywhere to copy the address
 ───────────────────────────────────────── */
-function OfficeCard({ office }: { office: typeof offices[number] }) {
+function OfficeCard({ office }: { office: (typeof offices)[number] }) {
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (!copied) return;
+    const timer = setTimeout(() => setCopied(false), 2000);
+    return () => clearTimeout(timer);
+  }, [copied]);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(office.address);
+      setCopied(true);
+    } catch {
+      // clipboard API unavailable — silently ignore
+    }
+  };
+
   return (
-    <div className="bg-white rounded-2xl shadow-lg border border-[#E5E7EB] p-6 w-full max-w-[260px]">
-      <h3 className="text-[#0066FF] text-[16px] font-bold mb-4">{office.country}</h3>
+    <motion.button
+      type="button"
+      onClick={handleCopy}
+      whileHover={{ y: -4 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      className="group relative text-left w-full h-full bg-white rounded-2xl shadow-lg border border-[#E5E7EB] hover:border-[#0066FF] p-6 cursor-pointer transition-colors"
+      aria-label={`Copy ${office.country} office address`}
+    >
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-[#0066FF] text-[16px] font-bold">{office.country}</h3>
+        <span className="text-[#9CA3AF] text-[11px] font-medium">{office.city}</span>
+      </div>
       <div className="flex flex-col gap-3">
         <div className="flex items-start gap-2.5">
           <LocationIcon />
-          <p className="text-[#374151] text-[13px] leading-relaxed whitespace-pre-line">{office.address}</p>
+          <p className="text-[#374151] text-[13px] leading-relaxed">{office.address}</p>
         </div>
         <div className="flex items-start gap-2.5">
           <PhoneIcon />
@@ -78,63 +133,83 @@ function OfficeCard({ office }: { office: typeof offices[number] }) {
           <p className="text-[#374151] text-[13px]">{office.email}</p>
         </div>
       </div>
-    </div>
+
+      {/* Copy affordance */}
+      <div className="flex items-center gap-1.5 mt-4 pt-4 border-t border-[#F0F1F3] text-[#9CA3AF] text-[12px] font-medium group-hover:text-[#0066FF] transition-colors">
+        <CopyIcon />
+        Click to copy address
+      </div>
+
+      {/* "Copied!" feedback badge */}
+      <AnimatePresence>
+        {copied && (
+          <motion.div
+            initial={{ opacity: 0, y: 6, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 6, scale: 0.9 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0066FF] text-white text-[11px] font-semibold"
+          >
+            <CheckIcon />
+            Copied
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.button>
   );
 }
 
 /* ─────────────────────────────────────────
-   WORLD MAP SVG — simplified dotted outline
+   WORLD MAP — real country geography (react-simple-maps +
+   world-atlas), with animated radar-pulse pins for each office.
 ───────────────────────────────────────── */
-function WorldMapSVG() {
+function WorldMap() {
   return (
-    <svg
-      viewBox="0 0 900 480"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-full h-full"
-      aria-hidden="true"
-    >
-      {/* Continents as simplified filled shapes — light blue dots */}
-      <defs>
-        <pattern id="dotPattern" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
-          <circle cx="2" cy="2" r="1.5" fill="#BFD7F5" />
-        </pattern>
-      </defs>
+    <div className="relative w-full aspect-2/1 rounded-2xl overflow-hidden bg-[#F7F9FC] border border-[#E5E7EB]">
+      <ComposableMap
+        projection="geoNaturalEarth1"
+        projectionConfig={{ scale: 155 }}
+        width={980}
+        height={480}
+        style={{ width: "100%", height: "100%" }}
+      >
+        <Geographies geography={worldTopoJson}>
+          {({ geographies }) =>
+            geographies.map((geo) => (
+              <Geography
+                key={geo.rsmKey}
+                geography={geo}
+                style={{
+                  default: { fill: "#BFD7F5", stroke: "#5B9BE0", strokeWidth: 0.5, outline: "none" },
+                  hover: { fill: "#9DC1EE", stroke: "#5B9BE0", strokeWidth: 0.5, outline: "none" },
+                  pressed: { fill: "#9DC1EE", stroke: "#5B9BE0", strokeWidth: 0.5, outline: "none" },
+                }}
+              />
+            ))
+          }
+        </Geographies>
 
-      {/* North America */}
-      <ellipse cx="180" cy="180" rx="110" ry="90" fill="url(#dotPattern)" opacity="0.8" />
-      {/* Central America */}
-      <ellipse cx="210" cy="265" rx="35" ry="25" fill="url(#dotPattern)" opacity="0.8" />
-      {/* South America */}
-      <ellipse cx="250" cy="360" rx="65" ry="85" fill="url(#dotPattern)" opacity="0.8" />
-      {/* Europe */}
-      <ellipse cx="450" cy="145" rx="65" ry="55" fill="url(#dotPattern)" opacity="0.8" />
-      {/* Africa */}
-      <ellipse cx="460" cy="300" rx="70" ry="95" fill="url(#dotPattern)" opacity="0.8" />
-      {/* Asia */}
-      <ellipse cx="640" cy="170" rx="140" ry="90" fill="url(#dotPattern)" opacity="0.8" />
-      {/* Southeast Asia / Oceania */}
-      <ellipse cx="720" cy="300" rx="55" ry="40" fill="url(#dotPattern)" opacity="0.8" />
-      <ellipse cx="770" cy="380" rx="60" ry="40" fill="url(#dotPattern)" opacity="0.8" />
-      {/* Middle East */}
-      <ellipse cx="540" cy="220" rx="45" ry="30" fill="url(#dotPattern)" opacity="0.8" />
-
-      {/* Location pin dots */}
-      {/* USA - Arlington TX */}
-      <circle cx="185" cy="195" r="6" fill="#0066FF" />
-      <circle cx="185" cy="195" r="10" fill="#0066FF" fillOpacity="0.2" />
-      {/* UK - London */}
-      <circle cx="432" cy="140" r="6" fill="#0066FF" />
-      <circle cx="432" cy="140" r="10" fill="#0066FF" fillOpacity="0.2" />
-      {/* Nigeria - Abuja */}
-      <circle cx="452" cy="268" r="6" fill="#0066FF" />
-      <circle cx="452" cy="268" r="10" fill="#0066FF" fillOpacity="0.2" />
-
-      {/* Connector lines from pins to approximate card positions */}
-      <line x1="185" y1="195" x2="185" y2="205" stroke="#0066FF" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.4" />
-      <line x1="432" y1="140" x2="432" y2="150" stroke="#0066FF" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.4" />
-      <line x1="452" y1="268" x2="452" y2="278" stroke="#0066FF" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.4" />
-    </svg>
+        {offices.map((office) => (
+          <Marker key={office.country} coordinates={office.coordinates}>
+            <motion.circle
+              r={5}
+              fill="#0066FF"
+              fillOpacity={0.25}
+              animate={{ scale: [1, 2.6, 1], opacity: [0.5, 0, 0.5] }}
+              transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <circle r={4} fill="#0066FF" stroke="white" strokeWidth={1.2} />
+            <text
+              textAnchor="middle"
+              y={-10}
+              style={{ fontSize: 11, fontWeight: 600, fill: "#1A274F" }}
+            >
+              {office.country}
+            </text>
+          </Marker>
+        ))}
+      </ComposableMap>
+    </div>
   );
 }
 
@@ -323,7 +398,7 @@ export default function ContactPage() {
       </section>
 
       {/* ══════════════════════════════════════
-          3. OUR OFFICES — world map + 3 office cards
+          3. OUR OFFICES — real world map + 3 office cards
       ══════════════════════════════════════ */}
       <section className="bg-white pb-20 lg:pb-24">
         <div className="max-w-[1280px] mx-auto px-6">
@@ -339,38 +414,16 @@ export default function ContactPage() {
             .
           </p>
 
-          {/* World map + cards container */}
-          <div className="relative w-full min-h-[420px] lg:min-h-[500px]">
+          <div className="flex flex-col gap-10">
+            <WorldMap />
 
-            {/* World map SVG background */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-70">
-              <WorldMapSVG />
-            </div>
-
-            {/* ── Desktop layout — absolute positioned cards ── */}
-            <div className="hidden lg:block relative w-full h-[500px]">
-              {/* United States — top left */}
-              <div className="absolute top-[30px] left-[4%]">
-                <OfficeCard office={offices[0]} />
-              </div>
-              {/* United Kingdom — top center-right */}
-              <div className="absolute top-[20px] left-[46%]">
-                <OfficeCard office={offices[1]} />
-              </div>
-              {/* Nigeria — bottom center-right */}
-              <div className="absolute bottom-[20px] left-[52%]">
-                <OfficeCard office={offices[2]} />
-              </div>
-            </div>
-
-            {/* ── Mobile layout — stacked cards ── */}
-            <div className="lg:hidden relative z-10 flex flex-col gap-5 pt-4">
+            <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {offices.map((office) => (
-                <div key={office.country} className="mx-auto">
+                <StaggerItem key={office.country}>
                   <OfficeCard office={office} />
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerGroup>
           </div>
         </div>
       </section>

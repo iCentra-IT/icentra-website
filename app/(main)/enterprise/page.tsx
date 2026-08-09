@@ -1,6 +1,7 @@
 import SolutionCard from "@/components/ui/cards/solution-card";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
+import { Reveal } from "@/components/ui/motion/reveal";
 import Link from "next/link";
 
 /* ─────────────────────────────────────────
@@ -119,7 +120,7 @@ export default function EnterpriseTransformationPage() {
           </svg>
         </div>
 
-        <div className="relative z-10 max-w-[760px] mx-auto px-6 flex flex-col items-center text-center gap-5">
+        <Reveal className="relative z-10 max-w-[760px] mx-auto px-6 flex flex-col items-center text-center gap-5">
           <h2 className="text-white text-[28px] lg:text-[40px] font-extrabold leading-tight">
             Why Choose iCentra?
           </h2>
@@ -135,7 +136,7 @@ export default function EnterpriseTransformationPage() {
           >
             Get in Touch
           </Link>
-        </div>
+        </Reveal>
       </section>
 
     </main>

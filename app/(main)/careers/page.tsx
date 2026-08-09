@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
 import JobCard from "@/components/ui/cards/job-card";
-import { StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 import { jobListings } from "@/lib/data";
 
 /* ─────────────────────────────────────────
@@ -179,7 +180,7 @@ export default function CareersPage() {
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
           {/* Left — text */}
-          <div className="flex-1 min-w-0">
+          <Reveal className="flex-1 min-w-0">
             <h2 className="text-[#1A274F] text-[24px] lg:text-[28px] font-bold mb-4">
               Working at iCentra
             </h2>
@@ -206,10 +207,10 @@ export default function CareersPage() {
               We believe in investing in people, not just positions because when
               you grow, we all move forward.
             </p>
-          </div>
+          </Reveal>
 
           {/* Right — 2 stacked landscape images */}
-          <div className="flex flex-col gap-4 shrink-0 w-full lg:w-90">
+          <Reveal delay={0.15} className="flex flex-col gap-4 shrink-0 w-full lg:w-90">
             <div className="relative w-full h-90 rounded-2xl overflow-hidden">
               <Image
                 src="/images/career/hero.png"
@@ -219,7 +220,7 @@ export default function CareersPage() {
                 sizes="360px"
               />
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -227,7 +228,7 @@ export default function CareersPage() {
           3. GROWTH OPPORTUNITIES — dark banner
       ══════════════════════════════════════ */}
       <section className="bg-[#1A274F] py-12 lg:py-14">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row justify-center gap-6 lg:gap-16 items-start lg:items-center">
+        <Reveal className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row justify-center gap-6 lg:gap-16 items-start lg:items-center">
           <h2 className="text-[26px] lg:text-4xl font-bold leading-tight shrink-0 lg:w-1/2">
             <span className="text-white/40 block">Growth Opportunities</span>
             <span className="text-white/40 block">at iCentra</span>
@@ -237,7 +238,7 @@ export default function CareersPage() {
             irrespective of race, tribe, religion, and gender, everyone is
             important and equal and treated specially.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       {/* ══════════════════════════════════════
@@ -254,9 +255,13 @@ export default function CareersPage() {
           {/* Step bars */}
           <div className="flex items-end justify-center sm:gap-">
             {careerLevels.map((level, i) => (
-              <div
+              <motion.div
                 key={level.label}
-                className="relative flex-1 min-w-13.5 flex items-start justify-center rounded-tl-lg max-w-35"
+                initial={{ scaleY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.08 }}
+                className="relative flex-1 min-w-13.5 flex items-start justify-center rounded-tl-lg max-w-35 origin-bottom"
                 style={{
                   height: `${level.height}px`,
                   background: `linear-gradient(180deg, ${level.color}dd 0%, ${level.color} 100%)`,
@@ -266,12 +271,12 @@ export default function CareersPage() {
                 <span className="text-white text-[10px] py-3 sm:text-sm md:text-[14px] font-semibold text-center pb-2 sm:pb-4 md:pb-5 px-1 sm:px-2 leading-snug whitespace-pre-line">
                   {level.label}
                 </span>
-              </div>
+              </motion.div>
             ))}
           </div>
 
           {/* Footer notes under the chart */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 justify-center">
+          <Reveal className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 justify-center">
             <p className="text-[#6B7280] text-base leading-relaxed">
               Your performance determines how quickly you climb the career
               ladder. Age and gender do not stand in your way; only you can
@@ -298,7 +303,7 @@ export default function CareersPage() {
                 ))}
               </ul>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -310,21 +315,21 @@ export default function CareersPage() {
           <SectionHeading title="iCentra Culture" className="mb-10" />
 
           {/* 3 columns */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14 pb-14 border-b border-[#E5E7EB]">
+          <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14 pb-14 border-b border-[#E5E7EB]">
             {cultureColumns.map((col) => (
-              <div key={col.title}>
+              <StaggerItem key={col.title}>
                 <h4 className="text-[#1A274F] text-xl font-bold mb-2">
                   {col.title}
                 </h4>
                 <p className="text-[#6B7280] text-base leading-relaxed">
                   {col.text}
                 </p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
 
           {/* Accordion */}
-          <div className="w-full">
+          <Reveal className="w-full">
             {accordionItems.map((item, i) => (
               <AccordionRow
                 key={item.title}
@@ -333,7 +338,7 @@ export default function CareersPage() {
                 onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}
               />
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -355,9 +360,9 @@ export default function CareersPage() {
           </p>
 
           {/* Video thumbnail grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+          <StaggerGroup className="grid grid-cols-2 lg:grid-cols-4 gap-5">
             {teamVideos.map((member, i) => (
-              <div key={`${member.name}-${i}`} className="flex flex-col gap-3">
+              <StaggerItem key={`${member.name}-${i}`} className="flex flex-col gap-3">
                 <button className="group relative w-full aspect-square rounded-xl overflow-hidden bg-[#D1D5DB]">
                   {member.image ? (
                     <Image
@@ -387,9 +392,9 @@ export default function CareersPage() {
                   </p>
                   <p className="text-[#6B7280] text-[12px]">{member.role}</p>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </section>
 

@@ -8,6 +8,7 @@ import BlogCard from "@/components/ui/cards/blog-card";
 import SolutionCard from "@/components/ui/cards/solution-card";
 import { CardCarouselSection } from "@/components/ui/carousel/carouselComponent";
 import SectionHeading from "@/components/ui/section-heading";
+import { StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 import {
   insightCards,
   solutionCards,
@@ -151,9 +152,9 @@ export default function HomePage() {
             className="mb-8"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
-              <div
+              <StaggerItem
                 key={i}
                 className="bg-[#F7F9FC] rounded-2xl p-6 flex flex-col gap-4 border border-[#DCE0E8]"
               >
@@ -178,9 +179,9 @@ export default function HomePage() {
                     <p className="text-[#4B6CB7] text-[11px]">{t.role}</p>
                   </div>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </section>
 

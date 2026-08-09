@@ -1,6 +1,8 @@
 import { WebinarRegistrationModal } from "@/components/forms/all-forms";
 import DiscoverBanner from "@/components/ui/banner";
 import PageHero from "@/components/ui/page-hero";
+import SectionHeading from "@/components/ui/section-heading";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -82,19 +84,18 @@ export default function EventsPage() {
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
           {/* Heading */}
-          <h2 className="text-[#1A274F] text-[26px] lg:text-[30px] font-bold pb-3 border-b-2 border-[#1A274F] inline-block mb-3">
-            Upcoming Events
-          </h2>
-          <p className="text-[#6B7280] text-[14px] mb-10">
-            Join our next event and be part of the conversation that&apos;s transforming people.
-          </p>
+          <SectionHeading
+            title="Upcoming Events"
+            subtitle="Join our next event and be part of the conversation that's transforming people."
+            className="mb-10"
+          />
 
           {/* Event cards — horizontal layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <StaggerGroup className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {upcomingEvents.map((event, i) => (
-              <div
+              <StaggerItem
                 key={i}
-                className="flex flex-col sm:flex-row gap-4 bg-[#F7F9FC] rounded-2xl overflow-hidden border border-[#E5E7EB]"
+                className="flex flex-col sm:flex-row gap-4 bg-[#F7F9FC] rounded-2xl overflow-hidden border border-[#E5E7EB] h-full"
               >
                 {/* Thumbnail */}
                 <div className="relative shrink-0 w-full sm:w-45 h-40 sm:h-auto">
@@ -126,9 +127,9 @@ export default function EventsPage() {
                     <WebinarRegistrationModal triggerLabel="Reserve Your Spot" />
                   </div>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </section>
 
@@ -138,15 +139,14 @@ export default function EventsPage() {
       <section className="bg-white pb-16 lg:pb-20">
         <div className="max-w-[1280px] mx-auto px-6">
           {/* Heading */}
-          <h2 className="text-[#1A274F] text-[26px] lg:text-[30px] font-bold pb-3 border-b-2 border-[#1A274F] inline-block mb-3">
-            Event
-          </h2>
-          <p className="text-[#6B7280] text-[14px] mb-10">
-            Join our next event and be part of the conversation that&apos;s transforming people.
-          </p>
+          <SectionHeading
+            title="Event"
+            subtitle="Join our next event and be part of the conversation that's transforming people."
+            className="mb-10"
+          />
 
           {/* InnTech Summit row */}
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+          <Reveal className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
             {/* Left — InnTech logo */}
             <div className="shrink-0 flex items-center justify-center w-full lg:w-[300px] h-[160px] bg-white rounded-2xl border border-[#E5E7EB] p-8">
               {/* InnTech brand text logo */}
@@ -185,7 +185,7 @@ export default function EventsPage() {
                 triggerClassName="inline-flex items-center gap-2 text-[#0066FF] text-[14px] font-semibold hover:gap-3 transition-all cursor-pointer"
               />
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -193,7 +193,7 @@ export default function EventsPage() {
           4. INNTECH SUMMIT 2025 HIGHLIGHT — full-width video
       ══════════════════════════════════════ */}
       <section className="bg-[#1A274F]">
-        <div className="max-w-[1280px] mx-auto px-6 py-12 lg:py-16">
+        <Reveal className="max-w-[1280px] mx-auto px-6 py-12 lg:py-16">
           <h2 className="text-white text-[26px] lg:text-[32px] font-bold mb-8">
             InnTech Summit 2025 Highlight
           </h2>
@@ -217,7 +217,7 @@ export default function EventsPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* ══════════════════════════════════════
@@ -227,7 +227,7 @@ export default function EventsPage() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* Left — content */}
-          <div className="flex-1 min-w-0">
+          <Reveal className="flex-1 min-w-0">
             <h2 className="text-[#1A274F] text-[22px] lg:text-[26px] font-bold mb-3">
               The Transform Webinar
             </h2>
@@ -248,10 +248,10 @@ export default function EventsPage() {
               Each session is tailored to equip individuals and organizations with the insights they
               need to adapt, evolve, and lead in a constantly changing world.
             </p>
-          </div>
+          </Reveal>
 
           {/* Right — TRANSFORM branded graphic */}
-          <div className="w-full">
+          <Reveal delay={0.15} className="w-full">
             <Image
               src="/images/event/transform-webinar.png"
               alt="The Transform Webinar"
@@ -259,8 +259,7 @@ export default function EventsPage() {
               height={400}
               className="w-full h-auto object-cover"
             />
-          
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -269,16 +268,15 @@ export default function EventsPage() {
       ══════════════════════════════════════ */}
       <section className="bg-[#F7F9FC] py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[#1A274F] text-[24px] lg:text-[28px] font-bold pb-3 border-b-2 border-[#1A274F] inline-block mb-3">
-            Past Webinars
-          </h2>
-          <p className="text-[#6B7280] text-[14px] mb-10">
-            Missed an event? Catch up on key moments, recordings, and thought leadership from past sessions.
-          </p>
+          <SectionHeading
+            title="Past Webinars"
+            subtitle="Missed an event? Catch up on key moments, recordings, and thought leadership from past sessions."
+            className="mb-10"
+          />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {pastWebinars.map((webinar, i) => (
-              <div key={i} className="bg-white rounded-2xl overflow-hidden border border-[#E5E7EB] flex flex-col">
+              <StaggerItem key={i} className="bg-white rounded-2xl overflow-hidden border border-[#E5E7EB] flex flex-col">
                 {/* Thumbnail */}
                 <div className="relative w-full h-[200px] overflow-hidden">
                   <Image
@@ -318,9 +316,9 @@ export default function EventsPage() {
                     </Link>
                   </div>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </section>
 
