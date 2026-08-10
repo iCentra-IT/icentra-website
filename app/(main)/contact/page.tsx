@@ -8,7 +8,9 @@ import {
   Geographies,
   Geography,
   Marker,
-} from "react-simple-maps";
+  // type PreparedGeography, // Imported for type-casting geography arrays
+  type Coordinates,       // Imported for type-casting branded map coordinate values
+} from "@vnedyalk0v/react19-simple-maps"; // Updated source
 import worldTopoJson from "world-atlas/countries-110m.json";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
@@ -173,24 +175,30 @@ function WorldMap() {
         height={480}
         style={{ width: "100%", height: "100%" }}
       >
-        <Geographies geography={worldTopoJson}>
-          {({ geographies }) =>
-            geographies.map((geo) => (
-              <Geography
-                key={geo.rsmKey}
-                geography={geo}
-                style={{
-                  default: { fill: "#BFD7F5", stroke: "#5B9BE0", strokeWidth: 0.5, outline: "none" },
-                  hover: { fill: "#9DC1EE", stroke: "#5B9BE0", strokeWidth: 0.5, outline: "none" },
-                  pressed: { fill: "#9DC1EE", stroke: "#5B9BE0", strokeWidth: 0.5, outline: "none" },
-                }}
-              />
-            ))
-          }
-        </Geographies>
+   <Geographies geography={worldTopoJson}>
+  {({ geographies }) =>
+    // 1. Cast as an array of the base Feature combined with the rsmKey property
+    (geographies as Array<import("geojson").Feature & { rsmKey?: string }>).map((geo) => (
+      <Geography
+        // 2. Provide a fallback if rsmKey is undefined to appease strict string keys
+        key={geo.rsmKey ?? String(geo.id || Math.random())}
+        // 3. No more 'any' cast needed here, as geo is fully compliant with the expected Feature type
+        geography={geo}
+        style={{
+          default: { fill: "#BFD7F5", stroke: "#5B9BE0", strokeWidth: 0.5, outline: "none" },
+          hover: { fill: "#9DC1EE", stroke: "#5B9BE0", strokeWidth: 0.5, outline: "none" },
+          pressed: { fill: "#9DC1EE", stroke: "#5B9BE0", strokeWidth: 0.5, outline: "none" },
+        }}
+      />
+    ))
+  }
+</Geographies>
+
+
+
 
         {offices.map((office) => (
-          <Marker key={office.country} coordinates={office.coordinates}>
+          <Marker key={office.country} coordinates={office.coordinates as unknown as Coordinates}>
             <motion.circle
               r={5}
               fill="#0066FF"
