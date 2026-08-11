@@ -1,4 +1,3 @@
-"use client";
 import { ResourceDownloadModal } from "@/components/forms/all-forms";
 import HeroSlider from "@/components/sections/home/hero-slider";
 import TrustedPartners from "@/components/sections/home/partners";
@@ -6,16 +5,14 @@ import StatsBar from "@/components/sections/home/stat";
 import DiscoverBanner from "@/components/ui/banner";
 import BlogCard from "@/components/ui/cards/blog-card";
 import SolutionCard from "@/components/ui/cards/solution-card";
-import { CardCarouselSection } from "@/components/ui/carousel/carouselComponent";
+import { BlogCardCarousel, type BlogCarouselItem } from "@/components/ui/carousel/blog-card-carousel";
 import SectionHeading from "@/components/ui/section-heading";
 import { StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
-import {
-  insightCards,
-  solutionCards,
-  projects,
-  testimonials,
-  blogCards,
-} from "@/lib/data";
+import { solutionCards, testimonials } from "@/lib/data";
+import { sanityFetch } from "@/sanity/lib/live";
+import { postImageUrl } from "@/sanity/lib/image";
+import { POSTS_BY_CATEGORY_QUERY } from "@/sanity/lib/queries";
+import { formatPostDate, estimateReadTimeFromText } from "@/sanity/lib/format";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -39,9 +36,53 @@ function StarRating() {
 }
 
 /* ─────────────────────────────────────────
+   SANITY DATA SHAPING
+───────────────────────────────────────── */
+type SanityImage = { asset?: { _ref: string } } | null | undefined;
+
+type RawPost = {
+  _id: string;
+  title: string;
+  slug: string;
+  excerpt?: string;
+  mainImage?: SanityImage;
+  publishedAt: string;
+  plainBody?: string;
+};
+
+function toCarouselItems(posts: RawPost[], hrefBase: string): BlogCarouselItem[] {
+  return posts.map((post) => ({
+    slug: post.slug,
+    title: post.title,
+    excerpt: post.excerpt,
+    imageUrl: postImageUrl(post.mainImage),
+    date: formatPostDate(post.publishedAt),
+    readTime: estimateReadTimeFromText(post.plainBody),
+    href: `${hrefBase}/${post.slug}`,
+  }));
+}
+
+/* ─────────────────────────────────────────
    PAGE
 ───────────────────────────────────────── */
-export default function HomePage() {
+export default async function HomePage() {
+  const [{ data: insightPosts }, { data: caseStudyPosts }, { data: spotlightPosts }] =
+    await Promise.all([
+      sanityFetch({ query: POSTS_BY_CATEGORY_QUERY, params: { slug: "insights" } }),
+      sanityFetch({ query: POSTS_BY_CATEGORY_QUERY, params: { slug: "case-study" } }),
+      sanityFetch({ query: POSTS_BY_CATEGORY_QUERY, params: { slug: "spotlights" } }),
+    ]);
+
+  const insightItems = toCarouselItems(((insightPosts ?? []) as RawPost[]).slice(0, 6), "/news");
+  const caseStudyItems = toCarouselItems(((caseStudyPosts ?? []) as RawPost[]).slice(0, 6), "/industry/case-study");
+  const spotlightItems = ((spotlightPosts ?? []) as RawPost[]).slice(0, 4).map((post) => ({
+    slug: post.slug,
+    title: post.title,
+    imageUrl: postImageUrl(post.mainImage),
+    date: formatPostDate(post.publishedAt),
+    readTime: estimateReadTimeFromText(post.plainBody),
+  }));
+
   return (
     <main className="w-full overflow-x-hidden">
       {/* ══════════════════════════════════════
@@ -55,23 +96,14 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════
-          2. TRANSFORMATION INSIGHTS — BlogCard
+          2. TRANSFORMATION INSIGHTS — real posts, carousel + View All
       ══════════════════════════════════════ */}
-      <CardCarouselSection
-        items={insightCards}
-        getKey={(card) => card.href}
+      <BlogCardCarousel
+        items={insightItems}
         heading="Transformation Insights"
-        underlineWord="Transformation"
         bgClassName="bg-white"
-        renderCard={(card) => (
-          <BlogCard
-            image={card.image}
-            title={card.title}
-            date={card.date}
-            readTime={card.readTime}
-            href={card.href}
-          />
-        )}
+        viewAllHref="/news?tab=insights"
+        viewAllLabel="View All Insights"
       />
 
       {/* ══════════════════════════════════════
@@ -108,22 +140,14 @@ export default function HomePage() {
       <TrustedPartners />
 
       {/* ══════════════════════════════════════
-          5. HIGHLIGHTED TRANSFORMATION PROJECTS
+          5. HIGHLIGHTED TRANSFORMATION PROJECTS — real case studies, carousel + View All
       ══════════════════════════════════════ */}
-      <CardCarouselSection
-        items={projects}
-        getKey={(p) => p.href}
+      <BlogCardCarousel
+        items={caseStudyItems}
         heading="Highlighted Transformation Projects"
-        underlineWord="Highlighted"
         bgClassName="bg-[#F7F9FC]"
-        renderCard={(p) => (
-          <BlogCard
-            image={p.bgImage}
-            title={p.title}
-            href={p.href}
-            excerpt={p.desc}
-          />
-        )}
+        viewAllHref="/industry#case-studies"
+        viewAllLabel="View All Case Studies"
       />
 
       {/* ══════════════════════════════════════
@@ -191,13 +215,13 @@ export default function HomePage() {
       <DiscoverBanner
         headline={"Thought Leadership for a Changing World\n"}
         subtext="Stay ahead with expert insights on transformation, cybersecurity, and performance delivery."
-        primaryCta={{ label: "Explore Insights", href: "/news" }}
+        primaryCta={{ label: "Explore Insights", href: "/news?tab=insights" }}
         image="/images/banner/thought-leadership.png"
         imageAlt={"Banner Image"}
       />
 
       {/* ══════════════════════════════════════
-          9. STAY UPDATED — BLOGS & NEWS — BlogCard
+          9. STAY UPDATED — SPOTLIGHTS — BlogCard
       ══════════════════════════════════════ */}
       <section className="bg-white py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
@@ -208,20 +232,19 @@ export default function HomePage() {
             className="mb-8"
           />
 
-          {/* 3 BlogCards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {blogCards.map((b) => (
-              <div key={b.href} className="[&>div]:max-w-none [&>div]:w-full">
+          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {spotlightItems.map((post) => (
+              <StaggerItem key={post.slug} className="[&>div]:max-w-none [&>div]:w-full">
                 <BlogCard
-                  image={b.image}
-                  title={b.title}
-                  date={b.date}
-                  readTime={b.readTime}
-                  href={b.href}
+                  image={post.imageUrl ?? "/images/bg.jpg"}
+                  title={post.title}
+                  date={post.date}
+                  readTime={post.readTime}
+                  href={`/news/${post.slug}`}
                 />
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
 
           {/* See More CTA */}
           <div className="flex justify-center mt-12">

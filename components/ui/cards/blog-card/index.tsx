@@ -46,7 +46,7 @@ export default function BlogCard({
         <h3 className="text-[#1A274F] text-[17px] font-semibold leading-snug line-clamp-2">
           {title}
         </h3>
-        <p className="text-[#4B6CB7] text-[13px] leading-relaxed flex-1">
+        <p className="text-[#4B6CB7] text-[13px] leading-relaxed flex-1 line-clamp-2">
           {excerpt}
         </p>
         {/* Meta */}

@@ -1,12 +1,14 @@
-"use client";
-
 import TrustedPartners from "@/components/sections/home/partners";
 import BlogCard from "@/components/ui/cards/blog-card";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
-import { CardCarouselSection } from "@/components/ui/carousel/carouselComponent";
+import CaseStudiesSection, { type CaseStudyCard } from "@/components/sections/industry/case-studies-section";
 import { NewsletterModal, WebinarRegistrationModal } from "@/components/forms/all-forms";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
+import { sanityFetch } from "@/sanity/lib/live";
+import { postImageUrl } from "@/sanity/lib/image";
+import { POSTS_BY_CATEGORY_QUERY } from "@/sanity/lib/queries";
+import { formatPostDate, estimateReadTimeFromText } from "@/sanity/lib/format";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -19,30 +21,6 @@ const industryTags = [
   "Telecoms and IT", "Construction", "Oil and Gas",
   "Health", "Agriculture", "Education",
   "Manufacturing", "Defence", "Media",
-];
-
-const projects = [
-  {
-    bgImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
-    logoText: "NRS",
-    title: "Journey to Information Security Excellence at NRS",
-    desc: "NNPC Limited's Information Technology Division (ITD) embarked on a transformative...",
-    href: "/industry/case-study",
-  },
-  {
-    bgImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80",
-    logoText: "CSN",
-    title: "Transforming Project Management at CSN",
-    desc: "NNPC Limited's Information Technology Division (ITD) embarked on a transformative...",
-    href: "/industry/case-study",
-  },
-  {
-    bgImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80",
-    logoText: "NNPC",
-    title: "Driving Agile Transformation at NNPC Limited IT Division",
-    desc: "NNPC Limited's Information Technology Division (ITD) embarked on a transformative...",
-    href: "/industry/case-study",
-  },
 ];
 
 const testimonials = [
@@ -69,39 +47,6 @@ const testimonials = [
     avatar: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=80&q=80",
     stars: 5,
     text: "This kit is incredibly helpful for my design process. Components are clean, modern, and save me a lot of time for beginners and professionals alike.",
-  },
-];
-
-const insightCards = [
-  {
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80",
-    title: "The New Operating Model for Sustainable Performance",
-    date: "2nd Sep 2025", readTime: "3 min", href: "/news/operating-model",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&q=80",
-    title: "AI & Cybersecurity Governance: Getting Leadership By-In",
-    date: "2nd Sep 2025", readTime: "2 min", href: "/news/ai-governance",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80",
-    title: "5 Ai Driven Threats Organizations Can't Ignore In 2026",
-    date: "2nd Sep 2025", readTime: "2 min", href: "/news/ai-threats",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80",
-    title: "The New Operating Model for Sustainable Performance",
-    date: "2nd Sep 2025", readTime: "3 min", href: "/news/operating-model-2",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80",
-    title: "AI & Cybersecurity Governance: Getting Leadership By-In",
-    date: "2nd Sep 2025", readTime: "2 min", href: "/news/ai-governance-2",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80",
-    title: "5 Ai Driven Threats Organizations Can't Ignore In 2026",
-    date: "2nd Sep 2025", readTime: "2 min", href: "/news/ai-threats-2",
   },
 ];
 
@@ -141,7 +86,41 @@ function StarRating({ count = 5 }: { count?: number }) {
 /* ─────────────────────────────────────────
    PAGE
 ───────────────────────────────────────── */
-export default function IndustriesPage() {
+type SanityImage = { asset?: { _ref: string } } | null | undefined;
+
+type RawPost = {
+  _id: string;
+  title: string;
+  slug: string;
+  excerpt?: string;
+  mainImage?: SanityImage;
+  publishedAt: string;
+  plainBody?: string;
+};
+
+export default async function IndustriesPage() {
+  const [{ data: caseStudyPosts }, { data: insightPosts }] = await Promise.all([
+    sanityFetch({ query: POSTS_BY_CATEGORY_QUERY, params: { slug: "case-study" } }),
+    sanityFetch({ query: POSTS_BY_CATEGORY_QUERY, params: { slug: "insights" } }),
+  ]);
+
+  const caseStudies: CaseStudyCard[] = ((caseStudyPosts ?? []) as RawPost[]).map((post) => ({
+    slug: post.slug,
+    title: post.title,
+    excerpt: post.excerpt,
+    imageUrl: postImageUrl(post.mainImage),
+    date: formatPostDate(post.publishedAt),
+    readTime: estimateReadTimeFromText(post.plainBody),
+  }));
+
+  const latestInsights = ((insightPosts ?? []) as RawPost[]).slice(0, 4).map((post) => ({
+    slug: post.slug,
+    title: post.title,
+    imageUrl: postImageUrl(post.mainImage),
+    date: formatPostDate(post.publishedAt),
+    readTime: estimateReadTimeFromText(post.plainBody),
+  }));
+
   return (
     <main className="w-full overflow-x-hidden">
 
@@ -166,36 +145,9 @@ export default function IndustriesPage() {
       </PageHero>
 
       {/* ══════════════════════════════════════
-          2. PROJECTS THAT DELIVERED TRANSFORMATION
+          2. PROJECTS THAT DELIVERED TRANSFORMATION — real case studies, paginated
       ══════════════════════════════════════ */}
-      <CardCarouselSection
-        items={projects}
-        getKey={(p) => p.title}
-        heading="Projects That Delivered Transformation"
-        underlineWord="Projects"
-        subtitle="We believe in showing. These case studies highlight the kind of change we've helped our clients achieve."
-        bgClassName="bg-white"
-        renderCard={(p) => (
-          <div className="bg-white rounded-2xl overflow-hidden border border-[#DCE0E8] flex flex-col h-full">
-            <div className="relative h-45 overflow-hidden bg-[#EAF3FB]">
-              <Image src={p.bgImage} alt={p.title} fill className="object-cover opacity-40" sizes="400px" />
-              <div className="absolute inset-0 bg-[#1A274F]/30" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-white text-[28px] font-extrabold tracking-widest drop-shadow">{p.logoText}</span>
-              </div>
-            </div>
-            <div className="p-5 flex flex-col flex-1 gap-2">
-              <h3 className="text-[#1A274F] text-[14px] font-semibold leading-snug">{p.title}</h3>
-              <p className="text-[#6B7280] text-[13px] leading-relaxed flex-1">{p.desc}</p>
-              <div className="mt-3">
-                <Link href={p.href} className="inline-flex items-center px-5 py-2 rounded-full bg-[#0066FF] text-white text-[13px] font-medium hover:bg-[#25429A] transition-colors">
-                  Read More
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
-      />
+      <CaseStudiesSection items={caseStudies} />
 
       {/* ══════════════════════════════════════
           3. OUR TRUSTED PARTNERS
@@ -268,48 +220,20 @@ export default function IndustriesPage() {
             className="mb-2"
           />
 
-          {/* Search + filter bar */}
-          <div className="flex flex-col sm:flex-row gap-3 mb-10 mt-8">
-            {/* Search */}
-            <div className="relative flex-1 max-w-85">
-              <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9CA3AF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-              <input
-                type="text"
-                placeholder="Search"
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#DCE0E8] text-[14px] text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors"
-              />
-            </div>
-            {/* Industry filter */}
-            <select className="px-4 py-2.5 rounded-xl border border-[#DCE0E8] text-[14px] text-[#6B7280] bg-white focus:outline-none focus:border-[#0066FF] transition-colors cursor-pointer">
-              <option value="">Select Industry</option>
-              {industryTags.map((t) => <option key={t} value={t}>{t}</option>)}
-            </select>
-            {/* Solution filter */}
-            <select className="px-4 py-2.5 rounded-xl border border-[#DCE0E8] text-[14px] text-[#6B7280] bg-white focus:outline-none focus:border-[#0066FF] transition-colors cursor-pointer">
-              <option value="">Select Solution</option>
-              <option>Enterprise Transformation</option>
-              <option>Cybersecurity & GRC</option>
-              <option>Strategy & Execution</option>
-              <option>Learning & Talent</option>
-            </select>
-          </div>
-
-          {/* BlogCard 2-row × 3-col grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {insightCards.map((card) => (
-              <div key={card.href} className="[&>div]:max-w-none [&>div]:w-full">
+          {/* Latest 4 insights — single row */}
+          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+            {latestInsights.map((post) => (
+              <StaggerItem key={post.slug} className="[&>div]:max-w-none [&>div]:w-full">
                 <BlogCard
-                  image={card.image}
-                  title={card.title}
-                  date={card.date}
-                  readTime={card.readTime}
-                  href={card.href}
+                  image={post.imageUrl ?? "/images/bg.jpg"}
+                  title={post.title}
+                  date={post.date}
+                  readTime={post.readTime}
+                  href={`/news/${post.slug}`}
                 />
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </section>
 

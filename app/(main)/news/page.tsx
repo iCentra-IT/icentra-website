@@ -1,30 +1,73 @@
-"use client";
-
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import BlogCard from "@/components/ui/cards/blog-card";
+import { Suspense } from "react";
 import PageHero from "@/components/ui/page-hero";
-import SectionHeading from "@/components/ui/section-heading";
-import { StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
-import { spotlightCards, newsCards } from "@/lib/data";
 import { ResourceDownloadModal } from "@/components/forms/all-forms";
+import NewsExplorer, {
+  type NewsCategoryChild,
+  type NewsPost,
+} from "@/components/sections/news/news-explorer";
+import { sanityFetch } from "@/sanity/lib/live";
+import { urlFor } from "@/sanity/lib/image";
+import { CATEGORY_TREE_QUERY, POSTS_FOR_SLUGS_QUERY } from "@/sanity/lib/queries";
+import { formatPostDate, estimateReadTimeFromText } from "@/sanity/lib/format";
 
-/* ─────────────────────────────────────────
-   TABS
-───────────────────────────────────────── */
-type Tab = "spotlight" | "news";
+const TOP_LEVEL_SLUGS = ["spotlights", "insights"];
 
-const TABS: { id: Tab; label: string }[] = [
-  { id: "spotlight", label: "Spotlight" },
-  { id: "news", label: "News" },
-];
+type SanityImage = { asset?: { _ref: string } } | null | undefined;
 
-/* ─────────────────────────────────────────
-   PAGE
-───────────────────────────────────────── */
-export default function NewsInsightPage() {
-  const [activeTab, setActiveTab] = useState<Tab>("spotlight");
-  const cards = activeTab === "spotlight" ? spotlightCards : newsCards;
+type RawPost = {
+  _id: string;
+  title: string;
+  slug: string;
+  excerpt?: string;
+  mainImage?: SanityImage;
+  publishedAt: string;
+  plainBody?: string;
+  categories?: { title: string; slug: string; parentSlug?: string | null }[];
+};
+
+type RawCategory = {
+  _id: string;
+  title: string;
+  slug: string;
+  postCount: number;
+  children: NewsCategoryChild[];
+};
+
+function imageUrl(image: SanityImage): string | null {
+  if (!image?.asset) return null;
+  try {
+    return urlFor(image).width(600).height(450).fit("crop").url();
+  } catch {
+    return null;
+  }
+}
+
+export default async function NewsInsightPage() {
+  const [{ data: categories }, { data: posts }] = await Promise.all([
+    sanityFetch({ query: CATEGORY_TREE_QUERY }),
+    sanityFetch({ query: POSTS_FOR_SLUGS_QUERY, params: { slugs: TOP_LEVEL_SLUGS } }),
+  ]);
+
+  const categoryTree = (categories ?? []) as RawCategory[];
+  const insightsCategory = categoryTree.find((c) => c.slug === "insights");
+  const spotlightsCategory = categoryTree.find((c) => c.slug === "spotlights");
+
+  const topLevelTabs = [
+    { slug: "spotlights", label: `Spotlight${spotlightsCategory ? ` (${spotlightsCategory.postCount})` : ""}` },
+    { slug: "insights", label: `Insights${insightsCategory ? ` (${insightsCategory.postCount})` : ""}` },
+  ];
+
+  const newsPosts: NewsPost[] = ((posts ?? []) as RawPost[]).map((post) => ({
+    slug: post.slug,
+    title: post.title,
+    excerpt: post.excerpt,
+    imageUrl: imageUrl(post.mainImage),
+    date: formatPostDate(post.publishedAt),
+    readTime: estimateReadTimeFromText(post.plainBody),
+    categorySlugs: (post.categories ?? []).flatMap((c) =>
+      c.parentSlug ? [c.slug, c.parentSlug] : [c.slug]
+    ),
+  }));
 
   return (
     <main className="w-full overflow-x-hidden">
@@ -38,57 +81,17 @@ export default function NewsInsightPage() {
       />
 
       {/* ══════════════════════════════════════
-          2. SPOTLIGHT / NEWS — tabbed
+          2. SPOTLIGHT / INSIGHTS — tabbed, real Sanity content
       ══════════════════════════════════════ */}
       <section className="bg-white pt-16 lg:pt-20 pb-20 lg:pb-24">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionHeading title="Spotlight & News" className="mb-4" />
-
-          {/* Tab control */}
-          <div className="relative inline-flex items-center gap-1 p-1 rounded-full bg-[#EAF3FB] mb-10">
-            {TABS.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`relative z-10 px-6 py-2.5 rounded-full text-[14px] font-semibold transition-colors cursor-pointer ${
-                  activeTab === tab.id ? "text-white" : "text-[#1A274F] hover:text-[#0066FF]"
-                }`}
-              >
-                {activeTab === tab.id && (
-                  <motion.span
-                    layoutId="news-tab-indicator"
-                    className="absolute inset-0 -z-10 rounded-full bg-[#0066FF]"
-                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                  />
-                )}
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-            >
-              <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {cards.map((card) => (
-                  <StaggerItem key={card.href} className="[&>div]:max-w-none [&>div]:w-full">
-                    <BlogCard
-                      image={card.image}
-                      title={card.title}
-                      date={card.date}
-                      readTime={card.readTime}
-                      href={card.href}
-                    />
-                  </StaggerItem>
-                ))}
-              </StaggerGroup>
-            </motion.div>
-          </AnimatePresence>
+          <Suspense fallback={null}>
+            <NewsExplorer
+              topLevelTabs={topLevelTabs}
+              insightsSubcategories={insightsCategory?.children ?? []}
+              posts={newsPosts}
+            />
+          </Suspense>
         </div>
       </section>
 
