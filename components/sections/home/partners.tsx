@@ -62,7 +62,7 @@ export default function TrustedPartners({
 
   return (
     <section className="relative bg-white border-[#DCE0E8] py-12 lg:py-16 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
           title="Our Trusted Partners"
           subtitle="Proudly collaborating with global standards organizations and

@@ -66,33 +66,34 @@ export default function NewsExplorer({
   return (
     <div>
       {/* Top-level tab control */}
-      <div className="flex justify-between mb-4">
-        <SectionHeading title="Spotlight & Insights" className="mb-4" />
-      <div className="relative inline-flex items-center gap-1 p-1 rounded-full bg-[#EAF3FB] mb-6">
-        {topLevelTabs.map((tab) => (
-          <button
-            key={tab.slug}
-            onClick={() => {
-              setActiveTab(tab.slug);
-              setActiveSubFilter(null);
-              setPage(1);
-            }}
-            className={`relative z-10 px-6 py-2.5 rounded-full text-[14px] font-semibold transition-colors cursor-pointer ${
-              activeTab === tab.slug ? "text-white" : "text-[#1A274F] hover:text-[#0066FF]"
-            }`}
-          >
-            {activeTab === tab.slug && (
-              <motion.span
-                layoutId="news-tab-indicator"
-                className="absolute inset-0 -z-10 rounded-full bg-[#0066FF]"
-                transition={{ type: "spring", stiffness: 400, damping: 32 }}
-              />
-            )}
-            {tab.label}
-          </button>
-        ))}
-      </div>
-      </div>
+     <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+  <SectionHeading title="Spotlight & Insights" />
+
+  <div className="relative flex items-end gap-1 p-1 rounded-full bg-[#EAF3FB] w-fit self-end md:self-auto max-w-full overflow-x-auto scrollbar-hide">
+    {topLevelTabs.map((tab) => (
+      <button
+        key={tab.slug}
+        onClick={() => {
+          setActiveTab(tab.slug);
+          setActiveSubFilter(null);
+          setPage(1);
+        }}
+        className={`relative z-10 shrink-0 whitespace-nowrap px-4 md:px-6 py-2 md:py-2.5 rounded-full text-[13px] md:text-[14px] font-semibold transition-colors cursor-pointer ${
+          activeTab === tab.slug ? "text-white" : "text-[#1A274F] hover:text-[#0066FF]"
+        }`}
+      >
+        {activeTab === tab.slug && (
+          <motion.span
+            layoutId="news-tab-indicator"
+            className="absolute inset-0 -z-10 rounded-full bg-[#0066FF]"
+            transition={{ type: "spring", stiffness: 400, damping: 32 }}
+          />
+        )}
+        {tab.label}
+      </button>
+    ))}
+  </div>
+</div>
 
       {/* Insights sub-category filter chips */}
       {isInsights && insightsSubcategories.length > 0 && (

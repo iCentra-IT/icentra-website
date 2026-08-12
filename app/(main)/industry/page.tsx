@@ -161,7 +161,7 @@ export default async function IndustriesPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-10">
+          <div className="md:text-center mb-10">
             <SectionHeading title="What Our Clients Are Saying" />
           </div>
 

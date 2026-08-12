@@ -16,7 +16,7 @@ export default function SectionHeading({
   underlineWidth = "w-16",
 }: SectionHeadingProps) {
   return (
-    <Reveal className={`inline-block px-6 ${className}`}>
+    <Reveal className={`inline-block md:px-6 ${className}`}>
       <div className="">
         <h2 className="text-main text-[22px] lg:text-[28px] font-bold">
         {title}

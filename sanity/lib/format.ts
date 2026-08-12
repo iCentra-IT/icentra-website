@@ -46,3 +46,19 @@ export function estimateReadTimeFromText(text: string | null | undefined): strin
   const minutes = Math.max(1, Math.round(wordCount / WORDS_PER_MINUTE));
   return `${minutes} min`;
 }
+
+// iCentra's job posts open with consistent "Department: X" / "Role Type: Y"
+// lines — pull those out for card badges instead of asking for a dedicated
+// schema field per job.
+export function parseJobMeta(plainBody: string | null | undefined): {
+  department: string;
+  roleType: string;
+} {
+  const departmentMatch = plainBody?.match(/Department:\s*([^\n]+)/i);
+  const roleTypeMatch = plainBody?.match(/Role Type:\s*([^\n]+)/i);
+
+  return {
+    department: departmentMatch?.[1]?.trim() || "iCentra",
+    roleType: roleTypeMatch?.[1]?.trim() || "Full-time",
+  };
+}

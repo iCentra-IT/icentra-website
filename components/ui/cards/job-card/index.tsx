@@ -9,7 +9,7 @@ interface JobCardProps {
   slug: string;
   title: string;
   dept: string;
-  location: string;
+  location?: string;
   type: string;
 }
 
@@ -54,10 +54,12 @@ export default function JobCard({ slug, title, dept, location, type }: JobCardPr
         <p className="text-[#9CA3AF] text-[13px] mt-1">{dept}</p>
       </div>
 
-      <div className="flex items-center gap-1.5 text-[#6B7280] text-[13px]">
-        <LocationIcon />
-        {location}
-      </div>
+      {location && (
+        <div className="flex items-center gap-1.5 text-[#6B7280] text-[13px]">
+          <LocationIcon />
+          {location}
+        </div>
+      )}
 
       <div className="flex items-center gap-2 text-[#0066FF] text-[13px] font-semibold mt-auto pt-4 border-t border-[#F0F1F3] group-hover:gap-3 transition-all">
         View Details

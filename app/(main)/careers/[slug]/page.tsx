@@ -1,14 +1,42 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import PageHero from "@/components/ui/page-hero";
 import { JobApplicationModal } from "@/components/forms/all-forms";
 import JobCard from "@/components/ui/cards/job-card";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
-import { jobListings, getJobBySlug } from "@/lib/data";
 import SectionHeading from "@/components/ui/section-heading";
+import { jobListings as mockJobListings, getJobBySlug } from "@/lib/data";
+import { sanityFetch } from "@/sanity/lib/live";
+import { JOB_SLUGS_QUERY, POST_BY_SLUG_QUERY, POSTS_BY_CATEGORY_QUERY } from "@/sanity/lib/queries";
+import { parseJobMeta } from "@/sanity/lib/format";
 
-export function generateStaticParams() {
-  return jobListings.map((job) => ({ slug: job.slug }));
+type SanityPost = {
+  _id: string;
+  title: string;
+  slug: string;
+  excerpt?: string;
+  body?: unknown;
+  plainBody?: string;
+};
+
+const portableTextComponents: PortableTextComponents = {
+  block: {
+    normal: ({ children }) => <p className="mb-5">{children}</p>,
+    h2: ({ children }) => <h2 className="text-[#1A274F] text-[20px] lg:text-[22px] font-bold mt-8 mb-4">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-[#1A274F] text-[18px] font-bold mt-6 mb-3">{children}</h3>,
+  },
+  list: {
+    bullet: ({ children }) => <ul className="list-disc pl-6 mb-5 flex flex-col gap-1.5">{children}</ul>,
+    number: ({ children }) => <ol className="list-decimal pl-6 mb-5 flex flex-col gap-1.5">{children}</ol>,
+  },
+};
+
+export async function generateStaticParams() {
+  const { data: sanitySlugs } = await sanityFetch({ query: JOB_SLUGS_QUERY });
+  const mockSlugs = mockJobListings.map((job) => job.slug);
+  const allSlugs = new Set<string>([...((sanitySlugs ?? []) as string[]), ...mockSlugs]);
+  return Array.from(allSlugs).map((slug) => ({ slug }));
 }
 
 export default async function JobDetailPage({
@@ -17,11 +45,92 @@ export default async function JobDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const job = getJobBySlug(slug);
 
+  const { data: post } = await sanityFetch({ query: POST_BY_SLUG_QUERY, params: { slug } });
+  const jobPost = post as SanityPost | null;
+
+  if (jobPost) {
+    const { department, roleType } = parseJobMeta(jobPost.plainBody);
+
+    const { data: otherJobPosts } = await sanityFetch({
+      query: POSTS_BY_CATEGORY_QUERY,
+      params: { slug: "job-listing" },
+    });
+    const otherRoles = ((otherJobPosts ?? []) as SanityPost[])
+      .filter((j) => j.slug !== slug)
+      .map((j) => {
+        const meta = parseJobMeta(j.plainBody);
+        return { slug: j.slug, title: j.title.trim(), dept: meta.department, type: meta.roleType };
+      });
+
+    return (
+      <main className="w-full overflow-x-hidden">
+        <PageHero headline={jobPost.title.trim()}>
+          <div className="flex flex-wrap items-center gap-3 text-white/70 text-[13px]">
+            <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-light-blue font-medium">
+              {roleType}
+            </span>
+            <span>{department}</span>
+          </div>
+        </PageHero>
+
+        <section className="bg-white py-14 lg:py-20">
+          <div className="max-w-[860px] mx-auto px-6 flex flex-col gap-10">
+            <Reveal>
+              <div className="text-[#374151] text-[15px] leading-[1.9]">
+                {Array.isArray(jobPost.body) && jobPost.body.length > 0 ? (
+                  <PortableText value={jobPost.body} components={portableTextComponents} />
+                ) : (
+                  <p>{jobPost.excerpt}</p>
+                )}
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.1}>
+              <div className="bg-[#EAF3FB] rounded-2xl p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+                <div>
+                  <h3 className="text-[#1A274F] text-[18px] font-bold mb-1">Ready to apply?</h3>
+                  <p className="text-[#6B7280] text-[14px]">Submit your details and resume for the {jobPost.title.trim()} role.</p>
+                </div>
+                <JobApplicationModal
+                  triggerLabel="Apply for this role"
+                  triggerClassName="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#25429A] transition-colors shrink-0 cursor-pointer"
+                />
+              </div>
+            </Reveal>
+
+            <Link
+              href="/careers"
+              className="inline-flex items-center gap-2 text-[#0066FF] text-[14px] font-semibold hover:gap-3 transition-all w-fit"
+            >
+              ← Back to all openings
+            </Link>
+          </div>
+        </section>
+
+        {otherRoles.length > 0 && (
+          <section className="bg-[#F7F9FC] py-14 lg:py-20">
+            <div className="max-w-270 mx-auto px-6">
+              <SectionHeading title="Other Open Roles" className="mb-8" />
+              <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {otherRoles.map((role) => (
+                  <StaggerItem key={role.slug}>
+                    <JobCard slug={role.slug} title={role.title} dept={role.dept} type={role.type} />
+                  </StaggerItem>
+                ))}
+              </StaggerGroup>
+            </div>
+          </section>
+        )}
+      </main>
+    );
+  }
+
+  // Fall back to the mock job set (safety net if Sanity has no job posts yet).
+  const job = getJobBySlug(slug);
   if (!job) notFound();
 
-  const otherRoles = jobListings.filter((j) => j.slug !== job.slug);
+  const otherRoles = mockJobListings.filter((j) => j.slug !== job.slug);
 
   return (
     <main className="w-full overflow-x-hidden">

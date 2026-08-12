@@ -112,8 +112,16 @@ export const RELATED_POSTS_QUERY = `
   }
 `;
 
-// All published post slugs — powers generateStaticParams for /news/[slug].
-export const ALL_POST_SLUGS_QUERY = `*[_type == "post" && defined(slug.current)].slug.current`;
+// Slugs of every post EXCEPT job-listings and case studies — those have their
+// own dedicated routes (/careers/[slug], /industry/case-study/[slug]) and
+// should not also be reachable/duplicated at /news/[slug].
+export const ALL_POST_SLUGS_QUERY = `
+  *[
+    _type == "post" &&
+    defined(slug.current) &&
+    count(categories[@->slug.current in ["job-listing", "case-study"]]) == 0
+  ].slug.current
+`;
 
 // Slugs of every post tagged "case-study" — powers generateStaticParams for
 // /industry/case-study/[slug].
@@ -122,5 +130,15 @@ export const CASE_STUDY_SLUGS_QUERY = `
     _type == "post" &&
     defined(slug.current) &&
     count(categories[@->slug.current == "case-study"]) > 0
+  ].slug.current
+`;
+
+// Slugs of every post tagged "job-listing" — powers generateStaticParams for
+// /careers/[slug].
+export const JOB_SLUGS_QUERY = `
+  *[
+    _type == "post" &&
+    defined(slug.current) &&
+    count(categories[@->slug.current == "job-listing"]) > 0
   ].slug.current
 `;

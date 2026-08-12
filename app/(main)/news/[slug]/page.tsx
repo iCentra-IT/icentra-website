@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Image from "next/image";
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import PageHero from "@/components/ui/page-hero";
@@ -83,6 +83,12 @@ export default async function ArticlePage({
     const categorySlugs = (sanityPost.categories ?? []).flatMap((c) =>
       c.parent?.slug ? [c.slug, c.parent.slug] : [c.slug]
     );
+
+    // Job listings and case studies have their own dedicated templates —
+    // send visitors there instead of rendering the generic news layout.
+    if (categorySlugs.includes("job-listing")) redirect(`/careers/${slug}`);
+    if (categorySlugs.includes("case-study")) redirect(`/industry/case-study/${slug}`);
+
     const { data: related } = await sanityFetch({
       query: RELATED_POSTS_QUERY,
       params: { slug, categorySlugs },

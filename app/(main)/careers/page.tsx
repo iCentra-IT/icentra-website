@@ -1,13 +1,22 @@
-"use client";
-
-import { useState } from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
 import JobCard from "@/components/ui/cards/job-card";
+import CareerLevelBars from "@/components/sections/careers/career-level-bars";
+import CultureAccordion, { type AccordionItem } from "@/components/sections/careers/culture-accordion";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
-import { jobListings } from "@/lib/data";
+import { sanityFetch } from "@/sanity/lib/live";
+import { POSTS_BY_CATEGORY_QUERY } from "@/sanity/lib/queries";
+import { parseJobMeta } from "@/sanity/lib/format";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Careers",
+  description:
+    "Join iCentra and help organizations transform. Explore current openings, our culture, career levels, and what it's like to work with us.",
+  path: "/careers",
+});
 
 /* ─────────────────────────────────────────
    DATA
@@ -44,10 +53,10 @@ const cultureColumns = [
   },
 ];
 
-const accordionItems = [
+const accordionItems: AccordionItem[] = [
   {
     title: "Qualities of an iCentran (P.E.O.P.L.E.)",
-    type: "list" as const,
+    type: "list",
     content: [
       "Purpose-driven",
       "Entrepreneurial-minded",
@@ -59,24 +68,24 @@ const accordionItems = [
   },
   {
     title: "The 4 Cs of an iCentran",
-    type: "list" as const,
+    type: "list",
     content: ["Competence", "Character", "Commitment", "Collaboration"],
   },
   {
     title: "How We Behave",
-    type: "text" as const,
+    type: "text",
     content:
       "We act with integrity, communicate openly, and treat every colleague and client with respect — holding ourselves accountable to the highest standards in everything we do.",
   },
   {
     title: "What We Value",
-    type: "text" as const,
+    type: "text",
     content:
       "We value innovation, continuous learning, diversity of thought, and the courage to challenge the status quo in pursuit of better outcomes for our people and clients.",
   },
   {
     title: "How We Relate",
-    type: "text" as const,
+    type: "text",
     content:
       "We build relationships rooted in trust, transparency, and mutual respect — both within our teams and with the clients and communities we serve.",
   },
@@ -106,63 +115,31 @@ const teamVideos = [
   },
 ];
 
-/* ─────────────────────────────────────────
-   ACCORDION ITEM COMPONENT
-───────────────────────────────────────── */
-function AccordionRow({
-  item,
-  isOpen,
-  onToggle,
-}: {
-  item: (typeof accordionItems)[number];
-  isOpen: boolean;
-  onToggle: () => void;
-}) {
-  return (
-    <div className="border-b border-[#E5E7EB]">
-      <button
-        onClick={onToggle}
-        className="w-full flex items-center justify-between py-5 text-left cursor-pointer"
-      >
-        <span className="text-[#1A274F] text-[16px] lg:text-[18px] font-semibold">
-          {item.title}
-        </span>
-        <span className="text-[#1A274F] text-[20px] font-light shrink-0 ml-4 w-5 text-center">
-          {isOpen ? "–" : "+"}
-        </span>
-      </button>
-      <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-100 opacity-100 pb-6" : "max-h-0 opacity-0"
-        }`}
-      >
-        {item.type === "list" ? (
-          <ul className="flex flex-col gap-2 pl-1">
-            {(item.content as string[]).map((point) => (
-              <li
-                key={point}
-                className="flex items-start gap-2 text-[#6B7280] text-base leading-relaxed"
-              >
-                <span className="mt-2 w-1 h-1 rounded-full bg-[#6B7280] shrink-0" />
-                {point}
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="text-[#6B7280] text-[14px] leading-relaxed max-w-175">
-            {item.content as string}
-          </p>
-        )}
-      </div>
-    </div>
-  );
-}
+type RawJobPost = {
+  _id: string;
+  title: string;
+  slug: string;
+  plainBody?: string;
+};
 
 /* ─────────────────────────────────────────
    PAGE
 ───────────────────────────────────────── */
-export default function CareersPage() {
-  const [openIndex, setOpenIndex] = useState<number>(0); // first one open by default
+export default async function CareersPage() {
+  const { data: jobPosts } = await sanityFetch({
+    query: POSTS_BY_CATEGORY_QUERY,
+    params: { slug: "job-listing" },
+  });
+
+  const jobListings = ((jobPosts ?? []) as RawJobPost[]).map((post) => {
+    const { department, roleType } = parseJobMeta(post.plainBody);
+    return {
+      slug: post.slug,
+      title: post.title.trim(),
+      dept: department,
+      type: roleType,
+    };
+  });
 
   return (
     <main className="w-full overflow-x-hidden">
@@ -252,28 +229,7 @@ export default function CareersPage() {
             className="mb-14"
           />
 
-          {/* Step bars */}
-          <div className="flex items-end justify-center sm:gap-">
-            {careerLevels.map((level, i) => (
-              <motion.div
-                key={level.label}
-                initial={{ scaleY: 0 }}
-                whileInView={{ scaleY: 1 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.08 }}
-                className="relative flex-1 min-w-13.5 flex items-start justify-center rounded-tl-lg max-w-35 origin-bottom"
-                style={{
-                  height: `${level.height}px`,
-                  background: `linear-gradient(180deg, ${level.color}dd 0%, ${level.color} 100%)`,
-                  boxShadow: "inset -8px 0 14px rgba(0,0,0,0.15)",
-                }}
-              >
-                <span className="text-white text-[10px] py-3 sm:text-sm md:text-[14px] font-semibold text-center pb-2 sm:pb-4 md:pb-5 px-1 sm:px-2 leading-snug whitespace-pre-line">
-                  {level.label}
-                </span>
-              </motion.div>
-            ))}
-          </div>
+          <CareerLevelBars levels={careerLevels} />
 
           {/* Footer notes under the chart */}
           <Reveal className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 justify-center">
@@ -329,16 +285,7 @@ export default function CareersPage() {
           </StaggerGroup>
 
           {/* Accordion */}
-          <Reveal className="w-full">
-            {accordionItems.map((item, i) => (
-              <AccordionRow
-                key={item.title}
-                item={item}
-                isOpen={openIndex === i}
-                onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}
-              />
-            ))}
-          </Reveal>
+          <CultureAccordion items={accordionItems} />
         </div>
       </section>
 
@@ -399,7 +346,7 @@ export default function CareersPage() {
       </section>
 
       {/* ══════════════════════════════════════
-          7. JOIN US — text + job listings
+          7. JOIN US — text + job listings (real Sanity "Job-listing" posts)
       ══════════════════════════════════════ */}
       <section className="bg-white pb-20 lg:pb-24">
         <div className="max-w-7xl mx-auto px-6">
@@ -417,19 +364,24 @@ export default function CareersPage() {
           </p>
 
           {/* Job listing cards */}
-          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {jobListings.map((job) => (
-              <StaggerItem key={job.slug}>
-                <JobCard
-                  slug={job.slug}
-                  title={job.title}
-                  dept={job.dept}
-                  location={job.location}
-                  type={job.type}
-                />
-              </StaggerItem>
-            ))}
-          </StaggerGroup>
+          {jobListings.length > 0 ? (
+            <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {jobListings.map((job) => (
+                <StaggerItem key={job.slug}>
+                  <JobCard
+                    slug={job.slug}
+                    title={job.title}
+                    dept={job.dept}
+                    type={job.type}
+                  />
+                </StaggerItem>
+              ))}
+            </StaggerGroup>
+          ) : (
+            <p className="text-[#6B7280] text-sm py-10 text-center">
+              No open roles right now — check back soon.
+            </p>
+          )}
         </div>
       </section>
     </main>

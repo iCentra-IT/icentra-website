@@ -1,13 +1,23 @@
-"use client";
-
+import type { Metadata } from "next";
 import BlogCard from "@/components/ui/cards/blog-card";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
-import { CardCarouselSection } from "@/components/ui/carousel/carouselComponent";
+import { BlogCardCarousel } from "@/components/ui/carousel/blog-card-carousel";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
+import { sanityFetch } from "@/sanity/lib/live";
+import { postImageUrl } from "@/sanity/lib/image";
+import { POSTS_BY_CATEGORY_QUERY } from "@/sanity/lib/queries";
+import { formatPostDate, estimateReadTimeFromText } from "@/sanity/lib/format";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata: Metadata = pageMetadata({
+  title: "Cybersecurity & GRC",
+  description:
+    "iCentra helps organizations build resilient, adaptive cybersecurity postures — risk assessment, threat detection, security architecture, and governance, risk & compliance.",
+  path: "/what-we-do/solutions/cybersecurity",
+});
 
 /* ─────────────────────────────────────────
    DATA
@@ -82,54 +92,6 @@ const testimonials = [
   },
 ];
 
-const projects = [
-  {
-    bgImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80",
-    logoText: "NRS",
-    title: "Journey to Information Security Excellence at NRS",
-    desc: "NNPC Limited's Information Technology Division (ITD) embarked on a transformative...",
-    href: "/industry/case-study",
-  },
-  {
-    bgImage: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80",
-    logoText: "CBN",
-    title: "Transforming Project Management at CBN",
-    desc: "NNPC Limited's Information Technology Division (ITD) embarked on a transformative...",
-    href: "/industry/case-study",
-  },
-  {
-    bgImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
-    logoText: "NNPC",
-    title: "Driving Agile Transformation at NNPC Limited IT Division.",
-    desc: "NNPC Limited's Information Technology Division (ITD) embarked on a transformative...",
-    href: "/industry/case-study",
-  },
-];
-
-const insightCards = [
-  {
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80",
-    title: "The New Operating Model for Sustainable Performance",
-    date: "2nd Sep 2025",
-    readTime: "2 min",
-    href: "/news/new-operating-model",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&q=80",
-    title: "AI & Cybersecurity Governance: Getting Leadership By-In",
-    date: "2nd Sep 2025",
-    readTime: "2 min",
-    href: "/news/ai-governance",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80",
-    title: "5 Ai Driven Threats Organizations Can't Ignore In 2026",
-    date: "2nd Sep 2025",
-    readTime: "2 min",
-    href: "/news/ai-threats",
-  },
-];
-
 /* ─────────────────────────────────────────
    STAR RATING
 ───────────────────────────────────────── */
@@ -159,10 +121,39 @@ function ConsultationBtn({ href = "/contact" }: { href?: string }) {
   );
 }
 
+type SanityImage = { asset?: { _ref: string } } | null | undefined;
+
+type RawPost = {
+  _id: string;
+  title: string;
+  slug: string;
+  excerpt?: string;
+  mainImage?: SanityImage;
+  publishedAt: string;
+  plainBody?: string;
+};
+
 /* ─────────────────────────────────────────
    PAGE
 ───────────────────────────────────────── */
-export default function CybersecurityPage() {
+export default async function CybersecurityPage() {
+  const [{ data: caseStudyPosts }, { data: insightPosts }] = await Promise.all([
+    sanityFetch({ query: POSTS_BY_CATEGORY_QUERY, params: { slug: "case-study" } }),
+    sanityFetch({ query: POSTS_BY_CATEGORY_QUERY, params: { slug: "cybersecurity" } }),
+  ]);
+
+  const caseStudyItems = ((caseStudyPosts ?? []) as RawPost[]).slice(0, 6).map((post) => ({
+    slug: post.slug,
+    title: post.title,
+    excerpt: post.excerpt,
+    imageUrl: postImageUrl(post.mainImage),
+    date: formatPostDate(post.publishedAt),
+    readTime: estimateReadTimeFromText(post.plainBody),
+    href: `/industry/case-study/${post.slug}`,
+  }));
+
+  const insightItems = ((insightPosts ?? []) as RawPost[]).slice(0, 3);
+
   return (
     <main className="w-full overflow-x-hidden">
 
@@ -402,52 +393,32 @@ export default function CybersecurityPage() {
       </section>
 
       {/* ══════════════════════════════════════
-          9. HIGHLIGHTED TRANSFORMATION PROJECTS
+          9. HIGHLIGHTED TRANSFORMATION PROJECTS — real case studies
       ══════════════════════════════════════ */}
-      <CardCarouselSection
-        items={projects}
-        getKey={(p) => p.title}
+      <BlogCardCarousel
+        items={caseStudyItems}
         heading="Highlighted Transformation Projects"
-        underlineWord="Highlighted"
         bgClassName="bg-[#F7F9FC]"
-        renderCard={(p) => (
-          <div className="bg-white rounded-2xl overflow-hidden border border-[#DCE0E8] flex flex-col h-full">
-            <div className="relative h-[180px] overflow-hidden bg-[#EAF3FB]">
-              <Image src={p.bgImage} alt={p.title} fill className="object-cover opacity-40" sizes="400px" />
-              <div className="absolute inset-0 bg-[#1A274F]/30" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-white text-[28px] font-extrabold tracking-widest drop-shadow">{p.logoText}</span>
-              </div>
-            </div>
-            <div className="p-5 flex flex-col flex-1 gap-2">
-              <h3 className="text-[#1A274F] text-[14px] font-semibold leading-snug">{p.title}</h3>
-              <p className="text-[#6B7280] text-[13px] leading-relaxed flex-1">{p.desc}</p>
-              <div className="mt-3">
-                <Link href={p.href} className="inline-flex items-center px-5 py-2 rounded-full bg-[#0066FF] text-white text-[13px] font-medium hover:bg-[#25429A] transition-colors">
-                  Read More
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
+        viewAllHref="/industry#case-studies"
+        viewAllLabel="View All Case Studies"
       />
 
       {/* ══════════════════════════════════════
-          10. INSIGHT ARTICLE — BlogCard ×3
+          10. INSIGHT ARTICLE — real Cybersecurity insights
       ══════════════════════════════════════ */}
       <section className="bg-white py-14 lg:py-20">
         <div className="max-w-[1280px] mx-auto px-6">
           <SectionHeading title="Insight Article" className="mb-10" />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {insightCards.map((card) => (
-              <div key={card.href} className="[&>div]:max-w-none [&>div]:w-full">
+            {insightItems.map((post) => (
+              <div key={post.slug} className="[&>div]:max-w-none [&>div]:w-full">
                 <BlogCard
-                  image={card.image}
-                  title={card.title}
-                  date={card.date}
-                  readTime={card.readTime}
-                  href={card.href}
+                  image={postImageUrl(post.mainImage) ?? "/images/bg.jpg"}
+                  title={post.title}
+                  date={formatPostDate(post.publishedAt)}
+                  readTime={estimateReadTimeFromText(post.plainBody)}
+                  href={`/news/${post.slug}`}
                 />
               </div>
             ))}
