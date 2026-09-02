@@ -79,15 +79,27 @@ export const solutionCards = [
     title: "Solutions",
     description:
       "End-to-end technology and business solutions tailored to your sector's specific challenges and growth ambitions.",
+    list: [
+      "Enterprise Transformation",
+      "Cybersecurity & GRC",
+      "Strategy & Execution",
+      "Learning & Talent",
+    ],
     href: "/what-we-do/solutions",
   },
   {
     image:
       "/images/solution/platforms.png",
-    title: "Platforms",
+    title: "Partnership",
     description:
       "Scalable digital platforms that accelerate delivery, improve visibility, and create lasting competitive advantage.",
-    href: "/what-we-do/platforms",
+    list: [
+      "AI Transformation Partnership™",
+      "PMOCentra (PMO-as-a-Service)",
+      "ComplyCentra (Compliance-as-a-Service)",
+      "Workforce Capability Partnerships™",
+    ],
+    href: "/what-we-do/partnerships",
   },
 ];
 

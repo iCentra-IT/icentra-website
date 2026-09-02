@@ -7,6 +7,13 @@ export const postType = defineType({
   fields: [
     defineField({ name: 'title', type: 'string' }),
     defineField({ name: 'slug', type: 'slug', options: { source: 'title' } }),
+    defineField({
+      name: 'featured',
+      title: 'Featured',
+      type: 'boolean',
+      description: 'Highlight this post above others of the same category.',
+      initialValue: false,
+    }),
     defineField({ name: 'excerpt', type: 'text' }),
     defineField({ name: 'mainImage', type: 'image', options: { hotspot: true } }),
     defineField({

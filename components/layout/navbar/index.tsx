@@ -7,15 +7,15 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 
 const navLinks = [
-  { label: "Home", href: "/" },
+  // { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   {
     label: "What We Do",
     href: "#",
     dropdown: [
       { label: "Continuous Transformation", href: "/what-we-do/continuous-transformation" },
-      { label: "Our Solutions", href: "/what-we-do/solutions" },
-      { label: "Platforms", href: "/what-we-do/platforms" },
+      { label: "Solutions", href: "/what-we-do/solutions" },
+      { label: "Partnerships", href: "/what-we-do/partnerships" },
     ],
   },
   { label: "Industry", href: "/industry" },

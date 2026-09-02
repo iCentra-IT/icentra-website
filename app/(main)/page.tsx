@@ -73,8 +73,8 @@ export default async function HomePage() {
       sanityFetch({ query: POSTS_BY_CATEGORY_QUERY, params: { slug: "spotlights" } }),
     ]);
 
-  const insightItems = toCarouselItems(((insightPosts ?? []) as RawPost[]).slice(0, 6), "/news");
-  const caseStudyItems = toCarouselItems(((caseStudyPosts ?? []) as RawPost[]).slice(0, 6), "/industry/case-study");
+  const insightItems = toCarouselItems(((insightPosts ?? []) as RawPost[]).slice(0, 4), "/news");
+  const caseStudyItems = toCarouselItems(((caseStudyPosts ?? []) as RawPost[]).slice(0, 4), "/industry/case-study");
   const spotlightItems = ((spotlightPosts ?? []) as RawPost[]).slice(0, 4).map((post) => ({
     slug: post.slug,
     title: post.title,
@@ -127,6 +127,7 @@ export default async function HomePage() {
                   title={s.title}
                   description={s.description}
                   href={s.href}
+                  list={s.list}
                 />
               </div>
             ))}
@@ -232,9 +233,12 @@ export default async function HomePage() {
             className="mb-8"
           />
 
-          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StaggerGroup className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide -mx-6 px-6 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:snap-none lg:grid-cols-4">
             {spotlightItems.map((post) => (
-              <StaggerItem key={post.slug} className="[&>div]:max-w-none [&>div]:w-full">
+              <StaggerItem
+                key={post.slug}
+                className="snap-start shrink-0 w-[85%] sm:w-auto sm:shrink [&>div]:max-w-none [&>div]:w-full"
+              >
                 <BlogCard
                   image={post.imageUrl ?? "/images/bg.jpg"}
                   title={post.title}

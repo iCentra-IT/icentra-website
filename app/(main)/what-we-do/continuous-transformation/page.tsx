@@ -4,6 +4,7 @@ import ServiceCard from "@/components/ui/cards/service-card";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
+import { solutionCategories } from "@/lib/data/solutions";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -30,40 +31,14 @@ const structuredSystem = [
   },
 ];
 
-const serviceCards = [
-  {
-     image: "/images/solution/1.png",
-    category: "Enterprise Transformation",
-    title: "Utilize Innovation For Improved Value Delivery",
-    activeTitle: "Enterprise Transformation",
-    items: ["AI & Intelligent Automation", "Digital Transformation", "Organizational Transformation", "Agile Transformation"],
-    href: "/enterprise",
-  },
-  {
-    image: "/images/solution/2.jpg",
-    category: "Cybersecurity & GRC",
-    title: "Mitigate Business Challenges Seamlessly",
-    activeTitle: "Cybersecurity & GRC",
-    items: ["Security Operations", "Risk & Compliance", "Identity Management", "Incident Response"],
-    href: "/what-we-do/solutions/cybersecurity",
-  },
-  {
-    image: "/images/solution/3.jpg",
-    category: "Strategy & Execution",
-    title: "Achieve Your Objectives With Strategic Goals",
-    activeTitle: "Strategy & Execution",
-    items: ["Portfolio Management", "Programme Delivery", "Change Management", "Benefits Realisation"],
-    href: "/what-we-do/solutions",
-  },
-  {
-    image: "/images/solution/4.jpg",
-    category: "Learning & Talent",
-    title: "Accelerate Your Growth With Refined Knowledge",
-    activeTitle: "Learning & Talent",
-    items: ["Leadership Development", "Digital Skills Training", "Certification Programmes", "Coaching & Mentoring"],
-    href: "/what-we-do/solutions",
-  },
-];
+const serviceCards = solutionCategories.map((category) => ({
+  image: category.image,
+  category: category.title,
+  title: category.tagline,
+  activeTitle: category.title,
+  items: category.subcategories.map((sub) => sub.title),
+  href: `/what-we-do/solutions/${category.slug}`,
+}));
 
 const stats = [
   { value: "15+",   label: "Years of Excellence" },

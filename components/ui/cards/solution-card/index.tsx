@@ -11,6 +11,8 @@ interface SolutionCardProps {
   title: string;
   description: string;
   href: string;
+  /** shown as a bullet list on hover instead of the description, when provided */
+  list?: string[];
 }
 
 export default function SolutionCard({
@@ -18,6 +20,7 @@ export default function SolutionCard({
   title,
   description,
   href,
+  list,
 }: SolutionCardProps) {
   return (
     <MotionLink
@@ -64,18 +67,32 @@ export default function SolutionCard({
             </h3>
           </div>
 
-          {/* Description — slides in on hover */}
+          {/* Description / list — slides in on hover */}
           <div
             className="
               px-4 overflow-hidden
               max-h-0 opacity-0
               transition-all duration-500 ease-in-out
-              group-hover:max-h-40 group-hover:opacity-100 group-hover:pb-5
+              group-hover:max-h-60 group-hover:opacity-100 group-hover:pb-5
             "
           >
-            <p className="text-white/85 text-[14px] leading-relaxed">
-              {description}
-            </p>
+            {list ? (
+              <ul className="space-y-1.5">
+                {list.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2 text-white/85 text-[13px] leading-snug"
+                  >
+                    <span className="mt-1.5 w-1 h-1 rounded-full bg-light-blue shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-white/85 text-[14px] leading-relaxed">
+                {description}
+              </p>
+            )}
             <span className="inline-flex items-center gap-1 mt-3 text-light-blue text-[13px] font-medium">
               Learn more
               <svg

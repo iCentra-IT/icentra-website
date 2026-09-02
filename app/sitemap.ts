@@ -2,22 +2,33 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 import { sanityFetch } from "@/sanity/lib/live";
 import { ALL_POST_SLUGS_QUERY, CASE_STUDY_SLUGS_QUERY, JOB_SLUGS_QUERY } from "@/sanity/lib/queries";
+import { solutionCategories } from "@/lib/data/solutions";
 
 const STATIC_ROUTES: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
   { path: "/", priority: 1, changeFrequency: "weekly" },
   { path: "/about", priority: 0.8, changeFrequency: "monthly" },
   { path: "/careers", priority: 0.8, changeFrequency: "weekly" },
   { path: "/contact", priority: 0.7, changeFrequency: "monthly" },
-  { path: "/enterprise", priority: 0.6, changeFrequency: "monthly" },
   { path: "/events", priority: 0.7, changeFrequency: "weekly" },
   { path: "/industry", priority: 0.8, changeFrequency: "weekly" },
   { path: "/legal/privacy", priority: 0.3, changeFrequency: "yearly" },
   { path: "/legal/terms", priority: 0.3, changeFrequency: "yearly" },
   { path: "/news", priority: 0.9, changeFrequency: "daily" },
   { path: "/what-we-do/continuous-transformation", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/what-we-do/platforms", priority: 0.5, changeFrequency: "monthly" },
+  { path: "/what-we-do/partnerships", priority: 0.5, changeFrequency: "monthly" },
   { path: "/what-we-do/solutions", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/what-we-do/solutions/cybersecurity", priority: 0.8, changeFrequency: "monthly" },
+  ...solutionCategories.map((category) => ({
+    path: `/what-we-do/solutions/${category.slug}`,
+    priority: 0.8,
+    changeFrequency: "monthly" as const,
+  })),
+  ...solutionCategories.flatMap((category) =>
+    category.subcategories.map((sub) => ({
+      path: `/what-we-do/solutions/${category.slug}/${sub.slug}`,
+      priority: 0.6,
+      changeFrequency: "monthly" as const,
+    }))
+  ),
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

@@ -18,7 +18,7 @@ const aboutLinks = [
 const whatWeDo = [
   { label: "Continuous Transformation", href: "/what-we-do/continuous-transformation" },
   { label: "Our solution", href: "/what-we-do/solutions" },
-  { label: "Platforms", href: "/what-we-do/platforms" },
+  { label: "Partnerships", href: "/what-we-do/partnerships" },
 ];
 
 const legalLinks = [
