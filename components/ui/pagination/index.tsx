@@ -40,7 +40,7 @@ export default function Pagination({ currentPage, totalPages, onChange }: Pagina
 
       {getPageNumbers(currentPage, totalPages).map((page, i) =>
         page === "ellipsis" ? (
-          <span key={`ellipsis-${i}`} className="w-9 h-9 flex items-center justify-center text-[#9CA3AF] text-[13px]">
+          <span key={`ellipsis-${i}`} className="w-9 h-9 flex items-center justify-center text-[#9CA3AF] text-sm">
             &hellip;
           </span>
         ) : (
@@ -48,7 +48,7 @@ export default function Pagination({ currentPage, totalPages, onChange }: Pagina
             key={page}
             onClick={() => onChange(page)}
             aria-current={page === currentPage ? "page" : undefined}
-            className={`w-9 h-9 rounded-full text-[13px] font-semibold transition-colors cursor-pointer ${
+            className={`w-9 h-9 rounded-full text-sm font-semibold transition-colors cursor-pointer ${
               page === currentPage
                 ? "bg-[#0066FF] text-white"
                 : "text-[#1A274F] hover:bg-[#EAF3FB]"

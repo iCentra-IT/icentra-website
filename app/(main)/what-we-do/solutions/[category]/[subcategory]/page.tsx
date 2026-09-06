@@ -84,7 +84,7 @@ export default async function SolutionSubcategoryPage({ params }: PageProps) {
         <div className="flex flex-col gap-5">
           <Link
             href={`/what-we-do/solutions/${category.slug}`}
-            className="inline-flex items-center gap-2 text-white/70 text-[13px] font-medium hover:text-white transition-colors w-fit"
+            className="inline-flex items-center gap-2 text-white/70 text-sm font-medium hover:text-white transition-colors w-fit"
           >
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -92,12 +92,12 @@ export default async function SolutionSubcategoryPage({ params }: PageProps) {
             Back to {category.title}
           </Link>
           <div className="flex flex-wrap items-center gap-4">
-            <span className="text-white text-[15px] lg:text-[17px] font-semibold">
+            <span className="text-white text-base lg:text-lg font-semibold">
               {sub.heroCtaLine}
             </span>
             <Link
               href="/contact"
-              className="inline-flex items-center px-6 py-3 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#00DBFF] hover:text-[#1A274F] transition-colors"
+              className="inline-flex items-center px-6 py-3 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#00DBFF] hover:text-[#1A274F] transition-colors"
             >
               {sub.heroCtaLabel ?? DEFAULT_CTA_LABEL}
             </Link>
@@ -111,7 +111,7 @@ export default async function SolutionSubcategoryPage({ params }: PageProps) {
       <section className="bg-white py-14 lg:py-16">
         <Reveal className="max-w-[1280px] mx-auto px-6 flex flex-col gap-4 max-w-[900px]">
           {sub.overview.map((paragraph, i) => (
-            <p key={i} className="text-[#374151] text-[15px] leading-[1.85]">
+            <p key={i} className="text-[#374151] text-base leading-[1.85]">
               {paragraph}
             </p>
           ))}
@@ -133,15 +133,15 @@ export default async function SolutionSubcategoryPage({ params }: PageProps) {
       ══════════════════════════════════════ */}
       <section className="bg-white pb-14 lg:pb-16">
         <div className="max-w-[1280px] mx-auto px-6">
-          <p className="text-[#374151] text-[15px] leading-[1.85] max-w-[900px] mb-8">
+          <p className="text-[#374151] text-base leading-[1.85] max-w-[900px] mb-8">
             {sub.servicesIntro}
           </p>
 
           <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
             {sub.services.map((service) => (
               <StaggerItem key={service.title}>
-                <h4 className="text-[#1A274F] text-[14px] font-bold mb-1.5">{service.title}</h4>
-                <p className="text-[#6B7280] text-[13px] leading-relaxed">{service.description}</p>
+                <h4 className="text-[#1A274F] text-sm font-bold mb-1.5">{service.title}</h4>
+                <p className="text-[#6B7280] text-sm leading-relaxed">{service.description}</p>
               </StaggerItem>
             ))}
           </StaggerGroup>
@@ -174,8 +174,8 @@ export default async function SolutionSubcategoryPage({ params }: PageProps) {
                 <span className="text-[#DCE0E8] text-[36px] font-extrabold leading-none">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h4 className="text-[#1A274F] text-[15px] font-bold">{step.title}</h4>
-                <p className="text-[#6B7280] text-[13px] leading-relaxed">{step.description}</p>
+                <h4 className="text-[#1A274F] text-base font-bold">{step.title}</h4>
+                <p className="text-[#6B7280] text-sm leading-relaxed">{step.description}</p>
               </StaggerItem>
             ))}
           </StaggerGroup>
@@ -201,12 +201,12 @@ export default async function SolutionSubcategoryPage({ params }: PageProps) {
               <SectionHeading title="Client Testimonial" />
             </div>
             <Reveal className="bg-[#F7F9FC] rounded-2xl p-8 lg:p-10 border border-[#DCE0E8] flex flex-col gap-5 text-center">
-              <p className="text-[#374151] text-[15px] lg:text-[16px] leading-[1.85] italic">
+              <p className="text-[#374151] text-base lg:text-base leading-[1.85] italic">
                 &ldquo;{sub.testimonial.quote}&rdquo;
               </p>
               <div>
-                <p className="text-[#1A274F] text-[14px] font-semibold">{sub.testimonial.name}</p>
-                <p className="text-[#4B6CB7] text-[13px]">{sub.testimonial.role}</p>
+                <p className="text-[#1A274F] text-sm font-semibold">{sub.testimonial.name}</p>
+                <p className="text-[#4B6CB7] text-sm">{sub.testimonial.role}</p>
               </div>
             </Reveal>
           </div>
@@ -223,24 +223,24 @@ export default async function SolutionSubcategoryPage({ params }: PageProps) {
 
             <Reveal className="bg-white rounded-2xl p-8 lg:p-10 border border-[#DCE0E8] flex flex-col gap-6">
               <div>
-                <p className="text-[#0066FF] text-[13px] font-semibold tracking-[0.1em] uppercase mb-1">
+                <p className="text-[#0066FF] text-sm font-semibold tracking-[0.1em] uppercase mb-1">
                   Client
                 </p>
-                <p className="text-[#1A274F] text-[16px] font-bold">{sub.caseStudy.client}</p>
+                <p className="text-[#1A274F] text-base font-bold">{sub.caseStudy.client}</p>
               </div>
               <div>
-                <p className="text-[#1A274F] text-[14px] font-bold mb-1.5">Challenge</p>
-                <p className="text-[#6B7280] text-[14px] leading-relaxed">{sub.caseStudy.challenge}</p>
+                <p className="text-[#1A274F] text-sm font-bold mb-1.5">Challenge</p>
+                <p className="text-[#6B7280] text-sm leading-relaxed">{sub.caseStudy.challenge}</p>
               </div>
               <div>
-                <p className="text-[#1A274F] text-[14px] font-bold mb-1.5">Solution</p>
-                <p className="text-[#6B7280] text-[14px] leading-relaxed">{sub.caseStudy.solution}</p>
+                <p className="text-[#1A274F] text-sm font-bold mb-1.5">Solution</p>
+                <p className="text-[#6B7280] text-sm leading-relaxed">{sub.caseStudy.solution}</p>
               </div>
               <div>
-                <p className="text-[#1A274F] text-[14px] font-bold mb-2">Result</p>
+                <p className="text-[#1A274F] text-sm font-bold mb-2">Result</p>
                 <ul className="flex flex-col gap-2">
                   {sub.caseStudy.result.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-[#6B7280] text-[14px] leading-relaxed">
+                    <li key={item} className="flex items-start gap-2.5 text-[#6B7280] text-sm leading-relaxed">
                       <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0066FF] shrink-0" />
                       {item}
                     </li>
@@ -250,7 +250,7 @@ export default async function SolutionSubcategoryPage({ params }: PageProps) {
               <div>
                 <Link
                   href="/industry#case-studies"
-                  className="inline-flex items-center px-6 py-2.5 rounded-full bg-[#0066FF] text-white text-[13px] font-semibold hover:bg-[#25429A] transition-colors"
+                  className="inline-flex items-center px-6 py-2.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"
                 >
                   Read More
                 </Link>

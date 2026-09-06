@@ -75,7 +75,7 @@ const accordionItems: AccordionItem[] = [
     title: "How We Behave",
     type: "text",
     content:
-      "We act with integrity, communicate openly, and treat every colleague and client with respect — holding ourselves accountable to the highest standards in everything we do.",
+      "We act with integrity, communicate openly, and treat every colleague and client with respect, holding ourselves accountable to the highest standards in everything we do.",
   },
   {
     title: "What We Value",
@@ -87,7 +87,7 @@ const accordionItems: AccordionItem[] = [
     title: "How We Relate",
     type: "text",
     content:
-      "We build relationships rooted in trust, transparency, and mutual respect — both within our teams and with the clients and communities we serve.",
+      "We build relationships rooted in trust, transparency, and mutual respect, both within our teams and with the clients and communities we serve.",
   },
 ];
 
@@ -302,7 +302,7 @@ export default async function CareersPage() {
             People across different roles and career stages, all united by one
             thing: the drive to make a meaningful difference. &ldquo;Working at
             iCentra has been a journey of both personal and professional growth.
-            The opportunities here are real—and so is the impact you get to
+            The opportunities here are real, and so is the impact you get to
             make.&rdquo;
           </p>
 
@@ -334,10 +334,10 @@ export default async function CareersPage() {
                   </div>
                 </button>
                 <div>
-                  <p className="text-[#1A274F] text-[14px] font-semibold">
+                  <p className="text-[#1A274F] text-sm font-semibold">
                     {member.name}
                   </p>
-                  <p className="text-[#6B7280] text-[12px]">{member.role}</p>
+                  <p className="text-[#6B7280] text-xs">{member.role}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -379,7 +379,7 @@ export default async function CareersPage() {
             </StaggerGroup>
           ) : (
             <p className="text-[#6B7280] text-sm py-10 text-center">
-              No open roles right now — check back soon.
+              No open roles right now. Check back soon.
             </p>
           )}
         </div>

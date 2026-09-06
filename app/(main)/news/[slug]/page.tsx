@@ -44,7 +44,7 @@ const portableTextComponents: PortableTextComponents = {
   block: {
     normal: ({ children }) => <p className="mb-5">{children}</p>,
     h2: ({ children }) => <h2 className="text-[#1A274F] text-[22px] font-bold mt-8 mb-4">{children}</h2>,
-    h3: ({ children }) => <h3 className="text-[#1A274F] text-[19px] font-bold mt-6 mb-3">{children}</h3>,
+    h3: ({ children }) => <h3 className="text-[#1A274F] text-lg font-bold mt-6 mb-3">{children}</h3>,
     blockquote: ({ children }) => (
       <blockquote className="border-l-4 border-[#0066FF] pl-5 italic text-[#1A274F] my-6">{children}</blockquote>
     ),
@@ -101,7 +101,7 @@ export default async function ArticlePage({
     return (
       <main className="w-full overflow-x-hidden">
         <PageHero headline={sanityPost.title}>
-          <div className="flex items-center gap-3 text-white/70 text-[13px]">
+          <div className="flex items-center gap-3 text-white/70 text-sm">
             <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-light-blue font-medium">
               {badge}
             </span>
@@ -125,7 +125,7 @@ export default async function ArticlePage({
               </div>
             )}
 
-            <div className="flex flex-col text-[#374151] text-[15px] leading-[1.9]">
+            <div className="flex flex-col text-[#374151] text-base leading-[1.9]">
               {Array.isArray(sanityPost.body) && sanityPost.body.length > 0 ? (
                 <PortableText value={sanityPost.body} components={portableTextComponents} />
               ) : (
@@ -170,7 +170,7 @@ export default async function ArticlePage({
   return (
     <main className="w-full overflow-x-hidden">
       <PageHero headline={article.title}>
-        <div className="flex items-center gap-3 text-white/70 text-[13px]">
+        <div className="flex items-center gap-3 text-white/70 text-sm">
           <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-light-blue font-medium">
             {article.category}
           </span>
@@ -192,7 +192,7 @@ export default async function ArticlePage({
             />
           </div>
 
-          <div className="flex flex-col gap-5 text-[#374151] text-[15px] leading-[1.9]">
+          <div className="flex flex-col gap-5 text-[#374151] text-base leading-[1.9]">
             <p>
               {article.title} is part of iCentra&apos;s ongoing coverage on transformation,
               cybersecurity, and workforce capability. Our team continues to track and report

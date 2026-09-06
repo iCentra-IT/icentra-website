@@ -70,7 +70,7 @@ export const solutionCards = [
       "/images/solution/continuous-transformation.png",
     title: "Continuous Transformation",
     description:
-      "We help organizations build the capability to continuously evolve — from strategy through to execution and beyond.",
+      "We help organizations build the capability to continuously evolve, from strategy through to execution and beyond.",
     href: "/what-we-do/continuous-transformation",
   },
   {

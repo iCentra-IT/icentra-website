@@ -141,7 +141,7 @@ export function HomepageFormModal({
     <>
       <button
         onClick={() => setOpen(true)}
-        className={triggerClassName ?? "inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#25429A] transition-colors"}
+        className={triggerClassName ?? "inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"}
       >
         {triggerLabel}
       </button>
@@ -188,7 +188,7 @@ export function WebinarRegistrationModal({
     <>
       <button
         onClick={() => setOpen(true)}
-        className={triggerClassName ?? "inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#25429A] transition-colors"}
+        className={triggerClassName ?? "inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"}
       >
         {triggerLabel}
       </button>
@@ -232,7 +232,7 @@ export function JobApplicationModal({
     <>
       <button
         onClick={() => setOpen(true)}
-        className={triggerClassName ?? "inline-flex items-center px-6 py-2.5 rounded-full bg-[#0066FF] text-white text-[13px] font-semibold hover:bg-[#25429A] transition-colors"}
+        className={triggerClassName ?? "inline-flex items-center px-6 py-2.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"}
       >
         {triggerLabel}
       </button>
@@ -274,7 +274,7 @@ export function NewsletterModal({
     <>
       <button
         onClick={() => setOpen(true)}
-        className={triggerClassName ?? "inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#25429A] transition-colors"}
+        className={triggerClassName ?? "inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"}
       >
         {triggerLabel}
       </button>
@@ -318,7 +318,7 @@ export function ResourceDownloadModal({
     <>
       <button
         onClick={() => setOpen(true)}
-        className={triggerClassName ?? "inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#25429A] transition-colors"}
+        className={triggerClassName ?? "inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"}
       >
         {triggerLabel}
       </button>
@@ -367,7 +367,7 @@ export function IndividualLearningModal({
     <>
       <button
         onClick={() => setOpen(true)}
-        className={triggerClassName ?? "inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#25429A] transition-colors"}
+        className={triggerClassName ?? "inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"}
       >
         {triggerLabel}
       </button>
@@ -421,7 +421,7 @@ export function CorporateSolutionModal({
     <>
       <button
         onClick={() => setOpen(true)}
-        className={triggerClassName ?? "inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#25429A] transition-colors"}
+        className={triggerClassName ?? "inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"}
       >
         {triggerLabel}
       </button>
@@ -464,7 +464,7 @@ export function VolunteerRegistrationModal({
     <>
       <button
         onClick={() => setOpen(true)}
-        className={triggerClassName ?? "inline-flex items-center px-8 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#25429A] transition-colors"}
+        className={triggerClassName ?? "inline-flex items-center px-8 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"}
       >
         {triggerLabel}
       </button>

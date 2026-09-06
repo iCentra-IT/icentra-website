@@ -25,7 +25,7 @@ export default function HowWeDoIt({ intro, items }: HowWeDoItProps) {
       <div className="max-w-[1280px] mx-auto px-6">
         <SectionHeading title="How We Do It" className="mb-4" />
         {intro && (
-          <p className="text-[#374151] text-[14px] lg:text-[15px] leading-[1.8] max-w-[860px] mb-12">
+          <p className="text-[#374151] text-sm lg:text-base leading-[1.8] max-w-[860px] mb-12">
             {intro}
           </p>
         )}

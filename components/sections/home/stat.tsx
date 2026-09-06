@@ -51,10 +51,10 @@ export default function StatsBar() {
             key={s.label}
             className="flex flex-col items-center px-2 sm:px-4"
           >
-            <span className="text-white text-[20px] sm:text-[28px] lg:text-[38px] font-extrabold leading-none">
+            <span className="text-white text-xl sm:text-[28px] lg:text-[38px] font-extrabold leading-none">
               <AnimatedStat value={s.value} start={inView} />
             </span>
-            <span className="text-white/60 text-[10px] sm:text-[11px] lg:text-[13px] mt-1 text-center">
+            <span className="text-white/60 text-xs sm:text-xs lg:text-sm mt-1 text-center">
               {s.label}
             </span>
           </div>

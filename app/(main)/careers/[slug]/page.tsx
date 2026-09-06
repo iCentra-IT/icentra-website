@@ -23,8 +23,8 @@ type SanityPost = {
 const portableTextComponents: PortableTextComponents = {
   block: {
     normal: ({ children }) => <p className="mb-5">{children}</p>,
-    h2: ({ children }) => <h2 className="text-[#1A274F] text-[20px] lg:text-[22px] font-bold mt-8 mb-4">{children}</h2>,
-    h3: ({ children }) => <h3 className="text-[#1A274F] text-[18px] font-bold mt-6 mb-3">{children}</h3>,
+    h2: ({ children }) => <h2 className="text-[#1A274F] text-xl lg:text-[22px] font-bold mt-8 mb-4">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-[#1A274F] text-lg font-bold mt-6 mb-3">{children}</h3>,
   },
   list: {
     bullet: ({ children }) => <ul className="list-disc pl-6 mb-5 flex flex-col gap-1.5">{children}</ul>,
@@ -66,7 +66,7 @@ export default async function JobDetailPage({
     return (
       <main className="w-full overflow-x-hidden">
         <PageHero headline={jobPost.title.trim()}>
-          <div className="flex flex-wrap items-center gap-3 text-white/70 text-[13px]">
+          <div className="flex flex-wrap items-center gap-3 text-white/70 text-sm">
             <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-light-blue font-medium">
               {roleType}
             </span>
@@ -77,7 +77,7 @@ export default async function JobDetailPage({
         <section className="bg-white py-14 lg:py-20">
           <div className="max-w-[860px] mx-auto px-6 flex flex-col gap-10">
             <Reveal>
-              <div className="text-[#374151] text-[15px] leading-[1.9]">
+              <div className="text-[#374151] text-base leading-[1.9]">
                 {Array.isArray(jobPost.body) && jobPost.body.length > 0 ? (
                   <PortableText value={jobPost.body} components={portableTextComponents} />
                 ) : (
@@ -89,19 +89,19 @@ export default async function JobDetailPage({
             <Reveal delay={0.1}>
               <div className="bg-[#EAF3FB] rounded-2xl p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
                 <div>
-                  <h3 className="text-[#1A274F] text-[18px] font-bold mb-1">Ready to apply?</h3>
-                  <p className="text-[#6B7280] text-[14px]">Submit your details and resume for the {jobPost.title.trim()} role.</p>
+                  <h3 className="text-[#1A274F] text-lg font-bold mb-1">Ready to apply?</h3>
+                  <p className="text-[#6B7280] text-sm">Submit your details and resume for the {jobPost.title.trim()} role.</p>
                 </div>
                 <JobApplicationModal
                   triggerLabel="Apply for this role"
-                  triggerClassName="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#25429A] transition-colors shrink-0 cursor-pointer"
+                  triggerClassName="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors shrink-0 cursor-pointer"
                 />
               </div>
             </Reveal>
 
             <Link
               href="/careers"
-              className="inline-flex items-center gap-2 text-[#0066FF] text-[14px] font-semibold hover:gap-3 transition-all w-fit"
+              className="inline-flex items-center gap-2 text-[#0066FF] text-sm font-semibold hover:gap-3 transition-all w-fit"
             >
               ← Back to all openings
             </Link>
@@ -135,7 +135,7 @@ export default async function JobDetailPage({
   return (
     <main className="w-full overflow-x-hidden">
       <PageHero headline={job.title}>
-        <div className="flex flex-wrap items-center gap-3 text-white/70 text-[13px]">
+        <div className="flex flex-wrap items-center gap-3 text-white/70 text-sm">
           <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-light-blue font-medium">
             {job.type}
           </span>
@@ -149,21 +149,21 @@ export default async function JobDetailPage({
         <div className="max-w-[860px] mx-auto px-6 flex flex-col gap-10">
           <Reveal>
             <div>
-              <h2 className="text-[#1A274F] text-[20px] lg:text-[24px] font-bold mb-4">
+              <h2 className="text-[#1A274F] text-xl lg:text-[24px] font-bold mb-4">
                 About the Role
               </h2>
-              <p className="text-[#374151] text-[15px] leading-[1.9]">{job.description}</p>
+              <p className="text-[#374151] text-base leading-[1.9]">{job.description}</p>
             </div>
           </Reveal>
 
           <Reveal delay={0.1}>
             <div>
-              <h2 className="text-[#1A274F] text-[20px] lg:text-[24px] font-bold mb-4">
+              <h2 className="text-[#1A274F] text-xl lg:text-[24px] font-bold mb-4">
                 What You Will Do
               </h2>
               <ul className="flex flex-col gap-2.5">
                 {job.responsibilities.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-[#374151] text-[15px] leading-relaxed">
+                  <li key={item} className="flex items-start gap-2.5 text-[#374151] text-base leading-relaxed">
                     <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0066FF] shrink-0" />
                     {item}
                   </li>
@@ -174,12 +174,12 @@ export default async function JobDetailPage({
 
           <Reveal delay={0.15}>
             <div>
-              <h2 className="text-[#1A274F] text-[20px] lg:text-[24px] font-bold mb-4">
+              <h2 className="text-[#1A274F] text-xl lg:text-[24px] font-bold mb-4">
                 What We Are Looking For
               </h2>
               <ul className="flex flex-col gap-2.5">
                 {job.requirements.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-[#374151] text-[15px] leading-relaxed">
+                  <li key={item} className="flex items-start gap-2.5 text-[#374151] text-base leading-relaxed">
                     <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0066FF] shrink-0" />
                     {item}
                   </li>
@@ -191,19 +191,19 @@ export default async function JobDetailPage({
           <Reveal delay={0.2}>
             <div className="bg-[#EAF3FB] rounded-2xl p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
               <div>
-                <h3 className="text-[#1A274F] text-[18px] font-bold mb-1">Ready to apply?</h3>
-                <p className="text-[#6B7280] text-[14px]">Submit your details and resume for the {job.title} role.</p>
+                <h3 className="text-[#1A274F] text-lg font-bold mb-1">Ready to apply?</h3>
+                <p className="text-[#6B7280] text-sm">Submit your details and resume for the {job.title} role.</p>
               </div>
               <JobApplicationModal
                 triggerLabel="Apply for this role"
-                triggerClassName="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#25429A] transition-colors shrink-0 cursor-pointer"
+                triggerClassName="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors shrink-0 cursor-pointer"
               />
             </div>
           </Reveal>
 
           <Link
             href="/careers"
-            className="inline-flex items-center gap-2 text-[#0066FF] text-[14px] font-semibold hover:gap-3 transition-all w-fit"
+            className="inline-flex items-center gap-2 text-[#0066FF] text-sm font-semibold hover:gap-3 transition-all w-fit"
           >
             ← Back to all openings
           </Link>

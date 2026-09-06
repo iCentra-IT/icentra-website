@@ -84,7 +84,7 @@ export default function Footer() {
                 priority
               />
             </Link>
-            <p className="text-[14px] text-white/75 leading-relaxed max-w-60">
+            <p className="text-sm text-white/75 leading-relaxed max-w-60">
               Transforming people &amp; organizations for excellent performance
             </p>
             {/* Socials */}
@@ -109,13 +109,13 @@ export default function Footer() {
 
             {/* Quick Link */}
             <div>
-              <h3 className="text-[15px] font-semibold text-white mb-5">Quick Link</h3>
+              <h3 className="text-base font-semibold text-white mb-5">Quick Link</h3>
               <ul className="flex flex-col gap-3">
                 {quickLinks.map((l) => (
                   <li key={l.label}>
                     <Link
                       href={l.href}
-                      className="text-[14px] text-white/70 hover:text-white transition-colors"
+                      className="text-sm text-white/70 hover:text-white transition-colors"
                     >
                       {l.label}
                     </Link>
@@ -126,13 +126,13 @@ export default function Footer() {
 
             {/* What We Do */}
             <div>
-              <h3 className="text-[15px] font-semibold text-white mb-5">What We Do</h3>
+              <h3 className="text-base font-semibold text-white mb-5">What We Do</h3>
               <ul className="flex flex-col gap-3">
                 {whatWeDo.map((l) => (
                   <li key={l.label}>
                     <Link
                       href={l.href}
-                      className="text-[14px] text-white/70 hover:text-white transition-colors"
+                      className="text-sm text-white/70 hover:text-white transition-colors"
                     >
                       {l.label}
                     </Link>
@@ -143,13 +143,13 @@ export default function Footer() {
 
             {/* About iCentra */}
             <div>
-              <h3 className="text-[15px] font-semibold text-white mb-5">About Icentra</h3>
+              <h3 className="text-base font-semibold text-white mb-5">About Icentra</h3>
               <ul className="flex flex-col gap-3">
                 {aboutLinks.map((l) => (
                   <li key={l.label}>
                     <Link
                       href={l.href}
-                      className="text-[14px] text-white/70 hover:text-white transition-colors"
+                      className="text-sm text-white/70 hover:text-white transition-colors"
                     >
                       {l.label}
                     </Link>
@@ -160,13 +160,13 @@ export default function Footer() {
 
             {/* Legal Terms */}
             <div>
-              <h3 className="text-[15px] font-semibold text-white mb-5">Legal &nbsp; Terms</h3>
+              <h3 className="text-base font-semibold text-white mb-5">Legal &nbsp; Terms</h3>
               <ul className="flex flex-col gap-3">
                 {legalLinks.map((l) => (
                   <li key={l.label}>
                     <Link
                       href={l.href}
-                      className="text-[14px] text-white/70 hover:text-white transition-colors"
+                      className="text-sm text-white/70 hover:text-white transition-colors"
                     >
                       {l.label}
                     </Link>
@@ -181,7 +181,7 @@ export default function Footer() {
         <div className="mt-12 border-t border-white/15" />
 
         {/* Bottom bar */}
-        <div className="mt-6 text-center text-[13px] text-white/50">
+        <div className="mt-6 text-center text-sm text-white/50">
           © {new Date().getFullYear()} iCentra. All rights reserved .
         </div>
       </div>

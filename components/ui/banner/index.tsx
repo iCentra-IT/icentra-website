@@ -39,7 +39,7 @@
 //           </h2>
 
 //           {/* Subtext */}
-//           <p className="text-white/70 text-[14px] lg:text-[15px] leading-relaxed mb-8 max-w-100">
+//           <p className="text-white/70 text-sm lg:text-base leading-relaxed mb-8 max-w-100">
 //             {subtext}
 //           </p>
 
@@ -47,14 +47,14 @@
 //           <div className="flex flex-wrap gap-3">
 //             <Link
 //               href={primaryCta.href}
-//               className="inline-flex items-center px-6 py-3 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold transition-colors"
+//               className="inline-flex items-center px-6 py-3 rounded-full bg-[#0066FF] text-white text-sm font-semibold transition-colors"
 //             >
 //               {primaryCta.label}
 //             </Link>
 //             {secondaryCta && (
 //               <Link
 //                 href={secondaryCta.href}
-//                 className="inline-flex items-center px-6 py-3 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold transition-colors"
+//                 className="inline-flex items-center px-6 py-3 rounded-full bg-[#0066FF] text-white text-sm font-semibold transition-colors"
 //               >
 //                 {secondaryCta.label}
 //               </Link>
@@ -117,7 +117,7 @@ function CtaButton({
   return (
     <Link
       href={cta.href ?? "#"}
-      className="inline-flex items-center px-6 py-3 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#00DBFF] hover:text-[#1A274F] transition-colors"
+      className="inline-flex items-center px-6 py-3 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#00DBFF] hover:text-[#1A274F] transition-colors"
     >
       {cta.label}
     </Link>
@@ -153,7 +153,7 @@ export default function DiscoverBanner({
           </h2>
 
           {/* Subtext */}
-          <p className="text-white/70 text-[14px] lg:text-[15px] leading-relaxed mb-8 max-w-[400px]">
+          <p className="text-white/70 text-sm lg:text-base leading-relaxed mb-8 max-w-[400px]">
             {subtext}
           </p>
 

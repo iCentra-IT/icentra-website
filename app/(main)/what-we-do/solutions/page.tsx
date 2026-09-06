@@ -10,7 +10,7 @@ import { solutionCategories } from "@/lib/data/solutions";
 export const metadata: Metadata = pageMetadata({
   title: "Our Solutions",
   description:
-    "Explore iCentra's suite of solutions — Enterprise Transformation, Cybersecurity & GRC, Strategy & Execution, and Learning & Talent — delivered through our proven ICE approach.",
+    "Explore iCentra's suite of solutions spanning Enterprise Transformation, Cybersecurity & GRC, Strategy & Execution, and Learning & Talent, delivered through our proven ICE approach.",
   path: "/what-we-do/solutions",
 });
 
@@ -122,7 +122,7 @@ export default function OurSolutionsPage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#25429A] transition-colors"
+                className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"
               >
                 Start Transformation
               </Link>
@@ -135,7 +135,7 @@ export default function OurSolutionsPage() {
                   {/* Circle node */}
                   <StaggerItem className="flex flex-col items-center justify-center w-27.5 h-27.5 sm:w-32.5 sm:h-32.5 rounded-full bg-linear-to-br from-[#1A274F] to-[#25429A] shrink-0 text-center px-3 shadow-lg">
                     <IceIcon type={step.icon} />
-                    <span className="text-white text-[11px] sm:text-[12px] font-semibold leading-snug mt-2 whitespace-pre-line">
+                    <span className="text-white text-xs sm:text-xs font-semibold leading-snug mt-2 whitespace-pre-line">
                       {step.label}
                     </span>
                   </StaggerItem>

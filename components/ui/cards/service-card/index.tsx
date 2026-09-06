@@ -53,7 +53,7 @@ export default function ServiceCard({
           group-hover:opacity-0 group-hover:translate-y-2 group-hover:pointer-events-none
         "
       >
-        <p className="text-[11px] font-semibold tracking-[0.15em] text-white/65 uppercase mb-3">
+        <p className="text-xs font-semibold tracking-[0.15em] text-white/65 uppercase mb-3">
           {category}
         </p>
         <h3 className="text-white text-[22px] font-bold leading-tight">
@@ -76,7 +76,7 @@ export default function ServiceCard({
 
         <ul className="flex flex-col gap-2.5">
           {items.map((item) => (
-            <li key={item} className="flex items-start gap-2.5 text-white/90 text-[14px] leading-snug">
+            <li key={item} className="flex items-start gap-2.5 text-white/90 text-sm leading-snug">
               <span className="mt-1.75 w-1.5 h-1.5 rounded-full bg-white shrink-0" />
               {item}
             </li>

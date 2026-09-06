@@ -58,7 +58,7 @@ export default function CaseStudiesSection({ items }: { items: CaseStudyCard[] }
             </motion.div>
           ) : (
             <p className="text-[#6B7280] text-sm py-10 text-center">
-              Case studies are on their way — check back soon.
+              Case studies are on their way. Check back soon.
             </p>
           )}
         </AnimatePresence>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -35,6 +35,20 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const pathname = usePathname();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!dropdownOpen) return;
+
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [dropdownOpen]);
 
   return (
     <>
@@ -62,10 +76,10 @@ export default function Navbar() {
                 );
 
                 return (
-                  <div key={link.label} className="relative group">
+                  <div key={link.label} className="relative group" ref={dropdownRef}>
                     <button
                       onClick={() => setDropdownOpen((v) => !v)}
-                      className={`flex items-center gap-1 text-[15px] cursor-pointer font-medium transition-colors ${
+                      className={`flex items-center gap-1 text-base cursor-pointer font-medium transition-colors ${
                         parentActive
                           ? "text-[#0066FF]"
                           : "text-[#1A274F] hover:text-secondary"
@@ -123,7 +137,7 @@ export default function Navbar() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`relative text-[15px] font-medium transition-colors ${
+                  className={`relative text-base font-medium transition-colors ${
                     active
                       ? "text-[#0066FF]"
                       : "text-[#1A274F] hover:text-[#0066FF]"
@@ -141,7 +155,7 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <Link
             href="/contact"
-            className="hidden lg:inline-flex items-center px-6 py-2.5 rounded-full bg-secondary text-white text-[15px] font-semibold transition-colors"
+            className="hidden lg:inline-flex items-center px-6 py-2.5 rounded-full bg-secondary text-white text-base font-semibold transition-colors"
           >
             Contact Us
           </Link>
@@ -234,7 +248,7 @@ export default function Navbar() {
                               <Link
                                 key={item.label}
                                 href={item.href}
-                                className={`py-2 text-[16px] transition-colors ${
+                                className={`py-2 text-base transition-colors ${
                                   itemActive
                                     ? "text-white font-semibold"
                                     : "text-white/80 hover:text-white"
@@ -272,7 +286,7 @@ export default function Navbar() {
             <div className="mt-10">
               <Link
                 href="/contact"
-                className="block w-full text-center py-4 rounded-full border border-white text-white text-[16px] font-semibold hover:bg-white hover:text-[#25429A] transition-colors"
+                className="block w-full text-center py-4 rounded-full border border-white text-white text-base font-semibold hover:bg-white hover:text-[#25429A] transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
                 Contact Us

@@ -29,7 +29,7 @@ const slides: Slide[] = [
     headlineBold: "Transformation.\n Sustain Performance.",
     ctas: [
       { label: "Explore iCentra", href: "/about", primary: true },
-      { label: "Our Services", href: "/what-we-do/solutions", primary: false },
+      { label: "Our Solutions", href: "/what-we-do/solutions", primary: false },
     ],
     helperText: "Transforming people and organizations for sustainable performance",
   },
@@ -41,7 +41,7 @@ const slides: Slide[] = [
     headlineBold: "Is NOT A Project.\n It's a Capability.",
     ctas: [
       { label: "Discover Our Approach", href: "/what-we-do/continuous-transformation", primary: true },
-      { label: "Our Services", href: "/what-we-do/solutions", primary: false },
+      { label: "Our Solutions", href: "/what-we-do/solutions", primary: false },
     ],
     helperText: "Traditional transformation ends. Continuous transformation builds the system - strategy, governance, execution, and people that sustain performance",
   },
@@ -53,7 +53,7 @@ const slides: Slide[] = [
     headlineBold: "For Enterprise Performance.\n",
     ctas: [
       { label: "Explore Solutions", href: "/what-we-do/solutions", primary: true },
-      { label: "Our Services", href: "/what-we-do/solutions", primary: false },
+      { label: "Our Solutions", href: "/what-we-do/solutions", primary: false },
     ],
     helperText: "From strategy to execution, governance to capacity - we deliver transformation across four domains",
   },
@@ -211,7 +211,7 @@ export default function HeroSlider({ overlay = false }: HeroSliderProps) {
                 <div className="flex items-center justify-start gap-3 mb-4 sm:mb-6">
                   <div className={`hidden sm:block w-8 h-0.5 ${theme.badgeLine}`} />
                   <span
-                    className={`${theme.badgeText} text-[10px] sm:text-[11px] tracking-[0.18em] uppercase border ${theme.badgeBorder} rounded-full px-3 sm:px-4 py-1 sm:py-1.5`}
+                    className={`${theme.badgeText} text-xs sm:text-xs tracking-[0.18em] uppercase border ${theme.badgeBorder} rounded-full px-3 sm:px-4 py-1 sm:py-1.5`}
                   >
                     {slide.badge}
                   </span>
@@ -232,7 +232,7 @@ export default function HeroSlider({ overlay = false }: HeroSliderProps) {
                 </h1>
 
                 {/* Helper text */}
-                <p className={`${theme.helperText} text-[14px] sm:text-[16px] leading-relaxed mt-4 sm:mt-6 max-w-full lg:max-w-140`}>
+                <p className={`${theme.helperText} text-sm sm:text-base leading-relaxed mt-4 sm:mt-6 max-w-full lg:max-w-140`}>
                   {slide.helperText}
                 </p>
 
@@ -242,7 +242,7 @@ export default function HeroSlider({ overlay = false }: HeroSliderProps) {
                     <Link
                       key={cta.label}
                       href={cta.href}
-                      className={`px-6 sm:px-7 py-3 sm:py-3.5 rounded-md text-[13px] sm:text-[14px] font-semibold text-center transition-colors ${
+                      className={`px-6 sm:px-7 py-3 sm:py-3.5 rounded-md text-sm sm:text-sm font-semibold text-center transition-colors ${
                         cta.primary ? theme.ctaPrimary : theme.ctaSecondary
                       }`}
                     >
@@ -296,7 +296,7 @@ export default function HeroSlider({ overlay = false }: HeroSliderProps) {
                     </button>
                   ))}
                 </div>
-                <span className={`${theme.counterText} text-[11px] sm:text-[12px] font-mono tracking-widest`}>
+                <span className={`${theme.counterText} text-xs sm:text-xs font-mono tracking-widest`}>
                   {String(current + 1).padStart(2, "0")} /{" "}
                   {String(total).padStart(2, "0")}
                 </span>
@@ -307,7 +307,7 @@ export default function HeroSlider({ overlay = false }: HeroSliderProps) {
           {/* Right side vertical text — xl only */}
           <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden xl:flex">
             <span
-              className={`${theme.scrollText} text-[10px] tracking-[0.3em] uppercase`}
+              className={`${theme.scrollText} text-xs tracking-[0.3em] uppercase`}
               style={{
                 writingMode: "vertical-rl",
                 transform: "rotate(180deg)",

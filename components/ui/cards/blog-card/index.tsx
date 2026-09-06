@@ -43,14 +43,14 @@ export default function BlogCard({
       {/* Content */}
       <div className="pt-4 pb-2 px-1 flex flex-col gap-3">
         {/* Title */}
-        <h3 className="text-[#1A274F] text-[17px] font-semibold leading-snug line-clamp-2">
+        <h3 className="text-[#1A274F] text-lg font-semibold leading-snug line-clamp-2">
           {title}
         </h3>
-        <p className="text-[#4B6CB7] text-[13px] leading-relaxed flex-1 line-clamp-2">
+        <p className="text-[#4B6CB7] text-sm leading-relaxed flex-1 line-clamp-2">
           {excerpt}
         </p>
         {/* Meta */}
-        <div className="flex items-center gap-2 text-[13px] text-[#4B6CB7]">
+        <div className="flex items-center gap-2 text-sm text-[#4B6CB7]">
           <span>{date}</span>
           {readTime && <span className="w-1.25 h-1.25 rounded-full bg-[#1A274F] inline-block" />}
           <span>{readTime}</span>
@@ -60,7 +60,7 @@ export default function BlogCard({
         <div className="mt-1">
           <Link
             href={href}
-            className="inline-flex items-center px-6 py-2.5 rounded-full bg-[#0066FF] text-white text-[14px] font-medium hover:bg-[#25429A] transition-colors"
+            className="inline-flex items-center px-6 py-2.5 rounded-full bg-[#0066FF] text-white text-sm font-medium hover:bg-[#25429A] transition-colors"
           >
             Read Now
           </Link>

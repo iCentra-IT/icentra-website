@@ -78,7 +78,7 @@ export default function NewsExplorer({
           setActiveSubFilter(null);
           setPage(1);
         }}
-        className={`relative z-10 shrink-0 whitespace-nowrap px-4 md:px-6 py-2 md:py-2.5 rounded-full text-[13px] md:text-[14px] font-semibold transition-colors cursor-pointer ${
+        className={`relative z-10 shrink-0 whitespace-nowrap px-4 md:px-6 py-2 md:py-2.5 rounded-full text-sm md:text-sm font-semibold transition-colors cursor-pointer ${
           activeTab === tab.slug ? "text-white" : "text-[#1A274F] hover:text-[#0066FF]"
         }`}
       >
@@ -103,7 +103,7 @@ export default function NewsExplorer({
               setActiveSubFilter(null);
               setPage(1);
             }}
-            className={`px-4 py-1.5 rounded-full text-[13px] font-medium border transition-colors cursor-pointer ${
+            className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-colors cursor-pointer ${
               activeSubFilter === null
                 ? "bg-[#1A274F] border-[#1A274F] text-white"
                 : "border-[#DCE0E8] text-[#6B7280] hover:border-[#0066FF] hover:text-[#0066FF]"
@@ -118,7 +118,7 @@ export default function NewsExplorer({
                 setActiveSubFilter(sub.slug);
                 setPage(1);
               }}
-              className={`px-4 py-1.5 rounded-full text-[13px] font-medium border transition-colors cursor-pointer ${
+              className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-colors cursor-pointer ${
                 activeSubFilter === sub.slug
                   ? "bg-[#1A274F] border-[#1A274F] text-white"
                   : "border-[#DCE0E8] text-[#6B7280] hover:border-[#0066FF] hover:text-[#0066FF]"
@@ -155,7 +155,7 @@ export default function NewsExplorer({
             </StaggerGroup>
           ) : (
             <p className="text-[#6B7280] text-sm py-10 text-center">
-              No articles here yet — check back soon.
+              No articles here yet. Check back soon.
             </p>
           )}
         </motion.div>

@@ -60,7 +60,7 @@ export default function PageHero({ headline, subtext, children }: PageHeroProps)
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.25 }}
-            className="text-white/75 text-[15px] lg:text-[16px] leading-[1.8] max-w-2xl"
+            className="text-white/75 text-base lg:text-base leading-[1.8] max-w-2xl"
           >
             {subtext}
           </motion.p>

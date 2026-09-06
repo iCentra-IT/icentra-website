@@ -24,10 +24,10 @@ function AccordionRow({
         onClick={onToggle}
         className="w-full flex items-center justify-between py-5 text-left cursor-pointer"
       >
-        <span className="text-[#1A274F] text-[16px] lg:text-[18px] font-semibold">
+        <span className="text-[#1A274F] text-base lg:text-lg font-semibold">
           {item.title}
         </span>
-        <span className="text-[#1A274F] text-[20px] font-light shrink-0 ml-4 w-5 text-center">
+        <span className="text-[#1A274F] text-xl font-light shrink-0 ml-4 w-5 text-center">
           {isOpen ? "–" : "+"}
         </span>
       </button>
@@ -49,7 +49,7 @@ function AccordionRow({
             ))}
           </ul>
         ) : (
-          <p className="text-[#6B7280] text-[14px] leading-relaxed max-w-175">
+          <p className="text-[#6B7280] text-sm leading-relaxed max-w-175">
             {item.content as string}
           </p>
         )}

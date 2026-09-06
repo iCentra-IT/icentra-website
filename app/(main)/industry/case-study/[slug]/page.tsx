@@ -36,7 +36,7 @@ const portableTextComponents: PortableTextComponents = {
   block: {
     normal: ({ children }) => <p className="mb-5">{children}</p>,
     h2: ({ children }) => <h2 className="text-[#1A274F] text-[22px] font-bold mt-8 mb-4">{children}</h2>,
-    h3: ({ children }) => <h3 className="text-[#1A274F] text-[19px] font-bold mt-6 mb-3">{children}</h3>,
+    h3: ({ children }) => <h3 className="text-[#1A274F] text-lg font-bold mt-6 mb-3">{children}</h3>,
     blockquote: ({ children }) => (
       <blockquote className="border-l-4 border-[#0066FF] pl-5 italic text-[#1A274F] my-6">{children}</blockquote>
     ),
@@ -82,7 +82,7 @@ export default async function CaseStudyDetailPage({
   return (
     <main className="w-full overflow-x-hidden">
       <PageHero headline={caseStudy.title}>
-        <div className="flex items-center gap-3 text-white/70 text-[13px]">
+        <div className="flex items-center gap-3 text-white/70 text-sm">
           <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-light-blue font-medium">
             Case Study
           </span>
@@ -106,7 +106,7 @@ export default async function CaseStudyDetailPage({
             </div>
           )}
 
-          <div className="flex flex-col text-[#374151] text-[15px] leading-[1.9]">
+          <div className="flex flex-col text-[#374151] text-base leading-[1.9]">
             {Array.isArray(caseStudy.body) && caseStudy.body.length > 0 ? (
               <PortableText value={caseStudy.body} components={portableTextComponents} />
             ) : (
@@ -116,7 +116,7 @@ export default async function CaseStudyDetailPage({
 
           <Link
             href="/industry#case-studies"
-            className="inline-flex items-center gap-2 text-[#0066FF] text-[14px] font-semibold hover:gap-3 transition-all w-fit mt-10"
+            className="inline-flex items-center gap-2 text-[#0066FF] text-sm font-semibold hover:gap-3 transition-all w-fit mt-10"
           >
             ← Back to Case Studies
           </Link>

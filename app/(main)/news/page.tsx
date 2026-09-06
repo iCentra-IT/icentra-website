@@ -105,7 +105,7 @@ export default async function NewsInsightPage() {
           </h2>
           <ResourceDownloadModal
             triggerLabel="Download"
-            triggerClassName="inline-flex items-center px-8 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors"
+            triggerClassName="inline-flex items-center px-8 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors"
           />
         </div>
       </section>

@@ -8,9 +8,9 @@ import { AnimatePresence, motion } from "framer-motion";
    SHARED STYLE CONSTANTS
 ═══════════════════════════════════════════════════ */
 const INPUT_BASE =
-  "w-full px-4 py-3.5 rounded-xl border border-[#DCE0E8] bg-white text-[14px] text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF]/20 transition-colors";
+  "w-full px-4 py-3.5 rounded-xl border border-[#DCE0E8] bg-white text-sm text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF]/20 transition-colors";
 
-const LABEL_BASE = "text-[#374151] text-[13px] font-medium";
+const LABEL_BASE = "text-[#374151] text-sm font-medium";
 
 /* ═══════════════════════════════════════════════════
    FORM CARD WRAPPER
@@ -167,7 +167,7 @@ export function IcentraCheckbox({
           )}
         </div>
       </div>
-      <span className="text-[#374151] text-[13px] leading-relaxed">
+      <span className="text-[#374151] text-sm leading-relaxed">
         I would like to receive details about products, services and events from iCentra.
       </span>
     </label>
@@ -208,7 +208,7 @@ export function FormFileUpload({
         <svg className="w-7 h-7 text-[#9CA3AF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 8h6m-5 0a3 3 0 110 6H9l3 3m-3-3h6m6-10.5V19a2.5 2.5 0 01-5 0V6.5m0 0A2.5 2.5 0 0114 4h-4a2.5 2.5 0 00-2.5 2.5" />
         </svg>
-        <p className="text-[#9CA3AF] text-[13px]">
+        <p className="text-[#9CA3AF] text-sm">
           Click <span className="text-[#0066FF] font-semibold">here</span> to upload your supporting document
         </p>
         <input
@@ -227,7 +227,7 @@ export function FormFileUpload({
             <svg className="w-5 h-5 text-[#0066FF] shrink-0" fill="currentColor" viewBox="0 0 24 24">
               <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM13 3.5L18.5 9H13V3.5zM8 13h8v1H8zm0 3h8v1H8zm0-6h5v1H8z" />
             </svg>
-            <span className="text-[#374151] text-[13px] truncate">{fileName}</span>
+            <span className="text-[#374151] text-sm truncate">{fileName}</span>
           </div>
           <button
             type="button"
@@ -253,7 +253,7 @@ export function FormSubmit({ label = "Submit" }: { label?: string }) {
     <div className="flex justify-center pt-4">
       <button
         type="submit"
-        className="w-full sm:w-[260px] py-4 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#25429A] transition-colors"
+        className="w-full sm:w-[260px] py-4 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"
       >
         {label}
       </button>

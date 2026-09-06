@@ -125,7 +125,7 @@ export default function AboutPage() {
         headline={"History of\nour firm"}
         subtext="Founded in 2009 in Abuja, Nigeria, iCentra emerged with a bold vision: to transform
               the business landscape through technological and organizational performance.
-              Our mission goes beyond mere service delivery — we are dedicated to creating
+              Our mission goes beyond mere service delivery; we are dedicated to creating
               genuine value for clients and stakeholders."
       />
 
@@ -136,7 +136,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
           {/* Left — body copy */}
           <Reveal className="flex-1 min-w-0 flex flex-col gap-5">
-            <p className="text-[#374151] text-[15px] leading-[1.8]">
+            <p className="text-[#374151] text-base leading-[1.8]">
               Our name, iCentra (Innovation Centre), was coined from our
               aspiration to be the center of excellence in innovation, from
               Africa to the rest of the world. Our core philosophy remains
@@ -144,19 +144,19 @@ export default function AboutPage() {
               performance optimization, and a passion for catalyzing positive
               change in the global business ecosystem.
             </p>
-            <p className="text-[#374151] text-[15px] leading-[1.8]">
+            <p className="text-[#374151] text-base leading-[1.8]">
               Over one and a half decades, iCentra has evolved into a dynamic
               and globally recognized business and technology solutions company.
               From its West African root, iCentra has expanded its global
               footprint with strategic offices established in Texas, United
               States, and London, United Kingdom.
             </p>
-            <p className="text-[#374151] text-[15px] leading-[1.8]">
+            <p className="text-[#374151] text-base leading-[1.8]">
               This geographic reach enables us to serve a broad spectrum of
               clients, both domestically and internationally, facilitating
               innovation, growth, and sustainable success.
             </p>
-            <p className="text-[#374151] text-[15px] leading-[1.8]">
+            <p className="text-[#374151] text-base leading-[1.8]">
               Our dedicated team of professionals combines their deep industry
               knowledge with cutting-edge technology solutions to tackle complex
               challenges and drive sustainable success.
@@ -189,7 +189,7 @@ export default function AboutPage() {
               className="bg-[#1A274F] rounded-2xl px-8 py-10 lg:px-10 h-80 lg:py-12 flex flex-col justify-center gap-3 bg-no-repeat"
               style={{ backgroundImage: "url('/images/about/vision.png')" }}
             >
-              <h3 className="text-white text-[19px] font-bold">Our Vision</h3>
+              <h3 className="text-white text-lg font-bold">Our Vision</h3>
               <p className="text-white/65 text-base leading-relaxed">
                 To be the Centre of excellence where people and organizations find
                 tools and resources to thrive, innovate, and create new
@@ -203,7 +203,7 @@ export default function AboutPage() {
               className="bg-[#25429A] rounded-2xl px-8 py-10 lg:px-10 h-80 lg:py-12 flex flex-col justify-center gap-3 bg-no-repeat"
               style={{ backgroundImage: "url('/images/about/mission.png')" }}
             >
-              <h3 className="text-white text-[19px] font-bold">Our Mission</h3>
+              <h3 className="text-white text-lg font-bold">Our Mission</h3>
               <p className="text-white/65 text-base leading-relaxed">
                 Leveraging innovation and technology to transform people and
                 organizations for excellent performance.
@@ -292,17 +292,17 @@ export default function AboutPage() {
             {/* Text — 2 sub-sections */}
             <Reveal className="flex-1 min-w-0 flex flex-col gap-8">
               <div>
-                <h3 className="text-[#1A274F] text-[17px] font-bold mb-3">
+                <h3 className="text-[#1A274F] text-lg font-bold mb-3">
                   iCentra Cares
                 </h3>
-                <p className="text-[#6B7280] text-[14px] leading-[1.8]">
+                <p className="text-[#6B7280] text-sm leading-[1.8]">
                   At iCentra, we believe that true success goes beyond business
                   achievements. It is about making a meaningful impact in the
                   communities we serve. Through our iCentra Cares initiative, we
                   dedicate ourselves to creating positive change and supporting
                   causes that matter.
                 </p>
-                <p className="text-[#6B7280] text-[14px] leading-[1.8] mt-3">
+                <p className="text-[#6B7280] text-sm leading-[1.8] mt-3">
                   {`Our Corporate Social Responsibility (CSR) efforts focus on
                   initiatives that foster education, health, and sustainable
                   development. Whether it's through charity events, community
@@ -312,13 +312,13 @@ export default function AboutPage() {
               </div>
 
               <div>
-                <h3 className="text-[#1A274F] text-[17px] font-bold mb-3">
+                <h3 className="text-[#1A274F] text-lg font-bold mb-3">
                   How We Transform Lives
                 </h3>
-                <p className="text-[#6B7280] text-[14px] leading-[1.8]">
+                <p className="text-[#6B7280] text-sm leading-[1.8]">
                 {`  Take a look at some of the incredible moments from our past
                   CSR events and initiatives. From training sessions to talent
-                  competitions, community engagement and beyond — every
+                  competitions, community engagement and beyond, every
                   initiative is driven by our commitment to people-first
                   transformation. From hospital volunteering to charity matches,
                   we are proud of the difference we've made and we're excited
@@ -359,7 +359,7 @@ export default function AboutPage() {
               <h3 className="text-white text-[26px] font-extrabold">
                 Project 1500
               </h3>
-              <p className="text-white/65 text-[13px] leading-relaxed flex-1">
+              <p className="text-white/65 text-sm leading-relaxed flex-1">
                 Project 1500 offers a free, comprehensive training for 1,500
                 individuals focusing on Project Management, Agile methodologies,
                 and Digital Transformation. Each participant will receive
@@ -370,23 +370,23 @@ export default function AboutPage() {
               </p>
               <IndividualLearningModal
                 triggerLabel="Read more →"
-                triggerClassName="text-light-blue text-[13px] font-semibold hover:underline w-fit mt-auto cursor-pointer"
+                triggerClassName="text-light-blue text-sm font-semibold hover:underline w-fit mt-auto cursor-pointer"
               />
             </StaggerItem>
 
             {/* Tosin Agetusin — primary blue */}
             <StaggerItem className="bg-[#25429A] rounded-2xl p-7 flex flex-col gap-4 min-h-90">
               <div>
-                <p className="text-white/55 text-[11px] font-semibold uppercase tracking-widest mb-1">
+                <p className="text-white/55 text-xs font-semibold uppercase tracking-widest mb-1">
                   Tosin Agetusin
                 </p>
                 <h3 className="text-white text-[22px] font-extrabold leading-snug">
                   Certification Grant
                 </h3>
               </div>
-              <p className="text-white/65 text-[13px] leading-relaxed flex-1">
+              <p className="text-white/65 text-sm leading-relaxed flex-1">
                 The Tosin Agetusin Certification Grant honors the legacy of the
-                late Mr. Tosin Agetusin — a true visionary in Nigeria and a
+                late Mr. Tosin Agetusin, a true visionary in Nigeria and a
                 passionate advocate for lifelong learning and knowledge-sharing.
                 This grant provides career-ready professionals with the
                 financial support needed to pursue new career milestones. This
@@ -394,23 +394,23 @@ export default function AboutPage() {
               </p>
               <IndividualLearningModal
                 triggerLabel="Read more →"
-                triggerClassName="text-light-blue text-[13px] font-semibold hover:underline w-fit mt-auto cursor-pointer"
+                triggerClassName="text-light-blue text-sm font-semibold hover:underline w-fit mt-auto cursor-pointer"
               />
             </StaggerItem>
 
             {/* Fast-Track — bright blue */}
             <StaggerItem className="bg-[#0066FF] rounded-2xl p-7 flex flex-col gap-4 min-h-90">
               <div>
-                <p className="text-white/80 text-[11px] font-extrabold uppercase tracking-[0.22em] mb-2">
+                <p className="text-white/80 text-xs font-extrabold uppercase tracking-[0.22em] mb-2">
                   FAST-TRACK
                 </p>
-                <h3 className="text-white text-[20px] font-extrabold uppercase leading-tight">
+                <h3 className="text-white text-xl font-extrabold uppercase leading-tight">
                   TO A CAREER
                   <br />
                   IN BUSINESS
                 </h3>
               </div>
-              <p className="text-white/80 text-[13px] leading-relaxed flex-1">
+              <p className="text-white/80 text-sm leading-relaxed flex-1">
                {` The Career Fast Track initiative is designed to help
                 professionals elevate their careers through access to iCentra's
                 industry-specific skills training. Whether you seek IT, project
@@ -420,7 +420,7 @@ export default function AboutPage() {
               </p>
               <IndividualLearningModal
                 triggerLabel="Read more →"
-                triggerClassName="text-white text-[13px] font-semibold hover:underline w-fit mt-auto cursor-pointer"
+                triggerClassName="text-white text-sm font-semibold hover:underline w-fit mt-auto cursor-pointer"
               />
             </StaggerItem>
           </StaggerGroup>
@@ -435,7 +435,7 @@ export default function AboutPage() {
           <h2 className="text-white text-[26px] lg:text-[36px] font-extrabold leading-tight max-w-120">
             Become a Volunteer
           </h2>
-          <p className="text-white/60 text-[14px] leading-relaxed max-w-100">
+          <p className="text-white/60 text-sm leading-relaxed max-w-100">
             Here is an opportunity to make a difference in the lives of people.
           </p>
           <VolunteerRegistrationModal triggerLabel="Continue Here" />

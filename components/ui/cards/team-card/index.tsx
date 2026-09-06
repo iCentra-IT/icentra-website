@@ -41,8 +41,8 @@ export function TeamCard({ member }: TeamCardProps) {
 
         {/* Bottom label */}
         <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-[#1A274F]/90 via-[#1A274F]/50 to-transparent pt-10 pb-4 px-4">
-          <p className="text-white text-[17px] font-semibold leading-tight">{member.name}</p>
-          <p className="text-[#A8B8F8] text-[13px] mt-0.5">{member.role}</p>
+          <p className="text-white text-lg font-semibold leading-tight">{member.name}</p>
+          <p className="text-[#A8B8F8] text-sm mt-0.5">{member.role}</p>
         </div>
       </motion.button>
 
@@ -80,8 +80,8 @@ export function TeamCard({ member }: TeamCardProps) {
                   />
                 </div>
                 <div className="px-6 py-5 border-t border-[#DCE0E8]">
-                  <h2 className="text-[#1A274F] text-[20px] font-bold">{member.name}</h2>
-                  <p className="text-[#4B6CB7] text-[14px] mt-0.5">{member.role}</p>
+                  <h2 className="text-[#1A274F] text-xl font-bold">{member.name}</h2>
+                  <p className="text-[#4B6CB7] text-sm mt-0.5">{member.role}</p>
 
                   {/* LinkedIn */}
                   {member.linkedin && (
@@ -107,7 +107,7 @@ export function TeamCard({ member }: TeamCardProps) {
               {/* Right — bio */}
               <div className="flex-1 px-8 py-8 flex flex-col gap-4 overflow-y-auto">
                 {member.bio.map((paragraph, i) => (
-                  <p key={i} className="text-[#1A274F]/80 text-[15px] leading-relaxed">
+                  <p key={i} className="text-[#1A274F]/80 text-base leading-relaxed">
                     {paragraph}
                   </p>
                 ))}

@@ -42,26 +42,26 @@ export default function JobCard({ slug, title, dept, location, type }: JobCardPr
         <div className="w-11 h-11 rounded-xl bg-[#EAF3FB] flex items-center justify-center text-[#0066FF] shrink-0 group-hover:bg-[#0066FF] group-hover:text-white transition-colors duration-300">
           <BriefcaseIcon />
         </div>
-        <span className="px-3 py-1 rounded-full bg-[#F7F9FC] text-[#6B7280] text-[11px] font-semibold uppercase tracking-wide shrink-0">
+        <span className="px-3 py-1 rounded-full bg-[#F7F9FC] text-[#6B7280] text-xs font-semibold uppercase tracking-wide shrink-0">
           {type}
         </span>
       </div>
 
       <div>
-        <h3 className="text-[#1A274F] text-[17px] font-bold leading-snug group-hover:text-[#0066FF] transition-colors">
+        <h3 className="text-[#1A274F] text-lg font-bold leading-snug group-hover:text-[#0066FF] transition-colors">
           {title}
         </h3>
-        <p className="text-[#9CA3AF] text-[13px] mt-1">{dept}</p>
+        <p className="text-[#9CA3AF] text-sm mt-1">{dept}</p>
       </div>
 
       {location && (
-        <div className="flex items-center gap-1.5 text-[#6B7280] text-[13px]">
+        <div className="flex items-center gap-1.5 text-[#6B7280] text-sm">
           <LocationIcon />
           {location}
         </div>
       )}
 
-      <div className="flex items-center gap-2 text-[#0066FF] text-[13px] font-semibold mt-auto pt-4 border-t border-[#F0F1F3] group-hover:gap-3 transition-all">
+      <div className="flex items-center gap-2 text-[#0066FF] text-sm font-semibold mt-auto pt-4 border-t border-[#F0F1F3] group-hover:gap-3 transition-all">
         View Details
         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

@@ -67,13 +67,13 @@ export default function EventsPage() {
       ══════════════════════════════════════ */}
       <PageHero
         headline={"Stay Ahead With Insightful\nConversations That Drive\nTransformation"}
-        subtext="At iCentra, we don't just deliver solutions—we create platforms for meaningful dialogue, innovation, and growth. Our event series brings together industry leaders, visionaries, policymakers, innovators, and professionals to explore ideas that shape the future of work, business, governance, technology, and society."
+        subtext="At iCentra, we don't just deliver solutions: we create platforms for meaningful dialogue, innovation, and growth. Our event series brings together industry leaders, visionaries, policymakers, innovators, and professionals to explore ideas that shape the future of work, business, governance, technology, and society."
       >
-        <p className="text-white/65 text-[14px] leading-[1.8] max-w-185 -mt-3">
+        <p className="text-white/65 text-sm leading-[1.8] max-w-185 -mt-3">
           Through thought-provoking conversations, strategic engagements, and cutting-edge insights,
           iCentra Events empower individuals and organizations to adapt, evolve, and lead in an
           ever-changing world. Whether virtual or in-person, each event is designed to spark
-          transformation, unlock opportunities, and inspire collaboration—delivering knowledge that
+          transformation, unlock opportunities, and inspire collaboration, delivering knowledge that
           drives real impact.
         </p>
       </PageHero>
@@ -109,9 +109,9 @@ export default function EventsPage() {
                 </div>
                 {/* Content */}
                 <div className="flex flex-col gap-2 p-4 sm:py-5 sm:pr-5 flex-1 min-w-0">
-                  <h3 className="text-[#1A274F] text-[15px] font-bold leading-snug">{event.title}</h3>
-                  <p className="text-[#6B7280] text-[13px] leading-relaxed flex-1">{event.desc}</p>
-                  <div className="flex items-center gap-1.5 text-[#6B7280] text-[12px] mt-1">
+                  <h3 className="text-[#1A274F] text-base font-bold leading-snug">{event.title}</h3>
+                  <p className="text-[#6B7280] text-sm leading-relaxed flex-1">{event.desc}</p>
+                  <div className="flex items-center gap-1.5 text-[#6B7280] text-xs mt-1">
                     <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
@@ -160,29 +160,29 @@ export default function EventsPage() {
                   </svg>
                   <div>
                     <p className="text-[#1A274F] text-[22px] font-extrabold tracking-tight leading-none">InnTech</p>
-                    <p className="text-[#6B7280] text-[10px] tracking-widest uppercase">INNOVATION & TECHNOLOGY</p>
+                    <p className="text-[#6B7280] text-xs tracking-widest uppercase">INNOVATION & TECHNOLOGY</p>
                   </div>
                 </div>
-                <p className="text-[#9CA3AF] text-[10px] tracking-wider mt-1">Powered by <span className="text-[#0066FF] font-semibold">iCentra</span></p>
+                <p className="text-[#9CA3AF] text-xs tracking-wider mt-1">Powered by <span className="text-[#0066FF] font-semibold">iCentra</span></p>
               </div>
             </div>
 
             {/* Right — description */}
             <div className="flex-1 min-w-0">
               <h3 className="text-[#1A274F] text-[22px] font-bold mb-3">InnTech Summit</h3>
-              <p className="text-[#374151] text-[14px] leading-[1.8] mb-2">
+              <p className="text-[#374151] text-sm leading-[1.8] mb-2">
                 Where Innovation, Policy, and Technology Converge for Africa&apos;s Future. The InnTech
                 Summit is iCentra&apos;s flagship annual event that brings together over 500+ participants
                 to explore emerging trends, breakthrough technologies, and transformative ideas shaping
                 the continent.
               </p>
-              <p className="text-[#374151] text-[14px] leading-[1.8] mb-5">
+              <p className="text-[#374151] text-sm leading-[1.8] mb-5">
                 Each edition is themed around critical areas influencing national and organizational
                 competitiveness.
               </p>
               <WebinarRegistrationModal
                 triggerLabel="Learn More →"
-                triggerClassName="inline-flex items-center gap-2 text-[#0066FF] text-[14px] font-semibold hover:gap-3 transition-all cursor-pointer"
+                triggerClassName="inline-flex items-center gap-2 text-[#0066FF] text-sm font-semibold hover:gap-3 transition-all cursor-pointer"
               />
             </div>
           </Reveal>
@@ -231,20 +231,20 @@ export default function EventsPage() {
             <h2 className="text-[#1A274F] text-[22px] lg:text-[26px] font-bold mb-3">
               The Transform Webinar
             </h2>
-            <p className="text-[#374151] text-[14px] leading-[1.8] mb-3">
+            <p className="text-[#374151] text-sm leading-[1.8] mb-3">
               The Transform Webinar is a virtual thought leadership and knowledge-sharing series
               powered by iCentra. Held monthly (2 hours) and open to a global audience, this series
               features experts and practitioners discussing key topics around:
             </p>
             <ul className="flex flex-col gap-2 mb-4">
               {webinarTopics.map((topic) => (
-                <li key={topic} className="flex items-start gap-2.5 text-[#374151] text-[14px] leading-relaxed">
+                <li key={topic} className="flex items-start gap-2.5 text-[#374151] text-sm leading-relaxed">
                   <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0066FF] shrink-0" />
                   {topic}
                 </li>
               ))}
             </ul>
-            <p className="text-[#374151] text-[14px] leading-[1.8]">
+            <p className="text-[#374151] text-sm leading-[1.8]">
               Each session is tailored to equip individuals and organizations with the insights they
               need to adapt, evolve, and lead in a constantly changing world.
             </p>
@@ -289,18 +289,18 @@ export default function EventsPage() {
                 </div>
                 {/* Content */}
                 <div className="p-5 flex flex-col gap-3 flex-1">
-                  <h3 className="text-[#1A274F] text-[15px] font-semibold leading-snug flex-1">
+                  <h3 className="text-[#1A274F] text-base font-semibold leading-snug flex-1">
                     {webinar.title}
                   </h3>
                   {/* Meta */}
                   <div className="flex flex-col gap-1.5">
-                    <div className="flex items-center gap-2 text-[#6B7280] text-[12px]">
+                    <div className="flex items-center gap-2 text-[#6B7280] text-xs">
                       <svg className="w-3.5 h-3.5 text-[#0066FF] shrink-0" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                       <span>{webinar.date}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-[#6B7280] text-[12px]">
+                    <div className="flex items-center gap-2 text-[#6B7280] text-xs">
                       <svg className="w-3.5 h-3.5 text-[#0066FF] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       </svg>
@@ -310,7 +310,7 @@ export default function EventsPage() {
                   <div className="mt-1">
                     <Link
                       href={webinar.href}
-                      className="inline-flex items-center px-5 py-2 rounded-full bg-[#0066FF] text-white text-[12px] font-semibold hover:bg-[#25429A] transition-colors"
+                      className="inline-flex items-center px-5 py-2 rounded-full bg-[#0066FF] text-white text-xs font-semibold hover:bg-[#25429A] transition-colors"
                     >
                       View Event Recap
                     </Link>

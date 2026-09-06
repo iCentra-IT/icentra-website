@@ -6,7 +6,7 @@ export const SITE_URL = "https://icentra.com";
 export const SITE_NAME = "iCentra";
 export const DEFAULT_TITLE = "iCentra | Transforming People & Organizations for Excellent Performance";
 export const DEFAULT_DESCRIPTION =
-  "iCentra partners with organizations to drive continuous transformation, cybersecurity, strategy and execution, and learning & talent development — turning ambition into measurable performance.";
+  "iCentra partners with organizations to drive continuous transformation, cybersecurity, strategy and execution, and learning & talent development, turning ambition into measurable performance.";
 export const DEFAULT_OG_IMAGE = "/images/banner/discover-icentra.png";
 
 interface PageMetadataInput {

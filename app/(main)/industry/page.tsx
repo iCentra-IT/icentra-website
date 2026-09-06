@@ -38,7 +38,7 @@ const testimonials = [
     company: "Financial Technology Company",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80",
     stars: 5,
-    text: "iCentra didn't just provide a service—they became an extension of our team. Their support helped us move from ideas to action, and we saw the difference almost immediately.",
+    text: "iCentra didn't just provide a service; they became an extension of our team. Their support helped us move from ideas to action, and we saw the difference almost immediately.",
   },
   {
     name: "Crystal Maiden",
@@ -136,7 +136,7 @@ export default async function IndustriesPage() {
           {industryTags.map((tag) => (
             <span
               key={tag}
-              className="px-3.5 py-1.5 rounded-full border border-white/30 text-white/80 text-[12px] font-medium hover:bg-white/10 hover:text-white cursor-pointer transition-colors"
+              className="px-3.5 py-1.5 rounded-full border border-white/30 text-white/80 text-xs font-medium hover:bg-white/10 hover:text-white cursor-pointer transition-colors"
             >
               {tag}
             </span>
@@ -173,14 +173,14 @@ export default async function IndustriesPage() {
                     <Image src={t.avatar} alt={t.name} fill className="object-cover" sizes="40px" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[#1A274F] text-[13px] font-semibold leading-tight">{t.name}</p>
-                    <p className="text-[#6B7280] text-[11px] leading-tight truncate max-w-[180px]">{t.role}</p>
+                    <p className="text-[#1A274F] text-sm font-semibold leading-tight">{t.name}</p>
+                    <p className="text-[#6B7280] text-xs leading-tight truncate max-w-[180px]">{t.role}</p>
                   </div>
                   <div className="ml-auto shrink-0">
                     <StarRating count={t.stars} />
                   </div>
                 </div>
-                <p className="text-[#374151] text-[13px] leading-relaxed flex-1">
+                <p className="text-[#374151] text-sm leading-relaxed flex-1">
                   &ldquo;{t.text}&rdquo;
                 </p>
               </StaggerItem>
@@ -197,12 +197,12 @@ export default async function IndustriesPage() {
           <h2 className="text-white text-[24px] lg:text-[32px] font-extrabold leading-tight">
             Ready to Start Your Transformation?
           </h2>
-          <p className="text-white/60 text-[14px] leading-relaxed">
+          <p className="text-white/60 text-sm leading-relaxed">
             Every great success story begins with a conversation. We are here to support you every step of the way.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold transition-colors mt-2"
+            className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold transition-colors mt-2"
           >
             Get In Touch
           </Link>
@@ -245,10 +245,10 @@ export default async function IndustriesPage() {
           <h2 className="text-[#1A274F] text-[24px] lg:text-[30px] font-bold leading-tight">
             Stay in the Know
           </h2>
-          <p className="text-[#6B7280] text-[14px] leading-relaxed">
+          <p className="text-[#6B7280] text-sm leading-relaxed">
             Subscribe to receive the latest articles, reports, and event invitations delivered straight to your inbox.
           </p>
-          <NewsletterModal triggerClassName="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#25429A] transition-colors mt-1" />
+          <NewsletterModal triggerClassName="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors mt-1" />
         </Reveal>
       </section>
 
@@ -279,7 +279,7 @@ export default async function IndustriesPage() {
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   </div>
-                  <p className="text-[#1A274F] text-[15px] font-semibold leading-snug group-hover:text-[#0066FF] transition-colors">
+                  <p className="text-[#1A274F] text-base font-semibold leading-snug group-hover:text-[#0066FF] transition-colors">
                     {wp.title}
                   </p>
                 </Link>
@@ -297,14 +297,14 @@ export default async function IndustriesPage() {
           <h2 className="text-white text-[24px] lg:text-[34px] font-extrabold leading-tight">
             Transformation starts with conversation.
           </h2>
-          <p className="text-white/60 text-[14px] leading-relaxed max-w-135">
+          <p className="text-white/60 text-sm leading-relaxed max-w-135">
             Join our monthly webinar series, Transform by iCentra, where we bring together leading voices in business, technology, and strategy to discuss key issues, share best practices, and inspire action.
           </p>
           <div className="flex flex-wrap gap-3 justify-center mt-2">
-            <WebinarRegistrationModal triggerClassName="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold transition-colors" />
+            <WebinarRegistrationModal triggerClassName="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold transition-colors" />
             <Link
               href="/events"
-              className="inline-flex items-center px-7 py-3.5 rounded-full border border-white/30 text-white text-[14px] font-semibold hover:bg-white/10 transition-colors"
+              className="inline-flex items-center px-7 py-3.5 rounded-full border border-white/30 text-white text-sm font-semibold hover:bg-white/10 transition-colors"
             >
               View Past Recordings
             </Link>

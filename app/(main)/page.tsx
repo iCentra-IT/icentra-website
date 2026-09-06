@@ -89,7 +89,7 @@ export default async function HomePage() {
           1. HERO
       ══════════════════════════════════════ */}
       <section className="relative bg-[#1A274F] overflow-hidden">
-        <HeroSlider overlay />
+        <HeroSlider />
 
         {/* Stats bar */}
         <StatsBar />
@@ -184,7 +184,7 @@ export default async function HomePage() {
                 className="bg-[#F7F9FC] rounded-2xl p-6 flex flex-col gap-4 border border-[#DCE0E8]"
               >
                 <StarRating />
-                <p className="text-[#1A274F]/70 text-[13px] leading-relaxed flex-1">
+                <p className="text-[#1A274F]/70 text-sm leading-relaxed flex-1">
                   {t.text}
                 </p>
                 <div className="flex items-center gap-3 pt-3 border-t border-[#DCE0E8]">
@@ -198,10 +198,10 @@ export default async function HomePage() {
                     />
                   </div>
                   <div>
-                    <p className="text-[#1A274F] text-[13px] font-semibold">
+                    <p className="text-[#1A274F] text-sm font-semibold">
                       {t.name}
                     </p>
-                    <p className="text-[#4B6CB7] text-[11px]">{t.role}</p>
+                    <p className="text-[#4B6CB7] text-xs">{t.role}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -254,7 +254,7 @@ export default async function HomePage() {
           <div className="flex justify-center mt-12">
             <Link
               href="/news"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border-2 border-[#0066FF] text-[#0066FF] text-[14px] font-semibold hover:bg-[#0066FF] hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border-2 border-[#0066FF] text-[#0066FF] text-sm font-semibold hover:bg-[#0066FF] hover:text-white transition-colors"
             >
               See More
               <svg

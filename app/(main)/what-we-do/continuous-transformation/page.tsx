@@ -135,15 +135,15 @@ export default function ContinuousTransformationPage() {
 
           {/* Left */}
           <Reveal className="flex-1 min-w-0">
-            <h2 className="text-[#1A274F] text-[19px] lg:text-[22px] font-bold leading-snug mb-5">
-              Transformation Is No Longer A One-Time Initiative — It Is A Continuous Capability
+            <h2 className="text-[#1A274F] text-lg lg:text-[22px] font-bold leading-snug mb-5">
+              Transformation Is No Longer A One-Time Initiative. It Is A Continuous Capability
             </h2>
             <div className="flex flex-col gap-4">
               <p className="text-[#374151] text-base leading-[1.8]">
                 Organizations today face accelerating change driven by technology innovation,
                 evolving governance expectations, cybersecurity risks, and shifting workforce
                 dynamics. Success belongs to organizations that embed transformation into how they
-                operate — not just what they pursue.
+                operate, not just what they pursue.
               </p>
               <p className="text-[#374151] text-base leading-[1.8]">
                 At iCentra, we help leaders build integrated transformation systems that align
@@ -168,7 +168,7 @@ export default function ContinuousTransformationPage() {
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
               </div>
-              <span className="text-[#1A274F] text-[12px] font-bold">iCentra</span>
+              <span className="text-[#1A274F] text-xs font-bold">iCentra</span>
             </div>
           </Reveal>
         </div>
@@ -324,7 +324,7 @@ export default function ContinuousTransformationPage() {
               <span className="text-white text-[32px] lg:text-[40px] font-extrabold leading-none">
                 {s.value}
               </span>
-              <span className="text-white/55 text-[12px] lg:text-[13px] mt-1.5">{s.label}</span>
+              <span className="text-white/55 text-xs lg:text-sm mt-1.5">{s.label}</span>
             </StaggerItem>
           ))}
         </StaggerGroup>

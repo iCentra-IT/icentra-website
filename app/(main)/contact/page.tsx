@@ -118,26 +118,26 @@ function OfficeCard({ office }: { office: (typeof offices)[number] }) {
       aria-label={`Copy ${office.country} office address`}
     >
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-[#0066FF] text-[16px] font-bold">{office.country}</h3>
-        <span className="text-[#9CA3AF] text-[11px] font-medium">{office.city}</span>
+        <h3 className="text-[#0066FF] text-base font-bold">{office.country}</h3>
+        <span className="text-[#9CA3AF] text-xs font-medium">{office.city}</span>
       </div>
       <div className="flex flex-col gap-3">
         <div className="flex items-start gap-2.5">
           <LocationIcon />
-          <p className="text-[#374151] text-[13px] leading-relaxed">{office.address}</p>
+          <p className="text-[#374151] text-sm leading-relaxed">{office.address}</p>
         </div>
         <div className="flex items-start gap-2.5">
           <PhoneIcon />
-          <p className="text-[#374151] text-[13px]">{office.phone}</p>
+          <p className="text-[#374151] text-sm">{office.phone}</p>
         </div>
         <div className="flex items-start gap-2.5">
           <EmailIcon />
-          <p className="text-[#374151] text-[13px]">{office.email}</p>
+          <p className="text-[#374151] text-sm">{office.email}</p>
         </div>
       </div>
 
       {/* Copy affordance */}
-      <div className="flex items-center gap-1.5 mt-4 pt-4 border-t border-[#F0F1F3] text-[#9CA3AF] text-[12px] font-medium group-hover:text-[#0066FF] transition-colors">
+      <div className="flex items-center gap-1.5 mt-4 pt-4 border-t border-[#F0F1F3] text-[#9CA3AF] text-xs font-medium group-hover:text-[#0066FF] transition-colors">
         <CopyIcon />
         Click to copy address
       </div>
@@ -150,7 +150,7 @@ function OfficeCard({ office }: { office: (typeof offices)[number] }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 6, scale: 0.9 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0066FF] text-white text-[11px] font-semibold"
+            className="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0066FF] text-white text-xs font-semibold"
           >
             <CheckIcon />
             Copied
@@ -266,7 +266,7 @@ export default function ContactPage() {
               {/* Row 1 — First Name + Last Name */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[#1A274F] text-[13px] font-medium">
+                  <label className="text-[#1A274F] text-sm font-medium">
                     First Name<span className="text-[#0066FF]">*</span>
                   </label>
                   <input
@@ -276,11 +276,11 @@ export default function ContactPage() {
                     onChange={handleChange}
                     placeholder="Enter first name"
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-[14px] text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors"
+                    className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-sm text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors"
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[#1A274F] text-[13px] font-medium">
+                  <label className="text-[#1A274F] text-sm font-medium">
                     Last Name<span className="text-[#0066FF]">*</span>
                   </label>
                   <input
@@ -290,7 +290,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     placeholder="Enter last name"
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-[14px] text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors"
+                    className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-sm text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors"
                   />
                 </div>
               </div>
@@ -298,7 +298,7 @@ export default function ContactPage() {
               {/* Row 2 — Email + Organization */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[#1A274F] text-[13px] font-medium">
+                  <label className="text-[#1A274F] text-sm font-medium">
                     Email<span className="text-[#0066FF]">*</span>
                   </label>
                   <input
@@ -308,11 +308,11 @@ export default function ContactPage() {
                     onChange={handleChange}
                     placeholder="Enter Email"
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-[14px] text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors"
+                    className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-sm text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors"
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[#1A274F] text-[13px] font-medium">
+                  <label className="text-[#1A274F] text-sm font-medium">
                     Organization<span className="text-[#0066FF]">*</span>
                   </label>
                   <select
@@ -320,7 +320,7 @@ export default function ContactPage() {
                     value={form.organization}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-[14px] text-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors cursor-pointer appearance-none"
+                    className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-sm text-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors cursor-pointer appearance-none"
                   >
                     <option value="" disabled>select organization</option>
                     <option>Private Company</option>
@@ -334,7 +334,7 @@ export default function ContactPage() {
 
               {/* Row 3 — Industry (full width) */}
               <div className="flex flex-col gap-1.5">
-                <label className="text-[#1A274F] text-[13px] font-medium">
+                <label className="text-[#1A274F] text-sm font-medium">
                   Industry<span className="text-[#0066FF]">*</span>
                 </label>
                 <input
@@ -344,13 +344,13 @@ export default function ContactPage() {
                   onChange={handleChange}
                   placeholder="Enter your industry"
                   required
-                  className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-[14px] text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors"
+                  className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-sm text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors"
                 />
               </div>
 
               {/* Row 4 — How can we help (full-width textarea) */}
               <div className="flex flex-col gap-1.5">
-                <label className="text-[#1A274F] text-[13px] font-medium">
+                <label className="text-[#1A274F] text-sm font-medium">
                   How Can we help you?
                 </label>
                 <textarea
@@ -359,7 +359,7 @@ export default function ContactPage() {
                   onChange={handleChange}
                   placeholder="Tell us how we can help..."
                   rows={4}
-                  className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-[14px] text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-sm text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors resize-none"
                 />
               </div>
 
@@ -386,7 +386,7 @@ export default function ContactPage() {
                     )}
                   </div>
                 </div>
-                <span className="text-[#374151] text-[13px] leading-relaxed">
+                <span className="text-[#374151] text-sm leading-relaxed">
                   I would like to receive details about products, services and events from iCentra.
                 </span>
               </label>
@@ -395,7 +395,7 @@ export default function ContactPage() {
               <div className="flex justify-center mt-2">
                 <button
                   type="submit"
-                  className="w-full sm:w-[220px] py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-[#25429A] transition-colors"
+                  className="w-full sm:w-[220px] py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"
                 >
                   Submit
                 </button>
@@ -412,7 +412,7 @@ export default function ContactPage() {
         <div className="max-w-[1280px] mx-auto px-6">
           {/* Heading */}
           <SectionHeading title="Our Offices" className="mb-3" />
-          <p className="text-[#374151] text-[14px] leading-[1.8] max-w-[780px] mb-10">
+          <p className="text-[#374151] text-sm leading-[1.8] max-w-[780px] mb-10">
             Need to find a local office? We have 3 worldwide. To contact us, please complete the
             form below. We will use your information to communicate with you regarding your inquiry
             or request. For more information, please see our{" "}

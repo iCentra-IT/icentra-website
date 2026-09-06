@@ -62,7 +62,7 @@ export default function SolutionCard({
         >
           {/* Title row — always visible */}
           <div className="pt-4 p-5">
-            <h3 className="text-white text-[20px] font-bold leading-tight">
+            <h3 className="text-white text-xl font-bold leading-tight">
               {title}
             </h3>
           </div>
@@ -81,7 +81,7 @@ export default function SolutionCard({
                 {list.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-2 text-white/85 text-[13px] leading-snug"
+                    className="flex items-start gap-2 text-white/85 text-sm leading-snug"
                   >
                     <span className="mt-1.5 w-1 h-1 rounded-full bg-light-blue shrink-0" />
                     {item}
@@ -89,11 +89,11 @@ export default function SolutionCard({
                 ))}
               </ul>
             ) : (
-              <p className="text-white/85 text-[14px] leading-relaxed">
+              <p className="text-white/85 text-sm leading-relaxed">
                 {description}
               </p>
             )}
-            <span className="inline-flex items-center gap-1 mt-3 text-light-blue text-[13px] font-medium">
+            <span className="inline-flex items-center gap-1 mt-3 text-light-blue text-sm font-medium">
               Learn more
               <svg
                 className="w-3.5 h-3.5"

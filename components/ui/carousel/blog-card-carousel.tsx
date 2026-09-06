@@ -47,7 +47,7 @@ export function BlogCardCarousel({
           {viewAllHref && (
             <Link
               href={viewAllHref}
-              className="hidden sm:inline-flex items-center gap-1.5 shrink-0 mt-1 text-[#0066FF] text-[13px] font-semibold hover:gap-2.5 transition-all"
+              className="hidden sm:inline-flex items-center gap-1.5 shrink-0 mt-1 text-[#0066FF] text-sm font-semibold hover:gap-2.5 transition-all"
             >
               {viewAllLabel}
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -83,7 +83,7 @@ export function BlogCardCarousel({
           <div className="flex sm:hidden justify-center mt-8">
             <Link
               href={viewAllHref}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-[#0066FF] text-[#0066FF] text-[13px] font-semibold hover:bg-[#0066FF] hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-[#0066FF] text-[#0066FF] text-sm font-semibold hover:bg-[#0066FF] hover:text-white transition-colors"
             >
               {viewAllLabel}
             </Link>

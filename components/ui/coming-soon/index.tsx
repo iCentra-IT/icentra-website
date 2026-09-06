@@ -19,7 +19,7 @@ export default function ComingSoon({ title, description }: ComingSoonProps) {
   const message =
     title +
     " is on its way. Our team is still putting the finishing touches on this page" +
-    (description ? " — " + description : ". Please check back soon.");
+    (description ? ", " + description : ". Please check back soon.");
 
   return (
     <main
@@ -64,7 +64,7 @@ export default function ComingSoon({ title, description }: ComingSoonProps) {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-          className="text-white/75 text-[15px] lg:text-[16px] leading-[1.8] max-w-xl"
+          className="text-white/75 text-base lg:text-base leading-[1.8] max-w-xl"
         >
           {message}
         </motion.p>
@@ -77,7 +77,7 @@ export default function ComingSoon({ title, description }: ComingSoonProps) {
         >
           <button
             onClick={() => router.back()}
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-[14px] font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors cursor-pointer"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -86,7 +86,7 @@ export default function ComingSoon({ title, description }: ComingSoonProps) {
           </button>
           <Link
             href="/"
-            className="inline-flex items-center px-7 py-3.5 rounded-full border border-white/40 text-white text-[14px] font-semibold hover:bg-white hover:text-[#1A274F] transition-colors"
+            className="inline-flex items-center px-7 py-3.5 rounded-full border border-white/40 text-white text-sm font-semibold hover:bg-white hover:text-[#1A274F] transition-colors"
           >
             Back to Home
           </Link>
