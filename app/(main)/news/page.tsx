@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import PageHero from "@/components/ui/page-hero";
-import { ResourceDownloadModal } from "@/components/forms/all-forms";
+import { Reveal } from "@/components/ui/motion/reveal";
+import { NewsletterModal, ResourceDownloadModal } from "@/components/forms/all-forms";
 import NewsExplorer, {
   type NewsCategoryChild,
   type NewsPost,
@@ -96,7 +97,25 @@ export default async function NewsInsightPage() {
       </section>
 
       {/* ══════════════════════════════════════
-          3. BRAND ASSETS CTA — dark navy centered banner
+          3. NEWSLETTER SUBSCRIPTION — light blue banner
+      ══════════════════════════════════════ */}
+      <section className="bg-[#EAF3FB] py-14 lg:py-16">
+        <Reveal className="max-w-150 mx-auto px-6 flex flex-col items-center text-center gap-4">
+          <h2 className="text-[#1A274F] text-[24px] lg:text-[30px] font-bold leading-tight">
+            Subscribe to Our Newsletter
+          </h2>
+          <p className="text-[#6B7280] text-sm leading-relaxed">
+            Get the latest insights, articles, and company updates delivered straight to your inbox.
+          </p>
+          <NewsletterModal
+            triggerLabel="Subscribe to Newsletter"
+            triggerClassName="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors mt-1 cursor-pointer"
+          />
+        </Reveal>
+      </section>
+
+      {/* ══════════════════════════════════════
+          4. BRAND ASSETS CTA — dark navy centered banner
       ══════════════════════════════════════ */}
       <section className="relative bg-[#1A274F] overflow-hidden py-16 lg:py-20">
         <div className="relative z-10 flex flex-col items-center text-center gap-7 px-6">

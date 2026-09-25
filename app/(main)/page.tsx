@@ -1,5 +1,5 @@
-import { ResourceDownloadModal } from "@/components/forms/all-forms";
-import HeroSlider from "@/components/sections/home/hero-slider";
+import { NewsletterModal, ResourceDownloadModal } from "@/components/forms/all-forms";
+import HeroVideo from "@/components/sections/home/hero-video";
 import TrustedPartners from "@/components/sections/home/partners";
 import StatsBar from "@/components/sections/home/stat";
 import DiscoverBanner from "@/components/ui/banner";
@@ -89,7 +89,7 @@ export default async function HomePage() {
           1. HERO
       ══════════════════════════════════════ */}
       <section className="relative bg-[#1A274F] overflow-hidden">
-        <HeroSlider />
+        <HeroVideo src="/icentra-video.mp4" />
 
         {/* Stats bar */}
         <StatsBar />
@@ -217,6 +217,15 @@ export default async function HomePage() {
         headline={"Thought Leadership for a Changing World\n"}
         subtext="Stay ahead with expert insights on transformation, cybersecurity, and performance delivery."
         primaryCta={{ label: "Explore Insights", href: "/news?tab=insights" }}
+        secondaryCta={{
+          label: "Subscribe to Newsletter",
+          modal: (
+            <NewsletterModal
+              triggerLabel="Subscribe to Newsletter"
+              triggerClassName="inline-flex items-center px-6 py-3 rounded-full border border-white/50 text-white text-sm font-semibold hover:bg-white hover:text-[#1A274F] transition-colors cursor-pointer"
+            />
+          ),
+        }}
         image="/images/banner/thought-leadership.png"
         imageAlt={"Banner Image"}
       />

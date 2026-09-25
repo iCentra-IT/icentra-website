@@ -1,7 +1,7 @@
+import HeroSlider from "@/components/sections/home/hero-slider";
 import TrustedPartners from "@/components/sections/home/partners";
 import BlogCard from "@/components/ui/cards/blog-card";
 import ServiceCard from "@/components/ui/cards/service-card";
-import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 import { solutionCategories } from "@/lib/data/solutions";
@@ -90,42 +90,11 @@ export default function ContinuousTransformationPage() {
     <main className="w-full overflow-x-hidden">
 
       {/* ══════════════════════════════════════
-          1. HERO — PageHero + background image + CTA link
+          1. HERO — homepage HeroSlider (reused), opens on the Continuous Transformation slide
       ══════════════════════════════════════ */}
-      <div className="relative">
-        {/* Background photo behind PageHero */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1600&q=80"
-            alt=""
-            fill
-            className="object-cover object-center opacity-20"
-            sizes="100vw"
-            priority
-          />
-          <div className="absolute inset-0 bg-linear-to-r from-[#0B1B4D]/95 via-[#16266E]/80 to-[#1A274F]/60" />
-        </div>
-        <div className="relative z-10">
-          <PageHero
-            headline={"Continuous\nTransformation."}
-          >
-            {/* "Transformation Starts Here →" link slot */}
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 text-white text-base font-semibold group"
-            >
-              <span className="border-b border-white/40 group-hover:border-white transition-colors">
-                Transformation Starts Here
-              </span>
-              <span className="w-7 h-7 rounded-full bg-[#0066FF] flex items-center justify-center group-hover:bg-light-blue transition-colors">
-                <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
-            </Link>
-          </PageHero>
-        </div>
-      </div>
+      <section className="border-b border-[#DCE0E8]">
+        <HeroSlider initialSlide={1} />
+      </section>
 
       {/* ══════════════════════════════════════
           2. INTRO — bold subheading + 3 paras + image

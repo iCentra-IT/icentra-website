@@ -33,17 +33,17 @@ export default function DottedCtaBanner({
     <section className={`relative ${bgClassName} overflow-hidden py-20 lg:py-28`}>
     
 
-      <Reveal className="relative z-10 max-w-[760px] mx-auto px-6 flex flex-col items-center text-center gap-5">
+      <Reveal className="relative z-10 max-w-190 mx-auto px-6 flex flex-col items-center text-center gap-5">
         <h2 className="text-white text-[28px] lg:text-[40px] font-extrabold leading-tight">
           {title}
         </h2>
-        <p className="text-white/65 text-sm lg:text-base leading-[1.8] max-w-[680px]">
+        <p className="text-white/65 text-sm lg:text-base leading-[1.8] max-w-170">
           {subtext}
         </p>
         <div className="flex flex-col sm:flex-row items-center gap-3 mt-2">
           <Link
             href={ctaHref}
-            className="inline-flex items-center px-8 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#00DBFF] hover:text-[#1A274F] transition-colors"
+            className="inline-flex items-center px-8 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors"
           >
             {ctaLabel}
           </Link>

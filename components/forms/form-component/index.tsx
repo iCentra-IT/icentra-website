@@ -248,12 +248,22 @@ export function FormFileUpload({
 /* ═══════════════════════════════════════════════════
    FORM SUBMIT BUTTON
 ═══════════════════════════════════════════════════ */
-export function FormSubmit({ label = "Submit" }: { label?: string }) {
+export function FormSubmit({
+  label = "Submit",
+  align = "center",
+  tone = "primary",
+}: {
+  label?: string;
+  align?: "center" | "left";
+  tone?: "primary" | "navy";
+}) {
   return (
-    <div className="flex justify-center pt-4">
+    <div className={`flex pt-4 ${align === "left" ? "justify-start" : "justify-center"}`}>
       <button
         type="submit"
-        className="w-full sm:w-[260px] py-4 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"
+        className={`py-4 rounded-full text-white text-sm font-semibold transition-colors ${
+          align === "left" ? "w-full sm:w-auto sm:px-10" : "w-full sm:w-[260px]"
+        } ${tone === "navy" ? "bg-main hover:bg-[#1A274F]" : "bg-[#0066FF] hover:bg-[#25429A]"}`}
       >
         {label}
       </button>
@@ -274,10 +284,12 @@ export function FormModal({
   open,
   onClose,
   children,
+  maxWidth = "max-w-[720px]",
 }: {
   open: boolean;
   onClose: () => void;
   children: React.ReactNode;
+  maxWidth?: string;
 }) {
   return (
     <AnimatePresence>
@@ -304,7 +316,7 @@ export function FormModal({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 12 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="relative z-10 w-full max-w-[720px] max-h-[92vh] overflow-y-auto rounded-3xl shadow-2xl"
+            className={`relative z-10 w-full ${maxWidth} max-h-[92vh] overflow-y-auto rounded-3xl shadow-2xl`}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}

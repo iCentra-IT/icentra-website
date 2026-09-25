@@ -59,6 +59,9 @@ const slides: Slide[] = [
   },
 ];
 
+const SCRIM =
+  "linear-gradient(115deg, var(--color-deep-blue) 0%, color-mix(in srgb, var(--color-main) 88%, transparent) 45%, color-mix(in srgb, var(--color-main) 55%, transparent) 100%)";
+
 /* ─────────────────────────────────────────
    HERO SLIDER COMPONENT
 
@@ -68,10 +71,12 @@ const slides: Slide[] = [
 ───────────────────────────────────────── */
 interface HeroSliderProps {
   overlay?: boolean;
+  /** Slide to open on (defaults to the first). */
+  initialSlide?: number;
 }
 
-export default function HeroSlider({ overlay = false }: HeroSliderProps) {
-  const [current, setCurrent] = useState(0);
+export default function HeroSlider({ overlay = false, initialSlide = 0 }: HeroSliderProps) {
+  const [current, setCurrent] = useState(initialSlide);
 
   const total = slides.length;
 
@@ -136,8 +141,8 @@ export default function HeroSlider({ overlay = false }: HeroSliderProps) {
 
   return (
     <div
-      className="relative w-full overflow-hidden
-        lg:h-[calc(100vh-80px)] lg:min-h-130 lg:max-h-187.5"
+      className={`relative w-full overflow-hidden
+        lg:h-[calc(100vh-80px)] lg:min-h-130 lg:max-h-187.5`}
     >
       {/* ── SLIDE CONTENT ── */}
       <AnimatePresence mode="wait">
@@ -166,16 +171,13 @@ export default function HeroSlider({ overlay = false }: HeroSliderProps) {
               {/* Dark scrim using brand colors — keeps image present but subdued so text stays legible */}
               <div
                 className="absolute inset-0 z-0"
-                style={{
-                  background:
-                    "linear-gradient(115deg, var(--color-deep-blue) 0%, color-mix(in srgb, var(--color-main) 88%, transparent) 45%, color-mix(in srgb, var(--color-main) 55%, transparent) 100%)",
-                }}
+                style={{ background: SCRIM }}
               />
             </>
           )}
 
           {/* Slide counter dots — desktop only */}
-          <div className="hidden lg:flex absolute left-6 top-1/2 -translate-y-1/2 flex-col items-center gap-2 z-20">
+          <div className="hidden lg:flex absolute left-2 top-1/2 -translate-y-1/2 flex-col items-center gap-2 z-20">
             {slides.map((_, i) => (
               <button
                 key={i}
@@ -189,10 +191,10 @@ export default function HeroSlider({ overlay = false }: HeroSliderProps) {
           </div>
 
           {/* Main content */}
-          <div className="relative z-10 lg:h-full flex items-center px-5 sm:px-10 md:px-14 lg:px-20 xl:px-24 py-10 sm:py-12 lg:py-0">
+          <div className="relative z-10 lg:h-full flex items-center px-6 py-10 sm:py-12 lg:py-0">
             <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-center gap-6 sm:gap-8 lg:gap-16">
               {/* Image — banner on mobile, hidden entirely in overlay mode (bg image already covers it) */}
-              {/* {!overlay && ( */}
+              {!overlay && (
                 <div className="w-full lg:hidden aspect-square lg:aspect-21/9 relative rounded-xl overflow-hidden order-first">
                   <Image
                     src={slide.sideImage}
@@ -203,7 +205,7 @@ export default function HeroSlider({ overlay = false }: HeroSliderProps) {
                     priority={current === 0}
                   />
                 </div>
-              {/* // )} */}
+              )}
 
               {/* Text column */}
               <div className="flex-1 min-w-0 w-full text-left">
@@ -253,7 +255,7 @@ export default function HeroSlider({ overlay = false }: HeroSliderProps) {
               </div>
 
               {/* Image — desktop side panel, hidden entirely in overlay mode */}
-              {/* {!overlay && ( */}
+              {!overlay && (
                 <div className="hidden lg:block shrink-0 w-75 xl:w-95 aspect-4/5 relative rounded-2xl overflow-hidden">
                   <Image
                     src={slide.sideImage}
@@ -264,13 +266,13 @@ export default function HeroSlider({ overlay = false }: HeroSliderProps) {
                     priority={current === 0}
                   />
                 </div>
-              {/* // )} */}
+              )}
             </div>
           </div>
 
           {/* Bottom bar — counter + arrows */}
           <div className={`relative lg:absolute lg:bottom-0 lg:left-0 lg:right-0 z-10 border-t ${theme.bottomBorder} lg:border-t-0`}>
-            <div className="max-w-7xl mx-auto px-5 sm:px-10 md:px-14 lg:px-20 xl:px-24 py-4 sm:py-5 flex items-center justify-end gap-4">
+            <div className="max-w-7xl mx-auto px-6 py-4 sm:py-5 flex items-center justify-end gap-4">
               <div className="flex items-center gap-3 sm:gap-4 shrink-0">
                 <div className="flex gap-2">
                   {[prev, next].map((fn, i) => (
@@ -305,7 +307,7 @@ export default function HeroSlider({ overlay = false }: HeroSliderProps) {
           </div>
 
           {/* Right side vertical text — xl only */}
-          <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden xl:flex">
+          <div className="absolute right-2 top-1/2 -translate-y-1/2 hidden xl:flex">
             <span
               className={`${theme.scrollText} text-xs tracking-[0.3em] uppercase`}
               style={{

@@ -24,6 +24,7 @@ const TIMELINE_OPTS       = ["Immediately", "Within 1 month", "1–3 months", "3
 const CORP_SOLUTION_OPTS  = ["Enterprise Transformation", "Cybersecurity & GRC", "PMO & Delivery", "Strategy & Execution", "Learning & Development", "Custom Programme"];
 const AVAIL_OPTS          = ["Weekdays", "Weekends", "Mornings", "Afternoons", "Evenings", "Flexible"];
 const TIME_SLOT_OPTS      = ["Morning (9am–12pm)", "Afternoon (12pm–5pm)", "Evening (5pm–8pm)", "Weekend"];
+const QUARTER_OPTS        = ["Q4 2026", "Q1 2027", "Q2 2027", "Q3 2027"];
 
 /* ═══════════════════════════════════════════════════════════════
    HELPER — triggers a modal with a button
@@ -470,6 +471,61 @@ export function VolunteerRegistrationModal({
       </button>
       <FormModal open={open} onClose={() => setOpen(false)}>
         <VolunteerRegistrationContent />
+      </FormModal>
+    </>
+  );
+}
+
+/* ───────────────────────────────────────────────────
+   11. SPEAKER APPLICATION FORM (Transform Webinar)
+─────────────────────────────────────────────────── */
+function SpeakerApplicationContent() {
+  return (
+    <FormCard title="Speaker Application Form" maxWidth="max-w-[820px]">
+      <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
+        <FormRow>
+          <FormField label="Full Name"     required name="fullName"     type="text"  placeholder="Your full name" />
+          <FormField label="Job Title"     required name="jobTitle"     type="text"  placeholder="Your job title" />
+        </FormRow>
+        <FormRow>
+          <FormField label="Organisation"  required name="organisation" type="text"  placeholder="Your organisation" />
+          <FormField label="Email Address" required name="email"        type="email" placeholder="you@example.com" />
+        </FormRow>
+        <FormRow>
+          <FormSelect label="Pillar / Topic Area" required name="pillar"  options={SOLUTION_OPTS} placeholder="Select..." />
+          <FormSelect label="Preferred Quarter"            name="quarter" options={QUARTER_OPTS}  placeholder="Select..." />
+        </FormRow>
+        <FormTextarea label="Proposed Topic or Talk Title (max 200 words)" required name="topic"      rows={5} placeholder="Short description of what you would like to discuss" />
+        <FormTextarea label="Previous Speaking Experience"                          name="experience" rows={4} placeholder="Brief summary of past speaking engagements (optional)" />
+        <FormField    label="LinkedIn Profile URL"                                  name="linkedin"   type="url" placeholder="https://linkedin.com/in/..." />
+        <FormSelect   label="How did you hear about us?"                            name="referral"   options={HOW_HEARD_OPTS} placeholder="Select..." />
+        <FormSubmit label="Submit application" align="left" tone="navy" />
+        <p className="text-[#9CA3AF] text-xs leading-relaxed">
+          Submits to events@icentra.com. Auto-response confirms receipt + 5–7 business day review window.
+        </p>
+      </form>
+    </FormCard>
+  );
+}
+
+export function SpeakerApplicationModal({
+  triggerLabel = "Apply to speak",
+  triggerClassName,
+}: {
+  triggerLabel?: string;
+  triggerClassName?: string;
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <button
+        onClick={() => setOpen(true)}
+        className={triggerClassName ?? "inline-flex items-center px-7 py-3.5 rounded-full bg-main text-white text-sm font-semibold hover:bg-[#1A274F] transition-colors"}
+      >
+        {triggerLabel}
+      </button>
+      <FormModal open={open} onClose={() => setOpen(false)} maxWidth="max-w-[860px]">
+        <SpeakerApplicationContent />
       </FormModal>
     </>
   );
