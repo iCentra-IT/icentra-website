@@ -3,7 +3,7 @@ import BlogCard from "@/components/ui/cards/blog-card";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
 import CaseStudiesSection, { type CaseStudyCard } from "@/components/sections/industry/case-studies-section";
-import { NewsletterModal, WebinarRegistrationModal } from "@/components/forms/all-forms";
+import { NewsletterModal } from "@/components/forms/all-forms";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 import { sanityFetch } from "@/sanity/lib/live";
 import { postImageUrl } from "@/sanity/lib/image";
@@ -301,7 +301,12 @@ export default async function IndustriesPage() {
             Join our monthly webinar series, Transform by iCentra, where we bring together leading voices in business, technology, and strategy to discuss key issues, share best practices, and inspire action.
           </p>
           <div className="flex flex-wrap gap-3 justify-center mt-2">
-            <WebinarRegistrationModal triggerClassName="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold transition-colors" />
+            <Link
+              href="/events"
+              className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors"
+            >
+              View Upcoming Webinars
+            </Link>
             <Link
               href="/events"
               className="inline-flex items-center px-7 py-3.5 rounded-full border border-white/30 text-white text-sm font-semibold hover:bg-white/10 transition-colors"

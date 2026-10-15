@@ -6,10 +6,8 @@ import JobCard from "@/components/ui/cards/job-card";
 import CareerLevelBars from "@/components/sections/careers/career-level-bars";
 import CultureAccordion, { type AccordionItem } from "@/components/sections/careers/culture-accordion";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
-import { sanityFetch } from "@/sanity/lib/live";
-import { POSTS_BY_CATEGORY_QUERY } from "@/sanity/lib/queries";
-import { parseJobMeta } from "@/sanity/lib/format";
 import { pageMetadata } from "@/lib/seo";
+import { listJobs, EMPLOYMENT_TYPE_LABELS } from "@/lib/api/jobs";
 
 export const metadata: Metadata = pageMetadata({
   title: "Careers",
@@ -115,31 +113,11 @@ const teamVideos = [
   },
 ];
 
-type RawJobPost = {
-  _id: string;
-  title: string;
-  slug: string;
-  plainBody?: string;
-};
-
 /* ─────────────────────────────────────────
    PAGE
 ───────────────────────────────────────── */
 export default async function CareersPage() {
-  const { data: jobPosts } = await sanityFetch({
-    query: POSTS_BY_CATEGORY_QUERY,
-    params: { slug: "job-listing" },
-  });
-
-  const jobListings = ((jobPosts ?? []) as RawJobPost[]).map((post) => {
-    const { department, roleType } = parseJobMeta(post.plainBody);
-    return {
-      slug: post.slug,
-      title: post.title.trim(),
-      dept: department,
-      type: roleType,
-    };
-  });
+  const jobs = await listJobs();
 
   return (
     <main className="w-full overflow-x-hidden">
@@ -364,15 +342,16 @@ export default async function CareersPage() {
           </p>
 
           {/* Job listing cards */}
-          {jobListings.length > 0 ? (
+          {jobs.length > 0 ? (
             <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {jobListings.map((job) => (
+              {jobs.map((job) => (
                 <StaggerItem key={job.slug}>
                   <JobCard
                     slug={job.slug}
                     title={job.title}
-                    dept={job.dept}
-                    type={job.type}
+                    dept={job.department || "iCentra"}
+                    location={job.is_remote ? [job.location, "Remote"].filter(Boolean).join(" · ") : job.location}
+                    type={EMPLOYMENT_TYPE_LABELS[job.employment_type]}
                   />
                 </StaggerItem>
               ))}

@@ -133,12 +133,3 @@ export const CASE_STUDY_SLUGS_QUERY = `
   ].slug.current
 `;
 
-// Slugs of every post tagged "job-listing" — powers generateStaticParams for
-// /careers/[slug].
-export const JOB_SLUGS_QUERY = `
-  *[
-    _type == "post" &&
-    defined(slug.current) &&
-    count(categories[@->slug.current == "job-listing"]) > 0
-  ].slug.current
-`;

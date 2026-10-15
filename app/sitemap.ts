@@ -1,8 +1,10 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 import { sanityFetch } from "@/sanity/lib/live";
-import { ALL_POST_SLUGS_QUERY, CASE_STUDY_SLUGS_QUERY, JOB_SLUGS_QUERY } from "@/sanity/lib/queries";
+import { ALL_POST_SLUGS_QUERY, CASE_STUDY_SLUGS_QUERY } from "@/sanity/lib/queries";
 import { solutionCategories } from "@/lib/data/solutions";
+import { listJobs } from "@/lib/api/jobs";
+import { listEvents } from "@/lib/api/events";
 
 const STATIC_ROUTES: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
   { path: "/", priority: 1, changeFrequency: "weekly" },
@@ -32,10 +34,11 @@ const STATIC_ROUTES: { path: string; priority: number; changeFrequency: Metadata
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [{ data: postSlugs }, { data: caseStudySlugs }, { data: jobSlugs }] = await Promise.all([
+  const [{ data: postSlugs }, { data: caseStudySlugs }, jobs, events] = await Promise.all([
     sanityFetch({ query: ALL_POST_SLUGS_QUERY }),
     sanityFetch({ query: CASE_STUDY_SLUGS_QUERY }),
-    sanityFetch({ query: JOB_SLUGS_QUERY }),
+    listJobs().catch(() => []),
+    listEvents().catch(() => []),
   ]);
 
   const now = new Date();
@@ -61,12 +64,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  const jobEntries: MetadataRoute.Sitemap = ((jobSlugs ?? []) as string[]).map((slug) => ({
-    url: `${SITE_URL}/careers/${slug}`,
+  const jobEntries: MetadataRoute.Sitemap = jobs.map((job) => ({
+    url: `${SITE_URL}/careers/${job.slug}`,
     lastModified: now,
     changeFrequency: "weekly",
     priority: 0.5,
   }));
 
-  return [...staticEntries, ...postEntries, ...caseStudyEntries, ...jobEntries];
+  const eventEntries: MetadataRoute.Sitemap = events.map((event) => ({
+    url: `${SITE_URL}/events/${event.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.5,
+  }));
+
+  return [...staticEntries, ...postEntries, ...caseStudyEntries, ...jobEntries, ...eventEntries];
 }

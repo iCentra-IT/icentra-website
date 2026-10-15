@@ -6,21 +6,10 @@ import DiscoverBanner from "@/components/ui/banner";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
 import PastWebinarCard from "@/components/sections/events/past-webinar-card";
-import SpeakerCard from "@/components/sections/events/speaker-card";
 import { Reveal, StaggerGroup } from "@/components/ui/motion/reveal";
 import { pageMetadata } from "@/lib/seo";
-import {
-  TRANSFORM_GRAPHIC,
-  aboutWebinar,
-  eventsHero,
-  inntechSummit,
-  pastWebinars,
-  pastWebinarsIntro,
-  pillarStyles,
-  speakAtWebinar,
-  speakers,
-  upcomingWebinar,
-} from "@/lib/data/events";
+import { TRANSFORM_GRAPHIC, aboutWebinar, eventsHero, inntechSummit, pillarStyles, DEFAULT_PILLAR_STYLE, speakAtWebinar } from "@/lib/data/events";
+import { listEvents, formatEventSchedule } from "@/lib/api/events";
 
 export const metadata: Metadata = pageMetadata({
   title: "Events",
@@ -35,7 +24,19 @@ const REGISTER_CLASS =
 /* ─────────────────────────────────────────
    PAGE
 ───────────────────────────────────────── */
-export default function EventsPage() {
+export default async function EventsPage() {
+  const [upcoming, past] = await Promise.all([
+    listEvents({ upcoming: true }),
+    listEvents({ past: true }),
+  ]);
+
+  const nextEvent = [...upcoming].sort(
+    (a, b) => new Date(a.start_datetime).getTime() - new Date(b.start_datetime).getTime()
+  )[0];
+  const recentPast = [...past]
+    .sort((a, b) => new Date(b.start_datetime).getTime() - new Date(a.start_datetime).getTime())
+    .slice(0, 6);
+
   return (
     <main className="w-full overflow-x-hidden">
 
@@ -55,19 +56,21 @@ export default function EventsPage() {
       {/* ══════════════════════════════════════
           2. ANNOUNCEMENT STRIP — next webinar
       ══════════════════════════════════════ */}
-      <div className="bg-deep-blue border-b border-[#0066FF]/40">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div className="min-w-0">
-            <p className="text-light-blue text-xs font-semibold tracking-widest uppercase mb-1">
-              {upcomingWebinar.seriesLabel} · {upcomingWebinar.monthLabel}
-            </p>
-            <p className="text-white text-sm sm:text-base">{upcomingWebinar.title}</p>
-          </div>
-          <div className="shrink-0">
-            <WebinarRegistrationModal triggerLabel="Register now →" triggerClassName={REGISTER_CLASS} />
+      {nextEvent && (
+        <div className="bg-deep-blue border-b border-[#0066FF]/40">
+          <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="min-w-0">
+              <p className="text-light-blue text-xs font-semibold tracking-widest uppercase mb-1">
+                {nextEvent.pillar?.name ?? "Upcoming"}
+              </p>
+              <p className="text-white text-sm sm:text-base">{nextEvent.title}</p>
+            </div>
+            <div className="shrink-0">
+              <WebinarRegistrationModal eventSlug={nextEvent.slug} eventTitle={nextEvent.title} triggerLabel="Register now →" triggerClassName={REGISTER_CLASS} />
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* ══════════════════════════════════════
           3. UPCOMING WEBINAR — featured card
@@ -76,49 +79,41 @@ export default function EventsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading title="Upcoming Webinar" className="mb-10" />
 
-          <Reveal className="rounded-2xl border border-[#0066FF]/40 bg-white overflow-hidden">
-            {upcomingWebinar.image ? (
-              <div className="relative w-full aspect-1200/628">
-                <Image
-                  src={upcomingWebinar.image}
-                  alt={upcomingWebinar.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1280px) 100vw, 1280px"
-                />
-              </div>
-            ) : (
+          {nextEvent ? (
+            <Reveal className="rounded-2xl border border-[#0066FF]/40 bg-white overflow-hidden">
               <div className="bg-main h-52 lg:h-64 flex flex-col items-center justify-center gap-3 px-6 text-center">
                 <p className="text-light-blue text-xs font-semibold tracking-widest uppercase">
-                  {upcomingWebinar.seriesLabel} · {upcomingWebinar.monthLabel}
+                  {nextEvent.pillar?.name ?? "Upcoming Webinar"}
                 </p>
-                <p className="text-white text-lg lg:text-xl font-bold max-w-3xl leading-snug">
-                  {upcomingWebinar.title}
-                </p>
+                <p className="text-white text-lg lg:text-xl font-bold max-w-3xl leading-snug">{nextEvent.title}</p>
               </div>
-            )}
 
-            <div className="p-6 lg:p-10 flex flex-col gap-4">
-              <span
-                className={`w-fit px-3 py-1 rounded-full text-xs font-medium ${pillarStyles[upcomingWebinar.pillar]}`}
-              >
-                {upcomingWebinar.pillar}
-              </span>
-              <h3 className="text-[#1A274F] text-xl lg:text-2xl font-bold leading-snug">{upcomingWebinar.title}</h3>
-              <p className="text-[#6B7280] text-sm">{upcomingWebinar.schedule}</p>
-              <div className="flex flex-col gap-3 max-w-4xl">
-                {upcomingWebinar.description.map((paragraph) => (
-                  <p key={paragraph} className="text-[#374151] text-base leading-[1.8]">
-                    {paragraph}
-                  </p>
-                ))}
+              <div className="p-6 lg:p-10 flex flex-col gap-4">
+                <span
+                  className={`w-fit px-3 py-1 rounded-full text-xs font-medium ${
+                    nextEvent.pillar ? pillarStyles[nextEvent.pillar.name] ?? DEFAULT_PILLAR_STYLE : DEFAULT_PILLAR_STYLE
+                  }`}
+                >
+                  {nextEvent.pillar?.name ?? "iCentra Event"}
+                </span>
+                <h3 className="text-[#1A274F] text-xl lg:text-2xl font-bold leading-snug">{nextEvent.title}</h3>
+                <p className="text-[#6B7280] text-sm">{formatEventSchedule(nextEvent)}</p>
+                {nextEvent.subtitle && (
+                  <p className="text-[#374151] text-base leading-[1.8] max-w-4xl">{nextEvent.subtitle}</p>
+                )}
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-2">
+                  <WebinarRegistrationModal eventSlug={nextEvent.slug} eventTitle={nextEvent.title} triggerLabel="Register now" triggerClassName={REGISTER_CLASS} />
+                  <Link href={`/events/${nextEvent.slug}`} className="text-[#0066FF] text-sm font-semibold hover:text-[#25429A] transition-colors">
+                    Full details →
+                  </Link>
+                </div>
               </div>
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-2">
-                <WebinarRegistrationModal triggerLabel="Register now" triggerClassName={REGISTER_CLASS} />
-                <span className="text-[#9CA3AF] text-sm">{upcomingWebinar.hostNote}</span>
-              </div>
+            </Reveal>
+          ) : (
+            <div className="bg-white rounded-2xl border border-[#DCE0E8] p-10 text-center text-[#6B7280] text-sm">
+              No upcoming webinars right now. Check back soon.
             </div>
-          </Reveal>
+          )}
         </div>
       </section>
 
@@ -149,7 +144,7 @@ export default function EventsPage() {
               ))}
               <div className="flex flex-wrap gap-2 mt-2">
                 {aboutWebinar.pillars.map((pillar) => (
-                  <span key={pillar} className={`px-3 py-1 rounded-full text-xs font-medium ${pillarStyles[pillar]}`}>
+                  <span key={pillar} className={`px-3 py-1 rounded-full text-xs font-medium ${pillarStyles[pillar] ?? DEFAULT_PILLAR_STYLE}`}>
                     {pillar}
                   </span>
                 ))}
@@ -222,40 +217,29 @@ export default function EventsPage() {
           <SectionHeading
             title="Past Webinars"
             subtitle="Missed an event? Catch up on key moments, recordings, and thought leadership from past sessions."
-            className="mb-8"
+            className="mb-10"
           />
-          <p className="border-l-2 border-[#DCE0E8] pl-4 text-[#6B7280] text-sm leading-relaxed mb-10 max-w-5xl">
-            {pastWebinarsIntro}
-          </p>
 
-          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {pastWebinars.map((webinar) => (
-              <PastWebinarCard key={webinar.title} webinar={webinar} />
-            ))}
-          </StaggerGroup>
+          {recentPast.length > 0 ? (
+            <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {recentPast.map((event) => (
+                <PastWebinarCard key={event.slug} event={event} />
+              ))}
+            </StaggerGroup>
+          ) : (
+            <div className="bg-[#F7F9FC] rounded-2xl p-10 text-center text-[#6B7280] text-sm">
+              No past webinars yet. Check back after our next session.
+            </div>
+          )}
         </div>
       </section>
 
       {/* ══════════════════════════════════════
-          8. TRANSFORM SPEAKERS
+          8. SPEAK AT A TRANSFORM WEBINAR
       ══════════════════════════════════════ */}
       <section className="bg-[#F7F9FC] py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionHeading title="Transform Speakers" className="mb-10" />
-          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {speakers.map((speaker) => (
-              <SpeakerCard key={speaker.name} speaker={speaker} />
-            ))}
-          </StaggerGroup>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════
-          9. SPEAK AT A TRANSFORM WEBINAR
-      ══════════════════════════════════════ */}
-      <section className="bg-white py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <Reveal className="rounded-2xl border border-[#DCE0E8] bg-[#F7F9FC] p-8 lg:p-10">
+          <Reveal className="rounded-2xl border border-[#DCE0E8] bg-white p-8 lg:p-10">
             <h2 className="text-main text-[22px] lg:text-[28px] font-bold mb-5">{speakAtWebinar.title}</h2>
             <div className="flex flex-col gap-4 max-w-4xl mb-8">
               {speakAtWebinar.paragraphs.map((paragraph) => (
@@ -270,7 +254,7 @@ export default function EventsPage() {
       </section>
 
       {/* ══════════════════════════════════════
-          10. PARTNER WITH US — DiscoverBanner (reused)
+          9. PARTNER WITH US — DiscoverBanner (reused)
       ══════════════════════════════════════ */}
       <DiscoverBanner
         headline={"Partner With Us"}

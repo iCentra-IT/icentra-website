@@ -66,7 +66,7 @@ export function FormSelect({
 }: {
   label: string;
   required?: boolean;
-  options: string[];
+  options: string[] | { label: string; value: string }[];
   placeholder?: string;
 } & SelectHTMLAttributes<HTMLSelectElement>) {
   return (
@@ -88,9 +88,13 @@ export function FormSelect({
         }}
       >
         <option value="" disabled>{placeholder || `Select ${label}`}</option>
-        {options.map((opt) => (
-          <option key={opt} value={opt}>{opt}</option>
-        ))}
+        {options.map((opt) =>
+          typeof opt === "string" ? (
+            <option key={opt} value={opt}>{opt}</option>
+          ) : (
+            <option key={opt.value} value={opt.value}>{opt.label}</option>
+          )
+        )}
       </select>
     </div>
   );
@@ -181,20 +185,26 @@ export function FormFileUpload({
   label,
   required,
   accept = ".pdf,.doc,.docx",
+  onFileChange,
 }: {
   label: string;
   required?: boolean;
   accept?: string;
+  /** Called with the selected File (or null when removed) so the parent form can send it. */
+  onFileChange?: (file: File | null) => void;
 }) {
   const [fileName, setFileName] = useState<string | null>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFileName(e.target.files[0].name);
-    }
+    const file = e.target.files?.[0] ?? null;
+    setFileName(file?.name ?? null);
+    onFileChange?.(file);
   };
 
-  const handleRemove = () => setFileName(null);
+  const handleRemove = () => {
+    setFileName(null);
+    onFileChange?.(null);
+  };
 
   return (
     <div className="flex flex-col gap-1.5">
