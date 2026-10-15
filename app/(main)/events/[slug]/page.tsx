@@ -16,7 +16,9 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const events = await listEvents();
+  // Defensive: a flaky/rate-limited API response here must not fail the whole
+  // build — falling back to on-demand rendering for these slugs is fine.
+  const events = await listEvents().catch(() => []);
   return events.map((event) => ({ slug: event.slug }));
 }
 

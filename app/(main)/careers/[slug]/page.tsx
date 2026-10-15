@@ -9,7 +9,9 @@ import TextBlock from "@/components/ui/text-block";
 import { listJobs, getJob, EMPLOYMENT_TYPE_LABELS } from "@/lib/api/jobs";
 
 export async function generateStaticParams() {
-  const jobs = await listJobs();
+  // Defensive: a flaky/rate-limited API response here must not fail the whole
+  // build — falling back to on-demand rendering for these slugs is fine.
+  const jobs = await listJobs().catch(() => []);
   return jobs.map((job) => ({ slug: job.slug }));
 }
 
