@@ -1,59 +1,47 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { use } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { withFreshToken, SessionExpiredError } from "@/lib/admin/session";
+import { useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
+import { useConfirm } from "@/components/admin/confirm-dialog";
+import { ListSkeleton, EmptyState, ErrorState } from "@/components/admin/list-states";
+import { LayersIcon } from "@/components/admin/icons";
+import { useStaffMutation, useStaffQuery } from "@/lib/admin/queries";
 import { TAXONOMY_REGISTRY, type TaxonomyItem } from "@/lib/admin/taxonomy-registry";
 
 export default function TaxonomyListPage({ params }: { params: Promise<{ resource: string }> }) {
   const { resource } = use(params);
   const config = TAXONOMY_REGISTRY[resource];
-  const router = useRouter();
-  const [items, setItems] = useState<TaxonomyItem[] | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [deletingSlug, setDeletingSlug] = useState<string | null>(null);
+  const queryClient = useQueryClient();
+  const confirm = useConfirm();
 
-  useEffect(() => {
-    if (!config) return;
-    let cancelled = false;
-    withFreshToken((token) => config.list(token))
-      .then((data) => {
-        if (!cancelled) setItems(data);
-      })
-      .catch((err) => {
-        if (cancelled) return;
-        if (err instanceof SessionExpiredError) {
-          router.replace("/admin/login");
-          return;
-        }
-        setError(`Couldn't load ${config.label.toLowerCase()}. Please try again.`);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [config, router]);
+  const itemsQuery = useStaffQuery<TaxonomyItem[]>(["taxonomy", resource], (token) => {
+    if (!config) throw new Error(`Unknown resource "${resource}"`);
+    return config.list(token);
+  });
+  const deleteMutation = useStaffMutation<string, void>((token, slug) => {
+    if (!config) throw new Error(`Unknown resource "${resource}"`);
+    return config.remove(token, slug);
+  });
 
   if (!config) {
     return <p className="text-[#6B7280] text-sm">Unknown resource &ldquo;{resource}&rdquo;.</p>;
   }
 
   async function handleDelete(slug: string, name: string) {
-    if (!window.confirm(`Delete "${name}"? This can't be undone.`)) return;
-    setDeletingSlug(slug);
+    const ok = await confirm({ title: `Delete "${name}"?`, description: "This can't be undone.", confirmLabel: "Delete", tone: "danger" });
+    if (!ok) return;
     try {
-      await withFreshToken((token) => config.remove(token, slug));
-      setItems((prev) => prev?.filter((i) => i.slug !== slug) ?? null);
-    } catch (err) {
-      if (err instanceof SessionExpiredError) {
-        router.replace("/admin/login");
-        return;
-      }
-      window.alert(`Couldn't delete this ${config.singularLabel.toLowerCase()}. Please try again.`);
-    } finally {
-      setDeletingSlug(null);
+      await deleteMutation.mutateAsync(slug);
+      queryClient.setQueryData<TaxonomyItem[]>(["taxonomy", resource], (prev) => prev?.filter((i) => i.slug !== slug));
+      toast.success(`${config.singularLabel} deleted.`);
+    } catch {
+      toast.error(`Couldn't delete this ${config.singularLabel.toLowerCase()}. Please try again.`);
     }
   }
+
+  const items = itemsQuery.data;
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -67,21 +55,26 @@ export default function TaxonomyListPage({ params }: { params: Promise<{ resourc
         </Link>
       </div>
 
-      {error && <p className="text-red-600 text-sm mb-4">{error}</p>}
+      {itemsQuery.isLoading && <ListSkeleton />}
 
-      {items === null && !error && (
-        <div className="flex items-center justify-center py-20">
-          <div className="w-6 h-6 border-2 border-[#DCE0E8] border-t-[#0066FF] rounded-full animate-spin" />
-        </div>
+      {itemsQuery.isError && (
+        <ErrorState message={`Couldn't load ${config.label.toLowerCase()}. Please try again.`} onRetry={() => itemsQuery.refetch()} />
       )}
 
-      {items !== null && items.length === 0 && (
-        <div className="bg-white rounded-2xl border border-[#DCE0E8] p-10 text-center text-[#6B7280] text-sm">
-          None yet. Create the first one.
-        </div>
+      {items && items.length === 0 && (
+        <EmptyState
+          icon={<LayersIcon />}
+          title={`No ${config.label.toLowerCase()} yet`}
+          description="Create the first one to make it selectable elsewhere."
+          action={
+            <Link href={`/admin/taxonomy/${resource}/new`} className="text-[#0066FF] text-sm font-semibold hover:text-[#25429A] transition-colors mt-1">
+              + New {config.singularLabel}
+            </Link>
+          }
+        />
       )}
 
-      {items !== null && items.length > 0 && (
+      {items && items.length > 0 && (
         <div className="bg-white rounded-2xl border border-[#DCE0E8] overflow-hidden">
           {items.map((item, i) => (
             <div
@@ -110,10 +103,10 @@ export default function TaxonomyListPage({ params }: { params: Promise<{ resourc
                 </Link>
                 <button
                   onClick={() => handleDelete(item.slug, item.name)}
-                  disabled={deletingSlug === item.slug}
+                  disabled={deleteMutation.isPending}
                   className="text-red-600 text-sm font-semibold hover:text-red-800 transition-colors disabled:opacity-50 cursor-pointer"
                 >
-                  {deletingSlug === item.slug ? "Deleting…" : "Delete"}
+                  {deleteMutation.isPending && deleteMutation.variables === item.slug ? "Deleting…" : "Delete"}
                 </button>
               </div>
             </div>

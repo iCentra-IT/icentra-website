@@ -2,24 +2,22 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
 import EventForm from "@/components/admin/event-form";
-import { withFreshToken, SessionExpiredError } from "@/lib/admin/session";
-import { staffCreateEvent, type EventInput } from "@/lib/api/events";
+import { useStaffMutation } from "@/lib/admin/queries";
+import { staffCreateEvent, type EventInput, type StaffEvent } from "@/lib/api/events";
 
 export default function NewEventPage() {
   const router = useRouter();
+  const queryClient = useQueryClient();
+  const createMutation = useStaffMutation<EventInput, StaffEvent>((token, data) => staffCreateEvent(token, data));
 
   async function handleSubmit(data: EventInput) {
-    try {
-      const event = await withFreshToken((token) => staffCreateEvent(token, data));
-      router.push(`/admin/events/${event.slug}/edit`);
-    } catch (err) {
-      if (err instanceof SessionExpiredError) {
-        router.replace("/admin/login");
-        return;
-      }
-      throw err;
-    }
+    const event = await createMutation.mutateAsync(data);
+    queryClient.invalidateQueries({ queryKey: ["events"] });
+    toast.success("Event created.");
+    router.push(`/admin/events/${event.slug}/edit`);
   }
 
   return (

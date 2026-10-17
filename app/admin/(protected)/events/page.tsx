@@ -1,9 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { withFreshToken, SessionExpiredError } from "@/lib/admin/session";
+import { useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
+import { useConfirm } from "@/components/admin/confirm-dialog";
+import { ListSkeleton, EmptyState, ErrorState } from "@/components/admin/list-states";
+import { CalendarIcon } from "@/components/admin/icons";
+import { useStaffMutation, useStaffQuery } from "@/lib/admin/queries";
 import { staffListEvents, staffDeleteEvent, EVENT_STATUS_LABELS, formatEventSchedule, type StaffEvent } from "@/lib/api/events";
 
 const STATUS_STYLES: Record<StaffEvent["status"], string> = {
@@ -13,46 +16,24 @@ const STATUS_STYLES: Record<StaffEvent["status"], string> = {
 };
 
 export default function AdminEventsPage() {
-  const router = useRouter();
-  const [events, setEvents] = useState<StaffEvent[] | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [deletingSlug, setDeletingSlug] = useState<string | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    withFreshToken((token) => staffListEvents(token))
-      .then((data) => {
-        if (!cancelled) setEvents(data);
-      })
-      .catch((err) => {
-        if (cancelled) return;
-        if (err instanceof SessionExpiredError) {
-          router.replace("/admin/login");
-          return;
-        }
-        setError("Couldn't load events. Please try again.");
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [router]);
+  const queryClient = useQueryClient();
+  const confirm = useConfirm();
+  const eventsQuery = useStaffQuery<StaffEvent[]>(["events"], staffListEvents);
+  const deleteMutation = useStaffMutation<string, void>((token, slug) => staffDeleteEvent(token, slug));
 
   async function handleDelete(slug: string, title: string) {
-    if (!window.confirm(`Delete "${title}"? This can't be undone.`)) return;
-    setDeletingSlug(slug);
+    const ok = await confirm({ title: `Delete "${title}"?`, description: "This can't be undone.", confirmLabel: "Delete", tone: "danger" });
+    if (!ok) return;
     try {
-      await withFreshToken((token) => staffDeleteEvent(token, slug));
-      setEvents((prev) => prev?.filter((e) => e.slug !== slug) ?? null);
-    } catch (err) {
-      if (err instanceof SessionExpiredError) {
-        router.replace("/admin/login");
-        return;
-      }
-      window.alert("Couldn't delete this event. Please try again.");
-    } finally {
-      setDeletingSlug(null);
+      await deleteMutation.mutateAsync(slug);
+      queryClient.setQueryData<StaffEvent[]>(["events"], (prev) => prev?.filter((e) => e.slug !== slug));
+      toast.success("Event deleted.");
+    } catch {
+      toast.error("Couldn't delete this event. Please try again.");
     }
   }
+
+  const events = eventsQuery.data;
 
   return (
     <div className="max-w-5xl mx-auto">
@@ -69,21 +50,24 @@ export default function AdminEventsPage() {
         </Link>
       </div>
 
-      {error && <p className="text-red-600 text-sm mb-4">{error}</p>}
+      {eventsQuery.isLoading && <ListSkeleton />}
 
-      {events === null && !error && (
-        <div className="flex items-center justify-center py-20">
-          <div className="w-6 h-6 border-2 border-[#DCE0E8] border-t-[#0066FF] rounded-full animate-spin" />
-        </div>
+      {eventsQuery.isError && <ErrorState message="Couldn't load events. Please try again." onRetry={() => eventsQuery.refetch()} />}
+
+      {events && events.length === 0 && (
+        <EmptyState
+          icon={<CalendarIcon />}
+          title="No events yet"
+          description="Create the first one to start taking registrations."
+          action={
+            <Link href="/admin/events/new" className="text-[#0066FF] text-sm font-semibold hover:text-[#25429A] transition-colors mt-1">
+              + New Event
+            </Link>
+          }
+        />
       )}
 
-      {events !== null && events.length === 0 && (
-        <div className="bg-white rounded-2xl border border-[#DCE0E8] p-10 text-center text-[#6B7280] text-sm">
-          No events yet. Create the first one.
-        </div>
-      )}
-
-      {events !== null && events.length > 0 && (
+      {events && events.length > 0 && (
         <div className="bg-white rounded-2xl border border-[#DCE0E8] overflow-hidden">
           {events.map((event, i) => (
             <div
@@ -106,10 +90,10 @@ export default function AdminEventsPage() {
                 </Link>
                 <button
                   onClick={() => handleDelete(event.slug, event.title)}
-                  disabled={deletingSlug === event.slug}
+                  disabled={deleteMutation.isPending}
                   className="text-red-600 text-sm font-semibold hover:text-red-800 transition-colors disabled:opacity-50 cursor-pointer"
                 >
-                  {deletingSlug === event.slug ? "Deleting…" : "Delete"}
+                  {deleteMutation.isPending && deleteMutation.variables === event.slug ? "Deleting…" : "Delete"}
                 </button>
               </div>
             </div>

@@ -3,30 +3,31 @@
 import { use } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
 import TaxonomyForm from "@/components/admin/taxonomy-form";
-import { withFreshToken, SessionExpiredError } from "@/lib/admin/session";
-import { TAXONOMY_REGISTRY } from "@/lib/admin/taxonomy-registry";
+import { useStaffMutation } from "@/lib/admin/queries";
+import { TAXONOMY_REGISTRY, type TaxonomyItem } from "@/lib/admin/taxonomy-registry";
 
 export default function NewTaxonomyItemPage({ params }: { params: Promise<{ resource: string }> }) {
   const { resource } = use(params);
   const config = TAXONOMY_REGISTRY[resource];
   const router = useRouter();
+  const queryClient = useQueryClient();
+  const createMutation = useStaffMutation<Record<string, unknown>, TaxonomyItem>((token, data) => {
+    if (!config) throw new Error(`Unknown resource "${resource}"`);
+    return config.create(token, data);
+  });
 
   if (!config) {
     return <p className="text-[#6B7280] text-sm">Unknown resource &ldquo;{resource}&rdquo;.</p>;
   }
 
   async function handleSubmit(data: Record<string, unknown>) {
-    try {
-      await withFreshToken((token) => config.create(token, data));
-      router.push(`/admin/taxonomy/${resource}`);
-    } catch (err) {
-      if (err instanceof SessionExpiredError) {
-        router.replace("/admin/login");
-        return;
-      }
-      throw err;
-    }
+    await createMutation.mutateAsync(data);
+    queryClient.invalidateQueries({ queryKey: ["taxonomy", resource] });
+    toast.success(`${config.singularLabel} created.`);
+    router.push(`/admin/taxonomy/${resource}`);
   }
 
   return (

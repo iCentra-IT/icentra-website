@@ -1,53 +1,34 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { withFreshToken, SessionExpiredError } from "@/lib/admin/session";
+import { useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
+import { useConfirm } from "@/components/admin/confirm-dialog";
+import { ListSkeleton, EmptyState, ErrorState } from "@/components/admin/list-states";
+import { MicIcon } from "@/components/admin/icons";
+import { useStaffMutation, useStaffQuery } from "@/lib/admin/queries";
 import { staffListSpeakers, staffDeleteSpeaker, type StaffSpeaker } from "@/lib/api/speakers";
 
 export default function AdminSpeakersPage() {
-  const router = useRouter();
-  const [speakers, setSpeakers] = useState<StaffSpeaker[] | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [deletingId, setDeletingId] = useState<number | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    withFreshToken((token) => staffListSpeakers(token))
-      .then((data) => {
-        if (!cancelled) setSpeakers(data);
-      })
-      .catch((err) => {
-        if (cancelled) return;
-        if (err instanceof SessionExpiredError) {
-          router.replace("/admin/login");
-          return;
-        }
-        setError("Couldn't load speakers. Please try again.");
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [router]);
+  const queryClient = useQueryClient();
+  const confirm = useConfirm();
+  const speakersQuery = useStaffQuery<StaffSpeaker[]>(["speakers"], staffListSpeakers);
+  const deleteMutation = useStaffMutation<number, void>((token, id) => staffDeleteSpeaker(token, id));
 
   async function handleDelete(id: number, name: string) {
-    if (!window.confirm(`Delete "${name}"? This can't be undone.`)) return;
-    setDeletingId(id);
+    const ok = await confirm({ title: `Delete "${name}"?`, description: "This can't be undone.", confirmLabel: "Delete", tone: "danger" });
+    if (!ok) return;
     try {
-      await withFreshToken((token) => staffDeleteSpeaker(token, id));
-      setSpeakers((prev) => prev?.filter((s) => s.id !== id) ?? null);
-    } catch (err) {
-      if (err instanceof SessionExpiredError) {
-        router.replace("/admin/login");
-        return;
-      }
-      window.alert("Couldn't delete this speaker. Please try again.");
-    } finally {
-      setDeletingId(null);
+      await deleteMutation.mutateAsync(id);
+      queryClient.setQueryData<StaffSpeaker[]>(["speakers"], (prev) => prev?.filter((s) => s.id !== id));
+      toast.success("Speaker deleted.");
+    } catch {
+      toast.error("Couldn't delete this speaker. Please try again.");
     }
   }
+
+  const speakers = speakersQuery.data;
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -64,21 +45,24 @@ export default function AdminSpeakersPage() {
         </Link>
       </div>
 
-      {error && <p className="text-red-600 text-sm mb-4">{error}</p>}
+      {speakersQuery.isLoading && <ListSkeleton />}
 
-      {speakers === null && !error && (
-        <div className="flex items-center justify-center py-20">
-          <div className="w-6 h-6 border-2 border-[#DCE0E8] border-t-[#0066FF] rounded-full animate-spin" />
-        </div>
+      {speakersQuery.isError && <ErrorState message="Couldn't load speakers. Please try again." onRetry={() => speakersQuery.refetch()} />}
+
+      {speakers && speakers.length === 0 && (
+        <EmptyState
+          icon={<MicIcon />}
+          title="No speakers yet"
+          description="Create the first one to attach them to an event."
+          action={
+            <Link href="/admin/speakers/new" className="text-[#0066FF] text-sm font-semibold hover:text-[#25429A] transition-colors mt-1">
+              + New Speaker
+            </Link>
+          }
+        />
       )}
 
-      {speakers !== null && speakers.length === 0 && (
-        <div className="bg-white rounded-2xl border border-[#DCE0E8] p-10 text-center text-[#6B7280] text-sm">
-          No speakers yet. Create the first one.
-        </div>
-      )}
-
-      {speakers !== null && speakers.length > 0 && (
+      {speakers && speakers.length > 0 && (
         <div className="bg-white rounded-2xl border border-[#DCE0E8] overflow-hidden">
           {speakers.map((speaker, i) => (
             <div
@@ -109,10 +93,10 @@ export default function AdminSpeakersPage() {
                 </Link>
                 <button
                   onClick={() => handleDelete(speaker.id, speaker.name)}
-                  disabled={deletingId === speaker.id}
+                  disabled={deleteMutation.isPending}
                   className="text-red-600 text-sm font-semibold hover:text-red-800 transition-colors disabled:opacity-50 cursor-pointer"
                 >
-                  {deletingId === speaker.id ? "Deleting…" : "Delete"}
+                  {deleteMutation.isPending && deleteMutation.variables === speaker.id ? "Deleting…" : "Delete"}
                 </button>
               </div>
             </div>

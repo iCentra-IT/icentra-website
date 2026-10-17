@@ -2,24 +2,24 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
 import SpeakerForm from "@/components/admin/speaker-form";
-import { withFreshToken, SessionExpiredError } from "@/lib/admin/session";
-import { staffCreateSpeaker, type SpeakerInput } from "@/lib/api/speakers";
+import { useStaffMutation } from "@/lib/admin/queries";
+import { staffCreateSpeaker, type SpeakerInput, type StaffSpeaker } from "@/lib/api/speakers";
 
 export default function NewSpeakerPage() {
   const router = useRouter();
+  const queryClient = useQueryClient();
+  const createMutation = useStaffMutation<{ data: SpeakerInput; photo: File | null }, StaffSpeaker>((token, { data, photo }) =>
+    staffCreateSpeaker(token, data, photo)
+  );
 
   async function handleSubmit(data: SpeakerInput, photo: File | null) {
-    try {
-      const speaker = await withFreshToken((token) => staffCreateSpeaker(token, data, photo));
-      router.push(`/admin/speakers/${speaker.id}/edit`);
-    } catch (err) {
-      if (err instanceof SessionExpiredError) {
-        router.replace("/admin/login");
-        return;
-      }
-      throw err;
-    }
+    const speaker = await createMutation.mutateAsync({ data, photo });
+    queryClient.invalidateQueries({ queryKey: ["speakers"] });
+    toast.success("Speaker created.");
+    router.push(`/admin/speakers/${speaker.id}/edit`);
   }
 
   return (

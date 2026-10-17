@@ -17,7 +17,7 @@ export default function AdminLoginPage() {
 
   // Already signed in — skip the login form.
   useEffect(() => {
-    if (getStoredTokens()) router.replace("/admin/jobs");
+    if (getStoredTokens()) router.replace("/admin");
   }, [router]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -27,7 +27,7 @@ export default function AdminLoginPage() {
     try {
       const tokens = await staffLogin(username, password);
       storeTokens(tokens);
-      router.push("/admin/jobs");
+      router.push("/admin");
     } catch (err) {
       setError(
         err instanceof ApiError && err.status === 401

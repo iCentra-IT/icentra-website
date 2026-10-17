@@ -2,24 +2,22 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
 import JobForm from "@/components/admin/job-form";
-import { withFreshToken, SessionExpiredError } from "@/lib/admin/session";
-import { staffCreateJob, type JobOpeningInput } from "@/lib/api/jobs";
+import { useStaffMutation } from "@/lib/admin/queries";
+import { staffCreateJob, type JobOpeningInput, type StaffJobOpening } from "@/lib/api/jobs";
 
 export default function NewJobPage() {
   const router = useRouter();
+  const queryClient = useQueryClient();
+  const createMutation = useStaffMutation<JobOpeningInput, StaffJobOpening>((token, data) => staffCreateJob(token, data));
 
   async function handleSubmit(data: JobOpeningInput) {
-    try {
-      const job = await withFreshToken((token) => staffCreateJob(token, data));
-      router.push(`/admin/jobs/${job.slug}/edit`);
-    } catch (err) {
-      if (err instanceof SessionExpiredError) {
-        router.replace("/admin/login");
-        return;
-      }
-      throw err;
-    }
+    const job = await createMutation.mutateAsync(data);
+    queryClient.invalidateQueries({ queryKey: ["jobs"] });
+    toast.success("Job opening created.");
+    router.push(`/admin/jobs/${job.slug}/edit`);
   }
 
   return (

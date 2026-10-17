@@ -1,74 +1,60 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { use } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
 import TaxonomyForm from "@/components/admin/taxonomy-form";
-import { withFreshToken, SessionExpiredError } from "@/lib/admin/session";
+import { useConfirm } from "@/components/admin/confirm-dialog";
+import { useStaffMutation, useStaffQuery } from "@/lib/admin/queries";
 import { TAXONOMY_REGISTRY, type TaxonomyItem } from "@/lib/admin/taxonomy-registry";
 
 export default function EditTaxonomyItemPage({ params }: { params: Promise<{ resource: string; slug: string }> }) {
   const { resource, slug } = use(params);
   const config = TAXONOMY_REGISTRY[resource];
   const router = useRouter();
-  const [item, setItem] = useState<TaxonomyItem | null>(null);
-  const [notFound, setNotFound] = useState(false);
-  const [deleting, setDeleting] = useState(false);
+  const queryClient = useQueryClient();
+  const confirm = useConfirm();
 
-  useEffect(() => {
-    if (!config) return;
-    let cancelled = false;
-    withFreshToken((token) => config.list(token))
-      .then((items) => {
-        if (cancelled) return;
-        const found = items.find((i) => i.slug === slug);
-        if (found) setItem(found);
-        else setNotFound(true);
-      })
-      .catch((err) => {
-        if (cancelled) return;
-        if (err instanceof SessionExpiredError) {
-          router.replace("/admin/login");
-          return;
-        }
-        setNotFound(true);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [config, router, slug]);
+  const listQuery = useStaffQuery<TaxonomyItem[]>(["taxonomy", resource], (token) => {
+    if (!config) throw new Error(`Unknown resource "${resource}"`);
+    return config.list(token);
+  });
+  const updateMutation = useStaffMutation<Record<string, unknown>, TaxonomyItem>((token, data) => {
+    if (!config) throw new Error(`Unknown resource "${resource}"`);
+    return config.update(token, slug, data);
+  });
+  const deleteMutation = useStaffMutation<void, void>((token) => {
+    if (!config) throw new Error(`Unknown resource "${resource}"`);
+    return config.remove(token, slug);
+  });
 
   if (!config) {
     return <p className="text-[#6B7280] text-sm">Unknown resource &ldquo;{resource}&rdquo;.</p>;
   }
 
+  const item = listQuery.data?.find((i) => i.slug === slug);
+  const notFound = listQuery.isSuccess && !item;
+
   async function handleSubmit(data: Record<string, unknown>) {
-    try {
-      const updated = await withFreshToken((token) => config.update(token, slug, data));
-      setItem(updated);
-      if (updated.slug !== slug) router.replace(`/admin/taxonomy/${resource}/${updated.slug}/edit`);
-    } catch (err) {
-      if (err instanceof SessionExpiredError) {
-        router.replace("/admin/login");
-        return;
-      }
-      throw err;
-    }
+    const updated = await updateMutation.mutateAsync(data);
+    queryClient.invalidateQueries({ queryKey: ["taxonomy", resource] });
+    toast.success(`${config.singularLabel} saved.`);
+    if (updated.slug !== slug) router.replace(`/admin/taxonomy/${resource}/${updated.slug}/edit`);
   }
 
   async function handleDelete() {
-    if (!item || !window.confirm(`Delete "${item.name}"? This can't be undone.`)) return;
-    setDeleting(true);
+    if (!item) return;
+    const ok = await confirm({ title: `Delete "${item.name}"?`, description: "This can't be undone.", confirmLabel: "Delete", tone: "danger" });
+    if (!ok) return;
     try {
-      await withFreshToken((token) => config.remove(token, slug));
+      await deleteMutation.mutateAsync();
+      queryClient.invalidateQueries({ queryKey: ["taxonomy", resource] });
+      toast.success(`${config.singularLabel} deleted.`);
       router.push(`/admin/taxonomy/${resource}`);
-    } catch (err) {
-      if (err instanceof SessionExpiredError) {
-        router.replace("/admin/login");
-        return;
-      }
-      window.alert(`Couldn't delete this ${config.singularLabel.toLowerCase()}. Please try again.`);
-      setDeleting(false);
+    } catch {
+      toast.error(`Couldn't delete this ${config.singularLabel.toLowerCase()}. Please try again.`);
     }
   }
 
@@ -86,7 +72,7 @@ export default function EditTaxonomyItemPage({ params }: { params: Promise<{ res
 
       {notFound && <p className="text-[#6B7280] text-sm">This {config.singularLabel.toLowerCase()} couldn&apos;t be found.</p>}
 
-      {!notFound && !item && (
+      {listQuery.isLoading && (
         <div className="flex items-center justify-center py-20">
           <div className="w-6 h-6 border-2 border-[#DCE0E8] border-t-[#0066FF] rounded-full animate-spin" />
         </div>
@@ -104,10 +90,10 @@ export default function EditTaxonomyItemPage({ params }: { params: Promise<{ res
               <button
                 type="button"
                 onClick={handleDelete}
-                disabled={deleting}
+                disabled={deleteMutation.isPending}
                 className="px-5 py-2.5 rounded-full border border-red-200 text-red-600 text-sm font-semibold hover:bg-red-50 transition-colors disabled:opacity-50 cursor-pointer"
               >
-                {deleting ? "Deleting…" : `Delete ${config.singularLabel}`}
+                {deleteMutation.isPending ? "Deleting…" : `Delete ${config.singularLabel}`}
               </button>
             }
           />

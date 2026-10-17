@@ -1,67 +1,49 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { use } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
 import JobForm from "@/components/admin/job-form";
-import { withFreshToken, SessionExpiredError } from "@/lib/admin/session";
+import { useConfirm } from "@/components/admin/confirm-dialog";
+import { useStaffMutation, useStaffQuery } from "@/lib/admin/queries";
 import { staffGetJob, staffUpdateJob, staffDeleteJob, type JobOpeningInput, type StaffJobOpening } from "@/lib/api/jobs";
 
 export default function EditJobPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
   const router = useRouter();
-  const [job, setJob] = useState<StaffJobOpening | null>(null);
-  const [notFound, setNotFound] = useState(false);
-  const [deleting, setDeleting] = useState(false);
+  const queryClient = useQueryClient();
+  const confirm = useConfirm();
 
-  useEffect(() => {
-    let cancelled = false;
-    withFreshToken((token) => staffGetJob(token, slug))
-      .then((data) => {
-        if (!cancelled) setJob(data);
-      })
-      .catch((err) => {
-        if (cancelled) return;
-        if (err instanceof SessionExpiredError) {
-          router.replace("/admin/login");
-          return;
-        }
-        setNotFound(true);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [router, slug]);
+  const jobQuery = useStaffQuery<StaffJobOpening>(["job", slug], (token) => staffGetJob(token, slug));
+  const updateMutation = useStaffMutation<JobOpeningInput, StaffJobOpening>((token, data) => staffUpdateJob(token, slug, data));
+  const deleteMutation = useStaffMutation<void, void>((token) => staffDeleteJob(token, slug));
 
   async function handleSubmit(data: JobOpeningInput) {
-    try {
-      const updated = await withFreshToken((token) => staffUpdateJob(token, slug, data));
-      setJob(updated);
-      if (updated.slug !== slug) router.replace(`/admin/jobs/${updated.slug}/edit`);
-    } catch (err) {
-      if (err instanceof SessionExpiredError) {
-        router.replace("/admin/login");
-        return;
-      }
-      throw err;
-    }
+    const updated = await updateMutation.mutateAsync(data);
+    queryClient.setQueryData(["job", slug], updated);
+    queryClient.invalidateQueries({ queryKey: ["jobs"] });
+    toast.success("Job opening saved.");
+    if (updated.slug !== slug) router.replace(`/admin/jobs/${updated.slug}/edit`);
   }
 
   async function handleDelete() {
-    if (!job || !window.confirm(`Delete "${job.title}"? This can't be undone.`)) return;
-    setDeleting(true);
+    const job = jobQuery.data;
+    if (!job) return;
+    const ok = await confirm({ title: `Delete "${job.title}"?`, description: "This can't be undone.", confirmLabel: "Delete", tone: "danger" });
+    if (!ok) return;
     try {
-      await withFreshToken((token) => staffDeleteJob(token, slug));
+      await deleteMutation.mutateAsync();
+      queryClient.invalidateQueries({ queryKey: ["jobs"] });
+      toast.success("Job opening deleted.");
       router.push("/admin/jobs");
-    } catch (err) {
-      if (err instanceof SessionExpiredError) {
-        router.replace("/admin/login");
-        return;
-      }
-      window.alert("Couldn't delete this job. Please try again.");
-      setDeleting(false);
+    } catch {
+      toast.error("Couldn't delete this job. Please try again.");
     }
   }
+
+  const job = jobQuery.data;
 
   return (
     <div className="max-w-3xl mx-auto">
@@ -72,9 +54,9 @@ export default function EditJobPage({ params }: { params: Promise<{ slug: string
         All job openings
       </Link>
 
-      {notFound && <p className="text-[#6B7280] text-sm">This job opening couldn&apos;t be found.</p>}
+      {jobQuery.isError && <p className="text-[#6B7280] text-sm">This job opening couldn&apos;t be found.</p>}
 
-      {!notFound && !job && (
+      {jobQuery.isLoading && (
         <div className="flex items-center justify-center py-20">
           <div className="w-6 h-6 border-2 border-[#DCE0E8] border-t-[#0066FF] rounded-full animate-spin" />
         </div>
@@ -103,10 +85,10 @@ export default function EditJobPage({ params }: { params: Promise<{ slug: string
               <button
                 type="button"
                 onClick={handleDelete}
-                disabled={deleting}
+                disabled={deleteMutation.isPending}
                 className="px-5 py-2.5 rounded-full border border-red-200 text-red-600 text-sm font-semibold hover:bg-red-50 transition-colors disabled:opacity-50 cursor-pointer"
               >
-                {deleting ? "Deleting…" : "Delete Job"}
+                {deleteMutation.isPending ? "Deleting…" : "Delete Job"}
               </button>
             }
           />

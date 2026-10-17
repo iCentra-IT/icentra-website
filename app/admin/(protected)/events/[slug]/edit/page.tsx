@@ -1,67 +1,49 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { use } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
 import EventForm from "@/components/admin/event-form";
-import { withFreshToken, SessionExpiredError } from "@/lib/admin/session";
+import { useConfirm } from "@/components/admin/confirm-dialog";
+import { useStaffMutation, useStaffQuery } from "@/lib/admin/queries";
 import { staffGetEvent, staffUpdateEvent, staffDeleteEvent, type EventInput, type StaffEvent } from "@/lib/api/events";
 
 export default function EditEventPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
   const router = useRouter();
-  const [event, setEvent] = useState<StaffEvent | null>(null);
-  const [notFound, setNotFound] = useState(false);
-  const [deleting, setDeleting] = useState(false);
+  const queryClient = useQueryClient();
+  const confirm = useConfirm();
 
-  useEffect(() => {
-    let cancelled = false;
-    withFreshToken((token) => staffGetEvent(token, slug))
-      .then((data) => {
-        if (!cancelled) setEvent(data);
-      })
-      .catch((err) => {
-        if (cancelled) return;
-        if (err instanceof SessionExpiredError) {
-          router.replace("/admin/login");
-          return;
-        }
-        setNotFound(true);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [router, slug]);
+  const eventQuery = useStaffQuery<StaffEvent>(["event", slug], (token) => staffGetEvent(token, slug));
+  const updateMutation = useStaffMutation<EventInput, StaffEvent>((token, data) => staffUpdateEvent(token, slug, data));
+  const deleteMutation = useStaffMutation<void, void>((token) => staffDeleteEvent(token, slug));
 
   async function handleSubmit(data: EventInput) {
-    try {
-      const updated = await withFreshToken((token) => staffUpdateEvent(token, slug, data));
-      setEvent(updated);
-      if (updated.slug !== slug) router.replace(`/admin/events/${updated.slug}/edit`);
-    } catch (err) {
-      if (err instanceof SessionExpiredError) {
-        router.replace("/admin/login");
-        return;
-      }
-      throw err;
-    }
+    const updated = await updateMutation.mutateAsync(data);
+    queryClient.setQueryData(["event", slug], updated);
+    queryClient.invalidateQueries({ queryKey: ["events"] });
+    toast.success("Event saved.");
+    if (updated.slug !== slug) router.replace(`/admin/events/${updated.slug}/edit`);
   }
 
   async function handleDelete() {
-    if (!event || !window.confirm(`Delete "${event.title}"? This can't be undone.`)) return;
-    setDeleting(true);
+    const event = eventQuery.data;
+    if (!event) return;
+    const ok = await confirm({ title: `Delete "${event.title}"?`, description: "This can't be undone.", confirmLabel: "Delete", tone: "danger" });
+    if (!ok) return;
     try {
-      await withFreshToken((token) => staffDeleteEvent(token, slug));
+      await deleteMutation.mutateAsync();
+      queryClient.invalidateQueries({ queryKey: ["events"] });
+      toast.success("Event deleted.");
       router.push("/admin/events");
-    } catch (err) {
-      if (err instanceof SessionExpiredError) {
-        router.replace("/admin/login");
-        return;
-      }
-      window.alert("Couldn't delete this event. Please try again.");
-      setDeleting(false);
+    } catch {
+      toast.error("Couldn't delete this event. Please try again.");
     }
   }
+
+  const event = eventQuery.data;
 
   return (
     <div className="max-w-3xl mx-auto">
@@ -72,9 +54,9 @@ export default function EditEventPage({ params }: { params: Promise<{ slug: stri
         All events
       </Link>
 
-      {notFound && <p className="text-[#6B7280] text-sm">This event couldn&apos;t be found.</p>}
+      {eventQuery.isError && <p className="text-[#6B7280] text-sm">This event couldn&apos;t be found.</p>}
 
-      {!notFound && !event && (
+      {eventQuery.isLoading && (
         <div className="flex items-center justify-center py-20">
           <div className="w-6 h-6 border-2 border-[#DCE0E8] border-t-[#0066FF] rounded-full animate-spin" />
         </div>
@@ -91,10 +73,10 @@ export default function EditEventPage({ params }: { params: Promise<{ slug: stri
               <button
                 type="button"
                 onClick={handleDelete}
-                disabled={deleting}
+                disabled={deleteMutation.isPending}
                 className="px-5 py-2.5 rounded-full border border-red-200 text-red-600 text-sm font-semibold hover:bg-red-50 transition-colors disabled:opacity-50 cursor-pointer"
               >
-                {deleting ? "Deleting…" : "Delete Event"}
+                {deleteMutation.isPending ? "Deleting…" : "Delete Event"}
               </button>
             }
           />
