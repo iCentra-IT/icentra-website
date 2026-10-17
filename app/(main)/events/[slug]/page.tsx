@@ -39,7 +39,9 @@ export default async function EventDetailPage({ params }: PageProps) {
   const event = await getEvent(slug);
   if (!event) notFound();
 
-  const otherEvents = (await listEvents({ upcoming: true })).filter((e) => e.slug !== slug).slice(0, 3);
+  // Defensive: this is supplementary content — losing it shouldn't take down
+  // a page whose primary event data already loaded successfully.
+  const otherEvents = (await listEvents({ upcoming: true }).catch(() => [])).filter((e) => e.slug !== slug).slice(0, 3);
 
   return (
     <main className="w-full overflow-x-hidden">

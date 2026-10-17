@@ -26,7 +26,9 @@ export default async function JobDetailPage({
   const job = await getJob(slug);
   if (!job) notFound();
 
-  const otherRoles = (await listJobs()).filter((j) => j.slug !== slug).slice(0, 3);
+  // Defensive: this is supplementary content — losing it shouldn't take down
+  // a page whose primary job data already loaded successfully.
+  const otherRoles = (await listJobs().catch(() => [])).filter((j) => j.slug !== slug).slice(0, 3);
 
   return (
     <main className="w-full overflow-x-hidden">

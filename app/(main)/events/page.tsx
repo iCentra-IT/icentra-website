@@ -25,9 +25,11 @@ const REGISTER_CLASS =
    PAGE
 ───────────────────────────────────────── */
 export default async function EventsPage() {
+  // Defensive: if the events API is temporarily unreachable, show the page
+  // with no listings instead of crashing it for every visitor.
   const [upcoming, past] = await Promise.all([
-    listEvents({ upcoming: true }),
-    listEvents({ past: true }),
+    listEvents({ upcoming: true }).catch(() => []),
+    listEvents({ past: true }).catch(() => []),
   ]);
 
   const nextEvent = [...upcoming].sort(

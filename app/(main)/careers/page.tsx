@@ -117,7 +117,9 @@ const teamVideos = [
    PAGE
 ───────────────────────────────────────── */
 export default async function CareersPage() {
-  const jobs = await listJobs();
+  // Defensive: if the jobs API is temporarily unreachable, show the page with
+  // no listings instead of crashing it for every visitor.
+  const jobs = await listJobs().catch(() => []);
 
   return (
     <main className="w-full overflow-x-hidden">
