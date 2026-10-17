@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { SpeakerApplicationModal, WebinarRegistrationModal } from "@/components/forms/all-forms";
+import { SpeakerApplicationModal } from "@/components/forms/all-forms";
 import DiscoverBanner from "@/components/ui/banner";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
-import PastWebinarCard from "@/components/sections/events/past-webinar-card";
-import { Reveal, StaggerGroup } from "@/components/ui/motion/reveal";
+import AnnouncementStrip from "@/components/sections/events/announcement-strip";
+import UpcomingWebinarCard from "@/components/sections/events/upcoming-webinar-card";
+import PastWebinarsGrid from "@/components/sections/events/past-webinars-grid";
+import { Reveal } from "@/components/ui/motion/reveal";
 import { pageMetadata } from "@/lib/seo";
 import { TRANSFORM_GRAPHIC, aboutWebinar, eventsHero, inntechSummit, pillarStyles, DEFAULT_PILLAR_STYLE, speakAtWebinar } from "@/lib/data/events";
-import { listEvents, formatEventSchedule } from "@/lib/api/events";
 
 export const metadata: Metadata = pageMetadata({
   title: "Events",
@@ -18,27 +19,10 @@ export const metadata: Metadata = pageMetadata({
   path: "/events",
 });
 
-const REGISTER_CLASS =
-  "inline-flex items-center px-6 py-3 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors cursor-pointer";
-
 /* ─────────────────────────────────────────
    PAGE
 ───────────────────────────────────────── */
-export default async function EventsPage() {
-  // Defensive: if the events API is temporarily unreachable, show the page
-  // with no listings instead of crashing it for every visitor.
-  const [upcoming, past] = await Promise.all([
-    listEvents({ upcoming: true }).catch(() => []),
-    listEvents({ past: true }).catch(() => []),
-  ]);
-
-  const nextEvent = [...upcoming].sort(
-    (a, b) => new Date(a.start_datetime).getTime() - new Date(b.start_datetime).getTime()
-  )[0];
-  const recentPast = [...past]
-    .sort((a, b) => new Date(b.start_datetime).getTime() - new Date(a.start_datetime).getTime())
-    .slice(0, 6);
-
+export default function EventsPage() {
   return (
     <main className="w-full overflow-x-hidden">
 
@@ -56,23 +40,9 @@ export default async function EventsPage() {
       </PageHero>
 
       {/* ══════════════════════════════════════
-          2. ANNOUNCEMENT STRIP — next webinar
+          2. ANNOUNCEMENT STRIP — next webinar (client-fetched)
       ══════════════════════════════════════ */}
-      {nextEvent && (
-        <div className="bg-deep-blue border-b border-[#0066FF]/40">
-          <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="min-w-0">
-              <p className="text-light-blue text-xs font-semibold tracking-widest uppercase mb-1">
-                {nextEvent.pillar?.name ?? "Upcoming"}
-              </p>
-              <p className="text-white text-sm sm:text-base">{nextEvent.title}</p>
-            </div>
-            <div className="shrink-0">
-              <WebinarRegistrationModal eventSlug={nextEvent.slug} eventTitle={nextEvent.title} triggerLabel="Register now →" triggerClassName={REGISTER_CLASS} />
-            </div>
-          </div>
-        </div>
-      )}
+      <AnnouncementStrip />
 
       {/* ══════════════════════════════════════
           3. UPCOMING WEBINAR — featured card
@@ -80,42 +50,7 @@ export default async function EventsPage() {
       <section className="bg-[#F7F9FC] py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading title="Upcoming Webinar" className="mb-10" />
-
-          {nextEvent ? (
-            <Reveal className="rounded-2xl border border-[#0066FF]/40 bg-white overflow-hidden">
-              <div className="bg-main h-52 lg:h-64 flex flex-col items-center justify-center gap-3 px-6 text-center">
-                <p className="text-light-blue text-xs font-semibold tracking-widest uppercase">
-                  {nextEvent.pillar?.name ?? "Upcoming Webinar"}
-                </p>
-                <p className="text-white text-lg lg:text-xl font-bold max-w-3xl leading-snug">{nextEvent.title}</p>
-              </div>
-
-              <div className="p-6 lg:p-10 flex flex-col gap-4">
-                <span
-                  className={`w-fit px-3 py-1 rounded-full text-xs font-medium ${
-                    nextEvent.pillar ? pillarStyles[nextEvent.pillar.name] ?? DEFAULT_PILLAR_STYLE : DEFAULT_PILLAR_STYLE
-                  }`}
-                >
-                  {nextEvent.pillar?.name ?? "iCentra Event"}
-                </span>
-                <h3 className="text-[#1A274F] text-xl lg:text-2xl font-bold leading-snug">{nextEvent.title}</h3>
-                <p className="text-[#6B7280] text-sm">{formatEventSchedule(nextEvent)}</p>
-                {nextEvent.subtitle && (
-                  <p className="text-[#374151] text-base leading-[1.8] max-w-4xl">{nextEvent.subtitle}</p>
-                )}
-                <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-2">
-                  <WebinarRegistrationModal eventSlug={nextEvent.slug} eventTitle={nextEvent.title} triggerLabel="Register now" triggerClassName={REGISTER_CLASS} />
-                  <Link href={`/events/${nextEvent.slug}`} className="text-[#0066FF] text-sm font-semibold hover:text-[#25429A] transition-colors">
-                    Full details →
-                  </Link>
-                </div>
-              </div>
-            </Reveal>
-          ) : (
-            <div className="bg-white rounded-2xl border border-[#DCE0E8] p-10 text-center text-[#6B7280] text-sm">
-              No upcoming webinars right now. Check back soon.
-            </div>
-          )}
+          <UpcomingWebinarCard />
         </div>
       </section>
 
@@ -222,17 +157,7 @@ export default async function EventsPage() {
             className="mb-10"
           />
 
-          {recentPast.length > 0 ? (
-            <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {recentPast.map((event) => (
-                <PastWebinarCard key={event.slug} event={event} />
-              ))}
-            </StaggerGroup>
-          ) : (
-            <div className="bg-[#F7F9FC] rounded-2xl p-10 text-center text-[#6B7280] text-sm">
-              No past webinars yet. Check back after our next session.
-            </div>
-          )}
+          <PastWebinarsGrid />
         </div>
       </section>
 

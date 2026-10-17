@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
-import JobCard from "@/components/ui/cards/job-card";
 import CareerLevelBars from "@/components/sections/careers/career-level-bars";
 import CultureAccordion, { type AccordionItem } from "@/components/sections/careers/culture-accordion";
+import JobOpenings from "@/components/sections/careers/job-openings";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 import { pageMetadata } from "@/lib/seo";
-import { listJobs, EMPLOYMENT_TYPE_LABELS } from "@/lib/api/jobs";
 
 export const metadata: Metadata = pageMetadata({
   title: "Careers",
@@ -116,11 +115,7 @@ const teamVideos = [
 /* ─────────────────────────────────────────
    PAGE
 ───────────────────────────────────────── */
-export default async function CareersPage() {
-  // Defensive: if the jobs API is temporarily unreachable, show the page with
-  // no listings instead of crashing it for every visitor.
-  const jobs = await listJobs().catch(() => []);
-
+export default function CareersPage() {
   return (
     <main className="w-full overflow-x-hidden">
       {/* ══════════════════════════════════════
@@ -343,26 +338,8 @@ export default async function CareersPage() {
             talents looking to gain valuable hands-on experience.
           </p>
 
-          {/* Job listing cards */}
-          {jobs.length > 0 ? (
-            <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {jobs.map((job) => (
-                <StaggerItem key={job.slug}>
-                  <JobCard
-                    slug={job.slug}
-                    title={job.title}
-                    dept={job.department || "iCentra"}
-                    location={job.is_remote ? [job.location, "Remote"].filter(Boolean).join(" · ") : job.location}
-                    type={EMPLOYMENT_TYPE_LABELS[job.employment_type]}
-                  />
-                </StaggerItem>
-              ))}
-            </StaggerGroup>
-          ) : (
-            <p className="text-[#6B7280] text-sm py-10 text-center">
-              No open roles right now. Check back soon.
-            </p>
-          )}
+          {/* Job listing cards — fetched client-side via React Query */}
+          <JobOpenings />
         </div>
       </section>
     </main>
