@@ -1,5 +1,5 @@
 import { NewsletterModal, ResourceDownloadModal } from "@/components/forms/all-forms";
-import HeroVideo from "@/components/sections/home/hero-video";
+import HeroSlider from "@/components/sections/home/hero-slider";
 import TrustedPartners from "@/components/sections/home/partners";
 import StatsBar from "@/components/sections/home/stat";
 import DiscoverBanner from "@/components/ui/banner";
@@ -88,12 +88,12 @@ export default async function HomePage() {
       {/* ══════════════════════════════════════
           1. HERO
       ══════════════════════════════════════ */}
-      <section className="relative bg-[#1A274F] overflow-hidden">
-        <HeroVideo src="/icentra-video.mp4" />
-
-        {/* Stats bar */}
-        <StatsBar />
+      <section className="border-b border-[#DCE0E8]">
+        <HeroSlider />
       </section>
+
+      {/* Stats bar */}
+      <StatsBar />
 
       {/* ══════════════════════════════════════
           2. TRANSFORMATION INSIGHTS — real posts, carousel + View All

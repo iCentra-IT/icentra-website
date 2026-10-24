@@ -1,4 +1,4 @@
-import HeroSlider from "@/components/sections/home/hero-slider";
+import HeroVideo from "@/components/sections/home/hero-video";
 import TrustedPartners from "@/components/sections/home/partners";
 import BlogCard from "@/components/ui/cards/blog-card";
 import ServiceCard from "@/components/ui/cards/service-card";
@@ -90,10 +90,10 @@ export default function ContinuousTransformationPage() {
     <main className="w-full overflow-x-hidden">
 
       {/* ══════════════════════════════════════
-          1. HERO — homepage HeroSlider (reused), opens on the Continuous Transformation slide
+          1. HERO — homepage HeroVideo (reused)
       ══════════════════════════════════════ */}
-      <section className="border-b border-[#DCE0E8]">
-        <HeroSlider initialSlide={1} />
+      <section className="relative bg-[#1A274F] overflow-hidden">
+        <HeroVideo src="/icentra-video.mp4" />
       </section>
 
       {/* ══════════════════════════════════════
