@@ -1,4 +1,4 @@
-import { VolunteerRegistrationModal, IndividualLearningModal } from "@/components/forms/all-forms";
+// import { VolunteerRegistrationModal, IndividualLearningModal } from "@/components/forms/all-forms"; // unused while sections 8 & 9 are commented out
 import DiscoverBanner from "@/components/ui/banner";
 import { TeamCard } from "@/components/ui/cards/team-card";
 import PageHero from "@/components/ui/page-hero";
@@ -82,35 +82,35 @@ const leaders = [
 /* ─────────────────────────────────────────
    CORE VALUES DATA
 ───────────────────────────────────────── */
-const valuesLeft = [
-  {
-    title: "Client Focus",
-    text: "We are committed to making a positive difference to our clients by delivering on our promises.",
-  },
-  {
-    title: "Accountability",
-    text: "We take full responsibility for our actions and inactions, and honor our obligations.",
-  },
-  {
-    title: "Teamwork",
-    text: "As a team, we work together to achieve our clients and to drive our organisation to greater success.",
-  },
-];
+// const valuesLeft = [
+//   {
+//     title: "Client Focus",
+//     text: "We are committed to making a positive difference to our clients by delivering on our promises.",
+//   },
+//   {
+//     title: "Accountability",
+//     text: "We take full responsibility for our actions and inactions, and honor our obligations.",
+//   },
+//   {
+//     title: "Teamwork",
+//     text: "As a team, we work together to achieve our clients and to drive our organisation to greater success.",
+//   },
+// ];
 
-const valuesRight = [
-  {
-    title: "Integrity",
-    text: "Our integrity is our most critical asset; this we never compromise in all our corporate and personal dealings.",
-  },
-  {
-    title: "Excellence",
-    text: "Our strive for excellence knows no bound; we substitute nothing for quality and standard.",
-  },
-  {
-    title: "Innovation",
-    text: "Our corporate strength lies in the utilisation of the imagination we create and never imitate.",
-  },
-];
+// const valuesRight = [
+//   {
+//     title: "Integrity",
+//     text: "Our integrity is our most critical asset; this we never compromise in all our corporate and personal dealings.",
+//   },
+//   {
+//     title: "Excellence",
+//     text: "Our strive for excellence knows no bound; we substitute nothing for quality and standard.",
+//   },
+//   {
+//     title: "Innovation",
+//     text: "Our corporate strength lies in the utilisation of the imagination we create and never imitate.",
+//   },
+// ];
 
 /* ─────────────────────────────────────────
    PAGE COMPONENT
@@ -344,6 +344,7 @@ export default function AboutPage() {
       {/* ══════════════════════════════════════════════
           8. TAB DEVELOPMENT INITIATIVES
       ══════════════════════════════════════════════ */}
+      {/*
       <section className="bg-[#F7F9FC] py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
@@ -352,9 +353,7 @@ export default function AboutPage() {
             className="mb-10"
           />
 
-          {/* 3 initiative cards */}
           <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {/* Project 1500 — deep navy */}
             <StaggerItem className="bg-[#1A274F] rounded-2xl p-7 flex flex-col gap-4 min-h-90">
               <h3 className="text-white text-[26px] font-extrabold">
                 Project 1500
@@ -374,7 +373,6 @@ export default function AboutPage() {
               />
             </StaggerItem>
 
-            {/* Tosin Agetusin — primary blue */}
             <StaggerItem className="bg-[#25429A] rounded-2xl p-7 flex flex-col gap-4 min-h-90">
               <div>
                 <p className="text-white/55 text-xs font-semibold uppercase tracking-widest mb-1">
@@ -398,7 +396,6 @@ export default function AboutPage() {
               />
             </StaggerItem>
 
-            {/* Fast-Track — bright blue */}
             <StaggerItem className="bg-[#0066FF] rounded-2xl p-7 flex flex-col gap-4 min-h-90">
               <div>
                 <p className="text-white/80 text-xs font-extrabold uppercase tracking-[0.22em] mb-2">
@@ -427,9 +424,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════
-          9. BECOME A VOLUNTEER — centered dark CTA
-      ══════════════════════════════════════════════ */}
       <section className="bg-main py-16 lg:py-24">
         <Reveal className="flex flex-col items-center text-center gap-5 px-6">
           <h2 className="text-white text-[26px] lg:text-[36px] font-extrabold leading-tight max-w-120">
@@ -441,6 +435,7 @@ export default function AboutPage() {
           <VolunteerRegistrationModal triggerLabel="Continue Here" />
         </Reveal>
       </section>
+      */}
     </main>
   );
 }

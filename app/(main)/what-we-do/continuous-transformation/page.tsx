@@ -5,6 +5,10 @@ import ServiceCard from "@/components/ui/cards/service-card";
 import SectionHeading from "@/components/ui/section-heading";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 import { solutionCategories } from "@/lib/data/solutions";
+import { sanityFetch } from "@/sanity/lib/live";
+import { postImageUrl } from "@/sanity/lib/image";
+import { POSTS_BY_CATEGORY_QUERY } from "@/sanity/lib/queries";
+import { formatPostDate, estimateReadTimeFromText } from "@/sanity/lib/format";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -58,34 +62,38 @@ const partners = [
   { name: "Partner 8", src: "https://placehold.co/110x36/1A274F/ffffff?text=Partner" },
 ];
 
-const blogCards = [
-  {
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80",
-    title: "The New Operating Model for Sustainable Performance",
-    date: "2nd Sep 2025",
-    readTime: "2 min",
-    href: "/news/new-operating-model",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&q=80",
-    title: "AI & Cybersecurity Governance: Getting Leadership By-In",
-    date: "2nd Sep 2025",
-    readTime: "2 min",
-    href: "/news/ai-governance",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80",
-    title: "5 Ai Driven Threats Organizations Can't Ignore In 2026",
-    date: "2nd Sep 2025",
-    readTime: "2 min",
-    href: "/news/ai-threats",
-  },
-];
+/* ─────────────────────────────────────────
+   SANITY DATA SHAPING — real "insights" posts
+───────────────────────────────────────── */
+type SanityImage = { asset?: { _ref: string } } | null | undefined;
+
+type RawPost = {
+  _id: string;
+  title: string;
+  slug: string;
+  excerpt?: string;
+  mainImage?: SanityImage;
+  publishedAt: string;
+  plainBody?: string;
+};
+
+function toBlogCards(posts: RawPost[]) {
+  return posts.map((post) => ({
+    image: postImageUrl(post.mainImage) ?? "/images/bg.jpg",
+    title: post.title,
+    date: formatPostDate(post.publishedAt),
+    readTime: estimateReadTimeFromText(post.plainBody),
+    href: `/news/${post.slug}`,
+  }));
+}
 
 /* ─────────────────────────────────────────
    PAGE
 ───────────────────────────────────────── */
-export default function ContinuousTransformationPage() {
+export default async function ContinuousTransformationPage() {
+  const { data: insightPosts } = await sanityFetch({ query: POSTS_BY_CATEGORY_QUERY, params: { slug: "insights" } });
+  const blogCards = toBlogCards(((insightPosts ?? []) as RawPost[]).slice(0, 4));
+
   return (
     <main className="w-full overflow-x-hidden">
 
@@ -355,27 +363,29 @@ export default function ContinuousTransformationPage() {
       </section>
 
       {/* ══════════════════════════════════════
-          10. WHY CT IS THE NEW COMPETITIVE ADVANTAGE — BlogCard ×3
+          10. WHY CT IS THE NEW COMPETITIVE ADVANTAGE — BlogCard ×4 (real "insights" posts)
       ══════════════════════════════════════ */}
-      <section className="bg-white py-14 lg:py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <SectionHeading title="Why Continuous Transformation is the New Competitive Advantage" className="mb-10" />
+      {blogCards.length > 0 && (
+        <section className="bg-white py-14 lg:py-20">
+          <div className="max-w-7xl mx-auto px-6">
+            <SectionHeading title="Why Continuous Transformation is the New Competitive Advantage" className="mb-10" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {blogCards.map((card) => (
-              <div key={card.href} className="[&>div]:max-w-none [&>div]:w-full">
-                <BlogCard
-                  image={card.image}
-                  title={card.title}
-                  date={card.date}
-                  readTime={card.readTime}
-                  href={card.href}
-                />
-              </div>
-            ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {blogCards.map((card) => (
+                <div key={card.href} className="[&>div]:max-w-none [&>div]:w-full">
+                  <BlogCard
+                    image={card.image}
+                    title={card.title}
+                    date={card.date}
+                    readTime={card.readTime}
+                    href={card.href}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ══════════════════════════════════════
           11. FINAL CTA BANNER — centered dark navy
