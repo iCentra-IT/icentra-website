@@ -3,6 +3,7 @@ import HeroSlider from "@/components/sections/home/hero-slider";
 import TrustedPartners from "@/components/sections/home/partners";
 import StatsBar from "@/components/sections/home/stat";
 import DiscoverBanner from "@/components/ui/banner";
+import Marquee from "@/components/ui/marquee";
 import BlogCard from "@/components/ui/cards/blog-card";
 import SolutionCard from "@/components/ui/cards/solution-card";
 import { BlogCardCarousel, type BlogCarouselItem } from "@/components/ui/carousel/blog-card-carousel";
@@ -163,7 +164,7 @@ export default async function HomePage() {
           modal: <ResourceDownloadModal triggerLabel="Download Brochure" />,
         }}
         secondaryCta={{ label: "Explore Capabilities", href: "/what-we-do/solutions" }}
-        image="/images/banner/discover-icentra.png"
+        image="/images/banner/discover-icentra.jpg"
         imageAlt={"Banner Image"}
       />
 
@@ -176,38 +177,38 @@ export default async function HomePage() {
             title="What Our Client Say About Us"
             className="mb-8"
           />
-
-          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <StaggerItem
-                key={i}
-                className="bg-[#F7F9FC] rounded-2xl p-6 flex flex-col gap-4 border border-[#DCE0E8]"
-              >
-                <StarRating />
-                <p className="text-[#1A274F]/70 text-sm leading-relaxed flex-1">
-                  {t.text}
-                </p>
-                <div className="flex items-center gap-3 pt-3 border-t border-[#DCE0E8]">
-                  <div className="relative w-9 h-9 rounded-full overflow-hidden shrink-0 bg-[#A8B8F8]">
-                    <Image
-                      src={t.avatar}
-                      alt={t.name}
-                      fill
-                      className="object-cover"
-                      sizes="36px"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-[#1A274F] text-sm font-semibold">
-                      {t.name}
-                    </p>
-                    <p className="text-[#4B6CB7] text-xs">{t.role}</p>
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerGroup>
         </div>
+
+        <Marquee speed={38}>
+          {testimonials.map((t, i) => (
+            <div
+              key={i}
+              className="w-[320px] sm:w-[360px] shrink-0 bg-[#F7F9FC] rounded-2xl p-6 flex flex-col gap-4 border border-[#DCE0E8]"
+            >
+              <StarRating />
+              <p className="text-[#1A274F]/70 text-sm leading-relaxed">
+                {t.text}
+              </p>
+              <div className="flex items-center gap-3 pt-3 border-t border-[#DCE0E8]">
+                <div className="relative w-9 h-9 rounded-full overflow-hidden shrink-0 bg-[#A8B8F8]">
+                  <Image
+                    src={t.avatar}
+                    alt={t.name}
+                    fill
+                    className="object-cover"
+                    sizes="36px"
+                  />
+                </div>
+                <div>
+                  <p className="text-[#1A274F] text-sm font-semibold">
+                    {t.name}
+                  </p>
+                  <p className="text-[#4B6CB7] text-xs">{t.role}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Marquee>
       </section>
 
       {/* ══════════════════════════════════════

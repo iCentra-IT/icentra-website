@@ -6,6 +6,7 @@ import TurnstileWidget, { type TurnstileWidgetHandle } from "@/components/forms/
 import { IcentraCheckbox } from "@/components/forms/form-component";
 import { submitContactInquiry } from "@/lib/api/contact";
 import { ApiError } from "@/lib/api/client";
+import { trackEvent } from "@/lib/analytics/track";
 import type { AssessmentConfig } from "@/lib/types/assessment";
 
 interface AssessmentToolProps {
@@ -75,6 +76,7 @@ export default function AssessmentTool({ config }: AssessmentToolProps) {
         marketing_consent: agreed,
         ...(turnstileToken && { "cf-turnstile-response": turnstileToken }),
       });
+      trackEvent("assessment_lead", { topic: config.topicLabel, result_tier: tier.label });
       setSubmitted(true);
     } catch (err) {
       turnstileRef.current?.reset();

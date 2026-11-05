@@ -10,7 +10,7 @@ export interface CareerLevel {
 
 export default function CareerLevelBars({ levels }: { levels: CareerLevel[] }) {
   return (
-    <div className="flex items-end justify-center sm:gap-">
+    <div className="flex items-end justify-center gap-2 sm:gap-3">
       {levels.map((level, i) => (
         <motion.div
           key={level.label}

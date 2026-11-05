@@ -51,17 +51,6 @@ const stats = [
   { value: "99.9%", label: "Global delivery experience" },
 ];
 
-const partners = [
-  { name: "NNPC",      src: "https://placehold.co/110x36/1A274F/ffffff?text=NNPC" },
-  { name: "Partner 2", src: "https://placehold.co/110x36/1A274F/ffffff?text=Partner" },
-  { name: "NRS",       src: "https://placehold.co/110x36/1A274F/ffffff?text=NRS" },
-  { name: "Partner 4", src: "https://placehold.co/110x36/1A274F/ffffff?text=Partner" },
-  { name: "Microvis",  src: "https://placehold.co/110x36/1A274F/ffffff?text=Microvis" },
-  { name: "Partner 6", src: "https://placehold.co/110x36/1A274F/ffffff?text=Partner" },
-  { name: "Partner 7", src: "https://placehold.co/110x36/1A274F/ffffff?text=Partner" },
-  { name: "Partner 8", src: "https://placehold.co/110x36/1A274F/ffffff?text=Partner" },
-];
-
 /* ─────────────────────────────────────────
    SANITY DATA SHAPING — real "insights" posts
 ───────────────────────────────────────── */
@@ -132,7 +121,7 @@ export default async function ContinuousTransformationPage() {
           {/* Right — branded office image */}
           <Reveal delay={0.15} className="relative shrink-0 w-full lg:w-100 h-70 lg:h-80 rounded-2xl overflow-hidden">
             <Image
-              src="/images/cont-trans/cont1.png"
+              src="/images/cont-trans/cont1.jpg"
               alt="iCentra team"
               fill
               className="object-cover"
@@ -226,7 +215,7 @@ export default async function ContinuousTransformationPage() {
           {/* Right — image */}
           <Reveal delay={0.15} className="relative shrink-0 w-full lg:w-105 h-75 lg:h-85 rounded-2xl overflow-hidden">
             <Image
-              src="/images/cont-trans/cont2.png"
+              src="/images/cont-trans/cont2.jpg"
               alt="iCentra operating model"
               fill
               className="object-cover"

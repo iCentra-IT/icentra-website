@@ -28,7 +28,7 @@ const testimonials = [
     name: "Crystal Maiden",
     role: "UX Designer",
     company: "",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80",
+    avatar: "/images/industry/avatar-1.jpg",
     stars: 5,
     text: "This is but this one is the best. The attention to detail and quality is very amazing for all designs. Highly recommended for any type of project.",
   },
@@ -36,7 +36,7 @@ const testimonials = [
     name: "Dazzle Healer",
     role: "Head of Operations, Financial Technology Company",
     company: "Financial Technology Company",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80",
+    avatar: "/images/industry/avatar-2.jpg",
     stars: 5,
     text: "iCentra didn't just provide a service; they became an extension of our team. Their support helped us move from ideas to action, and we saw the difference almost immediately.",
   },
@@ -44,7 +44,7 @@ const testimonials = [
     name: "Crystal Maiden",
     role: "UX Designer",
     company: "",
-    avatar: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=80&q=80",
+    avatar: "/images/industry/avatar-3.jpg",
     stars: 5,
     text: "This kit is incredibly helpful for my design process. Components are clean, modern, and save me a lot of time for beginners and professionals alike.",
   },
@@ -52,17 +52,17 @@ const testimonials = [
 
 const whitepapers = [
   {
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80",
+    image: "/images/industry/whitepaper-pm-trends.jpg",
     title: "Project Management Trends 2025",
     href: "/news",
   },
   {
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80",
+    image: "/images/industry/whitepaper-agile-africa.jpg",
     title: "Agile Transformation in African Enterprises",
     href: "/news",
   },
   {
-    image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&q=80",
+    image: "/images/industry/whitepaper-cybersecurity.jpg",
     title: "Cybersecurity Readiness in a Digital World",
     href: "/news",
   },

@@ -187,7 +187,7 @@ export default function EventsPage() {
         headline={"Partner With Us"}
         subtext="Are you looking to sponsor, collaborate, or speak at an iCentra event? We would love to hear from you."
         primaryCta={{ label: "Get In Touch", href: "/contact" }}
-        image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=85"
+        image="/images/event/partner-with-us.jpg"
         imageAlt="iCentra team meeting"
       />
 

@@ -140,7 +140,7 @@ export const partnershipsHub = {
 export const partnerships: Partnership[] = [
   {
     slug: "ai-transformation",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=80",
+    image: "/images/partnerships/ai-transformation.jpg",
     eyebrow: "Enterprise Transformation · Retainer / Phased Program",
     name: "AI Transformation Partnership™",
     tagline: "From AI Experiments to Governed Enterprise Value",
@@ -230,7 +230,7 @@ export const partnerships: Partnership[] = [
   },
   {
     slug: "pmocentra",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=700&q=80",
+    image: "/images/partnerships/pmocentra.jpg",
     eyebrow: "Strategy & Execution · Retainer → Platform Roadmap",
     name: "PMOCentra™",
     subtitle: "PMO-as-a-Service",
@@ -317,7 +317,7 @@ export const partnerships: Partnership[] = [
   },
   {
     slug: "complycentra",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80",
+    image: "/images/partnerships/complycentra.jpg",
     eyebrow: "Cybersecurity & GRC · Retainer → Platform Roadmap",
     name: "ComplyCentra™",
     subtitle: "Compliance-as-a-Service",
@@ -402,7 +402,7 @@ export const partnerships: Partnership[] = [
   },
   {
     slug: "workforce-capability",
-    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700&q=80",
+    image: "/images/partnerships/workforce-capability.jpg",
     eyebrow: "Learning & Talent · Retainer",
     name: "Workforce Capability Partnerships™",
     tagline: "Build the Workforce Your Transformation Needs",

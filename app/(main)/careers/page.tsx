@@ -5,6 +5,7 @@ import SectionHeading from "@/components/ui/section-heading";
 import CareerLevelBars from "@/components/sections/careers/career-level-bars";
 import CultureAccordion, { type AccordionItem } from "@/components/sections/careers/culture-accordion";
 import JobOpenings from "@/components/sections/careers/job-openings";
+import TeamVideos, { type TeamVideo } from "@/components/sections/careers/team-videos";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 import { pageMetadata } from "@/lib/seo";
 
@@ -88,28 +89,11 @@ const accordionItems: AccordionItem[] = [
   },
 ];
 
-const teamVideos = [
-  {
-    name: "Taopheek Babayeju",
-    role: "Product Designer",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
-  },
-  {
-    name: "Amina Okafor",
-    role: "Product Designer",
-    image: "",
-  },
-  {
-    name: "Chidi Eze",
-    role: "Product Designer",
-    image: "",
-  },
-  {
-    name: "Ngozi Bello",
-    role: "Product Designer",
-    image: "",
-  },
+const teamVideos: TeamVideo[] = [
+  { name: "Taopheek Babayeju", role: "Product Designer", youtubeId: "2N7Kpm4Rn1M" },
+  { name: "Amina Okafor", role: "Product Designer", youtubeId: "y6j47Z84E7w" },
+  { name: "Chidi Eze", role: "Product Designer", youtubeId: "Iczg9iE2N6M" },
+  { name: "Ngozi Bello", role: "Product Designer", youtubeId: "Iczg9iE2N6M" },
 ];
 
 /* ─────────────────────────────────────────
@@ -165,7 +149,7 @@ export default function CareersPage() {
           <Reveal delay={0.15} className="flex flex-col gap-4 shrink-0 w-full lg:w-90">
             <div className="relative w-full h-90 rounded-2xl overflow-hidden">
               <Image
-                src="/images/career/hero.png"
+                src="/images/career/hero.jpg"
                 alt="iCentra team collaboration"
                 fill
                 className="object-cover"
@@ -270,7 +254,7 @@ export default function CareersPage() {
       <section className="bg-white pb-16 lg:pb-20">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading title="Life at iCentra Through the Eyes of Our Team" className="mb-4" />
-          <p className="text-[#6B7280] text-base leading-relaxed max-w- mb-10">
+          <p className="text-[#6B7280] text-base leading-relaxed max-w-3xl mb-10">
             Our team members bring their unique perspectives, talents, and
             experiences to work every day, and together, we create something
             powerful. Know what it means to be part of the iCentra family.
@@ -281,42 +265,7 @@ export default function CareersPage() {
             make.&rdquo;
           </p>
 
-          {/* Video thumbnail grid */}
-          <StaggerGroup className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-            {teamVideos.map((member, i) => (
-              <StaggerItem key={`${member.name}-${i}`} className="flex flex-col gap-3">
-                <button className="group relative w-full aspect-square rounded-xl overflow-hidden bg-[#D1D5DB]">
-                  {member.image ? (
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-cover"
-                      sizes="260px"
-                    />
-                  ) : null}
-                  {/* Play button overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/20 transition-colors">
-                    <div className="w-11 h-11 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <svg
-                        className="w-4 h-4 text-[#1A274F] ml-0.5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                  </div>
-                </button>
-                <div>
-                  <p className="text-[#1A274F] text-sm font-semibold">
-                    {member.name}
-                  </p>
-                  <p className="text-[#6B7280] text-xs">{member.role}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerGroup>
+          <TeamVideos videos={teamVideos} />
         </div>
       </section>
 

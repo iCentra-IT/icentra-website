@@ -11,6 +11,7 @@ import { registerForEvent } from "@/lib/api/events";
 import { listVolunteerSkills, listVolunteerAvailability, submitVolunteerApplication, type VolunteerSkill, type VolunteerAvailabilitySlot } from "@/lib/api/volunteer";
 import { listPillars, type PillarItem } from "@/lib/api/pillars";
 import { submitSpeakerApplication, PREFERRED_QUARTER_LABELS, HOW_HEARD_LABELS, type PreferredQuarter, type HowHeard } from "@/lib/api/speakers";
+import { trackEvent } from "@/lib/analytics/track";
 
 /* ─────────────────────────────────────────────────
    SHARED OPTION LISTS
@@ -189,6 +190,7 @@ export function GeneralContactFormA() {
         marketing_consent: agreed,
         ...(turnstileToken && { "cf-turnstile-response": turnstileToken }),
       });
+      trackEvent("consultation_request", { consultation_type: f.consultationType });
       setSubmitted(true);
     } catch (err) {
       turnstileRef.current?.reset();
@@ -278,6 +280,7 @@ export function GeneralContactFormB() {
         marketing_consent: agreed,
         ...(turnstileToken && { "cf-turnstile-response": turnstileToken }),
       });
+      trackEvent("contact_form_submit", { subject: f.subject });
       setSubmitted(true);
     } catch (err) {
       turnstileRef.current?.reset();
@@ -416,6 +419,7 @@ function WebinarRegistrationContent({
         reminder_offsets: f.reminder ? [Number(f.reminder)] : undefined,
         ...(turnstileToken && { "cf-turnstile-response": turnstileToken }),
       });
+      trackEvent("webinar_registration", { event_slug: eventSlug, event_title: eventTitle });
       onSuccess();
     } catch (err) {
       turnstileRef.current?.reset();
@@ -552,6 +556,7 @@ function JobApplicationContent({
 
     try {
       await applyToJob(jobSlug, data);
+      trackEvent("job_application", { job_slug: jobSlug, job_title: jobTitle });
       onSuccess();
     } catch (err) {
       turnstileRef.current?.reset();
@@ -675,6 +680,7 @@ function NewsletterContent({ onSuccess }: { onSuccess: () => void }) {
         marketing_consent: agreed,
         ...(turnstileToken && { "cf-turnstile-response": turnstileToken }),
       });
+      trackEvent("newsletter_signup", { frequency: f.frequency });
       onSuccess();
     } catch (err) {
       turnstileRef.current?.reset();
@@ -940,6 +946,7 @@ function VolunteerRegistrationContent({ onSuccess }: { onSuccess: () => void }) 
         marketing_consent: agreed,
         ...(turnstileToken && { "cf-turnstile-response": turnstileToken }),
       });
+      trackEvent("volunteer_application");
       onSuccess();
     } catch (err) {
       turnstileRef.current?.reset();
@@ -1059,6 +1066,7 @@ function SpeakerApplicationContent({ onSuccess }: { onSuccess: () => void }) {
         how_heard: f.referral as HowHeard | undefined,
         ...(turnstileToken && { "cf-turnstile-response": turnstileToken }),
       });
+      trackEvent("speaker_application", { pillar: f.pillar, preferred_quarter: f.quarter });
       onSuccess();
     } catch (err) {
       turnstileRef.current?.reset();

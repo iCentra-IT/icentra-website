@@ -9,6 +9,7 @@ images: {
     { protocol: "https", hostname: "via.placeholder.com" },
     {protocol: "https", hostname:"placehold.co"},
     { protocol: "https", hostname: "cdn.sanity.io" },
+    { protocol: "https", hostname: "i.ytimg.com" },
   ],
 },
 };

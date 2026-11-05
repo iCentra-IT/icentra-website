@@ -167,7 +167,7 @@ export default function AboutPage() {
           <Reveal delay={0.15} className="flex flex-col gap-4 shrink-0 w-full lg:w-90">
             <div className="relative w-full h-90 rounded-2xl overflow-hidden">
               <Image
-                src="/images/about/hero.png"
+                src="/images/about/hero.jpg"
                 alt="iCentra team collaboration"
                 fill
                 className="object-cover"
@@ -186,8 +186,8 @@ export default function AboutPage() {
           {/* Vision */}
           <StaggerItem>
             <div
-              className="bg-[#1A274F] rounded-2xl px-8 py-10 lg:px-10 h-80 lg:py-12 flex flex-col justify-center gap-3 bg-no-repeat"
-              style={{ backgroundImage: "url('/images/about/vision.png')" }}
+              className="bg-[#1A274F] rounded-2xl px-8 py-10 lg:px-10 h-80 lg:py-12 flex flex-col justify-center gap-3 bg-no-repeat bg-cover bg-center"
+              style={{ backgroundImage: "linear-gradient(rgba(26,39,79,0.72), rgba(26,39,79,0.72)), url('/images/about/vision.jpg')" }}
             >
               <h3 className="text-white text-lg font-bold">Our Vision</h3>
               <p className="text-white/65 text-base leading-relaxed">
@@ -200,8 +200,8 @@ export default function AboutPage() {
           {/* Mission */}
           <StaggerItem>
             <div
-              className="bg-[#25429A] rounded-2xl px-8 py-10 lg:px-10 h-80 lg:py-12 flex flex-col justify-center gap-3 bg-no-repeat"
-              style={{ backgroundImage: "url('/images/about/mission.png')" }}
+              className="bg-[#25429A] rounded-2xl px-8 py-10 lg:px-10 h-80 lg:py-12 flex flex-col justify-center gap-3 bg-no-repeat bg-cover bg-center"
+              style={{ backgroundImage: "linear-gradient(rgba(37,66,154,0.72), rgba(37,66,154,0.72)), url('/images/about/mission.jpg')" }}
             >
               <h3 className="text-white text-lg font-bold">Our Mission</h3>
               <p className="text-white/65 text-base leading-relaxed">
@@ -224,7 +224,7 @@ export default function AboutPage() {
         subtext="Our expertise includes Enterprise Transformation, Cybersecurity, Strategy & Execution, and Learning & Talent."
         primaryCta={{ label: "Contact Us", href: "/contact" }}
         secondaryCta={{ label: "Our Services", href: "/what-we-do/solutions" }}
-        image="/images/about/discover-icentra.png"
+        image="/images/about/discover-icentra.jpg"
         imageAlt="iCentra professionals at work"
       />
 
@@ -330,7 +330,7 @@ export default function AboutPage() {
             {/* Image */}
             <Reveal delay={0.15} className="relative shrink-0 w-full lg:w-100 h-75 lg:h-90 rounded-2xl overflow-hidden">
               <Image
-                src="/images/about/transformation.png"
+                src="/images/about/transformation.jpg"
                 alt="iCentra community event"
                 fill
                 className="object-cover"
