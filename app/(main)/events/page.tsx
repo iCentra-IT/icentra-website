@@ -29,10 +29,10 @@ export default function EventsPage() {
       {/* ══════════════════════════════════════
           1. HERO — PageHero (reused)
       ══════════════════════════════════════ */}
-      <PageHero headline={eventsHero.headline} subtext={eventsHero.subtext}>
-        <div className="flex flex-col gap-4 -mt-3">
+      <PageHero headline={eventsHero.headline} subtext={eventsHero.subtext} >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-4 -mt-3 max-w-4xl">
           {eventsHero.extra.map((paragraph) => (
-            <p key={paragraph} className="text-white/75 text-base leading-[1.8] max-w-2xl">
+            <p key={paragraph} className="text-white/75 text-base leading-[1.8]">
               {paragraph}
             </p>
           ))}
@@ -42,7 +42,7 @@ export default function EventsPage() {
       {/* ══════════════════════════════════════
           2. ANNOUNCEMENT STRIP — next webinar (client-fetched)
       ══════════════════════════════════════ */}
-      <AnnouncementStrip />
+      {/* <AnnouncementStrip /> */}
 
       {/* ══════════════════════════════════════
           3. UPCOMING WEBINAR — featured card

@@ -8,6 +8,9 @@
 
 export const TRANSFORM_GRAPHIC = "/images/event/transform-webinar.png";
 
+/** The one playlist the Past Webinars section reads from — other tracked playlists are ignored. */
+export const PAST_WEBINARS_YOUTUBE_PLAYLIST_ID = "PLGur4uutHM8LbFOrUbRpHy9Z7MH49S8Yy";
+
 /** Falls back to a neutral style for any pillar name the API returns that isn't in this list. */
 export const pillarStyles: Record<string, string> = {
   "Enterprise Transformation": "bg-[#DBEAFE] text-[#1E3A8A]",

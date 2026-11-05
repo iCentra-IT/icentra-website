@@ -17,11 +17,13 @@ export default function EditEventPage({ params }: { params: Promise<{ slug: stri
   const confirm = useConfirm();
 
   const eventQuery = useStaffQuery<StaffEvent>(["event", slug], (token) => staffGetEvent(token, slug));
-  const updateMutation = useStaffMutation<EventInput, StaffEvent>((token, data) => staffUpdateEvent(token, slug, data));
+  const updateMutation = useStaffMutation<{ data: EventInput; coverImage: File | null }, StaffEvent>((token, { data, coverImage }) =>
+    staffUpdateEvent(token, slug, data, coverImage)
+  );
   const deleteMutation = useStaffMutation<void, void>((token) => staffDeleteEvent(token, slug));
 
-  async function handleSubmit(data: EventInput) {
-    const updated = await updateMutation.mutateAsync(data);
+  async function handleSubmit(data: EventInput, coverImage: File | null) {
+    const updated = await updateMutation.mutateAsync({ data, coverImage });
     queryClient.setQueryData(["event", slug], updated);
     queryClient.invalidateQueries({ queryKey: ["events"] });
     toast.success("Event saved.");

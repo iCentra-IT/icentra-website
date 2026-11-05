@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { FormField, FormRow, FormSelect, FormTextarea } from "@/components/forms/form-component";
 import { ApiError } from "@/lib/api/client";
 import { withFreshToken } from "@/lib/admin/session";
@@ -32,7 +33,7 @@ function toDatetimeLocal(iso: string | null | undefined): string {
 interface EventFormProps {
   initial?: StaffEvent;
   submitLabel: string;
-  onSubmit: (data: EventInput) => Promise<void>;
+  onSubmit: (data: EventInput, coverImage: File | null) => Promise<void>;
   extraActions?: React.ReactNode;
 }
 
@@ -61,6 +62,7 @@ export default function EventForm({ initial, submitLabel, onSubmit, extraActions
   const [capacity, setCapacity] = useState(initial?.capacity != null ? String(initial.capacity) : "");
   const [status, setStatus] = useState<EventStatus>(initial?.status ?? "draft");
   const [isPublic, setIsPublic] = useState(initial?.is_public ?? false);
+  const [coverImage, setCoverImage] = useState<File | null>(null);
 
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -90,29 +92,32 @@ export default function EventForm({ initial, submitLabel, onSubmit, extraActions
     setSubmitting(true);
     setError(null);
     try {
-      await onSubmit({
-        title,
-        slug: slug.trim() || undefined,
-        subtitle,
-        description,
-        agenda,
-        event_type: eventType,
-        pillar: pillarId !== "none" ? Number(pillarId) : null,
-        speakers: speakerIds,
-        start_datetime: startDatetime ? new Date(startDatetime).toISOString() : "",
-        end_datetime: endDatetime ? new Date(endDatetime).toISOString() : null,
-        timezone,
-        duration_minutes: durationMinutes ? Number(durationMinutes) : null,
-        location_type: locationType,
-        location_name: locationName,
-        location_address: locationAddress,
-        location_url: locationUrl,
-        registration_open: registrationOpen,
-        registration_close: registrationClose ? new Date(registrationClose).toISOString() : null,
-        capacity: capacity ? Number(capacity) : null,
-        status,
-        is_public: isPublic,
-      });
+      await onSubmit(
+        {
+          title,
+          slug: slug.trim() || undefined,
+          subtitle,
+          description,
+          agenda,
+          event_type: eventType,
+          pillar: pillarId !== "none" ? Number(pillarId) : null,
+          speakers: speakerIds,
+          start_datetime: startDatetime ? new Date(startDatetime).toISOString() : "",
+          end_datetime: endDatetime ? new Date(endDatetime).toISOString() : null,
+          timezone,
+          duration_minutes: durationMinutes ? Number(durationMinutes) : null,
+          location_type: locationType,
+          location_name: locationName,
+          location_address: locationAddress,
+          location_url: locationUrl,
+          registration_open: registrationOpen,
+          registration_close: registrationClose ? new Date(registrationClose).toISOString() : null,
+          capacity: capacity ? Number(capacity) : null,
+          status,
+          is_public: isPublic,
+        },
+        coverImage
+      );
     } catch (err) {
       setError(err instanceof ApiError ? err.firstFieldError ?? err.message : "Something went wrong. Please try again.");
       setSubmitting(false);
@@ -122,6 +127,22 @@ export default function EventForm({ initial, submitLabel, onSubmit, extraActions
   return (
     <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
       <div className="bg-white rounded-2xl border border-[#DCE0E8] p-6 lg:p-8 flex flex-col gap-5">
+        <div className="flex items-center gap-4">
+          <div className="relative w-28 h-16 rounded-lg overflow-hidden bg-[#EAF3FB] shrink-0">
+            {initial?.cover_image && !coverImage && (
+              <Image src={initial.cover_image} alt={initial.title} fill className="object-cover" sizes="112px" />
+            )}
+            {coverImage && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={URL.createObjectURL(coverImage)} alt="Preview" className="w-full h-full object-cover" />
+            )}
+          </div>
+          <label className="text-sm text-[#0066FF] font-semibold cursor-pointer hover:text-[#25429A] transition-colors">
+            {initial?.cover_image || coverImage ? "Change cover image" : "Upload cover image"}
+            <input type="file" accept="image/*" className="sr-only" onChange={(e) => setCoverImage(e.target.files?.[0] ?? null)} />
+          </label>
+        </div>
+
         <FormRow>
           <FormField label="Title" required value={title} onChange={(e) => setTitle(e.target.value)} />
           <FormField label="Slug" value={slug} onChange={(e) => setSlug(e.target.value)} placeholder="Auto-generated from title if left blank" />

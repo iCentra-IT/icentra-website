@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/ui/page-hero";
 import TextBlock from "@/components/ui/text-block";
@@ -45,7 +46,7 @@ export default async function EventDetailPage({ params }: PageProps) {
 
   return (
     <main className="w-full overflow-x-hidden">
-      <PageHero headline={event.title} subtext={event.subtitle || undefined}>
+      <PageHero headline={event.title} subtext={event.subtitle || undefined} backgroundImage={event.cover_image ?? undefined}>
         <div className="flex flex-wrap items-center gap-3 text-white/70 text-sm">
           <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-light-blue font-medium">
             {EVENT_TYPE_LABELS[event.event_type]}
@@ -68,10 +69,31 @@ export default async function EventDetailPage({ params }: PageProps) {
             </Reveal>
           )}
 
-          {event.speakers && (
+          {event.speakers && event.speakers.length > 0 && (
             <Reveal delay={0.15}>
               <h2 className="text-[#1A274F] text-xl lg:text-[24px] font-bold mb-4">Speakers</h2>
-              <p className="text-[#374151] text-base leading-[1.8]">{event.speakers}</p>
+              {typeof event.speakers === "string" ? (
+                <p className="text-[#374151] text-base leading-[1.8]">{event.speakers}</p>
+              ) : (
+                <div className="flex flex-col gap-6">
+                  {event.speakers.map((speaker, i) => (
+                    <div key={i} className="flex gap-4">
+                      {speaker.photo && (
+                        <div className="relative w-14 h-14 rounded-full overflow-hidden bg-[#EAF3FB] shrink-0">
+                          <Image src={speaker.photo} alt={speaker.name} fill className="object-cover" sizes="56px" />
+                        </div>
+                      )}
+                      <div>
+                        <p className="text-[#1A274F] text-base font-semibold">{speaker.name}</p>
+                        <p className="text-[#6B7280] text-sm">
+                          {[speaker.job_title, speaker.organization].filter(Boolean).join(", ")}
+                        </p>
+                        {speaker.bio && <p className="text-[#374151] text-sm leading-relaxed mt-2">{speaker.bio}</p>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </Reveal>
           )}
 

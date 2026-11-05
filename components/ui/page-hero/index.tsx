@@ -10,6 +10,8 @@ interface PageHeroProps {
   subtext?: string;
   /** Optional extra content (breadcrumb, badge, CTA) below subtext */
   children?: ReactNode;
+  /** Overrides the default shared texture with a page-specific photo (e.g. an event's cover image). */
+  backgroundImage?: string;
 }
 
 /**
@@ -24,10 +26,12 @@ interface PageHeroProps {
  *     subtext="Founded in 2009 in Abuja, Nigeria…"
  *   />
  */
-export default function PageHero({ headline, subtext, children }: PageHeroProps) {
+export default function PageHero({ headline, subtext, children, backgroundImage }: PageHeroProps) {
   return (
-    <section className="relative w-full overflow-hidden bg-no-repeat bg-cover" style={{
-      backgroundImage: "url('/images/bg.jpg')"
+    <section className="relative w-full overflow-hidden bg-no-repeat bg-cover bg-center" style={{
+      backgroundImage: backgroundImage
+        ? `linear-gradient(rgba(1,15,55,0.6), rgba(1,15,55,0.6)), url('${backgroundImage}')`
+        : "url('/images/bg.jpg')"
     }}>
 
       {/* ── Content ── */}

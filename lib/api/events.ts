@@ -54,12 +54,32 @@ export interface EventListItem {
   location_url: string;
   registration_is_open: boolean;
   status: EventStatus;
+  /**
+   * Not yet exposed by the public API (only the staff endpoints return it as
+   * of this writing) — this stays undefined until the backend's public
+   * serializer adds it. Typed here so the frontend needs no further changes
+   * once it does.
+   */
+  cover_image?: string | null;
+}
+
+export interface EventSpeaker {
+  name: string;
+  job_title: string;
+  organization: string;
+  bio: string;
+  photo: string;
 }
 
 export interface EventDetail extends EventListItem {
   description: string;
   agenda: string;
-  speakers: string;
+  /**
+   * The OpenAPI schema documents this as a plain string, but live events
+   * with speakers attached actually return an array of speaker objects —
+   * handle both rather than trusting the docs over the real response.
+   */
+  speakers: string | EventSpeaker[];
   end_datetime: string | null;
   end_local: string;
   location_name: string;
@@ -202,6 +222,34 @@ function authHeaders(accessToken: string): HeadersInit {
   return { Authorization: `Bearer ${accessToken}` };
 }
 
+/** Only used when a cover image file is actually being sent — multipart is required to carry binary data. */
+function eventFormData(data: EventInput, coverImage: File): FormData {
+  const form = new FormData();
+  form.set("title", data.title);
+  form.set("slug", data.slug ?? "");
+  form.set("subtitle", data.subtitle ?? "");
+  form.set("description", data.description);
+  form.set("agenda", data.agenda ?? "");
+  if (data.event_type) form.set("event_type", data.event_type);
+  form.set("pillar", data.pillar != null ? String(data.pillar) : "");
+  (data.speakers ?? []).forEach((id) => form.append("speakers", String(id)));
+  form.set("start_datetime", data.start_datetime);
+  form.set("end_datetime", data.end_datetime ?? "");
+  form.set("timezone", data.timezone ?? "");
+  form.set("duration_minutes", data.duration_minutes != null ? String(data.duration_minutes) : "");
+  if (data.location_type) form.set("location_type", data.location_type);
+  form.set("location_name", data.location_name ?? "");
+  form.set("location_address", data.location_address ?? "");
+  form.set("location_url", data.location_url ?? "");
+  if (data.registration_open != null) form.set("registration_open", String(data.registration_open));
+  form.set("registration_close", data.registration_close ?? "");
+  form.set("capacity", data.capacity != null ? String(data.capacity) : "");
+  if (data.status) form.set("status", data.status);
+  if (data.is_public != null) form.set("is_public", String(data.is_public));
+  form.set("cover_image", coverImage);
+  return form;
+}
+
 export async function staffListEvents(accessToken: string): Promise<StaffEvent[]> {
   const items: StaffEvent[] = [];
   let path: string | null = "/api/v1/staff/events/?page_size=100";
@@ -220,7 +268,14 @@ export function staffGetEvent(accessToken: string, slug: string): Promise<StaffE
   return apiGet(`/api/v1/staff/events/${encodeURIComponent(slug)}/`, { headers: authHeaders(accessToken), cache: "no-store" });
 }
 
-export function staffCreateEvent(accessToken: string, data: EventInput): Promise<StaffEvent> {
+export function staffCreateEvent(accessToken: string, data: EventInput, coverImage?: File | null): Promise<StaffEvent> {
+  if (coverImage) {
+    return apiRequest("/api/v1/staff/events/", {
+      method: "POST",
+      headers: authHeaders(accessToken),
+      body: eventFormData(data, coverImage),
+    });
+  }
   return apiRequest("/api/v1/staff/events/", {
     method: "POST",
     headers: { "Content-Type": "application/json", ...authHeaders(accessToken) },
@@ -228,7 +283,19 @@ export function staffCreateEvent(accessToken: string, data: EventInput): Promise
   });
 }
 
-export function staffUpdateEvent(accessToken: string, slug: string, data: Partial<EventInput>): Promise<StaffEvent> {
+export function staffUpdateEvent(
+  accessToken: string,
+  slug: string,
+  data: Partial<EventInput>,
+  coverImage?: File | null
+): Promise<StaffEvent> {
+  if (coverImage) {
+    return apiRequest(`/api/v1/staff/events/${encodeURIComponent(slug)}/`, {
+      method: "PATCH",
+      headers: authHeaders(accessToken),
+      body: eventFormData(data as EventInput, coverImage),
+    });
+  }
   return apiRequest(`/api/v1/staff/events/${encodeURIComponent(slug)}/`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...authHeaders(accessToken) },

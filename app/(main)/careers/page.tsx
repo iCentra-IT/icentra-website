@@ -3,10 +3,18 @@ import Image from "next/image";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
 import CareerLevelBars from "@/components/sections/careers/career-level-bars";
-import CultureAccordion, { type AccordionItem } from "@/components/sections/careers/culture-accordion";
+import CultureAccordion, {
+  type AccordionItem,
+} from "@/components/sections/careers/culture-accordion";
 import JobOpenings from "@/components/sections/careers/job-openings";
-import TeamVideos, { type TeamVideo } from "@/components/sections/careers/team-videos";
-import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
+import TeamVideos, {
+  type TeamVideo,
+} from "@/components/sections/careers/team-videos";
+import {
+  Reveal,
+  StaggerGroup,
+  StaggerItem,
+} from "@/components/ui/motion/reveal";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -90,14 +98,10 @@ const accordionItems: AccordionItem[] = [
 ];
 
 const teamVideos: TeamVideo[] = [
-  { name: "", 
-    role: "", youtubeId: "2N7Kpm4Rn1M" },
-  { name: "", 
-    role: "", youtubeId: "y6j47Z84E7w" },
-  { name: "", 
-    role: "", youtubeId: "Iczg9iE2N6M" },
-  { name: "", 
-    role: "", youtubeId: "Iczg9iE2N6M" },
+  { name: "", role: "", youtubeId: "2N7Kpm4Rn1M" },
+  { name: "", role: "", youtubeId: "Iczg9iE2N6M" },
+  { name: "", role: "", youtubeId: "rRabi9K4bKk" },
+  { name: "", role: "", youtubeId: "y6j47Z84E7w" },
 ];
 
 /* ─────────────────────────────────────────
@@ -150,7 +154,10 @@ export default function CareersPage() {
           </Reveal>
 
           {/* Right — 2 stacked landscape images */}
-          <Reveal delay={0.15} className="flex flex-col gap-4 shrink-0 w-full lg:w-90">
+          <Reveal
+            delay={0.15}
+            className="flex flex-col gap-4 shrink-0 w-full lg:w-90"
+          >
             <div className="relative w-full h-90 rounded-2xl overflow-hidden">
               <Image
                 src="/images/career/hero.jpg"
@@ -257,7 +264,10 @@ export default function CareersPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white pb-16 lg:pb-20">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionHeading title="Life at iCentra Through the Eyes of Our Team" className="mb-4" />
+          <SectionHeading
+            title="Life at iCentra Through the Eyes of Our Team"
+            className="mb-4"
+          />
           <p className="text-[#6B7280] text-base leading-relaxed max-w-3xl mb-10">
             Our team members bring their unique perspectives, talents, and
             experiences to work every day, and together, we create something
@@ -278,7 +288,10 @@ export default function CareersPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white pb-20 lg:pb-24">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionHeading title="Join Us Transform People & Organizations Together." className="mb-4" />
+          <SectionHeading
+            title="Join Us Transform People & Organizations Together."
+            className="mb-4"
+          />
           <p className="text-[#6B7280] text-base leading-relaxed mb-2">
             We are always on the lookout for people who are curious, committed,
             and ready to lead change. Whether you&apos;re an experienced

@@ -11,10 +11,12 @@ import { staffCreateEvent, type EventInput, type StaffEvent } from "@/lib/api/ev
 export default function NewEventPage() {
   const router = useRouter();
   const queryClient = useQueryClient();
-  const createMutation = useStaffMutation<EventInput, StaffEvent>((token, data) => staffCreateEvent(token, data));
+  const createMutation = useStaffMutation<{ data: EventInput; coverImage: File | null }, StaffEvent>((token, { data, coverImage }) =>
+    staffCreateEvent(token, data, coverImage)
+  );
 
-  async function handleSubmit(data: EventInput) {
-    const event = await createMutation.mutateAsync(data);
+  async function handleSubmit(data: EventInput, coverImage: File | null) {
+    const event = await createMutation.mutateAsync({ data, coverImage });
     queryClient.invalidateQueries({ queryKey: ["events"] });
     toast.success("Event created.");
     router.push(`/admin/events/${event.slug}/edit`);

@@ -22,6 +22,7 @@ import {
   CloseIcon,
   ExternalLinkIcon,
   LogoutIcon,
+  VideoIcon,
 } from "@/components/admin/icons";
 
 interface NavLink {
@@ -39,6 +40,7 @@ const NAV_GROUPS: { label: string; items: NavLink[] }[] = [
       { label: "Jobs", href: "/admin/jobs", icon: BriefcaseIcon },
       { label: "Events", href: "/admin/events", icon: CalendarIcon },
       { label: "Speakers", href: "/admin/speakers", icon: MicIcon },
+      { label: "Playlists", href: "/admin/playlists", icon: VideoIcon },
     ],
   },
   {
