@@ -750,13 +750,32 @@ export function NewsletterModal({
 
 /* ───────────────────────────────────────────────────
    7. RESOURCE DOWNLOAD FORM
-   No matching backend endpoint yet — still local-only.
+   No backend endpoint to send the lead to yet, but the brochure itself is a
+   real file — submitting triggers the actual download.
 ─────────────────────────────────────────────────── */
-function ResourceDownloadContent() {
+const BROCHURE_FILE = "/ICENTRA-CORPORATE-BROCHURE-2025.pdf";
+
+function ResourceDownloadContent({ onSuccess }: { onSuccess: () => void }) {
   const [agreed, setAgreed] = useState(false);
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const f = formEntriesToObject(e.currentTarget);
+    trackEvent("resource_download", { resource: "corporate-brochure-2025", industry: f.industry });
+
+    const link = document.createElement("a");
+    link.href = BROCHURE_FILE;
+    link.download = "iCentra-Corporate-Brochure-2025.pdf";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    onSuccess();
+  }
+
   return (
     <FormCard title="Resource Download Form">
-      <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
+      <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
         <FormField  label="Full Name"              required name="fullName"  type="text"  placeholder="Your surname first" />
         <FormField  label="Email"                  required name="email"     type="email" placeholder="Enter your active mail" />
         <FormField  label="Company Name"                    name="company"   type="text"  placeholder="Enter company name" />
@@ -778,6 +797,13 @@ export function ResourceDownloadModal({
   triggerClassName?: string;
 }) {
   const [open, setOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+    setTimeout(() => setSubmitted(false), 300);
+  };
+
   return (
     <>
       <button
@@ -786,8 +812,16 @@ export function ResourceDownloadModal({
       >
         {triggerLabel}
       </button>
-      <FormModal open={open} onClose={() => setOpen(false)}>
-        <ResourceDownloadContent />
+      <FormModal open={open} onClose={handleClose}>
+        {submitted ? (
+          <ApplicationSuccess
+            title="Your Download Is Starting"
+            message="The iCentra corporate brochure should begin downloading automatically. If it doesn't, check your browser's download bar."
+            onClose={handleClose}
+          />
+        ) : (
+          <ResourceDownloadContent onSuccess={() => setSubmitted(true)} />
+        )}
       </FormModal>
     </>
   );

@@ -171,7 +171,7 @@ export default async function HomePage() {
       {/* ══════════════════════════════════════
           7. WHAT OUR CLIENT SAY ABOUT US
       ══════════════════════════════════════ */}
-      <section className="bg-white py-14 lg:py-20">
+      {/* <section className="bg-white py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             title="What Our Client Say About Us"
@@ -209,27 +209,9 @@ export default async function HomePage() {
             </div>
           ))}
         </Marquee>
-      </section>
+      </section> */}
 
-      {/* ══════════════════════════════════════
-          8. THOUGHT LEADERSHIP BANNER
-      ══════════════════════════════════════ */}
-      <DiscoverBanner
-        headline={"Thought Leadership for a Changing World\n"}
-        subtext="Stay ahead with expert insights on transformation, cybersecurity, and performance delivery."
-        primaryCta={{ label: "Explore Insights", href: "/news?tab=insights" }}
-        secondaryCta={{
-          label: "Subscribe to Newsletter",
-          modal: (
-            <NewsletterModal
-              triggerLabel="Subscribe to Newsletter"
-              triggerClassName="inline-flex items-center px-6 py-3 rounded-full border border-white/50 text-white text-sm font-semibold hover:bg-white hover:text-[#1A274F] transition-colors cursor-pointer"
-            />
-          ),
-        }}
-        image="/images/banner/thought-leadership.png"
-        imageAlt={"Banner Image"}
-      />
+      
 
       {/* ══════════════════════════════════════
           9. STAY UPDATED — SPOTLIGHTS — BlogCard
@@ -284,6 +266,26 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ══════════════════════════════════════
+          8. THOUGHT LEADERSHIP BANNER
+      ══════════════════════════════════════ */}
+      <DiscoverBanner
+        headline={"Thought Leadership for a Changing World\n"}
+        subtext="Stay ahead with expert insights on transformation, cybersecurity, and performance delivery."
+        primaryCta={{ label: "Explore Insights", href: "/news?tab=insights" }}
+        secondaryCta={{
+          label: "Subscribe to Newsletter",
+          modal: (
+            <NewsletterModal
+              triggerLabel="Subscribe to Newsletter"
+              triggerClassName="inline-flex items-center px-6 py-3 rounded-full border border-white/50 text-white text-sm font-semibold hover:bg-white hover:text-[#1A274F] transition-colors cursor-pointer"
+            />
+          ),
+        }}
+        image="/images/banner/thought-leadership.png"
+        imageAlt={"Banner Image"}
+      />
     </main>
   );
 }
