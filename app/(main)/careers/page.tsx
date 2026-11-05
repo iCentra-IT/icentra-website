@@ -90,10 +90,14 @@ const accordionItems: AccordionItem[] = [
 ];
 
 const teamVideos: TeamVideo[] = [
-  { name: "Taopheek Babayeju", role: "Product Designer", youtubeId: "2N7Kpm4Rn1M" },
-  { name: "Amina Okafor", role: "Product Designer", youtubeId: "y6j47Z84E7w" },
-  { name: "Chidi Eze", role: "Product Designer", youtubeId: "Iczg9iE2N6M" },
-  { name: "Ngozi Bello", role: "Product Designer", youtubeId: "Iczg9iE2N6M" },
+  { name: "", 
+    role: "", youtubeId: "2N7Kpm4Rn1M" },
+  { name: "", 
+    role: "", youtubeId: "y6j47Z84E7w" },
+  { name: "", 
+    role: "", youtubeId: "Iczg9iE2N6M" },
+  { name: "", 
+    role: "", youtubeId: "Iczg9iE2N6M" },
 ];
 
 /* ─────────────────────────────────────────
