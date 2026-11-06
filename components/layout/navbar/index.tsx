@@ -33,22 +33,54 @@ function isActive(pathname: string, href: string) {
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  // Separate state for the desktop dropdown and the mobile drawer's accordion —
+  // they're different UI patterns (click-outside-to-close vs. a toggle inside
+  // an already-dismissible overlay) and sharing one ref/state closed the
+  // mobile accordion on its own sub-link taps before the tap could register.
+  const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!dropdownOpen) return;
+    if (!desktopDropdownOpen) return;
 
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setDropdownOpen(false);
+        setDesktopDropdownOpen(false);
       }
     }
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [dropdownOpen]);
+  }, [desktopDropdownOpen]);
+
+  // Close the mobile drawer on route changes (back/forward, or any
+  // navigation not mediated by a Link's own onClick) and lock background
+  // scroll while it's open.
+  useEffect(() => {
+    // Resetting UI state in response to a route change (not a user action
+    // this render), not the data-fetch-in-a-loop pattern this rule targets.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMobileOpen(false);
+    setMobileDropdownOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") setMobileOpen(false);
+    }
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [mobileOpen]);
 
   return (
     <>
@@ -78,7 +110,7 @@ export default function Navbar() {
                 return (
                   <div key={link.label} className="relative group" ref={dropdownRef}>
                     <button
-                      onClick={() => setDropdownOpen((v) => !v)}
+                      onClick={() => setDesktopDropdownOpen((v) => !v)}
                       className={`flex items-center gap-1 text-base cursor-pointer font-medium transition-colors ${
                         parentActive
                           ? "text-[#0066FF]"
@@ -90,7 +122,7 @@ export default function Navbar() {
                       <svg
                         className={`w-4 h-4 transition-transform duration-200 group-hover:text-secondary ${
                           parentActive ? "text-[#0066FF]" : "text-deep-blue"
-                        } ${dropdownOpen ? "rotate-180" : ""}`}
+                        } ${desktopDropdownOpen ? "rotate-180" : ""}`}
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -106,7 +138,7 @@ export default function Navbar() {
                     )}
 
                     {/* Dropdown */}
-                    {dropdownOpen && (
+                    {desktopDropdownOpen && (
                       <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-[#DCE0E8] rounded-xl shadow-lg py-2 z-50">
                         {link.dropdown.map((item) => {
                           const itemActive = isActive(pathname, item.href);
@@ -119,7 +151,7 @@ export default function Navbar() {
                                   ? "bg-[#eef1fb] text-[#0066FF] font-medium"
                                   : "text-[#1A274F] hover:bg-[#eef1fb] hover:text-secondary"
                               }`}
-                              onClick={() => setDropdownOpen(false)}
+                              onClick={() => setDesktopDropdownOpen(false)}
                             >
                               {item.label}
                             </Link>
@@ -222,7 +254,7 @@ export default function Navbar() {
                   return (
                     <div key={link.label}>
                       <button
-                        onClick={() => setDropdownOpen((v) => !v)}
+                        onClick={() => setMobileDropdownOpen((v) => !v)}
                         className={`flex items-center gap-2 w-full py-5 text-[22px] font-semibold border-b border-white/10 text-left transition-colors ${
                           parentActive ? "text-[#8FB2FF]" : "text-white"
                         }`}
@@ -230,7 +262,7 @@ export default function Navbar() {
                         {link.label}
                         <svg
                           className={`w-5 h-5 transition-transform duration-200 ${
-                            dropdownOpen ? "rotate-180" : ""
+                            mobileDropdownOpen ? "rotate-180" : ""
                           }`}
                           fill="none"
                           viewBox="0 0 24 24"
@@ -240,7 +272,7 @@ export default function Navbar() {
                           <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                       </button>
-                      {dropdownOpen && (
+                      {mobileDropdownOpen && (
                         <div className="pl-4 pb-2 flex flex-col gap-1">
                           {link.dropdown.map((item) => {
                             const itemActive = isActive(pathname, item.href);
