@@ -23,33 +23,6 @@ const industryTags = [
   "Manufacturing", "Defence", "Media",
 ];
 
-const testimonials = [
-  {
-    name: "Crystal Maiden",
-    role: "UX Designer",
-    company: "",
-    avatar: "/images/industry/avatar-1.jpg",
-    stars: 5,
-    text: "This is but this one is the best. The attention to detail and quality is very amazing for all designs. Highly recommended for any type of project.",
-  },
-  {
-    name: "Dazzle Healer",
-    role: "Head of Operations, Financial Technology Company",
-    company: "Financial Technology Company",
-    avatar: "/images/industry/avatar-2.jpg",
-    stars: 5,
-    text: "iCentra didn't just provide a service; they became an extension of our team. Their support helped us move from ideas to action, and we saw the difference almost immediately.",
-  },
-  {
-    name: "Crystal Maiden",
-    role: "UX Designer",
-    company: "",
-    avatar: "/images/industry/avatar-3.jpg",
-    stars: 5,
-    text: "This kit is incredibly helpful for my design process. Components are clean, modern, and save me a lot of time for beginners and professionals alike.",
-  },
-];
-
 const whitepapers = [
   {
     image: "/images/industry/whitepaper-pm-trends.jpg",
@@ -67,21 +40,6 @@ const whitepapers = [
     href: "/news",
   },
 ];
-
-/* ─────────────────────────────────────────
-   STAR RATING
-───────────────────────────────────────── */
-function StarRating({ count = 5 }: { count?: number }) {
-  return (
-    <div className="flex gap-0.5">
-      {Array.from({ length: count }).map((_, i) => (
-        <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
-      ))}
-    </div>
-  );
-}
 
 /* ─────────────────────────────────────────
    PAGE
@@ -157,40 +115,7 @@ export default async function IndustriesPage() {
       {/* </section> */}
 
       {/* ══════════════════════════════════════
-          4. WHAT OUR CLIENTS ARE SAYING
-      ══════════════════════════════════════ */}
-      <section className="bg-white py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="md:text-center mb-10">
-            <SectionHeading title="What Our Clients Are Saying" />
-          </div>
-
-          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <StaggerItem key={i} className="bg-[#F7F9FC] rounded-2xl p-6 flex flex-col gap-4 border border-[#DCE0E8]">
-                <div className="flex items-center gap-3">
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0 bg-[#A8B8F8]">
-                    <Image src={t.avatar} alt={t.name} fill className="object-cover" sizes="40px" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-[#1A274F] text-sm font-semibold leading-tight">{t.name}</p>
-                    <p className="text-[#6B7280] text-xs leading-tight truncate max-w-[180px]">{t.role}</p>
-                  </div>
-                  <div className="ml-auto shrink-0">
-                    <StarRating count={t.stars} />
-                  </div>
-                </div>
-                <p className="text-[#374151] text-sm leading-relaxed flex-1">
-                  &ldquo;{t.text}&rdquo;
-                </p>
-              </StaggerItem>
-            ))}
-          </StaggerGroup>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════
-          5. READY TO START? — dark navy CTA banner
+          4. READY TO START? — dark navy CTA banner
       ══════════════════════════════════════ */}
       <section className="bg-main py-14 lg:py-16">
         <Reveal className="max-w-170 mx-auto px-6 flex flex-col items-center text-center gap-4">

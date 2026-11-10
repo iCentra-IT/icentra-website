@@ -263,7 +263,7 @@ export const spotlightCards = [
 export const newsCards = [
   {
     image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80",
-    title: "The New Operating Model for Sustainable Performance",
+    title: "The New Operating Model for Sustained Performance",
     date: "2nd Sep 2025",
     readTime: "2 min",
     slug: "new-operating-model",

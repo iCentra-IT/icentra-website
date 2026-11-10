@@ -122,7 +122,7 @@ export default function AboutPage() {
                 1. HERO — PageHero (reused)
             ══════════════════════════════════════ */}
       <PageHero
-        headline={"History of\nour firm"}
+        headline={"About Us"}
         subtext="Founded in 2009 in Abuja, Nigeria, iCentra emerged with a bold vision: to transform
               the business landscape through technological and organizational performance.
               Our mission goes beyond mere service delivery; we are dedicated to creating
@@ -206,7 +206,7 @@ export default function AboutPage() {
               <h3 className="text-white text-lg font-bold">Our Mission</h3>
               <p className="text-white/65 text-base leading-relaxed">
                 Leveraging innovation and technology to transform people and
-                organizations for excellent performance.
+                organizations for sustainable performance.
               </p>
             </div>
           </StaggerItem>
@@ -219,11 +219,10 @@ export default function AboutPage() {
       ══════════════════════════════════════════════ */}
       <DiscoverBanner
         headline={
-          "Transforming people &\norganizations for excellent\nperformance"
+          "Transforming people &\norganizations for sustainable\nperformance"
         }
         subtext="Our expertise includes Enterprise Transformation, Cybersecurity, Strategy & Execution, and Learning & Talent."
-        primaryCta={{ label: "Contact Us", href: "/contact" }}
-        secondaryCta={{ label: "Our Services", href: "/what-we-do/solutions" }}
+        primaryCta={{ label: "Our Solutions", href: "/what-we-do/solutions" }}
         image="/images/about/discover-icentra.jpg"
         imageAlt="iCentra professionals at work"
       />

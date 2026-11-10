@@ -24,6 +24,8 @@ interface BlogCardCarouselProps {
   viewAllLabel?: string;
   /** max cards to show — defaults to 4 */
   limit?: number;
+  /** Set false to hide the published date on each card (e.g. case studies). */
+  showDate?: boolean;
 }
 
 export function BlogCardCarousel({
@@ -34,6 +36,7 @@ export function BlogCardCarousel({
   viewAllHref,
   viewAllLabel = "View All",
   limit = 4,
+  showDate = true,
 }: BlogCardCarouselProps) {
   const visibleItems = items.slice(0, limit);
 
@@ -74,6 +77,7 @@ export function BlogCardCarousel({
                 readTime={item.readTime}
                 excerpt={item.excerpt}
                 href={item.href ?? `/news/${item.slug}`}
+                showDate={showDate}
               />
             </div>
           ))}

@@ -110,14 +110,14 @@ export const solutionCategories: SolutionCategory[] = [
     ctaTitle: "Why Choose iCentra?",
     ctaSubtext:
       "Our transformation solutions are designed to help organizations evolve, innovate, and excel. By leveraging tailored strategies and cutting-edge tools, we empower businesses to achieve their goals, stay competitive, and create a lasting legacy of success.",
-    image: "/images/solution/1.png",
+    image: "/images/solution/enterprise-transformation.jpg",
     subcategories: [
       {
         slug: "agile-transformation",
         title: "Agile Transformation",
         tagline: "Be Fast. Be Flexible. Be Future-Ready.",
         subtext: "Empowering your teams to deliver value at speed and scale.",
-        image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=700&q=80",
+        image: "/images/cont-trans/cont1.jpg",
         insightCategorySlug: "agile-transformation",
         heroCtaLine: "Embrace Agility, Empower Innovation",
         overview: [
@@ -170,7 +170,7 @@ export const solutionCategories: SolutionCategory[] = [
         title: "AI & Intelligent Automation",
         tagline: "Smarter. Faster. Scalable.",
         subtext: "Unlock the future of work with AI-powered intelligence and automation.",
-        image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=700&q=80",
+        image: "/images/partnerships/ai-transformation.jpg",
         heroCtaLine: "Start Your AI Journey Today",
         overview: [
           "Artificial Intelligence (AI) and Intelligent Automation are redefining how businesses operate. From predictive insights to process automation, organizations can now achieve unprecedented efficiency, accuracy, and innovation. Yet, many struggle with fragmented tools, lack of expertise, or resistance to change, leaving opportunities untapped.",
@@ -200,7 +200,7 @@ export const solutionCategories: SolutionCategory[] = [
         title: "Digital Transformation",
         tagline: "Reimagine. Reinvent. Accelerate.",
         subtext: "Empowering your business to thrive in a digital-first world.",
-        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=80",
+        image: "/images/about/hero.jpg",
         insightCategorySlug: "digital-transformation",
         heroCtaLine: "Start Your Digital Journey Today",
         overview: [
@@ -231,7 +231,7 @@ export const solutionCategories: SolutionCategory[] = [
         title: "Organizational Transformation",
         tagline: "Evolve from Within. Lead with Impact.",
         subtext: "Transforming your structure, culture, and capabilities for sustainable success.",
-        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&q=80",
+        image: "/images/about/discover-icentra.jpg",
         insightCategorySlug: "organizational-transformation",
         heroCtaLine: "Ready to Transform Your Organization?",
         overview: [
@@ -275,14 +275,14 @@ export const solutionCategories: SolutionCategory[] = [
     ctaTitle: "Why iCentra?",
     ctaSubtext:
       "With our integrated approach to Security, Governance, Risk and Compliance, we enable organizations to not only address present challenges but also anticipate and adapt to future risks. Partner with iCentra to protect what matters, navigate complexity, and achieve operational resilience.",
-    image: "/images/solution/2.jpg",
+    image: "/images/solution/cybersecurity-grc.jpg",
     subcategories: [
       {
         slug: "compliance",
         title: "Compliance",
         tagline: "Build Trust. Stay Aligned. Be Audit-Ready.",
         subtext: "Achieving operational excellence through robust regulatory and standards adherence.",
-        image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80",
+        image: "/images/partnerships/complycentra.jpg",
         insightCategorySlug: "isms-iso",
         heroCtaLine: "Confidence Through Compliance",
         overview: [
@@ -316,7 +316,7 @@ export const solutionCategories: SolutionCategory[] = [
         title: "Cyber Security",
         tagline: "Secure Today. Safeguard Tomorrow.",
         subtext: "Protecting your business against evolving threats in a digital world.",
-        image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=700&q=80",
+        image: "/images/industry/whitepaper-cybersecurity.jpg",
         insightCategorySlug: "cybersecurity",
         heroCtaLine: "Stay Secure, Stay Resilient",
         overview: [
@@ -349,7 +349,7 @@ export const solutionCategories: SolutionCategory[] = [
         title: "IT Governance",
         tagline: "Control. Align. Deliver.",
         subtext: "Driving business value through structured and strategic IT oversight.",
-        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=700&q=80",
+        image: "/images/cont-trans/cont2.jpg",
         heroCtaLine: "Turn IT Into a Strategic Advantage",
         overview: [
           "In many organizations, IT investments are made in silos, leading to misalignment with business goals, wasted resources, and unmanaged risk. Without proper governance, IT can become a barrier instead of an enabler.",
@@ -379,7 +379,7 @@ export const solutionCategories: SolutionCategory[] = [
         title: "Risk Management",
         tagline: "See Ahead. Act Decisively. Stay in Control.",
         subtext: "Empowering organizations to anticipate threats, reduce uncertainty, and build resilient operations.",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80",
+        image: "/images/career/accordion-behave.jpg",
         insightCategorySlug: "risk-management",
         heroCtaLine: "Turn Risk Into Strategic Advantage",
         overview: [
@@ -424,14 +424,14 @@ export const solutionCategories: SolutionCategory[] = [
     ctaTitle: "Why Choose iCentra?",
     ctaSubtext:
       "Our transformation solutions are designed to help organizations evolve, innovate, and excel. By leveraging tailored strategies and cutting-edge tools, we empower businesses to achieve their goals, stay competitive, and create a lasting legacy of success.",
-    image: "/images/solution/3.jpg",
+    image: "/images/solution/strategy-execution.jpg",
     subcategories: [
       {
         slug: "advisory",
         title: "Advisory",
         tagline: "Clarity. Confidence. Competitive Edge.",
         subtext: "Empowering Leaders with Strategic Insights for Sustainable Success.",
-        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=700&q=80",
+        image: "/images/partnerships/pmocentra.jpg",
         heroCtaLine: "Get Expert Advisory.",
         overview: [
           "In an increasingly complex and fast-changing world, leaders are expected to make critical decisions amid uncertainty. Without the right insights, expertise, and strategic alignment, organizations risk stagnation, inefficiencies, or costly missteps.",
@@ -459,7 +459,7 @@ export const solutionCategories: SolutionCategory[] = [
         title: "Change Management",
         tagline: "Lead Change. Inspire Growth. Sustain Results.",
         subtext: "Empowering Organizations to Navigate and Embrace Change with Confidence.",
-        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&q=80",
+        image: "/images/career/accordion-relate.jpg",
         heroCtaLine: "Drive Successful Change",
         overview: [
           "In today's dynamic business landscape, change is not optional; it's essential. Yet, many organizations struggle with failed transformations, employee resistance, and initiative fatigue. Without a structured change management approach, even the best strategies and technologies can fall flat.",
@@ -489,7 +489,7 @@ export const solutionCategories: SolutionCategory[] = [
         title: "PMO Solutions",
         tagline: "Structure. Scale. Succeed.",
         subtext: "Empowering Project Excellence Through High-Impact PMO Solutions.",
-        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&q=80",
+        image: "/images/event/partner-with-us.jpg",
         insightCategorySlug: "pmo-solution",
         heroCtaLine: "Build a Value-Driven PMO Today",
         overview: [
@@ -541,7 +541,7 @@ export const solutionCategories: SolutionCategory[] = [
         title: "Strategy Management",
         tagline: "Strategize. Align. Execute.",
         subtext: "Turning Vision into Value with Strategic Precision.",
-        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=700&q=80",
+        image: "/images/career/accordion-qualities.jpg",
         insightCategorySlug: "strategy-management",
         heroCtaLine: "Unlock Your Strategic Advantage",
         overview: [
@@ -585,14 +585,14 @@ export const solutionCategories: SolutionCategory[] = [
     ctaTitle: "Why Choose iCentra?",
     ctaSubtext:
       "Our transformation solutions are designed to help organizations evolve, innovate, and excel. By leveraging tailored strategies and cutting-edge tools, we empower businesses to achieve their goals, stay competitive, and create a lasting legacy of success.",
-    image: "/images/solution/4.jpg",
+    image: "/images/solution/learning-talent.jpg",
     subcategories: [
       {
         slug: "learning-and-development",
         title: "Learning & Development",
         tagline: "Empower. Equip. Elevate.",
         subtext: "Building Capabilities That Drive Performance.",
-        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&q=80",
+        image: "/images/career/hero.jpg",
         insightCategorySlug: "executive-training",
         heroCtaLine: "Start Building Future-Ready Talent",
         heroCtaLabel: "Speak to a Learning Advisor",
@@ -628,7 +628,7 @@ export const solutionCategories: SolutionCategory[] = [
         title: "Talent Optimization",
         tagline: "Right People. Right Skills. Real Impact.",
         subtext: "Empowering your organization with scalable, high-impact talent solutions.",
-        image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700&q=80",
+        image: "/images/partnerships/workforce-capability.jpg",
         insightCategorySlug: "project-resourcing",
         heroCtaLine: "Optimize Your Workforce",
         overview: [

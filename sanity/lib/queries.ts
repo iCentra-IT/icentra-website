@@ -25,18 +25,21 @@ export const CATEGORY_TREE_QUERY = `
 `;
 
 // Posts for one category slug. If the slug belongs to a parent category, posts
-// tagged with any of its sub-categories are included too.
+// tagged with any of its sub-categories are included too. Featured posts sort
+// first (so a curated case study/insight leads the list), newest first within
+// each group.
 export const POSTS_BY_CATEGORY_QUERY = `
   *[
     _type == "post" &&
     count(categories[@->slug.current == $slug || @->parent->slug.current == $slug]) > 0
-  ] | order(publishedAt desc) {
+  ] | order(coalesce(featured, false) desc, publishedAt desc) {
     _id,
     title,
     "slug": slug.current,
     excerpt,
     mainImage,
     publishedAt,
+    featured,
     "plainBody": pt::text(body),
     "categories": categories[]->{ title, "slug": slug.current }
   }

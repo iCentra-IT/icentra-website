@@ -41,8 +41,8 @@ export default function ServiceCard({
         sizes="(max-width: 768px) 100vw, 280px"
       />
 
-      {/* Persistent dark blue overlay */}
-      {/* <div className="absolute inset-0 bg-secondary/90 group-hover:bg-[#1A274F]/65 transition-colors duration-500" /> */}
+      {/* Bottom gradient — keeps the label legible over a photo without flattening the whole image */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0B1536]/90 via-[#0B1536]/25 to-transparent" />
 
       {/* ── DEFAULT STATE ── */}
       <div

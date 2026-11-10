@@ -38,18 +38,31 @@ function AnimatedStat({ value, start }: { value: string; start: boolean }) {
   return <>{display}</>;
 }
 
-export default function StatsBar() {
-  const stats = getStats();
+export interface StatItem {
+  value: string;
+  label: string;
+}
+
+interface StatsBarProps {
+  /** Defaults to the shared homepage stats (getStats()) if not provided. */
+  stats?: StatItem[];
+}
+
+export default function StatsBar({ stats: statsProp }: StatsBarProps = {}) {
+  const stats = statsProp ?? getStats();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
 
+  const gridClass =
+    stats.length === 4 ? "grid-cols-2 lg:grid-cols-4" : stats.length === 2 ? "grid-cols-2" : "grid-cols-3";
+
   return (
     <div ref={ref} className="relative z-10 bg-main">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 sm:py-6 grid grid-cols-3 divide-x divide-[#DCE0E8]">
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 py-5 sm:py-6 grid ${gridClass} divide-x divide-y sm:divide-y-0 divide-white/10`}>
         {stats.map((s) => (
           <div
             key={s.label}
-            className="flex flex-col items-center px-2 sm:px-4"
+            className="flex flex-col items-center px-2 sm:px-4 py-2 sm:py-0"
           >
             <span className="text-white text-xl sm:text-[28px] lg:text-[38px] font-extrabold leading-none">
               <AnimatedStat value={s.value} start={inView} />

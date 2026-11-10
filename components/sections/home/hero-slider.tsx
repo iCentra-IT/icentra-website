@@ -29,7 +29,6 @@ const slides: Slide[] = [
     headlineBold: "Transformation.\n Sustain Performance.",
     ctas: [
       { label: "Explore iCentra", href: "/about", primary: true },
-      { label: "Our Solutions", href: "/what-we-do/solutions", primary: false },
     ],
     helperText: "Transforming people and organizations for sustainable performance",
   },
@@ -37,11 +36,10 @@ const slides: Slide[] = [
     sideImage: "/trans.svg",
     overlayImage: "/overlay-glass-architecture.jpg",
     badge: "CONTINUOUS TRANSFORMATION",
-    headlineItalic: "TRANSFORMATION ",
+    headlineItalic: "Transformation ",
     headlineBold: "Is NOT A Project.\n It's a Capability.",
     ctas: [
       { label: "Discover Our Approach", href: "/what-we-do/continuous-transformation", primary: true },
-      { label: "Our Solutions", href: "/what-we-do/solutions", primary: false },
     ],
     helperText: "Traditional transformation ends. Continuous transformation builds the system - strategy, governance, execution, and people that sustain performance",
   },
@@ -53,7 +51,6 @@ const slides: Slide[] = [
     headlineBold: "For Enterprise Performance.\n",
     ctas: [
       { label: "Explore Solutions", href: "/what-we-do/solutions", primary: true },
-      { label: "Our Solutions", href: "/what-we-do/solutions", primary: false },
     ],
     helperText: "From strategy to execution, governance to capacity - we deliver transformation across four domains",
   },
@@ -90,9 +87,9 @@ export default function HeroSlider({ overlay = false, initialSlide = 0 }: HeroSl
   const prev = () => goTo((current - 1 + total) % total);
   const next = () => goTo((current + 1) % total);
 
-  // Auto-advance every 6s
+  // Auto-advance every 10s — long enough to read the headline and helper text.
   useEffect(() => {
-    const timer = setTimeout(() => goTo((current + 1) % total), 6000);
+    const timer = setTimeout(() => goTo((current + 1) % total), 10000);
     return () => clearTimeout(timer);
   }, [current, goTo, total]);
 
@@ -222,7 +219,7 @@ export default function HeroSlider({ overlay = false, initialSlide = 0 }: HeroSl
                 {/* Headline */}
                 <h1 className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] xl:text-[62px] font-extrabold leading-[1.1] lg:leading-[1.05] max-w-full lg:max-w-175">
                   {slide.headlineItalic && (
-                    <span className={`block itali font-extrabold ${theme.italicText}`}>
+                    <span className={`block itali font-extrabold capitalize ${theme.italicText}`}>
                       {slide.headlineItalic}
                     </span>
                   )}

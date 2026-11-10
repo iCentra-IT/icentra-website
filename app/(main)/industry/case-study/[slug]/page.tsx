@@ -138,6 +138,7 @@ export default async function CaseStudyDetailPage({
                     date={formatPostDate(item.publishedAt)}
                     readTime={estimateReadTimeFromText(item.plainBody)}
                     href={`/industry/case-study/${item.slug}`}
+                    showDate={false}
                   />
                 </StaggerItem>
               ))}

@@ -7,6 +7,7 @@ import CultureAccordion, {
   type AccordionItem,
 } from "@/components/sections/careers/culture-accordion";
 import JobOpenings from "@/components/sections/careers/job-openings";
+import { InternshipApplicationModal } from "@/components/forms/all-forms";
 import TeamVideos, {
   type TeamVideo,
 } from "@/components/sections/careers/team-videos";
@@ -71,29 +72,34 @@ const accordionItems: AccordionItem[] = [
       "Leadership-oriented",
       "Empathic",
     ],
+    image: "/images/career/accordion-qualities.jpg",
   },
   {
     title: "The 4 Cs of an iCentran",
     type: "list",
     content: ["Competence", "Character", "Commitment", "Collaboration"],
+    image: "/images/career/accordion-4cs.jpg",
   },
   {
     title: "How We Behave",
     type: "text",
     content:
       "We act with integrity, communicate openly, and treat every colleague and client with respect, holding ourselves accountable to the highest standards in everything we do.",
+    image: "/images/career/accordion-behave.jpg",
   },
   {
     title: "What We Value",
     type: "text",
     content:
       "We value innovation, continuous learning, diversity of thought, and the courage to challenge the status quo in pursuit of better outcomes for our people and clients.",
+    image: "/images/career/accordion-value.jpg",
   },
   {
     title: "How We Relate",
     type: "text",
     content:
       "We build relationships rooted in trust, transparency, and mutual respect, both within our teams and with the clients and communities we serve.",
+    image: "/images/career/accordion-relate.jpg",
   },
 ];
 
@@ -306,6 +312,32 @@ export default function CareersPage() {
 
           {/* Job listing cards — fetched client-side via React Query */}
           <JobOpenings />
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          8. INTERNSHIP PROGRAMME CTA
+      ══════════════════════════════════════ */}
+      <section className="bg-white pb-20 lg:pb-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <Reveal className="relative overflow-hidden rounded-3xl bg-linear-to-br from-[#0B1B4D] via-[#16266E] to-[#1E3A8A] px-8 py-12 lg:px-16 lg:py-16 flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div
+              aria-hidden="true"
+              className="absolute right-0 top-0 w-80 h-80 bg-[#0066FF]/15 blur-3xl pointer-events-none"
+            />
+            <div className="relative z-10 max-w-xl text-center lg:text-left">
+              <h2 className="text-white text-[26px] lg:text-[32px] font-extrabold leading-tight mb-3">
+                Join Our Internship Programme
+              </h2>
+              <p className="text-white/75 text-base leading-relaxed">
+                Kickstart your career with hands-on experience and growth opportunities—join our
+                internship program today!
+              </p>
+            </div>
+            <div className="relative z-10 shrink-0">
+              <InternshipApplicationModal />
+            </div>
+          </Reveal>
         </div>
       </section>
     </main>

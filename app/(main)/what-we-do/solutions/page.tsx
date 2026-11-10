@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServiceCard from "@/components/ui/cards/service-card";
 import SectionHeading from "@/components/ui/section-heading";
 import { StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
-import AnimatedSolutionsHero from "@/components/sections/solutions/animated-solutions-hero";
+import HeroVideo from "@/components/sections/home/hero-video";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
 import { solutionCategories } from "@/lib/data/solutions";
@@ -33,6 +33,7 @@ const iceSteps = [
 ];
 
 const solutionCards = solutionCategories.map((category) => ({
+  slug: category.slug,
   image: category.image,
   category: category.title,
   title: category.tagline,
@@ -44,6 +45,41 @@ const solutionCards = solutionCategories.map((category) => ({
 /* ─────────────────────────────────────────
    ICE PROCESS ICONS — inline SVG
 ───────────────────────────────────────── */
+/* ─────────────────────────────────────────
+   PILLAR ICONS — inline SVG, one per solution category
+───────────────────────────────────────── */
+function PillarIcon({ slug }: { slug: string }) {
+  const common = { fill: "none", stroke: "currentColor", strokeWidth: 1.8 } as const;
+  if (slug === "enterprise-transformation") {
+    return (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" {...common}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 17l6-6 4 4 8-8M21 11V3h-8" />
+      </svg>
+    );
+  }
+  if (slug === "cybersecurity-and-grc") {
+    return (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" {...common}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" />
+      </svg>
+    );
+  }
+  if (slug === "strategy-execution") {
+    return (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" {...common}>
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="12" cy="12" r="4.5" />
+        <circle cx="12" cy="12" r="0.5" fill="currentColor" />
+      </svg>
+    );
+  }
+  return (
+    <svg className="w-5 h-5" viewBox="0 0 24 24" {...common}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l8-4-8-4-8 4 8 4zm0 0v6m-8-6v3.5c0 .9 3.6 2.5 8 2.5s8-1.6 8-2.5V10" />
+    </svg>
+  );
+}
+
 function IceIcon({ type }: { type: string }) {
   if (type === "identify") {
     return (
@@ -75,32 +111,70 @@ export default function OurSolutionsPage() {
     <main className="w-full overflow-x-hidden">
 
       {/* ══════════════════════════════════════
-          1. HERO — gradient navy + ghost watermark
+          1. HERO — brand video
+      ══════════════════════════════════════ */}
+      <section className="relative bg-[#1A274F] overflow-hidden">
+        <HeroVideo src="/icentra-video.mp4" />
+      </section>
+
+      {/* ══════════════════════════════════════
+          2. SOLUTIONS INTRO — copy + CTA, plus a 4-pillar
+             quick-jump grid down to the ServiceCard section below.
+             Bespoke to this page (not PageHero) so it stays flexible.
       ══════════════════════════════════════ */}
       <section className="relative bg-linear-to-br from-[#0B1B4D] via-[#16266E] to-[#1E3A8A] overflow-hidden">
-        {/* Ghost watermark text */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 flex items-center justify-end pr-10 pointer-events-none select-none"
-        >
-          <span
-            className="text-white/5 text-[160px] lg:text-[220px] font-black italic whitespace-nowrap"
-            style={{ writingMode: "horizontal-tb" }}
-          >
-            Solution
-          </span>
-        </div>
-
         {/* Subtle radial glow */}
         <div className="absolute right-0 top-0 w-125 h-125 bg-[#0066FF]/10 blur-3xl pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-16 lg:pt-24 lg:pb-20">
-          <AnimatedSolutionsHero />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-16 items-center">
+          {/* Left — copy + CTA */}
+          <div>
+            <span className="inline-block text-[var(--color-light-blue)] text-xs font-bold tracking-[0.18em] uppercase border border-white/20 rounded-full px-4 py-1.5 mb-5">
+              Four Domains · One Firm
+            </span>
+            <h1 className="text-white text-[32px] sm:text-[40px] lg:text-[48px] font-extrabold leading-[1.1] mb-5">
+              Empower Organizational Excellence: iCentra Solutions
+            </h1>
+            <div className="w-16 h-1 rounded-full bg-light-blue mb-6" />
+            <p className="text-white/75 text-base leading-[1.8] mb-4 max-w-xl">
+              iCentra offers a holistic suite of transformative services designed to propel
+              organizations toward sustainable success. We partner with you to address the
+              complex challenges of modern business with deep expertise, proven methodology,
+              and tailored execution — from digital innovation to robust cybersecurity,
+              strategic alignment, and skill development.
+            </p>
+            <Link
+              href="#solutions-grid"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"
+            >
+              Explore Our Solutions
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+
+          {/* Right — 4 pillar quick-jump cards */}
+          <StaggerGroup className="grid grid-cols-2 gap-4">
+            {solutionCategories.map((cat) => (
+              <StaggerItem key={cat.slug}>
+                <Link
+                  href={`#${cat.slug}`}
+                  className="group block h-full bg-white/5 border border-white/15 rounded-2xl p-5 flex flex-col gap-3 hover:bg-white/10 hover:border-white/30 transition-colors"
+                >
+                  <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-[var(--color-light-blue)] group-hover:bg-[#0066FF] group-hover:text-white transition-colors">
+                    <PillarIcon slug={cat.slug} />
+                  </span>
+                  <span className="text-white text-sm font-semibold leading-snug">{cat.title}</span>
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerGroup>
         </div>
       </section>
 
       {/* ══════════════════════════════════════
-          2. OUR APPROACH — ICE process diagram
+          3. OUR APPROACH — ICE process diagram
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
@@ -153,9 +227,9 @@ export default function OurSolutionsPage() {
       </section>
 
       {/* ══════════════════════════════════════
-          3. TECHNOLOGY & BUSINESS SOLUTIONS — ServiceCard ×4
+          4. TECHNOLOGY & BUSINESS SOLUTIONS — ServiceCard ×4
       ══════════════════════════════════════ */}
-      <section className="bg-white pb-20 lg:pb-24">
+      <section id="solutions-grid" className="bg-white pb-20 lg:pb-24 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading title="Technology and Business Solutions That Deliver Impact" className="mb-10" />
 
@@ -163,7 +237,8 @@ export default function OurSolutionsPage() {
             {solutionCards.map((card) => (
               <div
                 key={card.href}
-                className="[&>a]:max-w-none [&>a]:w-full [&>a]:aspect-auto [&>a]:h-100"
+                id={card.slug}
+                className="scroll-mt-24 [&>a]:max-w-none [&>a]:w-full [&>a]:aspect-auto [&>a]:h-100"
               >
                 <ServiceCard
                   image={card.image}

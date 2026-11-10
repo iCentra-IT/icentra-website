@@ -3,16 +3,13 @@ import Link from "next/link";
 
 const quickLinks = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
   { label: "Contact Us", href: "/contact" },
-  { label: "Media Room", href: "/media" },
 ];
 
 const aboutLinks = [
-  { label: "Who we are", href: "/about/who-we-are" },
+  { label: "About Us", href: "/about" },
   { label: "Leadership Team", href: "/about/leadership" },
   { label: "Careers", href: "/careers" },
-  { label: "Media Room", href: "/media" },
 ];
 
 const whatWeDo = [
@@ -85,7 +82,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm text-white/75 leading-relaxed max-w-60">
-              Transforming people &amp; organizations for excellent performance
+              Transforming people &amp; organizations for sustainable performance
             </p>
             {/* Socials */}
             <div className="flex items-center gap-4">
@@ -143,7 +140,7 @@ export default function Footer() {
 
             {/* About iCentra */}
             <div>
-              <h3 className="text-base font-semibold text-white mb-5">About Icentra</h3>
+              <h3 className="text-base font-semibold text-white mb-5">About iCentra</h3>
               <ul className="flex flex-col gap-3">
                 {aboutLinks.map((l) => (
                   <li key={l.label}>

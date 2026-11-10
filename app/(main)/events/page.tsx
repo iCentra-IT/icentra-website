@@ -49,7 +49,7 @@ export default function EventsPage() {
       ══════════════════════════════════════ */}
       <section className="bg-[#F7F9FC] py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionHeading title="Upcoming Webinar" className="mb-10" />
+          <SectionHeading title="Upcoming Events" className="mb-10" />
           <UpcomingWebinarCard />
         </div>
       </section>
@@ -104,12 +104,12 @@ export default function EventsPage() {
       </section>
 
       {/* ══════════════════════════════════════
-          6. UPCOMING EVENTS — InnTech Summit
+          6. OTHER UPCOMING EVENTS — InnTech Summit (external spotlight)
       ══════════════════════════════════════ */}
       <section className="bg-white pb-16 lg:pb-20">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
-            title="Upcoming Events"
+            title="Other Upcoming Events"
             subtitle="Join our next event and be part of the conversation that's transforming people."
             className="mb-10"
           />
@@ -147,22 +147,7 @@ export default function EventsPage() {
       </section>
 
       {/* ══════════════════════════════════════
-          7. PAST WEBINARS
-      ══════════════════════════════════════ */}
-      <section className="bg-white pb-16 lg:pb-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <SectionHeading
-            title="Past Webinars"
-            subtitle="Missed an event? Catch up on key moments, recordings, and thought leadership from past sessions."
-            className="mb-10"
-          />
-
-          <PastWebinarsGrid />
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════
-          8. SPEAK AT A TRANSFORM WEBINAR
+          7. SPEAK AT A TRANSFORM WEBINAR
       ══════════════════════════════════════ */}
       <section className="bg-[#F7F9FC] py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
@@ -177,6 +162,15 @@ export default function EventsPage() {
             </div>
             <SpeakerApplicationModal />
           </Reveal>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          8. PAST WEBINARS
+      ══════════════════════════════════════ */}
+      <section className="bg-white pb-16 lg:pb-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <PastWebinarsGrid />
         </div>
       </section>
 

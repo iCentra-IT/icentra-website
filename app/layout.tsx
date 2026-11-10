@@ -33,13 +33,13 @@ export const metadata: Metadata = {
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
     url: SITE_URL,
-    images: [{ url: "/images/banner/discover-icentra.png" }],
+    images: [{ url: "/images/banner/discover-icentra.jpg" }],
   },
   twitter: {
     card: "summary_large_image",
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
-    images: ["/images/banner/discover-icentra.png"],
+    images: ["/images/banner/discover-icentra.jpg"],
   },
   robots: {
     index: true,

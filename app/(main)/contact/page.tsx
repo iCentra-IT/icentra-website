@@ -15,6 +15,7 @@ import worldTopoJson from "world-atlas/countries-110m.json";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
 import { StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
+import { INDUSTRY_OPTS } from "@/components/forms/all-forms";
 
 /* ─────────────────────────────────────────
    OFFICE DATA — coordinates are real [longitude, latitude]
@@ -313,22 +314,16 @@ export default function ContactPage() {
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[#1A274F] text-sm font-medium">
-                    Organization<span className="text-[#0066FF]">*</span>
+                    Organization
                   </label>
-                  <select
+                  <input
+                    type="text"
                     name="organization"
                     value={form.organization}
                     onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-sm text-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors cursor-pointer appearance-none"
-                  >
-                    <option value="" disabled>select organization</option>
-                    <option>Private Company</option>
-                    <option>Government Agency</option>
-                    <option>NGO / Non-Profit</option>
-                    <option>Educational Institution</option>
-                    <option>Other</option>
-                  </select>
+                    placeholder="Enter your organization"
+                    className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-sm text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors"
+                  />
                 </div>
               </div>
 
@@ -337,15 +332,18 @@ export default function ContactPage() {
                 <label className="text-[#1A274F] text-sm font-medium">
                   Industry<span className="text-[#0066FF]">*</span>
                 </label>
-                <input
-                  type="text"
+                <select
                   name="industry"
                   value={form.industry}
                   onChange={handleChange}
-                  placeholder="Enter your industry"
                   required
-                  className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-sm text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors"
-                />
+                  className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-sm text-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors cursor-pointer appearance-none"
+                >
+                  <option value="" disabled>Select Industry</option>
+                  {INDUSTRY_OPTS.map((opt) => (
+                    <option key={opt} value={opt}>{opt}</option>
+                  ))}
+                </select>
               </div>
 
               {/* Row 4 — How can we help (full-width textarea) */}

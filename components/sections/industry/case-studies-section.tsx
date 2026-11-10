@@ -51,6 +51,7 @@ export default function CaseStudiesSection({ items }: { items: CaseStudyCard[] }
                       readTime={item.readTime}
                       excerpt={item.excerpt}
                       href={`/industry/case-study/${item.slug}`}
+                      showDate={false}
                     />
                   </StaggerItem>
                 ))}

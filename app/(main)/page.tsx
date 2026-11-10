@@ -150,6 +150,7 @@ export default async function HomePage() {
         bgClassName="bg-[#F7F9FC]"
         viewAllHref="/industry#case-studies"
         viewAllLabel="View All Case Studies"
+        showDate={false}
       />
 
       {/* ══════════════════════════════════════

@@ -4,10 +4,10 @@ import type { Metadata } from "next";
 // this codebase. Update this if the real production domain differs.
 export const SITE_URL = "https://icentra.com";
 export const SITE_NAME = "iCentra";
-export const DEFAULT_TITLE = "iCentra | Transforming People & Organizations for Excellent Performance";
+export const DEFAULT_TITLE = "iCentra | Transforming People & Organizations for Sustained Performance";
 export const DEFAULT_DESCRIPTION =
   "iCentra partners with organizations to drive continuous transformation, cybersecurity, strategy and execution, and learning & talent development, turning ambition into measurable performance.";
-export const DEFAULT_OG_IMAGE = "/images/banner/discover-icentra.png";
+export const DEFAULT_OG_IMAGE = "/images/banner/discover-icentra.jpg";
 
 interface PageMetadataInput {
   title: string;

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { StaggerItem } from "@/components/ui/motion/reveal";
 import type { PlaylistVideo } from "@/lib/api/playlists";
 
 export default function PastWebinarVideoCard({ video, onPlay }: { video: PlaylistVideo; onPlay: (youtubeId: string) => void }) {
@@ -10,7 +9,7 @@ export default function PastWebinarVideoCard({ video, onPlay }: { video: Playlis
     : null;
 
   return (
-    <StaggerItem className="bg-white rounded-xl border border-[#DCE0E8] overflow-hidden flex flex-col">
+    <div className="bg-white rounded-xl border border-[#DCE0E8] overflow-hidden flex flex-col h-full">
       <button
         type="button"
         onClick={() => onPlay(video.youtube_video_id)}
@@ -43,6 +42,6 @@ export default function PastWebinarVideoCard({ video, onPlay }: { video: Playlis
           </div>
         )}
       </div>
-    </StaggerItem>
+    </div>
   );
 }

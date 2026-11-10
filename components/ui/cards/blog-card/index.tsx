@@ -11,6 +11,8 @@ export interface BlogCardProps {
   readTime?: string;
   href: string;
   excerpt?: string;
+  /** Set false to hide the published date in the meta row (e.g. case study cards). */
+  showDate?: boolean;
 }
 
 export default function BlogCard({
@@ -20,6 +22,7 @@ export default function BlogCard({
   readTime,
   href,
   excerpt,
+  showDate = true,
 }: BlogCardProps) {
   return (
     <motion.div
@@ -51,8 +54,8 @@ export default function BlogCard({
         </p>
         {/* Meta */}
         <div className="flex items-center gap-2 text-sm text-[#4B6CB7]">
-          <span>{date}</span>
-          {readTime && <span className="w-1.25 h-1.25 rounded-full bg-[#1A274F] inline-block" />}
+          {showDate && <span>{date}</span>}
+          {showDate && readTime && <span className="w-1.25 h-1.25 rounded-full bg-[#1A274F] inline-block" />}
           <span>{readTime}</span>
         </div>
 

@@ -1,5 +1,6 @@
-import HeroVideo from "@/components/sections/home/hero-video";
+import PageHero from "@/components/ui/page-hero";
 import TrustedPartners from "@/components/sections/home/partners";
+import StatsBar from "@/components/sections/home/stat";
 import BlogCard from "@/components/ui/cards/blog-card";
 import ServiceCard from "@/components/ui/cards/service-card";
 import SectionHeading from "@/components/ui/section-heading";
@@ -87,11 +88,12 @@ export default async function ContinuousTransformationPage() {
     <main className="w-full overflow-x-hidden">
 
       {/* ══════════════════════════════════════
-          1. HERO — homepage HeroVideo (reused)
+          1. HERO — PageHero (reused)
       ══════════════════════════════════════ */}
-      <section className="relative bg-[#1A274F] overflow-hidden">
-        <HeroVideo src="/icentra-video.mp4" />
-      </section>
+      <PageHero
+        headline={"Continuous\nTransformation"}
+        subtext="Transformation is no longer a one-time initiative — it's a continuous capability that aligns strategy, governance, execution, and workforce capability."
+      />
 
       {/* ══════════════════════════════════════
           2. INTRO — bold subheading + 3 paras + image
@@ -281,20 +283,9 @@ export default async function ContinuousTransformationPage() {
       </section>
 
       {/* ══════════════════════════════════════
-          7. STATS BAR — dark navy, 4 metrics
+          7. STATS BAR — reusable StatsBar
       ══════════════════════════════════════ */}
-      <section className="bg-main py-10 lg:py-12">
-        <StaggerGroup className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
-          {stats.map((s) => (
-            <StaggerItem key={s.label} className="flex flex-col items-center text-center px-4 py-4 lg:py-0">
-              <span className="text-white text-[32px] lg:text-[40px] font-extrabold leading-none">
-                {s.value}
-              </span>
-              <span className="text-white/55 text-xs lg:text-sm mt-1.5">{s.label}</span>
-            </StaggerItem>
-          ))}
-        </StaggerGroup>
-      </section>
+      <StatsBar stats={stats} />
 
       {/* ══════════════════════════════════════
           8. OUR TRUSTED PARTNERS
