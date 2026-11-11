@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
+import StatsBar from "@/components/sections/home/stat";
 import ComparisonTable from "@/components/sections/partnerships/comparison-table";
 import SolutionCard from "@/components/ui/cards/solution-card";
 import DottedCtaBanner from "@/components/ui/dotted-cta-banner";
@@ -18,34 +18,75 @@ export const metadata: Metadata = pageMetadata({
   path: "/what-we-do/partnerships",
 });
 
+/* ─────────────────────────────────────────
+   PARTNERSHIP ICONS — inline SVG, one per partnership slug
+───────────────────────────────────────── */
+function PartnershipIcon({ slug }: { slug: string }) {
+  const common = { fill: "none", stroke: "currentColor", strokeWidth: 1.8 } as const;
+  if (slug === "ai-transformation") {
+    return (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" {...common}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 17l6-6 4 4 8-8M21 11V3h-8" />
+      </svg>
+    );
+  }
+  if (slug === "complycentra") {
+    return (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" {...common}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" />
+      </svg>
+    );
+  }
+  if (slug === "pmocentra") {
+    return (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" {...common}>
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="12" cy="12" r="4.5" />
+        <circle cx="12" cy="12" r="0.5" fill="currentColor" />
+      </svg>
+    );
+  }
+  return (
+    <svg className="w-5 h-5" viewBox="0 0 24 24" {...common}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l8-4-8-4-8 4 8 4zm0 0v6m-8-6v3.5c0 .9 3.6 2.5 8 2.5s8-1.6 8-2.5V10" />
+    </svg>
+  );
+}
+
 export default function PartnershipsPage() {
   return (
     <main className="w-full overflow-x-hidden">
 
       {/* ══════════════════════════════════════
-          1. HERO — eyebrow strip + PageHero (reused)
+          1. HERO — bespoke gradient hero (matches /what-we-do/solutions)
       ══════════════════════════════════════ */}
-      <div className="bg-[#0B1638] text-center py-2.5">
-        <span className="text-white/70 text-xs font-semibold tracking-widest uppercase">
-          {partnershipsHub.eyebrow}
-        </span>
-      </div>
-      <PageHero headline={partnershipsHub.heroHeadline} subtext={partnershipsHub.heroSubtext}>
-        <div className="flex flex-wrap items-center gap-4">
+      <section className="relative bg-linear-to-br from-[#0B1B4D] via-[#16266E] to-[#1E3A8A] overflow-hidden">
+        <div className="absolute right-0 top-0 w-125 h-125 bg-[#0066FF]/10 blur-3xl pointer-events-none" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:py-20">
+          <span className="inline-block text-[var(--color-light-blue)] text-xs font-bold tracking-[0.18em] uppercase border border-white/20 rounded-full px-4 py-1.5 mb-5">
+            Enterprise Partnerships
+          </span>
+          <h1 className="text-white text-[32px] sm:text-[40px] lg:text-[48px] font-extrabold leading-[1.1] mb-5 max-w-3xl">
+            {partnershipsHub.heroHeadline.split("\n").map((line, i) => (
+              <span key={i} className="block">{line}</span>
+            ))}
+          </h1>
+          <div className="w-16 h-1 rounded-full bg-light-blue mb-6" />
+          <p className="text-white/75 text-base leading-[1.8] mb-8 max-w-2xl">
+            {partnershipsHub.heroSubtext}
+          </p>
           <Link
             href="/contact"
-            className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors"
+            className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"
           >
             Book a Discovery Call
           </Link>
-          <a
-            href={`mailto:${DISCOVERY_EMAIL}`}
-            className="text-white/70 text-sm font-medium hover:text-white transition-colors"
-          >
-            {DISCOVERY_EMAIL}
-          </a>
         </div>
-      </PageHero>
+      </section>
+
+      {/* Proof strip */}
+      <StatsBar />
 
       {/* ══════════════════════════════════════
           2. WHY PARTNERSHIP, NOT PROJECT
@@ -104,9 +145,14 @@ export default function PartnershipsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-[#DCE0E8]">
             <StaggerGroup className="bg-[#F7F9FC] p-8 flex flex-col gap-5">
               {partnerships.map((partnership) => (
-                <StaggerItem key={partnership.slug}>
-                  <p className="text-[#0066FF] text-base font-bold">{partnership.name}</p>
-                  <p className="text-[#6B7280] text-sm leading-relaxed">{partnership.integratedLine}</p>
+                <StaggerItem key={partnership.slug} className="flex items-start gap-4">
+                  <span className="shrink-0 w-10 h-10 rounded-full bg-[#EAF3FB] text-[#0066FF] flex items-center justify-center">
+                    <PartnershipIcon slug={partnership.slug} />
+                  </span>
+                  <div>
+                    <p className="text-[#0066FF] text-base font-bold">{partnership.name}</p>
+                    <p className="text-[#6B7280] text-sm leading-relaxed">{partnership.integratedLine}</p>
+                  </div>
                 </StaggerItem>
               ))}
             </StaggerGroup>
@@ -161,14 +207,16 @@ export default function PartnershipsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading title="Is a Partnership Right for Your Organization?" className="mb-10" />
 
-          <div className="mb-10">
-            <p className="text-[#1A274F] text-sm font-bold mb-5">iCentra partnerships work best for organizations that:</p>
-            <CheckList items={partnershipsHub.goodFit} />
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            <div className="rounded-2xl border border-[#0066FF]/30 bg-[#EAF3FB] p-7 lg:p-8">
+              <p className="text-[#1A274F] text-sm font-bold mb-5">iCentra partnerships work best for organizations that:</p>
+              <CheckList items={partnershipsHub.goodFit} columns={1} />
+            </div>
 
-          <div>
-            <p className="text-[#1A274F] text-sm font-bold mb-5">These partnerships are not the right fit for:</p>
-            <CheckList items={partnershipsHub.notFit} variant="cross" />
+            <div className="rounded-2xl border border-[#DCE0E8] bg-white p-7 lg:p-8">
+              <p className="text-[#1A274F] text-sm font-bold mb-5">These partnerships are not the right fit for:</p>
+              <CheckList items={partnershipsHub.notFit} variant="cross" columns={1} />
+            </div>
           </div>
         </div>
       </section>

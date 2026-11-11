@@ -4,17 +4,19 @@ import Link from "next/link";
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "Contact Us", href: "/contact" },
+  { label: "iCentra Learning", href: "https://learning.icentra.com/" },
+  { label: "CareerCentra", href: "https://careercentra.icentra.com/" },
 ];
 
 const aboutLinks = [
   { label: "About Us", href: "/about" },
-  { label: "Leadership Team", href: "/about/leadership" },
+  { label: "Events", href: "/event" },
   { label: "Careers", href: "/careers" },
 ];
 
 const whatWeDo = [
   { label: "Continuous Transformation", href: "/what-we-do/continuous-transformation" },
-  { label: "Our solution", href: "/what-we-do/solutions" },
+  { label: "Solutions", href: "/what-we-do/solutions" },
   { label: "Partnerships", href: "/what-we-do/partnerships" },
 ];
 
@@ -82,7 +84,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm text-white/75 leading-relaxed max-w-60">
-              Transforming people &amp; organizations for sustainable performance
+              Transforming people &amp; organizations for sustained  performance
             </p>
             {/* Socials */}
             <div className="flex items-center gap-4">

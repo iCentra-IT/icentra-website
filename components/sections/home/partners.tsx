@@ -64,9 +64,8 @@ export default function TrustedPartners({
     <section className="relative bg-white border-[#DCE0E8] py-12 lg:py-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
-          title="Our Trusted Partners"
-          subtitle="Proudly collaborating with global standards organizations and
-          technology leaders."
+          title="Select Clients"
+          subtitle="We have over the years provided business solutions to top organizations which gives a rich history of value delivery and experience across industries."
           className="mb-8"
         />
       </div>

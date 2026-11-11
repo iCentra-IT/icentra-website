@@ -27,6 +27,7 @@ export default function AnnouncementStrip() {
           <WebinarRegistrationModal
             eventSlug={nextEvent.slug}
             eventTitle={nextEvent.title}
+            eventImage={nextEvent.cover_image}
             triggerLabel="Register now →"
             triggerClassName={REGISTER_CLASS}
           />

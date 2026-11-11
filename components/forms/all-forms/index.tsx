@@ -30,7 +30,16 @@ const FREQUENCY_OPTS      = [
   { label: "Bi-Weekly", value: "bi-weekly" },
   { label: "Monthly", value: "monthly" },
 ];
-const TIMEZONE_OPTS       = ["UTC−5 (EST)", "UTC+0 (GMT)", "UTC+1 (WAT)", "UTC+3 (EAT)", "UTC+5:30 (IST)", "UTC+8 (SGT)"];
+// Values are real IANA identifiers (what the backend parses as a timezone),
+// labels are the friendly offset the user actually recognizes.
+const TIMEZONE_OPTS       = [
+  { label: "UTC−5 (EST)",    value: "America/New_York" },
+  { label: "UTC+0 (GMT)",    value: "UTC" },
+  { label: "UTC+1 (WAT)",    value: "Africa/Lagos" },
+  { label: "UTC+3 (EAT)",    value: "Africa/Nairobi" },
+  { label: "UTC+5:30 (IST)", value: "Asia/Kolkata" },
+  { label: "UTC+8 (SGT)",    value: "Asia/Singapore" },
+];
 const REMINDER_OPTS       = [
   { label: "1 hour before", value: "60" },
   { label: "1 day before", value: "1440" },
@@ -385,13 +394,17 @@ export function HomepageFormModal({
    4. WEBINAR REGISTRATION FORM
    POST /api/v1/events/{slug}/register/
 ─────────────────────────────────────────────────── */
+const DEFAULT_WEBINAR_IMAGE = "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80";
+
 function WebinarRegistrationContent({
   eventSlug,
   eventTitle,
+  eventImage,
   onSuccess,
 }: {
   eventSlug: string;
   eventTitle?: string;
+  eventImage?: string | null;
   onSuccess: () => void;
 }) {
   const [agreed, setAgreed] = useState(false);
@@ -431,10 +444,7 @@ function WebinarRegistrationContent({
   return (
     <FormCard title="Webinar Registration Form">
       <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
-        <WebinarBanner
-          image="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80"
-          alt="iCentra webinar"
-        />
+        <WebinarBanner image={eventImage || DEFAULT_WEBINAR_IMAGE} alt={eventTitle ?? "iCentra webinar"} />
         {eventTitle && (
           <p className="text-[#6B7280] text-sm -mt-2">
             Registering for <span className="text-[#1A274F] font-semibold">{eventTitle}</span>
@@ -464,11 +474,13 @@ function WebinarRegistrationContent({
 export function WebinarRegistrationModal({
   eventSlug,
   eventTitle,
+  eventImage,
   triggerLabel = "Register Now",
   triggerClassName,
 }: {
   eventSlug: string;
   eventTitle?: string;
+  eventImage?: string | null;
   triggerLabel?: string;
   triggerClassName?: string;
 }) {
@@ -496,7 +508,12 @@ export function WebinarRegistrationModal({
             onClose={handleClose}
           />
         ) : (
-          <WebinarRegistrationContent eventSlug={eventSlug} eventTitle={eventTitle} onSuccess={() => setSubmitted(true)} />
+          <WebinarRegistrationContent
+            eventSlug={eventSlug}
+            eventTitle={eventTitle}
+            eventImage={eventImage}
+            onSuccess={() => setSubmitted(true)}
+          />
         )}
       </FormModal>
     </>

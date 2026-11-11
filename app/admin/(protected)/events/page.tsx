@@ -11,8 +11,10 @@ import { staffListEvents, staffDeleteEvent, EVENT_STATUS_LABELS, formatEventSche
 
 const STATUS_STYLES: Record<StaffEvent["status"], string> = {
   draft: "bg-[#F7F9FC] text-[#6B7280]",
-  open: "bg-[#DCFCE7] text-[#15803D]",
-  closed: "bg-[#FEE2E2] text-[#B91C1C]",
+  published: "bg-[#DCFCE7] text-[#15803D]",
+  cancelled: "bg-[#FEE2E2] text-[#B91C1C]",
+  completed: "bg-[#EAF3FB] text-[#0066FF]",
+  archived: "bg-[#F3F4F6] text-[#9CA3AF]",
 };
 
 export default function AdminEventsPage() {

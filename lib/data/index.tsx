@@ -95,8 +95,8 @@ export const solutionCards = [
       "Scalable digital platforms that accelerate delivery, improve visibility, and create lasting competitive advantage.",
     list: [
       "AI Transformation Partnership™",
-      "PMOCentra (PMO-as-a-Service)",
-      "ComplyCentra (Compliance-as-a-Service)",
+      "PMO Partnerships",
+      "Compliance Partnerships",
       "Workforce Capability Partnerships™",
     ],
     href: "/what-we-do/partnerships",

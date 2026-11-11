@@ -3,7 +3,7 @@ import type { PillarItem } from "./pillars";
 
 export type EventType = "webinar" | "summit" | "conference" | "workshop" | "training" | "roundtable";
 export type LocationType = "online" | "in_person" | "hybrid";
-export type EventStatus = "draft" | "open" | "closed";
+export type EventStatus = "draft" | "published" | "cancelled" | "completed" | "archived";
 
 export const EVENT_TYPE_LABELS: Record<EventType, string> = {
   webinar: "Webinar",
@@ -16,8 +16,10 @@ export const EVENT_TYPE_LABELS: Record<EventType, string> = {
 
 export const EVENT_STATUS_LABELS: Record<EventStatus, string> = {
   draft: "Draft",
-  open: "Open",
-  closed: "Closed",
+  published: "Published",
+  cancelled: "Cancelled",
+  completed: "Completed",
+  archived: "Archived",
 };
 
 export const LOCATION_TYPE_LABELS: Record<LocationType, string> = {

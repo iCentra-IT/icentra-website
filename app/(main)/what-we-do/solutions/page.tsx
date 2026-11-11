@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import ServiceCard from "@/components/ui/cards/service-card";
 import SectionHeading from "@/components/ui/section-heading";
+import StatsBar from "@/components/sections/home/stat";
+import DottedCtaBanner from "@/components/ui/dotted-cta-banner";
 import { StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 import HeroVideo from "@/components/sections/home/hero-video";
 import Link from "next/link";
@@ -173,6 +175,9 @@ export default function OurSolutionsPage() {
         </div>
       </section>
 
+      {/* Proof strip */}
+      <StatsBar />
+
       {/* ══════════════════════════════════════
           3. OUR APPROACH — ICE process diagram
       ══════════════════════════════════════ */}
@@ -231,7 +236,11 @@ export default function OurSolutionsPage() {
       ══════════════════════════════════════ */}
       <section id="solutions-grid" className="bg-white pb-20 lg:pb-24 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionHeading title="Technology and Business Solutions That Deliver Impact" className="mb-10" />
+          <SectionHeading
+            title="Technology and Business Solutions That Deliver Impact"
+            subtitle="Four domains, each with a dedicated team and a proven delivery methodology. Pick a card to see what's inside."
+            className="mb-10"
+          />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {solutionCards.map((card) => (
@@ -253,6 +262,17 @@ export default function OurSolutionsPage() {
           </div>
         </div>
       </section>
+
+      {/* ══════════════════════════════════════
+          5. START A CONVERSATION — closing CTA
+      ══════════════════════════════════════ */}
+      <DottedCtaBanner
+        title="Not Sure Where to Begin?"
+        subtext="Talk to our team about the right starting point for your transformation. We'll help you identify which domain to prioritize and what a first engagement could look like."
+        ctaLabel="Book a Consultation"
+        ctaHref="/contact"
+        bgClassName="bg-[#25429A]"
+      />
 
     </main>
   );

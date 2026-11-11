@@ -89,7 +89,7 @@ export default function AdminDashboardPage() {
   const speakers = speakersQuery.data;
 
   const openJobs = jobs?.filter((j) => j.status === "open" && j.is_public).length;
-  const upcomingEvents = events?.filter((e) => e.status === "open" && new Date(e.start_datetime) > new Date()).length;
+  const upcomingEvents = events?.filter((e) => e.status === "published" && new Date(e.start_datetime) > new Date()).length;
   const activeSpeakers = speakers?.filter((s) => s.is_active).length;
 
   return (

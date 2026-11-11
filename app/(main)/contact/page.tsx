@@ -26,7 +26,7 @@ const offices = [
     city: "Arlington, Texas",
     address: "110 W Randol Mill Road, Arlington, Texas, TX 76011",
     phone: "+1 682 373 2737",
-    email: "texas@icentra.com",
+    email: "info@icentra.com",
     coordinates: [-97.1075, 32.7357] as [number, number],
   },
   {
@@ -34,7 +34,7 @@ const offices = [
     city: "London",
     address: "20-22 Wenlock Road, London, N1 7GU",
     phone: "+44 800 043 4946",
-    email: "london@icentra.com",
+    email: "info@icentra.com",
     coordinates: [-0.1278, 51.5074] as [number, number],
   },
   {
@@ -42,7 +42,7 @@ const offices = [
     city: "Abuja",
     address: "47B Kumasi Crescent Wuse II, Abuja, 900288",
     phone: "+234 807 675 7797",
-    email: "abuja@icentra.com",
+    email: "info@icentra.com",
     coordinates: [7.4951, 9.0765] as [number, number],
   },
 ];

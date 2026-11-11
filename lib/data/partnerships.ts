@@ -24,8 +24,6 @@ export interface ValueProp {
 
 export interface PricingTier {
   name: string;
-  price: string;
-  priceNaira?: string;
   included: string;
 }
 
@@ -34,7 +32,7 @@ export interface Partnership {
   image: string;
   eyebrow: string;
   name: string;
-  /** Parenthetical descriptor shown next to the name, e.g. "PMO-as-a-Service" */
+  /** Parenthetical descriptor shown next to the name, e.g. "Compliance-as-a-Service" */
   subtitle?: string;
   /** Short punchy line — used on the hub card hover and the detail hero */
   tagline: string;
@@ -139,6 +137,86 @@ export const partnershipsHub = {
 
 export const partnerships: Partnership[] = [
   {
+    slug: "workforce-capability",
+    image: "/images/partnerships/workforce-capability.jpg",
+    eyebrow: "Learning & Talent · Retainer",
+    name: "Workforce Capability Partnerships™",
+    tagline: "Build the Workforce Your Transformation Needs",
+    description:
+      "We align capability building directly to your transformation priorities, from assessment to certification to measurable business impact.",
+    integratedLine: "The people ready to execute and adopt",
+
+    heroParagraph:
+      "Transformation initiatives don't fail because of strategy, they fail because the workforce isn't ready. Workforce Capability Partnerships aligns capability building directly to your transformation priorities, from a capability assessment through certification pathways to a measurable capability scorecard.",
+    heroCtaLabel: "Build Your Capability Roadmap",
+    typicalBuyer: "CHRO / CLO",
+    whoFor: [
+      "CHROs and CLOs facing skills gaps that put transformation initiatives at risk",
+      "Organizations with fragmented, ad hoc training and no coordinated capability plan",
+      "Companies that need a stronger leadership pipeline to execute on strategy",
+    ],
+    whyICentra:
+      "We don't sell generic training, we build a capability program tied directly to the transformation priorities your leadership is already committed to.",
+    valueProps: [
+      {
+        title: "Strategy-Aligned Capability",
+        description: "Every learning investment ties back to a transformation priority, not a generic course catalog.",
+      },
+      {
+        title: "Stronger Leadership Pipeline",
+        description: "Build the bench you need for the next stage of growth, not just today's roles.",
+      },
+      {
+        title: "Higher Adoption",
+        description: "Workforce that's genuinely capable of adopting new ways of working, not just trained on paper.",
+      },
+      {
+        title: "Measurable ROI",
+        description: "A capability scorecard that shows the business impact of the investment.",
+      },
+    ],
+    howItWorks: [
+      {
+        title: "Capability Assessment",
+        description: "Identify capability gaps against your transformation and strategic priorities.",
+      },
+      { title: "Learning Roadmap", description: "Build an annual plan that sequences capability building against business need." },
+      {
+        title: "Academy & Certification Pathways",
+        description: "Structured pathways, not one-off courses, with recognized certification.",
+      },
+      { title: "Ongoing Delivery", description: "Continuous program delivery, not a single training event." },
+      { title: "Impact Measurement", description: "Track capability growth against a scorecard tied to business outcomes." },
+    ],
+    deliverables: [
+      "Capability framework",
+      "Annual learning plan",
+      "Curated programs",
+      "Certification roadmap",
+      "Capability scorecard",
+    ],
+    businessOutcomes: [
+      "Workforce ready for transformation priorities",
+      "Stronger leadership pipeline",
+      "Higher adoption of new ways of working",
+      "Measurable capability ROI",
+    ],
+    tiers: [
+      {
+        name: "Essentials",
+        included: "Capability assessment and learning roadmap, up to 200 learners.",
+      },
+      {
+        name: "Standard",
+        included: "Adds competency frameworks and leadership pipeline design, up to 500 learners.",
+      },
+      {
+        name: "Enterprise",
+        included: "Full capability partnership with workforce analytics, unlimited learner population.",
+      },
+    ],
+  },
+  {
     slug: "ai-transformation",
     image: "/images/partnerships/ai-transformation.jpg",
     eyebrow: "Enterprise Transformation · Retainer / Phased Program",
@@ -210,20 +288,14 @@ export const partnerships: Partnership[] = [
     tiers: [
       {
         name: "Essentials",
-        price: "$3,000/month",
-        priceNaira: "~₦1,400,000/month",
         included: "AI Readiness Assessment + Strategy & Roadmap. Monthly advisory office hours.",
       },
       {
         name: "Standard",
-        price: "$8,000/month",
-        priceNaira: "~₦3,800,000/month",
         included: "Essentials + use-case portfolio, governance framework design, pilot oversight.",
       },
       {
         name: "Enterprise",
-        price: "Custom, starting from $18,000/month",
-        priceNaira: "~₦8,500,000/month",
         included: "Embedded governance, multi-use-case build support, workforce enablement at scale.",
       },
     ],
@@ -232,8 +304,8 @@ export const partnerships: Partnership[] = [
     slug: "pmocentra",
     image: "/images/partnerships/pmocentra.jpg",
     eyebrow: "Strategy & Execution · Retainer → Platform Roadmap",
-    name: "PMOCentra™",
-    subtitle: "PMO-as-a-Service",
+    name: "PMO Partnerships",
+    subtitle: "",
     tagline: "Your Projects. Our Expertise. Guaranteed Results.",
     description:
       "An on-demand, fully managed PMO (people, process, and technology) without the overhead of building in-house.",
@@ -297,20 +369,14 @@ export const partnerships: Partnership[] = [
     tiers: [
       {
         name: "Essentials",
-        price: "$2,500/month",
-        priceNaira: "~₦1,200,000/month",
         included: "Governance framework setup, quarterly portfolio reporting.",
       },
       {
         name: "Standard",
-        price: "$7,000/month",
-        priceNaira: "~₦3,300,000/month",
         included: "Monthly reporting, on-demand PMO experts, portfolio dashboards.",
       },
       {
         name: "Enterprise",
-        price: "Custom, starting from $15,000/month",
-        priceNaira: "~₦7,000,000/month",
         included: "Dedicated PMO manager, continuous governance, real-time performance analytics.",
       },
     ],
@@ -319,8 +385,8 @@ export const partnerships: Partnership[] = [
     slug: "complycentra",
     image: "/images/partnerships/complycentra.jpg",
     eyebrow: "Cybersecurity & GRC · Retainer → Platform Roadmap",
-    name: "ComplyCentra™",
-    subtitle: "Compliance-as-a-Service",
+    name: "Compliance Partnerships",
+    subtitle: "",
     tagline: "Build Trust. Stay Compliant. Be Audit-Ready.",
     description:
       "ISO certification is a milestone. Maintaining it is a competitive advantage. We keep your program effective and audit-ready, continuously.",
@@ -383,106 +449,15 @@ export const partnerships: Partnership[] = [
     tiers: [
       {
         name: "Essentials",
-        price: "$1,800/month",
-        priceNaira: "~₦850,000/month",
         included: "1 ISO standard, quarterly health checks, 1 internal audit/year, shared consultant team.",
       },
       {
         name: "Standard",
-        price: "$4,000/month",
-        priceNaira: "~₦1,900,000/month",
         included: "Certification/renewal prep, monthly health checks, priority support, monthly dashboard.",
       },
       {
         name: "Enterprise",
-        price: "Custom, scoped to standards, sites, and headcount",
         included: "Multi-standard/multi-site, continuous monitoring, dedicated named consultant, board-ready reporting.",
-      },
-    ],
-  },
-  {
-    slug: "workforce-capability",
-    image: "/images/partnerships/workforce-capability.jpg",
-    eyebrow: "Learning & Talent · Retainer",
-    name: "Workforce Capability Partnerships™",
-    tagline: "Build the Workforce Your Transformation Needs",
-    description:
-      "We align capability building directly to your transformation priorities, from assessment to certification to measurable business impact.",
-    integratedLine: "The people ready to execute and adopt",
-
-    heroParagraph:
-      "Transformation initiatives don't fail because of strategy, they fail because the workforce isn't ready. Workforce Capability Partnerships aligns capability building directly to your transformation priorities, from a capability assessment through certification pathways to a measurable capability scorecard.",
-    heroCtaLabel: "Build Your Capability Roadmap",
-    typicalBuyer: "CHRO / CLO",
-    whoFor: [
-      "CHROs and CLOs facing skills gaps that put transformation initiatives at risk",
-      "Organizations with fragmented, ad hoc training and no coordinated capability plan",
-      "Companies that need a stronger leadership pipeline to execute on strategy",
-    ],
-    whyICentra:
-      "We don't sell generic training, we build a capability program tied directly to the transformation priorities your leadership is already committed to.",
-    valueProps: [
-      {
-        title: "Strategy-Aligned Capability",
-        description: "Every learning investment ties back to a transformation priority, not a generic course catalog.",
-      },
-      {
-        title: "Stronger Leadership Pipeline",
-        description: "Build the bench you need for the next stage of growth, not just today's roles.",
-      },
-      {
-        title: "Higher Adoption",
-        description: "Workforce that's genuinely capable of adopting new ways of working, not just trained on paper.",
-      },
-      {
-        title: "Measurable ROI",
-        description: "A capability scorecard that shows the business impact of the investment.",
-      },
-    ],
-    howItWorks: [
-      {
-        title: "Capability Assessment",
-        description: "Identify capability gaps against your transformation and strategic priorities.",
-      },
-      { title: "Learning Roadmap", description: "Build an annual plan that sequences capability building against business need." },
-      {
-        title: "Academy & Certification Pathways",
-        description: "Structured pathways, not one-off courses, with recognized certification.",
-      },
-      { title: "Ongoing Delivery", description: "Continuous program delivery, not a single training event." },
-      { title: "Impact Measurement", description: "Track capability growth against a scorecard tied to business outcomes." },
-    ],
-    deliverables: [
-      "Capability framework",
-      "Annual learning plan",
-      "Curated programs",
-      "Certification roadmap",
-      "Capability scorecard",
-    ],
-    businessOutcomes: [
-      "Workforce ready for transformation priorities",
-      "Stronger leadership pipeline",
-      "Higher adoption of new ways of working",
-      "Measurable capability ROI",
-    ],
-    tiers: [
-      {
-        name: "Essentials",
-        price: "$2,500/month",
-        priceNaira: "~₦1,200,000/month",
-        included: "Capability assessment and learning roadmap, up to 200 learners.",
-      },
-      {
-        name: "Standard",
-        price: "$6,000/month",
-        priceNaira: "~₦2,800,000/month",
-        included: "Adds competency frameworks and leadership pipeline design, up to 500 learners.",
-      },
-      {
-        name: "Enterprise",
-        price: "Custom, starting from $12,000/month",
-        priceNaira: "~₦5,600,000/month",
-        included: "Full capability partnership with workforce analytics, unlimited learner population.",
       },
     ],
   },

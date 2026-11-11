@@ -19,7 +19,7 @@ export default function PastWebinarCard({ event, label = "View recap" }: { event
     <StaggerItem className="bg-white rounded-xl border border-[#DCE0E8] overflow-hidden flex flex-col">
       <div className="relative w-full aspect-video bg-[#F0F0F0]">
         <Image
-          src={TRANSFORM_GRAPHIC}
+          src={event.cover_image || TRANSFORM_GRAPHIC}
           alt={event.title}
           fill
           className="object-cover"

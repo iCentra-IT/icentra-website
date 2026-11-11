@@ -170,6 +170,17 @@ export default async function HomePage() {
       />
 
       {/* ══════════════════════════════════════
+          6b. iCENTRA LEARNING — CTA BANNER
+      ══════════════════════════════════════ */}
+      <DiscoverBanner
+        headline={"Build Capability.\nAccelerate Performance."}
+        subtext="Globally aligned certifications, executive programs, and workforce capability solutions designed to deliver measurable business outcomes."
+        primaryCta={{ label: "Explore Programs", href: "https://learning.icentra.com/" }}
+        image="/images/career/hero.jpg"
+        imageAlt="iCentra Learning executive training session"
+      />
+
+      {/* ══════════════════════════════════════
           7. WHAT OUR CLIENT SAY ABOUT US
       ══════════════════════════════════════ */}
       {/* <section className="bg-white py-14 lg:py-20">

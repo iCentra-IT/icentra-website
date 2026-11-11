@@ -47,11 +47,6 @@ export default async function PartnershipDetailPage({ params }: PageProps) {
       {/* ══════════════════════════════════════
           1. HERO — eyebrow strip + PageHero (reused)
       ══════════════════════════════════════ */}
-      <div className="bg-[#0B1638] text-center py-2.5">
-        <span className="text-white/70 text-xs font-semibold tracking-widest uppercase">
-          {partnership.eyebrow}
-        </span>
-      </div>
       <PageHero
         headline={partnership.subtitle ? `${partnership.name} (${partnership.subtitle})` : partnership.name}
         subtext={partnership.tagline}
@@ -92,11 +87,6 @@ export default async function PartnershipDetailPage({ params }: PageProps) {
       <section className="bg-[#F7F9FC] py-14 lg:py-16">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading title="Who It's For" className="mb-6" />
-          <Reveal className="border-l-4 border-[#0066FF] bg-white px-4 py-2.5 mb-6 w-fit">
-            <span className="text-[#1A274F] text-sm">
-              <span className="font-bold">Typical buyer:</span> {partnership.typicalBuyer}
-            </span>
-          </Reveal>
           <BulletList items={partnership.whoFor} />
         </div>
       </section>
@@ -172,7 +162,7 @@ export default async function PartnershipDetailPage({ params }: PageProps) {
         ctaLabel="Get in Touch"
         ctaHref="/contact"
         bgClassName="bg-[#25429A]"
-        extraLinks={[{ label: DISCOVERY_EMAIL, href: `mailto:${DISCOVERY_EMAIL}` }]}
+        // extraLinks={[{ label: DISCOVERY_EMAIL, href: `mailto:${DISCOVERY_EMAIL}` }]}
       />
 
     </main>

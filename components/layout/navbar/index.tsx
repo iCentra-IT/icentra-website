@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
+import { solutionCategories } from "@/lib/data/solutions";
+import { partnerships } from "@/lib/data/partnerships";
 
 const navLinks = [
   // { label: "Home", href: "/" },
@@ -12,6 +14,7 @@ const navLinks = [
   {
     label: "What We Do",
     href: "#",
+    megaMenu: true,
     dropdown: [
       { label: "Continuous Transformation", href: "/what-we-do/continuous-transformation" },
       { label: "Solutions", href: "/what-we-do/solutions" },
@@ -19,8 +22,8 @@ const navLinks = [
     ],
   },
   { label: "Industry", href: "/industry" },
-  { label: "News & Insight", href: "/news" },
-  { label: "Event", href: "/events" },
+  { label: "News & Insights", href: "/news" },
+  { label: "Events", href: "/events" },
   { label: "Careers", href: "/careers" },
 ];
 
@@ -41,6 +44,20 @@ export default function Navbar() {
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
+  // Hover-intent for the mega menu: close on mouseleave is delayed slightly
+  // so moving the pointer from the trigger down to the panel (a real gap in
+  // screen space, even though both are DOM descendants of the same wrapper)
+  // doesn't close the menu before the pointer gets there.
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function openDesktopDropdown() {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    setDesktopDropdownOpen(true);
+  }
+
+  function scheduleCloseDesktopDropdown() {
+    closeTimerRef.current = setTimeout(() => setDesktopDropdownOpen(false), 200);
+  }
 
   useEffect(() => {
     if (!desktopDropdownOpen) return;
@@ -108,7 +125,13 @@ export default function Navbar() {
                 );
 
                 return (
-                  <div key={link.label} className="relative group" ref={dropdownRef}>
+                  <div
+                    key={link.label}
+                    className="relative group"
+                    ref={dropdownRef}
+                    onMouseEnter={openDesktopDropdown}
+                    onMouseLeave={scheduleCloseDesktopDropdown}
+                  >
                     <button
                       onClick={() => setDesktopDropdownOpen((v) => !v)}
                       className={`flex items-center gap-1 text-base cursor-pointer font-medium transition-colors ${
@@ -137,28 +160,108 @@ export default function Navbar() {
                       <span className="absolute -bottom-2 left-0 right-0 h-0.5 bg-[#0066FF] rounded-full" />
                     )}
 
-                    {/* Dropdown */}
-                    {desktopDropdownOpen && (
-                      <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-[#DCE0E8] rounded-xl shadow-lg py-2 z-50">
-                        {link.dropdown.map((item) => {
-                          const itemActive = isActive(pathname, item.href);
-                          return (
-                            <Link
-                              key={item.label}
-                              href={item.href}
-                              className={`block px-4 py-2.5 text-sm transition-colors ${
-                                itemActive
-                                  ? "bg-[#eef1fb] text-[#0066FF] font-medium"
-                                  : "text-[#1A274F] hover:bg-[#eef1fb] hover:text-secondary"
-                              }`}
-                              onClick={() => setDesktopDropdownOpen(false)}
-                            >
-                              {item.label}
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    )}
+                    <AnimatePresence>
+                      {desktopDropdownOpen && link.megaMenu && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -8 }}
+                          transition={{ duration: 0.18, ease: "easeOut" }}
+                          className="fixed inset-x-0 top-17 z-50 bg-white border-t border-[#DCE0E8] shadow-xl"
+                        >
+                          <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-[300px_1fr_1fr] gap-10">
+                            {/* Feature card */}
+                            <div className="bg-[#EAF3FB] rounded-2xl p-6 flex flex-col">
+                              <h3 className="text-[#1A274F] text-xl font-bold leading-snug mb-3">
+                                Continuous Transformation
+                              </h3>
+                              <p className="text-[#6B7280] text-sm leading-relaxed mb-5">
+                                Transformation is no longer a one-time initiative — it&apos;s a continuous capability
+                                that aligns strategy, governance, execution, and workforce capability.
+                              </p>
+                              <Link
+                                href="/what-we-do/continuous-transformation"
+                                onClick={() => setDesktopDropdownOpen(false)}
+                                className="mt-auto inline-flex items-center gap-1.5 text-[#0066FF] text-sm font-semibold hover:gap-2.5 transition-all w-fit"
+                              >
+                                Explore overview
+                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+                                </svg>
+                              </Link>
+                            </div>
+
+                            {/* Solutions column */}
+                            <div>
+                              <p className="text-[#6B7280] text-xs font-bold uppercase tracking-[0.08em] mb-5">
+                                Solutions
+                              </p>
+                              <div className="flex flex-col gap-5">
+                                {solutionCategories.map((cat) => (
+                                  <Link
+                                    key={cat.slug}
+                                    href={`/what-we-do/solutions/${cat.slug}`}
+                                    onClick={() => setDesktopDropdownOpen(false)}
+                                    className="group/item block"
+                                  >
+                                    <span className="block text-[#1A274F] text-sm font-bold group-hover/item:text-[#0066FF] transition-colors">
+                                      {cat.title}
+                                    </span>
+                                    <span className="block text-[#6B7280] text-xs leading-relaxed mt-1">
+                                      {cat.tagline}
+                                    </span>
+                                  </Link>
+                                ))}
+                              </div>
+                              <Link
+                                href="/what-we-do/solutions"
+                                onClick={() => setDesktopDropdownOpen(false)}
+                                className="inline-flex items-center gap-1.5 text-[#0066FF] text-sm font-semibold mt-6 w-fit"
+                              >
+                                View all solutions
+                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+                                </svg>
+                              </Link>
+                            </div>
+
+                            {/* Partnerships column */}
+                            <div>
+                              <p className="text-[#6B7280] text-xs font-bold uppercase tracking-[0.08em] mb-5">
+                                Partnerships
+                              </p>
+                              <div className="flex flex-col gap-5">
+                                {partnerships.map((partnership) => (
+                                  <Link
+                                    key={partnership.slug}
+                                    href={`/what-we-do/partnerships/${partnership.slug}`}
+                                    onClick={() => setDesktopDropdownOpen(false)}
+                                    className="group/item block"
+                                  >
+                                    <span className="block text-[#1A274F] text-sm font-bold group-hover/item:text-[#0066FF] transition-colors">
+                                      {partnership.name}
+                                    </span>
+                                    <span className="block text-[#6B7280] text-xs leading-relaxed mt-1">
+                                      {partnership.description}
+                                    </span>
+                                  </Link>
+                                ))}
+                              </div>
+                              <Link
+                                href="/what-we-do/partnerships"
+                                onClick={() => setDesktopDropdownOpen(false)}
+                                className="inline-flex items-center gap-1.5 text-[#0066FF] text-sm font-semibold mt-6 w-fit"
+                              >
+                                View all partnerships
+                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+                                </svg>
+                              </Link>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 );
               }

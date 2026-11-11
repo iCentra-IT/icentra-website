@@ -114,6 +114,7 @@ export default async function EventDetailPage({ params }: PageProps) {
                   <WebinarRegistrationModal
                     eventSlug={event.slug}
                     eventTitle={event.title}
+                    eventImage={event.cover_image}
                     triggerLabel="Register now"
                     triggerClassName="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors shrink-0 cursor-pointer"
                   />

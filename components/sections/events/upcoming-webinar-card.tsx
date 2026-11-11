@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { WebinarRegistrationModal } from "@/components/forms/all-forms";
 import { Reveal } from "@/components/ui/motion/reveal";
@@ -13,11 +14,17 @@ const REGISTER_CLASS =
 function UpcomingEventCard({ event }: { event: EventListItem }) {
   return (
     <Reveal className="rounded-2xl border border-[#0066FF]/40 bg-white overflow-hidden">
-      <div className="bg-main h-52 lg:h-64 flex flex-col items-center justify-center gap-3 px-6 text-center">
-        <p className="text-light-blue text-xs font-semibold tracking-widest uppercase">
+      <div className="relative bg-main h-52 lg:h-64 flex flex-col items-center justify-center gap-3 px-6 text-center overflow-hidden">
+        {event.cover_image && (
+          <>
+            <Image src={event.cover_image} alt={event.title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 800px" />
+            <div className="absolute inset-0 bg-[#010F37]/70" />
+          </>
+        )}
+        <p className="relative text-light-blue text-xs font-semibold tracking-widest uppercase">
           {event.pillar?.name ?? "Upcoming Event"}
         </p>
-        <p className="text-white text-lg lg:text-xl font-bold max-w-3xl leading-snug">{event.title}</p>
+        <p className="relative text-white text-lg lg:text-xl font-bold max-w-3xl leading-snug">{event.title}</p>
       </div>
 
       <div className="p-6 lg:p-10 flex flex-col gap-4">
@@ -37,6 +44,7 @@ function UpcomingEventCard({ event }: { event: EventListItem }) {
           <WebinarRegistrationModal
             eventSlug={event.slug}
             eventTitle={event.title}
+            eventImage={event.cover_image}
             triggerLabel="Register now"
             triggerClassName={REGISTER_CLASS}
           />

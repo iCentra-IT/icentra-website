@@ -609,8 +609,8 @@ export const solutionCategories: SolutionCategory[] = [
           { title: "Certification Programs", description: "Industry-recognized training to empower professionals with globally relevant credentials (PMI, PECB, ISACA etc)." },
         ],
         trainingLinks: [
-          { label: "For Corporate", href: "https://learning.icentra.com/our-courses/for_individuals/" },
-          { label: "For Individuals", href: "https://learning.icentra.com/our-courses/for_organisations/" },
+          { label: "For Corporate", href: "https://learning.icentra.com/" },
+          { label: "For Individuals", href: "https://careercentra.icentra.com/" },
         ],
         midCtaLine: "Find a Training that Suits Your Needs",
         midCtaLabel: "Speak to a Learning Advisor",
