@@ -178,6 +178,7 @@ export default async function HomePage() {
         primaryCta={{ label: "Explore Programs", href: "https://learning.icentra.com/" }}
         image="/images/career/hero.jpg"
         imageAlt="iCentra Learning executive training session"
+        imagePosition="left"
       />
 
       {/* ══════════════════════════════════════

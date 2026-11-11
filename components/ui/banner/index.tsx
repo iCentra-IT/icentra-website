@@ -99,6 +99,8 @@ interface DiscoverBannerProps {
   secondaryCta?: { label: string; href?: string; modal?: ReactNode } | null;
   image: string;
   imageAlt: string;
+  /** Which side the photo renders on at desktop widths. Defaults to "right". */
+  imagePosition?: "left" | "right";
 }
 
 /* ─── tiny helper — renders a link OR a modal trigger ─── */
@@ -131,51 +133,59 @@ export default function DiscoverBanner({
   secondaryCta,
   image,
   imageAlt,
+  imagePosition = "right",
 }: DiscoverBannerProps) {
+  const textPanel = (
+    <div
+      className={`relative flex items-center px-10 py-14 lg:px-16 lg:py-20 bg-no-repeat bg-cover bg-center ${
+        imagePosition === "left" ? "lg:order-2" : ""
+      }`}
+      style={{ backgroundImage: "url('/images/bg.jpg')" }}
+    >
+      <div className="relative z-10 max-w-[520px] mx-auto">
+        {/* Headline */}
+        <h2 className="text-white text-[30px] md:text-[38px] lg:text-[44px] font-bold leading-[1.1] mb-4">
+          {headline.split("\n").map((line, i) => (
+            <span key={i} className="block">
+              {line}
+            </span>
+          ))}
+        </h2>
+
+        {/* Subtext */}
+        <p className="text-white/70 text-sm lg:text-base leading-relaxed mb-8 max-w-[400px]">
+          {subtext}
+        </p>
+
+        {/* CTAs */}
+        <div className="flex flex-wrap gap-3">
+          <CtaButton cta={primaryCta} />
+          {secondaryCta && <CtaButton cta={secondaryCta} />}
+        </div>
+      </div>
+    </div>
+  );
+
+  const imagePanel = (
+    <div className={`relative w-full min-h-[280px] lg:min-h-0 ${imagePosition === "left" ? "lg:order-1" : ""}`}>
+      <Image
+        src={image}
+        alt={imageAlt}
+        fill
+        className="object-cover object-center"
+        sizes="(max-width: 1024px) 100vw, 50vw"
+        priority
+      />
+    </div>
+  );
+
   return (
     <section
       className="w-full grid grid-cols-1 lg:grid-cols-2 overflow-hidden"
       style={{ minHeight: "320px" }}
     >
-      {/* ── LEFT — blue panel with bg image ── */}
-      <div
-        className="relative flex items-center px-10 py-14 lg:px-16 lg:py-20 bg-no-repeat bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/bg.jpg')" }}
-      >
-        <div className="relative z-10 max-w-[520px] mx-auto">
-          {/* Headline */}
-          <h2 className="text-white text-[30px] md:text-[38px] lg:text-[44px] font-bold leading-[1.1] mb-4">
-            {headline.split("\n").map((line, i) => (
-              <span key={i} className="block">
-                {line}
-              </span>
-            ))}
-          </h2>
-
-          {/* Subtext */}
-          <p className="text-white/70 text-sm lg:text-base leading-relaxed mb-8 max-w-[400px]">
-            {subtext}
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-wrap gap-3">
-            <CtaButton cta={primaryCta} />
-            {secondaryCta && <CtaButton cta={secondaryCta} />}
-          </div>
-        </div>
-      </div>
-
-      {/* ── RIGHT — full bleed photo ── */}
-      <div className="relative w-full min-h-[280px] lg:min-h-0">
-        <Image
-          src={image}
-          alt={imageAlt}
-          fill
-          className="object-cover object-center"
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          priority
-        />
-      </div>
+      {textPanel}
+      {imagePanel}
     </section>
   );
 }
