@@ -245,7 +245,9 @@ export default async function ContinuousTransformationPage() {
 
           <div className="flex justify-center">
             <Link
-              href="/what-we-do/solutions"
+              href="https://www.enterprisealignment.org/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-base font-semibold hover:bg-[#25429A] transition-colors"
             >
               Explore our framework

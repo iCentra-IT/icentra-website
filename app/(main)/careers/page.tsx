@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
 import CareerLevelBars from "@/components/sections/careers/career-level-bars";
 import CultureAccordion, {
   type AccordionItem,
 } from "@/components/sections/careers/culture-accordion";
-import JobOpenings from "@/components/sections/careers/job-openings";
 import { InternshipApplicationModal } from "@/components/forms/all-forms";
 import TeamVideos, {
   type TeamVideo,
@@ -290,54 +290,60 @@ export default function CareersPage() {
       </section>
 
       {/* ══════════════════════════════════════
-          7. JOIN US — text + job listings (real Sanity "Job-listing" posts)
+          7. FIND YOUR PATH — Internship / Experienced Hire
       ══════════════════════════════════════ */}
       <section className="bg-white pb-20 lg:pb-24">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
-            title="Join Us Transform People & Organizations Together."
-            className="mb-4"
+            title="Find Your Path at iCentra"
+            subtitle="Whether you're starting out or bringing years of experience, there's a place for you here."
+            className="mb-10"
           />
-          <p className="text-[#6B7280] text-base leading-relaxed mb-2">
-            We are always on the lookout for people who are curious, committed,
-            and ready to lead change. Whether you&apos;re an experienced
-            professional or a student exploring your first career step, iCentra
-            offers opportunities to grow, contribute, and thrive.
-          </p>
-          <p className="text-[#6B7280] text-base leading-relaxed mb-10">
-            View current openings below and apply easily through our application
-            portal. Internship opportunities are also available for early-career
-            talents looking to gain valuable hands-on experience.
-          </p>
 
-          {/* Job listing cards — fetched client-side via React Query */}
-          <JobOpenings />
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════
-          8. INTERNSHIP PROGRAMME CTA
-      ══════════════════════════════════════ */}
-      <section className="bg-white pb-20 lg:pb-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <Reveal className="relative overflow-hidden rounded-3xl bg-linear-to-br from-[#0B1B4D] via-[#16266E] to-[#1E3A8A] px-8 py-12 lg:px-16 lg:py-16 flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div
-              aria-hidden="true"
-              className="absolute right-0 top-0 w-80 h-80 bg-[#0066FF]/15 blur-3xl pointer-events-none"
-            />
-            <div className="relative z-10 max-w-xl text-center lg:text-left">
-              <h2 className="text-white text-[26px] lg:text-[32px] font-extrabold leading-tight mb-3">
-                Join Our Internship Programme
-              </h2>
-              <p className="text-white/75 text-base leading-relaxed">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* Internship */}
+            <Reveal className="rounded-3xl border border-[#DCE0E8] bg-white p-8 lg:p-10 flex flex-col">
+              <span className="w-14 h-14 rounded-2xl bg-[#EAF3FB] text-[#0066FF] flex items-center justify-center mb-6">
+                <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l8-4-8-4-8 4 8 4zm0 0v6m-8-6v3.5c0 .9 3.6 2.5 8 2.5s8-1.6 8-2.5V10" />
+                </svg>
+              </span>
+              <h3 className="text-[#1A274F] text-xl lg:text-2xl font-bold mb-3">Internship</h3>
+              <p className="text-[#6B7280] text-base leading-relaxed mb-8 flex-1">
                 Kickstart your career with hands-on experience and growth opportunities—join our
-                internship program today!
+                internship programme today.
               </p>
-            </div>
-            <div className="relative z-10 shrink-0">
-              <InternshipApplicationModal />
-            </div>
-          </Reveal>
+              <InternshipApplicationModal
+                triggerLabel="Apply Now"
+                triggerClassName="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors w-fit"
+              />
+            </Reveal>
+
+            {/* Experienced Hire */}
+            <Reveal delay={0.1} className="relative overflow-hidden rounded-3xl bg-linear-to-br from-[#0B1B4D] via-[#16266E] to-[#1E3A8A] p-8 lg:p-10 flex flex-col">
+              <div aria-hidden="true" className="absolute right-0 top-0 w-60 h-60 bg-[#0066FF]/15 blur-3xl pointer-events-none" />
+              <span className="relative z-10 w-14 h-14 rounded-2xl bg-white/10 text-light-blue flex items-center justify-center mb-6">
+                <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                  <rect x="3" y="7" width="18" height="13" rx="2" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 12h18" />
+                </svg>
+              </span>
+              <h3 className="relative z-10 text-white text-xl lg:text-2xl font-bold mb-3">Experienced Hire</h3>
+              <p className="relative z-10 text-white/75 text-base leading-relaxed mb-8 flex-1">
+                Bring your expertise to a team transforming organizations across Africa, Europe, and
+                North America. Explore our current openings.
+              </p>
+              <Link
+                href="/careers/opportunities"
+                className="relative z-10 inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors w-fit"
+              >
+                View Openings
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </Reveal>
+          </div>
         </div>
       </section>
     </main>

@@ -3,15 +3,16 @@ import Link from "next/link";
 
 const quickLinks = [
   { label: "Home", href: "/" },
-  { label: "Contact Us", href: "/contact" },
   { label: "iCentra Learning", href: "https://learning.icentra.com/" },
   { label: "CareerCentra", href: "https://careercentra.icentra.com/" },
+  { label: "Enterprise Alignment", href: "https://www.enterprisealignment.org/" },
 ];
 
 const aboutLinks = [
   { label: "About Us", href: "/about" },
   { label: "Events", href: "/event" },
   { label: "Careers", href: "/careers" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 const whatWeDo = [
@@ -140,9 +141,9 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* About iCentra */}
+            {/* iCentra */}
             <div>
-              <h3 className="text-base font-semibold text-white mb-5">About iCentra</h3>
+              <h3 className="text-base font-semibold text-white mb-5">iCentra</h3>
               <ul className="flex flex-col gap-3">
                 {aboutLinks.map((l) => (
                   <li key={l.label}>

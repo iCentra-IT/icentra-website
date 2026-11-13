@@ -6,6 +6,7 @@ import PageHero from "@/components/ui/page-hero";
 import DottedCtaBanner from "@/components/ui/dotted-cta-banner";
 import SectionHeading from "@/components/ui/section-heading";
 import BlogCard from "@/components/ui/cards/blog-card";
+import TestimonialsCarousel from "@/components/ui/testimonials-carousel";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 import { pageMetadata } from "@/lib/seo";
 import {
@@ -200,16 +201,8 @@ export default async function SolutionSubcategoryPage({ params }: PageProps) {
             <div className="text-center mb-10">
               <SectionHeading title="Client Testimonial" />
             </div>
-            <Reveal className="bg-[#F7F9FC] rounded-2xl p-8 lg:p-10 border border-[#DCE0E8] flex flex-col gap-5 text-center">
-              <p className="text-[#374151] text-base lg:text-base leading-[1.85] italic">
-                &ldquo;{sub.testimonial.quote}&rdquo;
-              </p>
-              <div>
-                <p className="text-[#1A274F] text-sm font-semibold">{sub.testimonial.name}</p>
-                <p className="text-[#4B6CB7] text-sm">{sub.testimonial.role}</p>
-              </div>
-            </Reveal>
           </div>
+          <TestimonialsCarousel testimonials={[sub.testimonial]} />
         </section>
       )}
 

@@ -331,6 +331,107 @@ export function GeneralContactFormB() {
   );
 }
 
+/**
+ * ContactInquiryForm
+ * The inline "Send us a message" form on /contact — Organization is
+ * optional free text, Industry is a required select (same list as the
+ * Download Brochure / Register forms), matching that page's own fields
+ * rather than the longer General Contact Form variants above.
+ */
+export function ContactInquiryForm() {
+  const [agreed, setAgreed] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const turnstileRef = useRef<TurnstileWidgetHandle>(null);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSubmitting(true);
+    setError(null);
+    const f = formEntriesToObject(e.currentTarget);
+
+    try {
+      await submitContactInquiry({
+        first_name: f.firstName,
+        last_name: f.lastName,
+        email: f.email,
+        organization: f.organization,
+        industry: f.industry,
+        message: f.message || "(No additional details provided.)",
+        marketing_consent: agreed,
+        ...(turnstileToken && { "cf-turnstile-response": turnstileToken }),
+      });
+      trackEvent("contact_form_submit", { industry: f.industry });
+      setSubmitted(true);
+    } catch (err) {
+      turnstileRef.current?.reset();
+      setError(errorText(err));
+      setSubmitting(false);
+    }
+  }
+
+  if (submitted) {
+    return (
+      <div className="max-w-[760px] mx-auto bg-[#EAF3FB] rounded-3xl px-8 py-10 lg:px-12 lg:py-12">
+        <div className="flex flex-col items-center text-center gap-4 py-6">
+          <span className="w-14 h-14 rounded-full bg-[#0066FF]/10 flex items-center justify-center">
+            <svg className="w-7 h-7 text-[#0066FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </span>
+          <h2 className="text-[#1A274F] text-[22px] lg:text-[26px] font-bold">Message Sent</h2>
+          <p className="text-[#374151] text-sm leading-relaxed max-w-sm">
+            Thanks for reaching out. Our team will review your message and get back to you shortly.
+          </p>
+          <button
+            onClick={() => {
+              setSubmitted(false);
+              setSubmitting(false);
+            }}
+            className="mt-2 px-7 py-3 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors cursor-pointer"
+          >
+            Send Another Message
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="max-w-[760px] mx-auto bg-[#EAF3FB] rounded-3xl px-8 py-10 lg:px-12 lg:py-12">
+      <h2 className="text-[#1A274F] text-[22px] lg:text-[26px] font-bold text-center mb-8">
+        Send us a message
+      </h2>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+        <FormRow>
+          <FormField label="First Name" required name="firstName" type="text" placeholder="Enter first name" />
+          <FormField label="Last Name" required name="lastName" type="text" placeholder="Enter last name" />
+        </FormRow>
+        <FormRow>
+          <FormField label="Email" required name="email" type="email" placeholder="Enter Email" />
+          <FormField label="Organization" name="organization" type="text" placeholder="Enter your organization" />
+        </FormRow>
+        <FormSelect label="Industry" required name="industry" options={INDUSTRY_OPTS} placeholder="Select Industry" />
+        <FormTextarea label="How Can we help you?" name="message" rows={4} placeholder="Tell us how we can help..." />
+        <IcentraCheckbox checked={agreed} onChange={setAgreed} />
+        <TurnstileWidget ref={turnstileRef} onVerify={setTurnstileToken} />
+        {error && <p className="text-red-600 text-sm text-center">{error}</p>}
+        <div className="flex justify-center mt-2">
+          <button
+            type="submit"
+            disabled={submitting}
+            className="w-full sm:w-[220px] py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] disabled:opacity-60 transition-colors"
+          >
+            {submitting ? "Sending…" : "Submit"}
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+}
+
 /* ═══════════════════════════════════════════════════════════════
    ─────────────────────────────────────────────────────────────
    MODAL FORMS — each exports:

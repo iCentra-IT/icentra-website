@@ -15,7 +15,7 @@ import worldTopoJson from "world-atlas/countries-110m.json";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
 import { StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
-import { INDUSTRY_OPTS } from "@/components/forms/all-forms";
+import { ContactInquiryForm } from "@/components/forms/all-forms";
 
 /* ─────────────────────────────────────────
    OFFICE DATA — coordinates are real [longitude, latitude]
@@ -226,22 +226,6 @@ function WorldMap() {
    PAGE
 ───────────────────────────────────────── */
 export default function ContactPage() {
-  const [agreed, setAgreed] = useState(false);
-  const [form, setForm] = useState({
-    firstName: "", lastName: "", email: "",
-    organization: "", industry: "", message: "",
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: wire up to your form handler / API
-    console.log("Form submitted:", form, "Agreed:", agreed);
-  };
-
   return (
     <main className="w-full overflow-x-hidden">
 
@@ -258,148 +242,7 @@ export default function ContactPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-[1280px] mx-auto px-6">
-          <div className="max-w-[760px] mx-auto bg-[#EAF3FB] rounded-3xl px-8 py-10 lg:px-12 lg:py-12">
-            <h2 className="text-[#1A274F] text-[22px] lg:text-[26px] font-bold text-center mb-8">
-              Send us a message
-            </h2>
-
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-              {/* Row 1 — First Name + Last Name */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[#1A274F] text-sm font-medium">
-                    First Name<span className="text-[#0066FF]">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={form.firstName}
-                    onChange={handleChange}
-                    placeholder="Enter first name"
-                    required
-                    className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-sm text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors"
-                  />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[#1A274F] text-sm font-medium">
-                    Last Name<span className="text-[#0066FF]">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={form.lastName}
-                    onChange={handleChange}
-                    placeholder="Enter last name"
-                    required
-                    className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-sm text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors"
-                  />
-                </div>
-              </div>
-
-              {/* Row 2 — Email + Organization */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[#1A274F] text-sm font-medium">
-                    Email<span className="text-[#0066FF]">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    placeholder="Enter Email"
-                    required
-                    className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-sm text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors"
-                  />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[#1A274F] text-sm font-medium">
-                    Organization
-                  </label>
-                  <input
-                    type="text"
-                    name="organization"
-                    value={form.organization}
-                    onChange={handleChange}
-                    placeholder="Enter your organization"
-                    className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-sm text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors"
-                  />
-                </div>
-              </div>
-
-              {/* Row 3 — Industry (full width) */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[#1A274F] text-sm font-medium">
-                  Industry<span className="text-[#0066FF]">*</span>
-                </label>
-                <select
-                  name="industry"
-                  value={form.industry}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-sm text-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors cursor-pointer appearance-none"
-                >
-                  <option value="" disabled>Select Industry</option>
-                  {INDUSTRY_OPTS.map((opt) => (
-                    <option key={opt} value={opt}>{opt}</option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Row 4 — How can we help (full-width textarea) */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[#1A274F] text-sm font-medium">
-                  How Can we help you?
-                </label>
-                <textarea
-                  name="message"
-                  value={form.message}
-                  onChange={handleChange}
-                  placeholder="Tell us how we can help..."
-                  rows={4}
-                  className="w-full px-4 py-3 rounded-xl border border-[#DCE0E8] bg-white text-sm text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:border-[#0066FF] transition-colors resize-none"
-                />
-              </div>
-
-              {/* Checkbox */}
-              <label className="flex items-start gap-3 cursor-pointer group">
-                <div className="relative mt-0.5 shrink-0">
-                  <input
-                    type="checkbox"
-                    checked={agreed}
-                    onChange={(e) => setAgreed(e.target.checked)}
-                    className="sr-only"
-                  />
-                  <div
-                    className={`w-4 h-4 rounded border-2 flex items-center justify-center transition-colors ${
-                      agreed
-                        ? "bg-[#0066FF] border-[#0066FF]"
-                        : "bg-white border-[#DCE0E8] group-hover:border-[#0066FF]"
-                    }`}
-                  >
-                    {agreed && (
-                      <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    )}
-                  </div>
-                </div>
-                <span className="text-[#374151] text-sm leading-relaxed">
-                  I would like to receive details about products, services and events from iCentra.
-                </span>
-              </label>
-
-              {/* Submit */}
-              <div className="flex justify-center mt-2">
-                <button
-                  type="submit"
-                  className="w-full sm:w-[220px] py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
+          <ContactInquiryForm />
         </div>
       </section>
 

@@ -660,6 +660,20 @@ export function getSolutionCategoryBySlug(slug: string): SolutionCategory | unde
   return solutionCategories.find((category) => category.slug === slug);
 }
 
+/**
+ * Every real client testimonial across all solution subcategories, in one
+ * list — the single source for the homepage testimonials section. Adding a
+ * `testimonial` to any subcategory here makes it show up there automatically,
+ * no further code changes needed.
+ */
+export function getAllTestimonials(): SolutionTestimonial[] {
+  return solutionCategories.flatMap((category) =>
+    category.subcategories
+      .map((sub) => sub.testimonial)
+      .filter((t): t is SolutionTestimonial => Boolean(t))
+  );
+}
+
 export function getSolutionSubcategory(
   categorySlug: string,
   subcategorySlug: string

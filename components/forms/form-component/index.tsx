@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import type { InputHTMLAttributes, SelectHTMLAttributes, TextareaHTMLAttributes } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -27,7 +28,8 @@ export function FormCard({
 }) {
   return (
     <div className={`w-full ${maxWidth} mx-auto bg-[#EAF3FB] rounded-3xl px-6 py-8 sm:px-10 sm:py-10`}>
-      <h2 className="text-[#1A274F] text-[26px] sm:text-[30px] font-extrabold mb-8 leading-tight">
+      {/* pr-10 keeps long, wrapped titles clear of the modal's close button */}
+      <h2 className="text-[#1A274F] text-[26px] sm:text-[30px] font-extrabold mb-8 leading-tight pr-10 sm:pr-0">
         {title}
       </h2>
       {children}
@@ -301,7 +303,37 @@ export function FormModal({
   children: React.ReactNode;
   maxWidth?: string;
 }) {
-  return (
+  const [mounted, setMounted] = useState(false);
+
+  // document.body doesn't exist during SSR, so the portal target is only
+  // safe to use once mounted on the client — a one-time mount flag, not the
+  // data-fetch-in-a-loop pattern this lint rule targets.
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
+
+  // Lock background scroll and allow Escape to close while open — matches
+  // the mobile nav drawer's behavior elsewhere in the app.
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") onClose();
+    }
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [open, onClose]);
+
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {open && (
         <div
@@ -320,13 +352,14 @@ export function FormModal({
             aria-hidden="true"
           />
 
-          {/* Panel — scrollable when content is tall */}
+          {/* Non-scrolling wrapper — keeps the close button anchored to the
+              panel's corner even once the form content inside scrolls. */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 12 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 12 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className={`relative z-10 w-full ${maxWidth} max-h-[92vh] overflow-y-auto rounded-3xl shadow-2xl`}
+            className={`relative z-10 w-full ${maxWidth} max-h-[92vh]`}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
@@ -346,11 +379,15 @@ export function FormModal({
               </svg>
             </button>
 
-            {children}
+            {/* Scrollable panel */}
+            <div className="max-h-[92vh] overflow-y-auto rounded-3xl shadow-2xl overscroll-contain">
+              {children}
+            </div>
           </motion.div>
         </div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }
 

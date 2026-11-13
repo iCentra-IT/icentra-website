@@ -3,38 +3,19 @@ import HeroSlider from "@/components/sections/home/hero-slider";
 import TrustedPartners from "@/components/sections/home/partners";
 import StatsBar from "@/components/sections/home/stat";
 import DiscoverBanner from "@/components/ui/banner";
-import Marquee from "@/components/ui/marquee";
+import TestimonialsCarousel from "@/components/ui/testimonials-carousel";
 import BlogCard from "@/components/ui/cards/blog-card";
 import SolutionCard from "@/components/ui/cards/solution-card";
 import { BlogCardCarousel, type BlogCarouselItem } from "@/components/ui/carousel/blog-card-carousel";
 import SectionHeading from "@/components/ui/section-heading";
 import { StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
-import { solutionCards, testimonials } from "@/lib/data";
+import { solutionCards } from "@/lib/data";
+import { getAllTestimonials } from "@/lib/data/solutions";
 import { sanityFetch } from "@/sanity/lib/live";
 import { postImageUrl } from "@/sanity/lib/image";
 import { POSTS_BY_CATEGORY_QUERY } from "@/sanity/lib/queries";
 import { formatPostDate, estimateReadTimeFromText } from "@/sanity/lib/format";
-import Image from "next/image";
 import Link from "next/link";
-
-/* ─────────────────────────────────────────
-   TINY LOCAL PRIMITIVES
-───────────────────────────────────────── */
-function StarRating() {
-  return (
-    <div className="flex gap-0.5">
-      {[1, 2, 3, 4, 5].map((i) => (
-        <svg
-          key={i}
-          className="w-4 h-4 text-yellow-400 fill-current"
-          viewBox="0 0 20 20"
-        >
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
-      ))}
-    </div>
-  );
-}
 
 /* ─────────────────────────────────────────
    SANITY DATA SHAPING
@@ -175,56 +156,28 @@ export default async function HomePage() {
       <DiscoverBanner
         headline={"Build Capability.\nAccelerate Performance."}
         subtext="Globally aligned certifications, executive programs, and workforce capability solutions designed to deliver measurable business outcomes."
-        primaryCta={{ label: "Explore Programs", href: "https://learning.icentra.com/" }}
+        primaryCta={{ label: "Explore iCentra Learning", href: "https://learning.icentra.com/" }}
         image="/images/career/hero.jpg"
         imageAlt="iCentra Learning executive training session"
         imagePosition="left"
       />
 
       {/* ══════════════════════════════════════
-          7. WHAT OUR CLIENT SAY ABOUT US
+          7. WHAT OUR CLIENTS SAY ABOUT US — real quotes pulled from the
+             solution subcategory pages (lib/data/solutions.ts). Scrolls
+             automatically once there are enough of them; shows as a
+             static row until then.
       ══════════════════════════════════════ */}
-      {/* <section className="bg-white py-14 lg:py-20">
+      <section className="bg-white py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
-            title="What Our Client Say About Us"
+            title="What Our Clients Say About Us"
             className="mb-8"
           />
         </div>
 
-        <Marquee speed={38}>
-          {testimonials.map((t, i) => (
-            <div
-              key={i}
-              className="w-[320px] sm:w-[360px] shrink-0 bg-[#F7F9FC] rounded-2xl p-6 flex flex-col gap-4 border border-[#DCE0E8]"
-            >
-              <StarRating />
-              <p className="text-[#1A274F]/70 text-sm leading-relaxed">
-                {t.text}
-              </p>
-              <div className="flex items-center gap-3 pt-3 border-t border-[#DCE0E8]">
-                <div className="relative w-9 h-9 rounded-full overflow-hidden shrink-0 bg-[#A8B8F8]">
-                  <Image
-                    src={t.avatar}
-                    alt={t.name}
-                    fill
-                    className="object-cover"
-                    sizes="36px"
-                  />
-                </div>
-                <div>
-                  <p className="text-[#1A274F] text-sm font-semibold">
-                    {t.name}
-                  </p>
-                  <p className="text-[#4B6CB7] text-xs">{t.role}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </Marquee>
-      </section> */}
-
-      
+        <TestimonialsCarousel testimonials={getAllTestimonials()} />
+      </section>
 
       {/* ══════════════════════════════════════
           9. STAY UPDATED — SPOTLIGHTS — BlogCard

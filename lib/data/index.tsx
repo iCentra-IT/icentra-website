@@ -173,30 +173,6 @@ export const projects = [
   },
 ];
 
-export const testimonials = [
-  {
-    name: "Crystal Maiden",
-    role: "Product Manager",
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80",
-    text: "This is incredibly helpful for our team. The attention to detail and quality is very amazing. I highly recommend it for any type of project.",
-  },
-  {
-    name: "Dazzle Maker",
-    role: "Creative Director",
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80",
-    text: "I've used other firms, but this one is the best. The attention to detail and quality is very amazing for all designs. Highly recommend for any project.",
-  },
-  {
-    name: "Crystal Maiden",
-    role: "UX Designer",
-    avatar:
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=80&q=80",
-    text: "This kit is incredibly helpful for my design process. Components are clean, modern, and save me a lot of time for beginners and experienced alike.",
-  },
-];
-
 export const blogCards = [
   {
     image:
