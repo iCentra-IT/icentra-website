@@ -4,6 +4,7 @@ import { TeamCard } from "@/components/ui/cards/team-card";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
+import CeoVideo from "@/components/sections/about/ceo-video";
 import Image from "next/image";
 
 /* ─────────────────────────────────────────
@@ -281,7 +282,22 @@ export default function AboutPage() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          7. TRANSFORMING LIVES
+          7. A MESSAGE FROM OUR CEO — video
+      ══════════════════════════════════════════════ */}
+      <section className="bg-white py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <SectionHeading
+              title="A Message From Our CEO"
+              subtitle="Hear from Taopheek Babayeju on what the iCentra experience means."
+            />
+          </div>
+          <CeoVideo youtubeId="Iczg9iE2N6M" title="My iCentra Experience — CEO" />
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════
+          8. TRANSFORMING LIVES
       ══════════════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">

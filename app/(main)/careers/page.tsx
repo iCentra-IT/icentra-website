@@ -240,7 +240,31 @@ export default function CareersPage() {
       </section>
 
       {/* ══════════════════════════════════════
-          5. iCENTRA CULTURE — 3-col + accordion
+          5. LIFE AT iCENTRA — team video grid
+      ══════════════════════════════════════ */}
+      <section className="bg-white pb-16 lg:pb-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <SectionHeading
+            title="Life at iCentra Through the Eyes of Our Team"
+            className="mb-4"
+          />
+          <p className="text-[#6B7280] text-base leading-relaxed max-w-3xl mb-10">
+            Our team members bring their unique perspectives, talents, and
+            experiences to work every day, and together, we create something
+            powerful. Know what it means to be part of the iCentra family.
+            People across different roles and career stages, all united by one
+            thing: the drive to make a meaningful difference. &ldquo;Working at
+            iCentra has been a journey of both personal and professional growth.
+            The opportunities here are real, and so is the impact you get to
+            make.&rdquo;
+          </p>
+
+          <TeamVideos videos={teamVideos} />
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          6. iCENTRA CULTURE — 3-col + accordion
       ══════════════════════════════════════ */}
       <section className="bg-white pb-16 lg:pb-20">
         <div className="max-w-7xl mx-auto px-6">
@@ -262,30 +286,6 @@ export default function CareersPage() {
 
           {/* Accordion */}
           <CultureAccordion items={accordionItems} />
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════
-          6. LIFE AT iCENTRA — team video grid
-      ══════════════════════════════════════ */}
-      <section className="bg-white pb-16 lg:pb-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <SectionHeading
-            title="Life at iCentra Through the Eyes of Our Team"
-            className="mb-4"
-          />
-          <p className="text-[#6B7280] text-base leading-relaxed max-w-3xl mb-10">
-            Our team members bring their unique perspectives, talents, and
-            experiences to work every day, and together, we create something
-            powerful. Know what it means to be part of the iCentra family.
-            People across different roles and career stages, all united by one
-            thing: the drive to make a meaningful difference. &ldquo;Working at
-            iCentra has been a journey of both personal and professional growth.
-            The opportunities here are real, and so is the impact you get to
-            make.&rdquo;
-          </p>
-
-          <TeamVideos videos={teamVideos} />
         </div>
       </section>
 
