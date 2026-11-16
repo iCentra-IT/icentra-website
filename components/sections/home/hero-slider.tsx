@@ -44,7 +44,7 @@ const slides: Slide[] = [
     helperText: "Traditional transformation ends. Continuous transformation builds the system - strategy, governance, execution, and people that sustain performance",
   },
   {
-    sideImage: "/form.png",
+    sideImage: "/form.jpg",
     overlayImage: "/overlay-city-skyline-night.jpg",
     badge: "FOUR CORE DOMAINS · ONE FIRM",
     headlineItalic: "Integrated Solutions.",

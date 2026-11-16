@@ -16,9 +16,9 @@ export function getYearsOfExperience(
 }
 
 export const getStats = () => [
-  { value: `${getYearsOfExperience()}+`, label: "Years of Excellence" },
-  { value: "5000+", label: "Clients Served" },
-  { value: "99.9%", label: "Success Rate" },
+  { value: `${getYearsOfExperience()}+ Years`, label: "Transformation & Capability Experience" },
+  { value: "150+", label: "Enterprise Engagements" },
+  { value: "3 Continents", label: "Global Presence Across Africa, Europe & North America" },
 ];
 
 export const insightCards = [

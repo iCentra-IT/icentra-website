@@ -8,6 +8,8 @@ interface PageHeroProps {
   headline: string;
   /** Optional paragraph below the headline */
   subtext?: string;
+  /** Optional small uppercase pill rendered above the headline, e.g. "What We Do · Continuous Transformation" */
+  eyebrow?: string;
   /** Optional extra content (breadcrumb, badge, CTA) below subtext */
   children?: ReactNode;
   /** Overrides the default shared texture with a page-specific photo (e.g. an event's cover image). */
@@ -26,7 +28,7 @@ interface PageHeroProps {
  *     subtext="Founded in 2009 in Abuja, Nigeria…"
  *   />
  */
-export default function PageHero({ headline, subtext, children, backgroundImage }: PageHeroProps) {
+export default function PageHero({ headline, subtext, eyebrow, children, backgroundImage }: PageHeroProps) {
   return (
     <section className="relative w-full overflow-hidden bg-no-repeat bg-cover bg-center" style={{
       backgroundImage: backgroundImage
@@ -36,6 +38,18 @@ export default function PageHero({ headline, subtext, children, backgroundImage 
 
       {/* ── Content ── */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-20 pb-16 lg:pt-24 lg:pb-20">
+
+        {/* Eyebrow */}
+        {eyebrow && (
+          <motion.span
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="inline-block text-light-blue text-xs font-bold tracking-[0.18em] uppercase border border-white/20 rounded-full px-4 py-1.5 mb-5"
+          >
+            {eyebrow}
+          </motion.span>
+        )}
 
         {/* Headline */}
         <motion.h1

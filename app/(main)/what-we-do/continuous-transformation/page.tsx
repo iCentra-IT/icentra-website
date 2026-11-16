@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageHero from "@/components/ui/page-hero";
 import StatsBar from "@/components/sections/home/stat";
 import TrustedPartners from "@/components/sections/home/partners";
 import BlogCard from "@/components/ui/cards/blog-card";
@@ -114,13 +115,6 @@ const assessmentReceive = [
   "Transformation roadmap recommendations",
 ];
 
-const proofStats = [
-  { value: "17+", label: "Years of transformation and capability experience" },
-  { value: "150+", label: "Enterprise engagements" },
-  { value: "10,000+", label: "Professionals developed" },
-  { value: "3", label: "Offices: Texas, London, Abuja" },
-];
-
 /* ─────────────────────────────────────────
    SANITY DATA SHAPING — real "insights" posts
 ───────────────────────────────────────── */
@@ -153,41 +147,30 @@ export default async function ContinuousTransformationPage() {
     <main className="w-full overflow-x-hidden">
 
       {/* ══════════════════════════════════════
-          1. HERO
+          1. HERO — PageHero (reused)
       ══════════════════════════════════════ */}
-      <section className="relative bg-linear-to-br from-[#0B1B4D] via-[#16266E] to-[#1E3A8A] overflow-hidden">
-        <div className="absolute right-0 top-0 w-125 h-125 bg-[#0066FF]/10 blur-3xl pointer-events-none" />
-
-        <Reveal className="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:py-20">
-          <span className="inline-block text-[var(--color-light-blue)] text-xs font-bold tracking-[0.18em] uppercase border border-white/20 rounded-full px-4 py-1.5 mb-5">
-            What We Do · Continuous Transformation
-          </span>
-          <h1 className="text-white text-[32px] sm:text-[40px] lg:text-[48px] font-extrabold leading-[1.1] mb-5 max-w-3xl">
-            Transformation Is a Capability, Not a Project.
-          </h1>
-          <div className="w-16 h-1 rounded-full bg-light-blue mb-6" />
-          <p className="text-white/75 text-base leading-[1.8] mb-8 max-w-2xl">
-            iCentra helps leaders build the operating system that keeps strategy, execution, people, and value
-            delivery aligned, so performance holds long after the program ends.
-          </p>
-          <div className="flex flex-wrap items-center gap-4">
-            <Link
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"
-            >
-              Book a Discovery Call
-            </Link>
-            <Link
-              href="#assessment"
-              className="inline-flex items-center px-7 py-3.5 rounded-full border border-white/40 text-white text-sm font-semibold hover:bg-white hover:text-[#1A274F] transition-colors"
-            >
-              Request Your Readiness Assessment
-            </Link>
-          </div>
-        </Reveal>
-      </section>
+      <PageHero
+        eyebrow="What We Do · Continuous Transformation"
+        headline="Transformation Is a Capability, Not a Project."
+        subtext="iCentra helps leaders build the operating system that keeps strategy, execution, people, and value delivery aligned, so performance holds long after the program ends."
+      >
+        <div className="flex flex-wrap items-center gap-4">
+          <Link
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"
+          >
+            Book a Discovery Call
+          </Link>
+          <Link
+            href="#assessment"
+            className="inline-flex items-center px-7 py-3.5 rounded-full border border-white/40 text-white text-sm font-semibold hover:bg-white hover:text-[#1A274F] transition-colors"
+          >
+            Request Your Readiness Assessment
+          </Link>
+        </div>
+      </PageHero>
 
       {/* ══════════════════════════════════════
           2. WHY TRANSFORMATION STALLS
@@ -552,7 +535,7 @@ export default async function ContinuousTransformationPage() {
       {/* ══════════════════════════════════════
           9. PROOF
       ══════════════════════════════════════ */}
-      <StatsBar stats={proofStats} />
+      <StatsBar />
 
       <section className="bg-white py-14 lg:py-16">
         <TrustedPartners />

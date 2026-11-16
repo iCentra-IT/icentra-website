@@ -20,12 +20,6 @@ export const metadata: Metadata = pageMetadata({
 /* ─────────────────────────────────────────
    DATA
 ───────────────────────────────────────── */
-const solutionsStats = [
-  { value: "17+ Years", label: "Transformation & Capability Experience" },
-  { value: "150+", label: "Enterprise Engagements" },
-  { value: "3 Continents", label: "Global Presence Across Africa, Europe & North America" },
-];
-
 const iceSteps = [
   {
     icon: "identify",
@@ -183,7 +177,7 @@ export default function OurSolutionsPage() {
       </section>
 
       {/* Proof strip */}
-      <StatsBar stats={solutionsStats} />
+      <StatsBar />
 
       {/* ══════════════════════════════════════
           3. OUR APPROACH — ICE process diagram
@@ -196,7 +190,7 @@ export default function OurSolutionsPage() {
             className="mb-10"
           />
 
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center justify-between">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 lg:items-center justify-between">
 
             {/* Left — text + CTA */}
             <div className="flex-1 min-w-0 max-w-140">

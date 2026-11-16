@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
 import StatsBar from "@/components/sections/home/stat";
 import ComparisonTable from "@/components/sections/partnerships/comparison-table";
@@ -60,46 +61,34 @@ export default function PartnershipsPage() {
     <main className="w-full overflow-x-hidden">
 
       {/* ══════════════════════════════════════
-          1. HERO — bespoke gradient hero (matches /what-we-do/solutions)
+          1. HERO — PageHero (reused)
       ══════════════════════════════════════ */}
-      <section className="relative bg-linear-to-br from-[#0B1B4D] via-[#16266E] to-[#1E3A8A] overflow-hidden">
-        <div className="absolute right-0 top-0 w-125 h-125 bg-[#0066FF]/10 blur-3xl pointer-events-none" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:py-20">
-          <span className="inline-block text-[var(--color-light-blue)] text-xs font-bold tracking-[0.18em] uppercase border border-white/20 rounded-full px-4 py-1.5 mb-5">
-            Enterprise Partnerships
-          </span>
-          <h1 className="text-white text-[32px] sm:text-[40px] lg:text-[48px] font-extrabold leading-[1.1] mb-5 max-w-3xl">
-            {partnershipsHub.heroHeadline.split("\n").map((line, i) => (
-              <span key={i} className="block">{line}</span>
-            ))}
-          </h1>
-          <div className="w-16 h-1 rounded-full bg-light-blue mb-6" />
-          <p className="text-white/75 text-base leading-[1.8] mb-8 max-w-2xl">
-            {partnershipsHub.heroSubtext}
-          </p>
-          <div className="flex flex-wrap items-center gap-4">
-            <Link
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"
-            >
-              Book a Discovery Call
-            </Link>
-            <InquiryModal
-              formTitle="Request a Proposal"
-              contextLabel="Partnership Enquiry"
-              selectLabel="Which partnership are you interested in?"
-              selectOptions={partnerships.map((p) => p.name)}
-              messageLabel="Tell us about your goals"
-              messagePlaceholder="What would you like the partnership to address?"
-              triggerLabel="Request a Proposal"
-              triggerClassName="inline-flex items-center px-7 py-3.5 rounded-full border border-white/40 text-white text-sm font-semibold hover:bg-white hover:text-[#1A274F] transition-colors"
-            />
-          </div>
+      <PageHero
+        eyebrow="Enterprise Partnerships"
+        headline={partnershipsHub.heroHeadline}
+        subtext={partnershipsHub.heroSubtext}
+      >
+        <div className="flex flex-wrap items-center gap-4">
+          <Link
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"
+          >
+            Book a Discovery Call
+          </Link>
+          <InquiryModal
+            formTitle="Request a Proposal"
+            contextLabel="Partnership Enquiry"
+            selectLabel="Which partnership are you interested in?"
+            selectOptions={partnerships.map((p) => p.name)}
+            messageLabel="Tell us about your goals"
+            messagePlaceholder="What would you like the partnership to address?"
+            triggerLabel="Request a Proposal"
+            triggerClassName="inline-flex items-center px-7 py-3.5 rounded-full border border-white/40 text-white text-sm font-semibold hover:bg-white hover:text-[#1A274F] transition-colors"
+          />
         </div>
-      </section>
+      </PageHero>
 
       {/* Proof strip */}
       <StatsBar />
