@@ -10,6 +10,8 @@ import StepList from "@/components/sections/partnerships/step-list";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 import { pageMetadata } from "@/lib/seo";
 import { partnershipsHub, partnerships, DISCOVERY_EMAIL } from "@/lib/data/partnerships";
+import { InquiryModal } from "@/components/forms/all-forms";
+import { CALENDLY_URL } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata({
   title: "Partnerships",
@@ -76,12 +78,26 @@ export default function PartnershipsPage() {
           <p className="text-white/75 text-base leading-[1.8] mb-8 max-w-2xl">
             {partnershipsHub.heroSubtext}
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"
-          >
-            Book a Discovery Call
-          </Link>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"
+            >
+              Book a Discovery Call
+            </Link>
+            <InquiryModal
+              formTitle="Request a Proposal"
+              contextLabel="Partnership Enquiry"
+              selectLabel="Which partnership are you interested in?"
+              selectOptions={partnerships.map((p) => p.name)}
+              messageLabel="Tell us about your goals"
+              messagePlaceholder="What would you like the partnership to address?"
+              triggerLabel="Request a Proposal"
+              triggerClassName="inline-flex items-center px-7 py-3.5 rounded-full border border-white/40 text-white text-sm font-semibold hover:bg-white hover:text-[#1A274F] transition-colors"
+            />
+          </div>
         </div>
       </section>
 
@@ -228,8 +244,20 @@ export default function PartnershipsPage() {
         title={partnershipsHub.discoveryTitle}
         subtext={partnershipsHub.discoverySubtext}
         ctaLabel="Book a Discovery Call"
-        ctaHref="/contact"
+        ctaHref={CALENDLY_URL}
         bgClassName="bg-[#25429A]"
+        secondaryAction={
+          <InquiryModal
+            formTitle="Request a Proposal"
+            contextLabel="Partnership Enquiry"
+            selectLabel="Which partnership are you interested in?"
+            selectOptions={partnerships.map((p) => p.name)}
+            messageLabel="Tell us about your goals"
+            messagePlaceholder="What would you like the partnership to address?"
+            triggerLabel="Request a Proposal"
+            triggerClassName="inline-flex items-center px-8 py-3.5 rounded-full border border-white/40 text-white text-sm font-semibold hover:bg-white hover:text-[#1A274F] transition-colors"
+          />
+        }
         extraLinks={[{ label: "Email Us Directly", href: `mailto:${DISCOVERY_EMAIL}` }]}
       />
 

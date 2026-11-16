@@ -37,7 +37,7 @@ const slides: Slide[] = [
     overlayImage: "/overlay-glass-architecture.jpg",
     badge: "CONTINUOUS TRANSFORMATION",
     headlineItalic: "Transformation ",
-    headlineBold: "Is NOT A Project.\n It's a Capability.",
+    headlineBold: "Is NOT a Project.\n It's a Capability.",
     ctas: [
       { label: "Discover Our Approach", href: "/what-we-do/continuous-transformation", primary: true },
     ],

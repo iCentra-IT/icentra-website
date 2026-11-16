@@ -164,17 +164,9 @@ export default function AboutPage() {
             </p>
           </Reveal>
 
-          {/* Right — 2 stacked landscape images */}
+          {/* Right — CEO video */}
           <Reveal delay={0.15} className="flex flex-col gap-4 shrink-0 w-full lg:w-90">
-            <div className="relative w-full h-90 rounded-2xl overflow-hidden">
-              <Image
-                src="/images/about/hero.jpg"
-                alt="iCentra team collaboration"
-                fill
-                className="object-cover"
-                sizes="360px"
-              />
-            </div>
+            <CeoVideo youtubeId="Iczg9iE2N6M" title="My iCentra Experience — CEO" />
           </Reveal>
         </div>
       </section>
@@ -282,22 +274,7 @@ export default function AboutPage() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          7. A MESSAGE FROM OUR CEO — video
-      ══════════════════════════════════════════════ */}
-      <section className="bg-white py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-10">
-            <SectionHeading
-              title="A Message From Our CEO"
-              subtitle="Hear from Taopheek Babayeju on what the iCentra experience means."
-            />
-          </div>
-          <CeoVideo youtubeId="Iczg9iE2N6M" title="My iCentra Experience — CEO" />
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════
-          8. TRANSFORMING LIVES
+          7. TRANSFORMING LIVES
       ══════════════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">

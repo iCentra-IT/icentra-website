@@ -8,6 +8,7 @@ import HeroVideo from "@/components/sections/home/hero-video";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
 import { solutionCategories } from "@/lib/data/solutions";
+import { InquiryModal, ConsultationRequestModal } from "@/components/forms/all-forms";
 
 export const metadata: Metadata = pageMetadata({
   title: "Our Solutions",
@@ -205,12 +206,16 @@ export default function OurSolutionsPage() {
                 align business strategies with the right technology solutions and equip clients
                 with the capabilities to execute projects, programs, and portfolios effectively.
               </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"
-              >
-                Start Transformation
-              </Link>
+              <InquiryModal
+                formTitle="Start Your Transformation"
+                contextLabel="Solutions Enquiry"
+                selectLabel="Which solution are you interested in?"
+                selectOptions={solutionCategories.map((c) => c.title)}
+                messageLabel="Tell us about your goals"
+                messagePlaceholder="What challenge are you looking to solve?"
+                triggerLabel="Start Transformation"
+                triggerClassName="inline-flex items-center px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors"
+              />
             </div>
 
             {/* Right — ICE step diagram */}
@@ -275,9 +280,14 @@ export default function OurSolutionsPage() {
       <DottedCtaBanner
         title="Not Sure Where to Begin?"
         subtext="Talk to our team about the right starting point for your transformation. We'll help you identify which domain to prioritize and what a first engagement could look like."
-        ctaLabel="Book a Consultation"
-        ctaHref="/contact"
         bgClassName="bg-[#25429A]"
+        primaryAction={
+          <ConsultationRequestModal
+            solutionOptions={solutionCategories.map((c) => c.title)}
+            triggerLabel="Book a Consultation"
+            triggerClassName="inline-flex items-center px-8 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors"
+          />
+        }
       />
 
     </main>

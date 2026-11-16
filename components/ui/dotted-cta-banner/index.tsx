@@ -14,6 +14,10 @@ interface DottedCtaBannerProps {
   bgClassName?: string;
   /** Extra secondary link buttons rendered alongside the primary CTA (outline style) */
   extraLinks?: DottedCtaBannerLink[];
+  /** Overrides the primary ctaLabel/ctaHref Link entirely — e.g. a modal-form trigger button */
+  primaryAction?: React.ReactNode;
+  /** Rendered in the same button row, after the primary action and before extraLinks */
+  secondaryAction?: React.ReactNode;
 }
 
 /**
@@ -28,10 +32,13 @@ export default function DottedCtaBanner({
   ctaHref = "/contact",
   bgClassName = "bg-[#1A274F]",
   extraLinks,
+  primaryAction,
+  secondaryAction,
 }: DottedCtaBannerProps) {
+  const ctaIsExternal = ctaHref.startsWith("http");
   return (
     <section className={`relative ${bgClassName} overflow-hidden py-20 lg:py-28`}>
-    
+
 
       <Reveal className="relative z-10 max-w-190 mx-auto px-6 flex flex-col items-center text-center gap-5">
         <h2 className="text-white text-[28px] lg:text-[40px] font-extrabold leading-tight">
@@ -41,12 +48,17 @@ export default function DottedCtaBanner({
           {subtext}
         </p>
         <div className="flex flex-col sm:flex-row items-center gap-3 mt-2">
-          <Link
-            href={ctaHref}
-            className="inline-flex items-center px-8 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors"
-          >
-            {ctaLabel}
-          </Link>
+          {primaryAction ?? (
+            <Link
+              href={ctaHref}
+              target={ctaIsExternal ? "_blank" : undefined}
+              rel={ctaIsExternal ? "noopener noreferrer" : undefined}
+              className="inline-flex items-center px-8 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors"
+            >
+              {ctaLabel}
+            </Link>
+          )}
+          {secondaryAction}
           {extraLinks?.map((link) => (
             <Link
               key={link.href}
