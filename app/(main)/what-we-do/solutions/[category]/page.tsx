@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: category.title,
     description: category.heroSubtext,
     path: `/what-we-do/solutions/${category.slug}`,
+    image: category.image,
   });
 }
 

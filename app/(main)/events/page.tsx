@@ -16,6 +16,7 @@ export const metadata: Metadata = pageMetadata({
   description:
     "The Transform Webinar series and InnTech Summit: conversations with enterprise leaders on Continuous Transformation, governance, cybersecurity, strategy, and talent.",
   path: "/events",
+  image: "/images/event/inntech-summit.jpg",
 });
 
 /* ─────────────────────────────────────────

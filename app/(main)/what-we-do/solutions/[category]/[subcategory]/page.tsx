@@ -53,6 +53,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${match.subcategory.title} | ${match.category.title}`,
     description: match.subcategory.subtext,
     path: `/what-we-do/solutions/${match.category.slug}/${match.subcategory.slug}`,
+    image: match.subcategory.image,
   });
 }
 

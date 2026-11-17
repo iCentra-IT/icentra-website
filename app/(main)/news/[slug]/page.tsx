@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import Image from "next/image";
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
@@ -9,6 +10,11 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { urlFor } from "@/sanity/lib/image";
 import { ALL_POST_SLUGS_QUERY, POST_BY_SLUG_QUERY, RELATED_POSTS_QUERY } from "@/sanity/lib/queries";
 import { formatPostDate, estimateReadTime } from "@/sanity/lib/format";
+import { pageMetadata } from "@/lib/seo";
+
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
 
 type SanityImage = { asset?: { _ref: string } } | null | undefined;
 
@@ -67,6 +73,31 @@ export async function generateStaticParams() {
   const mockSlugs = allArticles.map((article) => article.slug);
   const allSlugs = new Set<string>([...((sanitySlugs ?? []) as string[]), ...mockSlugs]);
   return Array.from(allSlugs).map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+
+  const { data: post } = await sanityFetch({ query: POST_BY_SLUG_QUERY, params: { slug } }).catch(() => ({ data: null }));
+  const sanityPost = post as SanityPost | null;
+  if (sanityPost) {
+    return pageMetadata({
+      title: `${sanityPost.title} | News & Insights`,
+      description: sanityPost.excerpt || sanityPost.title,
+      path: `/news/${slug}`,
+      image: imageUrl(sanityPost.mainImage, 1200, 630) ?? undefined,
+    });
+  }
+
+  const article = getArticleBySlug(slug);
+  if (!article) return {};
+
+  return pageMetadata({
+    title: `${article.title} | News & Insights`,
+    description: article.title,
+    path: `/news/${slug}`,
+    image: article.image,
+  });
 }
 
 export default async function ArticlePage({

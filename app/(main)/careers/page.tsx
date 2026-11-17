@@ -23,6 +23,7 @@ export const metadata: Metadata = pageMetadata({
   description:
     "Join iCentra and help organizations transform. Explore current openings, our culture, career levels, and what it's like to work with us.",
   path: "/careers",
+  image: "/images/career/hero.jpg",
 });
 
 /* ─────────────────────────────────────────

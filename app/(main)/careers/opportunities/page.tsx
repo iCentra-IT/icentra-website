@@ -10,6 +10,7 @@ export const metadata: Metadata = pageMetadata({
   description:
     "Explore current openings at iCentra. Bring your experience to a team transforming people and organizations across Africa, Europe, and North America.",
   path: "/careers/opportunities",
+  image: "/images/career/hero.jpg",
 });
 
 export default function CareerOpportunitiesPage() {

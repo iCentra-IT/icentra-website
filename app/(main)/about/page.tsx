@@ -1,4 +1,5 @@
 // import { VolunteerRegistrationModal, IndividualLearningModal } from "@/components/forms/all-forms"; // unused while sections 8 & 9 are commented out
+import type { Metadata } from "next";
 import DiscoverBanner from "@/components/ui/banner";
 import { TeamCard } from "@/components/ui/cards/team-card";
 import PageHero from "@/components/ui/page-hero";
@@ -6,6 +7,15 @@ import SectionHeading from "@/components/ui/section-heading";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 import CeoVideo from "@/components/sections/about/ceo-video";
 import Image from "next/image";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "About Us",
+  description:
+    "Founded in 2009 in Abuja, Nigeria, iCentra transforms people and organizations for sustained performance, with offices in Texas, London, and Abuja.",
+  path: "/about",
+  image: "/images/about/discover-icentra.jpg",
+});
 
 /* ─────────────────────────────────────────
    LEADERSHIP DATA

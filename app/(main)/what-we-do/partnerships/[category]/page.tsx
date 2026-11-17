@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${partnership.name} | Partnerships`,
     description: partnership.heroParagraph,
     path: `/what-we-do/partnerships/${partnership.slug}`,
+    image: partnership.image,
   });
 }
 

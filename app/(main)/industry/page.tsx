@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import TrustedPartners from "@/components/sections/home/partners";
 import BlogCard from "@/components/ui/cards/blog-card";
 import PageHero from "@/components/ui/page-hero";
@@ -11,6 +12,15 @@ import { POSTS_BY_CATEGORY_QUERY } from "@/sanity/lib/queries";
 import { formatPostDate, estimateReadTimeFromText } from "@/sanity/lib/format";
 import Image from "next/image";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Industries We Serve",
+  description:
+    "iCentra's experience spans government, financial services, telecoms, construction, oil & gas, health, education, and more — case studies and whitepapers from real engagements.",
+  path: "/industry",
+  image: "/images/industry/whitepaper-cybersecurity.jpg",
+});
 
 
 /* ─────────────────────────────────────────

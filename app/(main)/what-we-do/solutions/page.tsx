@@ -16,6 +16,7 @@ export const metadata: Metadata = pageMetadata({
   description:
     "Explore iCentra's suite of solutions spanning Enterprise Transformation, Cybersecurity & GRC, Strategy & Execution, and Learning & Talent, delivered through our proven ICE approach.",
   path: "/what-we-do/solutions",
+  image: "/images/solution/solutions.png",
 });
 
 /* ─────────────────────────────────────────

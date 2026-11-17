@@ -20,6 +20,7 @@ export const metadata: Metadata = pageMetadata({
   description:
     "iCentra helps leaders build the operating system that keeps strategy, execution, people, and value delivery aligned — diagnosed by the Continuous Transformation Index™, aligned by the 4P Alignment Architecture™, delivered through the IMPACT™ Methodology.",
   path: "/what-we-do/continuous-transformation",
+  image: "/images/cont-trans/cont1.jpg",
 });
 
 /* ─────────────────────────────────────────

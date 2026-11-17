@@ -25,13 +25,14 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const event = await getEvent(slug);
+  const event = await getEvent(slug).catch(() => null);
   if (!event) return {};
 
   return pageMetadata({
     title: `${event.title} | Events`,
     description: event.subtitle || event.description.slice(0, 160),
     path: `/events/${event.slug}`,
+    image: event.cover_image ?? "/images/event/inntech-summit.jpg",
   });
 }
 

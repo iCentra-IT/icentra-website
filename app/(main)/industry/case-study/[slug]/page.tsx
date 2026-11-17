@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,6 +10,11 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { postImageUrl } from "@/sanity/lib/image";
 import { CASE_STUDY_SLUGS_QUERY, POST_BY_SLUG_QUERY, RELATED_POSTS_QUERY } from "@/sanity/lib/queries";
 import { formatPostDate, estimateReadTime, estimateReadTimeFromText } from "@/sanity/lib/format";
+import { pageMetadata } from "@/lib/seo";
+
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
 
 type SanityImage = { asset?: { _ref: string } } | null | undefined;
 
@@ -57,6 +63,20 @@ const portableTextComponents: PortableTextComponents = {
 export async function generateStaticParams() {
   const { data: slugs } = await sanityFetch({ query: CASE_STUDY_SLUGS_QUERY });
   return ((slugs ?? []) as string[]).map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const { data: post } = await sanityFetch({ query: POST_BY_SLUG_QUERY, params: { slug } }).catch(() => ({ data: null }));
+  const caseStudy = post as SanityPost | null;
+  if (!caseStudy) return {};
+
+  return pageMetadata({
+    title: `${caseStudy.title} | Case Study`,
+    description: caseStudy.excerpt || caseStudy.title,
+    path: `/industry/case-study/${slug}`,
+    image: postImageUrl(caseStudy.mainImage, 1200, 630) ?? undefined,
+  });
 }
 
 export default async function CaseStudyDetailPage({

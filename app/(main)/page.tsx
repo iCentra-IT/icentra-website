@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { NewsletterModal, ResourceDownloadModal } from "@/components/forms/all-forms";
 import HeroSlider from "@/components/sections/home/hero-slider";
 import TrustedPartners from "@/components/sections/home/partners";
@@ -16,6 +17,20 @@ import { postImageUrl } from "@/sanity/lib/image";
 import { POSTS_BY_CATEGORY_QUERY } from "@/sanity/lib/queries";
 import { formatPostDate, estimateReadTimeFromText } from "@/sanity/lib/format";
 import Link from "next/link";
+import { pageMetadata, DEFAULT_TITLE, DEFAULT_DESCRIPTION } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  ...pageMetadata({
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    path: "/",
+    image: "/images/og/home.png",
+  }),
+  // Bypasses the root layout's "%s | iCentra" title template — the homepage
+  // title already contains "iCentra", so applying the template would
+  // duplicate it ("... | iCentra | iCentra").
+  title: { absolute: DEFAULT_TITLE },
+};
 
 /* ─────────────────────────────────────────
    SANITY DATA SHAPING

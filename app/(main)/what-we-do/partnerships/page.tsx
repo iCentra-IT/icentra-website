@@ -19,6 +19,7 @@ export const metadata: Metadata = pageMetadata({
   description:
     "iCentra's retainer-based Enterprise Partnerships: AI Transformation, PMOCentra, ComplyCentra, and Workforce Capability. One partner, accountable across every dimension of transformation.",
   path: "/what-we-do/partnerships",
+  image: partnerships[0]?.image,
 });
 
 /* ─────────────────────────────────────────

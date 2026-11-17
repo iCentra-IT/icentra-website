@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import PageHero from "@/components/ui/page-hero";
 import { Reveal } from "@/components/ui/motion/reveal";
@@ -10,6 +11,15 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { urlFor } from "@/sanity/lib/image";
 import { CATEGORY_TREE_QUERY, POSTS_FOR_SLUGS_QUERY } from "@/sanity/lib/queries";
 import { formatPostDate, estimateReadTimeFromText } from "@/sanity/lib/format";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "News & Insights",
+  description:
+    "Company updates, media features, press releases, and insights from iCentra — thoughtfully curated and optimized for sharing.",
+  path: "/news",
+  image: "/images/banner/thought-leadership.png",
+});
 
 const TOP_LEVEL_SLUGS = ["spotlights", "insights"];
 

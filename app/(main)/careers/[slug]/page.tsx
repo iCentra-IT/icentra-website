@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import PageHero from "@/components/ui/page-hero";
@@ -7,12 +8,30 @@ import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal
 import SectionHeading from "@/components/ui/section-heading";
 import TextBlock from "@/components/ui/text-block";
 import { listJobs, getJob, EMPLOYMENT_TYPE_LABELS } from "@/lib/api/jobs";
+import { pageMetadata } from "@/lib/seo";
+
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
 
 export async function generateStaticParams() {
   // Defensive: a flaky/rate-limited API response here must not fail the whole
   // build — falling back to on-demand rendering for these slugs is fine.
   const jobs = await listJobs().catch(() => []);
   return jobs.map((job) => ({ slug: job.slug }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const job = await getJob(slug).catch(() => null);
+  if (!job) return {};
+
+  return pageMetadata({
+    title: `${job.title} | Careers`,
+    description: job.description.slice(0, 160),
+    path: `/careers/${job.slug}`,
+    image: "/images/career/hero.jpg",
+  });
 }
 
 

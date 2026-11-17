@@ -21,7 +21,7 @@ const navLinks = [
       { label: "Partnerships", href: "/what-we-do/partnerships" },
     ],
   },
-  { label: "Industry", href: "/industry" },
+  { label: "Industries", href: "/industry" },
   { label: "News & Insights", href: "/news" },
   { label: "Events", href: "/events" },
   { label: "Career", href: "/careers" },
