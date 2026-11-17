@@ -674,6 +674,20 @@ export function getAllTestimonials(): SolutionTestimonial[] {
   );
 }
 
+/**
+ * Every subcategory with a real case study on file, paired with its parent
+ * category — the single source for the Solutions hub's "Proof It Works"
+ * section. Adding a `caseStudy` to any subcategory here makes it show up
+ * there automatically, no further code changes needed.
+ */
+export function getAllCaseStudies(): { category: SolutionCategory; subcategory: SolutionSubcategory }[] {
+  return solutionCategories.flatMap((category) =>
+    category.subcategories
+      .filter((sub) => sub.caseStudy)
+      .map((sub) => ({ category, subcategory: sub }))
+  );
+}
+
 export function getSolutionSubcategory(
   categorySlug: string,
   subcategorySlug: string

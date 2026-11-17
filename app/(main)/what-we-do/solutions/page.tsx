@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import ServiceCard from "@/components/ui/cards/service-card";
+import Image from "next/image";
 import SectionHeading from "@/components/ui/section-heading";
 import StatsBar from "@/components/sections/home/stat";
 import DottedCtaBanner from "@/components/ui/dotted-cta-banner";
+import TestimonialsCarousel from "@/components/ui/testimonials-carousel";
 import { StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 import HeroVideo from "@/components/sections/home/hero-video";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
-import { solutionCategories } from "@/lib/data/solutions";
+import { solutionCategories, getAllTestimonials, getAllCaseStudies } from "@/lib/data/solutions";
 import { InquiryModal, ConsultationRequestModal } from "@/components/forms/all-forms";
 
 export const metadata: Metadata = pageMetadata({
@@ -34,16 +35,6 @@ const iceSteps = [
     label: "We Execute\nwith Excellence",
   },
 ];
-
-const solutionCards = solutionCategories.map((category) => ({
-  slug: category.slug,
-  image: category.image,
-  category: category.title,
-  title: category.tagline,
-  activeTitle: category.title,
-  items: category.subcategories.map((sub) => sub.title),
-  href: `/what-we-do/solutions/${category.slug}`,
-}));
 
 /* ─────────────────────────────────────────
    ICE PROCESS ICONS — inline SVG
@@ -180,9 +171,94 @@ export default function OurSolutionsPage() {
       <StatsBar />
 
       {/* ══════════════════════════════════════
-          3. OUR APPROACH — ICE process diagram
+          3. EXPLORE EVERY SOLUTION — full catalog, grouped by
+             domain, pulled straight from each category's own data
+             (tagline, intro copy, and all 4 of its subcategories).
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <SectionHeading
+            title="Explore Every Solution"
+            subtitle="Four domains, sixteen capabilities. Pick a starting point, or browse the full catalog below."
+            className="mb-14"
+          />
+
+          <div className="flex flex-col gap-16 lg:gap-20">
+            {solutionCategories.map((category, i) => (
+              <div key={category.slug} id={category.slug} className="scroll-mt-24">
+                {/* Category header — copy + dedicated category photo */}
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-8 items-center mb-8 pb-6 border-b border-[#DCE0E8]">
+                  <div>
+                    <p className="text-[#0066FF] text-xs font-bold tracking-[0.14em] uppercase mb-2">
+                      {String(i + 1).padStart(2, "0")} · {category.title}
+                    </p>
+                    <h3 className="text-[#1A274F] text-xl lg:text-2xl font-extrabold mb-2">{category.tagline}</h3>
+                    <p className="text-[#6B7280] text-sm leading-relaxed mb-4">{category.howWeDoItIntro}</p>
+                    <Link
+                      href={`/what-we-do/solutions/${category.slug}`}
+                      className="inline-flex items-center gap-1.5 text-[#0066FF] text-sm font-semibold hover:gap-2.5 transition-all w-fit"
+                    >
+                      View all {category.title}
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                  </div>
+                  <Link
+                    href={`/what-we-do/solutions/${category.slug}`}
+                    className="relative block w-full h-40 lg:h-full lg:min-h-35 rounded-2xl overflow-hidden shrink-0"
+                  >
+                    <Image
+                      src={category.image}
+                      alt={category.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 280px"
+                    />
+                  </Link>
+                </div>
+
+                {/* Subcategory mini-cards */}
+                <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                  {category.subcategories.map((sub) => (
+                    <StaggerItem key={sub.slug}>
+                      <Link
+                        href={`/what-we-do/solutions/${category.slug}/${sub.slug}`}
+                        className="group block h-full rounded-2xl border border-[#DCE0E8] overflow-hidden hover:border-[#0066FF] hover:shadow-lg hover:shadow-[#0066FF]/5 transition-all"
+                      >
+                        <div className="relative w-full h-28">
+                          <Image
+                            src={sub.image}
+                            alt={sub.title}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 1024px) 50vw, 25vw"
+                          />
+                        </div>
+                        <div className="p-5">
+                          <h4 className="text-[#1A274F] text-sm font-bold mb-1.5">{sub.title}</h4>
+                          <p className="text-[#6B7280] text-xs leading-relaxed line-clamp-3">{sub.subtext}</p>
+                          <span className="inline-flex items-center gap-1 text-[#0066FF] text-xs font-semibold mt-3 group-hover:gap-2 transition-all">
+                            Learn more
+                            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                          </span>
+                        </div>
+                      </Link>
+                    </StaggerItem>
+                  ))}
+                </StaggerGroup>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          4. OUR APPROACH — ICE process diagram
+      ══════════════════════════════════════ */}
+      <section className="bg-[#F7F9FC] py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
             title="Our Approach"
@@ -237,39 +313,64 @@ export default function OurSolutionsPage() {
       </section>
 
       {/* ══════════════════════════════════════
-          4. TECHNOLOGY & BUSINESS SOLUTIONS — ServiceCard ×4
+          5. PROOF IT WORKS — real testimonial(s) + case study
+             highlight(s), pulled from whichever subcategories have
+             them on file (lib/data/solutions.ts)
       ══════════════════════════════════════ */}
-      <section id="solutions-grid" className="bg-white pb-20 lg:pb-24 scroll-mt-24">
+      <section className="bg-white py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading
-            title="Technology and Business Solutions That Deliver Impact"
-            subtitle="Four domains, each with a dedicated team and a proven delivery methodology. Pick a card to see what's inside."
+            title="Proof It Works"
+            subtitle="Real engagements, real outcomes."
             className="mb-10"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {solutionCards.map((card) => (
-              <div
-                key={card.href}
-                id={card.slug}
-                className="scroll-mt-24 [&>a]:max-w-none [&>a]:w-full [&>a]:aspect-auto [&>a]:h-100"
-              >
-                <ServiceCard
-                  image={card.image}
-                  category={card.category}
-                  title={card.title}
-                  activeTitle={card.activeTitle}
-                  items={card.items}
-                  href={card.href}
-                />
-              </div>
-            ))}
+          <div className="mb-14">
+            <TestimonialsCarousel testimonials={getAllTestimonials()} />
           </div>
+
+          <StaggerGroup className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {getAllCaseStudies().map(({ category, subcategory: sub }) => (
+              <StaggerItem
+                key={sub.slug}
+                className="bg-[#F7F9FC] rounded-2xl p-7 lg:p-8 border border-[#DCE0E8] flex flex-col gap-4"
+              >
+                <p className="text-[#0066FF] text-xs font-bold tracking-[0.1em] uppercase">
+                  {category.title} · Case Study
+                </p>
+                <p className="text-[#1A274F] text-base font-bold">{sub.caseStudy!.client}</p>
+                <div>
+                  <p className="text-[#1A274F] text-sm font-bold mb-1">Challenge</p>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">{sub.caseStudy!.challenge}</p>
+                </div>
+                <div>
+                  <p className="text-[#1A274F] text-sm font-bold mb-1.5">Result</p>
+                  <ul className="flex flex-col gap-2">
+                    {sub.caseStudy!.result.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5 text-[#6B7280] text-sm leading-relaxed">
+                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0066FF] shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <Link
+                  href={`/what-we-do/solutions/${category.slug}/${sub.slug}`}
+                  className="inline-flex items-center gap-1.5 text-[#0066FF] text-sm font-semibold hover:gap-2.5 transition-all w-fit mt-1"
+                >
+                  Read the full story
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerGroup>
         </div>
       </section>
 
       {/* ══════════════════════════════════════
-          5. START A CONVERSATION — closing CTA
+          6. START A CONVERSATION — closing CTA
       ══════════════════════════════════════ */}
       <DottedCtaBanner
         title="Not Sure Where to Begin?"
