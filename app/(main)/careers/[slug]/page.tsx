@@ -42,9 +42,10 @@ export default async function JobDetailPage({
 }) {
   const { slug } = await params;
 
-  // Defensive: a transient backend error here must not crash the whole page
-  // with a generic 500 — treat it the same as "not found" rather than throw.
-  const job = await getJob(slug).catch(() => null);
+  // Let a genuine backend failure surface to the (main) error boundary
+  // ("Try again") rather than disguising it as a 404 — the job may well
+  // exist; only getJob's own 404 case should resolve to null here.
+  const job = await getJob(slug);
   if (!job) notFound();
 
   // Defensive: this is supplementary content — losing it shouldn't take down
