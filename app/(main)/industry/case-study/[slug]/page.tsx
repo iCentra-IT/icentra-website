@@ -66,7 +66,9 @@ export default async function CaseStudyDetailPage({
 }) {
   const { slug } = await params;
 
-  const { data: post } = await sanityFetch({ query: POST_BY_SLUG_QUERY, params: { slug } });
+  // Defensive: a Sanity hiccup here must not crash the page with a generic
+  // 500 — treat it the same as "not found" rather than throw.
+  const { data: post } = await sanityFetch({ query: POST_BY_SLUG_QUERY, params: { slug } }).catch(() => ({ data: null }));
   const caseStudy = post as SanityPost | null;
 
   if (!caseStudy) notFound();

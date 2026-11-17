@@ -37,7 +37,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function EventDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const event = await getEvent(slug);
+  // Defensive: a transient backend error here must not crash the whole page
+  // with a generic 500 — treat it the same as "not found" rather than throw.
+  const event = await getEvent(slug).catch(() => null);
   if (!event) notFound();
 
   // Defensive: this is supplementary content — losing it shouldn't take down

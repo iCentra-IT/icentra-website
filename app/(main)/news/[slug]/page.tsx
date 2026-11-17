@@ -76,7 +76,9 @@ export default async function ArticlePage({
 }) {
   const { slug } = await params;
 
-  const { data: post } = await sanityFetch({ query: POST_BY_SLUG_QUERY, params: { slug } });
+  // Defensive: a Sanity hiccup here must not crash the page — fall through
+  // to the mock article lookup below instead of throwing a 500.
+  const { data: post } = await sanityFetch({ query: POST_BY_SLUG_QUERY, params: { slug } }).catch(() => ({ data: null }));
   const sanityPost = post as SanityPost | null;
 
   if (sanityPost) {

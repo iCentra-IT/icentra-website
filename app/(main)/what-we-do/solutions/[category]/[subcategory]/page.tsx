@@ -68,10 +68,12 @@ export default async function SolutionSubcategoryPage({ params }: PageProps) {
 
   let insightItems: RawPost[] = [];
   if (sub.insightCategorySlug) {
+    // Defensive: this is supplementary content — a Sanity hiccup here
+    // shouldn't take down a page whose primary data already resolved.
     const { data } = await sanityFetch({
       query: POSTS_BY_CATEGORY_QUERY,
       params: { slug: sub.insightCategorySlug },
-    });
+    }).catch(() => ({ data: null }));
     insightItems = ((data ?? []) as RawPost[]).slice(0, 3);
   }
 

@@ -23,7 +23,9 @@ export default async function JobDetailPage({
 }) {
   const { slug } = await params;
 
-  const job = await getJob(slug);
+  // Defensive: a transient backend error here must not crash the whole page
+  // with a generic 500 — treat it the same as "not found" rather than throw.
+  const job = await getJob(slug).catch(() => null);
   if (!job) notFound();
 
   // Defensive: this is supplementary content — losing it shouldn't take down
@@ -48,22 +50,32 @@ export default async function JobDetailPage({
       </PageHero>
 
       <section className="bg-white py-14 lg:py-20">
-        <div className="max-w-[860px] mx-auto px-6 flex flex-col gap-10">
-          <Reveal>
-            <h2 className="text-[#1A274F] text-xl lg:text-[24px] font-bold mb-4">About the Role</h2>
+        <div className="max-w-215 mx-auto px-6 flex flex-col gap-10">
+          {/* <Reveal>
+            <h2 className="text-[#1A274F] text-xl lg:text-[24px] font-bold mb-4">About iCentra</h2>
+            <p className="text-[#374151] text-base leading-[1.9]">
+              iCentra is a global technology and business solutions company that partners with governments,
+              financial institutions, and enterprises across Africa, Europe, and North America to deliver complex
+              transformation. With 17+ years of experience and offices in Texas, London, and Abuja, we build the
+              strategy, portfolio, and execution capability our clients need to perform at the highest level.
+            </p>
+          </Reveal> */}
+
+          <Reveal delay={0.05}>
+            <h2 className="text-[#1A274F] text-xl lg:text-[24px] font-bold mb-4">About iCentra</h2>
             <TextBlock text={job.description} />
           </Reveal>
 
           {job.requirements && (
             <Reveal delay={0.1}>
-              <h2 className="text-[#1A274F] text-xl lg:text-[24px] font-bold mb-4">What We Are Looking For</h2>
+              <h2 className="text-[#1A274F] text-xl lg:text-[24px] font-bold mb-4">What You Will Bring</h2>
               <TextBlock text={job.requirements} />
             </Reveal>
           )}
 
           {job.benefits && (
             <Reveal delay={0.15}>
-              <h2 className="text-[#1A274F] text-xl lg:text-[24px] font-bold mb-4">What You&apos;ll Get</h2>
+              <h2 className="text-[#1A274F] text-xl lg:text-[24px] font-bold mb-4">Why Join Us</h2>
               <TextBlock text={job.benefits} />
             </Reveal>
           )}
@@ -72,13 +84,26 @@ export default async function JobDetailPage({
             <div className="bg-[#EAF3FB] rounded-2xl p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
               <div>
                 <h3 className="text-[#1A274F] text-lg font-bold mb-1">
-                  {job.is_accepting_applications ? "Ready to apply?" : "Applications are closed"}
+                  {job.is_accepting_applications ? "How to Apply" : "Applications are closed"}
                 </h3>
                 <p className="text-[#6B7280] text-sm">
                   {job.is_accepting_applications
                     ? `Submit your details and resume for the ${job.title} role.`
                     : "This role is no longer accepting applications. Check back for other open roles below."}
                 </p>
+                {job.is_accepting_applications && job.application_deadline && (
+                  <p className="text-[#6B7280] text-sm mt-1">
+                    Applications close{" "}
+                    <span className="font-semibold text-[#1A274F]">
+                      {new Date(job.application_deadline).toLocaleDateString("en-US", {
+                        month: "long",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </span>
+                    . Only shortlisted candidates will be contacted.
+                  </p>
+                )}
               </div>
               {job.is_accepting_applications && (
                 <JobApplicationModal

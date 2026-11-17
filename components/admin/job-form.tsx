@@ -166,7 +166,7 @@ export default function JobForm({ initial, submitLabel, onSubmit, extraActions }
           rows={6}
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="What the role is and what the day-to-day looks like."
+          placeholder={`What the role is and what the day-to-day looks like. You can mix in a bulleted section too, e.g.:\n\nWhat you will do:\n- Set up the PMO charter, operating rhythm, and reporting formats.\n- Run project intake and stage-gate reviews.`}
         />
         <FormTextarea
           label="Requirements"
