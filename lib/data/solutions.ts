@@ -145,7 +145,7 @@ export const solutionCategories: SolutionCategory[] = [
         closingCtaLine: "Let's Turn Agility Into a Competitive Advantage",
         testimonial: {
           quote:
-            "Partnering with iCentra was a game-changer for our transformation journey. Their agile expertise helped us break down silos, speed up delivery, and improve collaboration across our teams. What stood out the most was their practical, hands-on approach. They didn't just tell us what to do; they walked the journey with us. Today, we're building faster, working smarter, and creating more value for the business.",
+            "iCentra has been a valuable partner in our Agile transformation journey. Their expertise and hands-on approach helped us strengthen collaboration, accelerate project delivery, and embed agile ways of working across our teams. Beyond introducing new methodologies, iCentra helped us build the internal capabilities and mindset required to sustain continuous improvement and deliver greater business value.",
           name: "Muniru Mai",
           role: "Chief Technology Officer, NNPC Limited (IT Division)",
         },
@@ -310,6 +310,12 @@ export const solutionCategories: SolutionCategory[] = [
           { title: "Audit & Improve", description: "We guide you through internal and external audits, provide remediation support, and ensure continuous improvement systems are in place." },
         ],
         closingCtaLine: "Compliance is Not Just a Duty: It's a Differentiator",
+        testimonial: {
+          quote:
+            "iCentra has been a valuable strategic partner in strengthening our information security governance and institutional resilience. Their expertise, professionalism, and commitment to excellence were instrumental in our successful ISO 27001 certification, seamless transition to the 2022 standard with zero non-conformities, and the development of sustainable internal capabilities. Beyond delivering a project, iCentra has helped us build a foundation for continuous improvement and long-term performance.",
+          name: "Chiaka Ben-Obi",
+          role: "Coordinating Director, Digital and Innovation Support Group, Nigeria Revenue Service (NRS)",
+        },
       },
       {
         slug: "cyber-security",
@@ -517,9 +523,9 @@ export const solutionCategories: SolutionCategory[] = [
         closingCtaLabel: "Talk to Us Today",
         testimonial: {
           quote:
-            "Working with iCentra to establish the framework to operationalize our Enterprise PMO was a game-changer. Their structured yet flexible approach helped us align projects with strategic priorities, improve visibility, and build internal capacity. Today, our EPMO is a core pillar of execution excellence at CBN.",
-          name: "Mrs. Bisi Popoola",
-          role: "Head EPMG, Central Bank of Nigeria (CBN)",
+            "iCentra has been a trusted partner in strengthening our enterprise project management capabilities. Their strategic expertise and collaborative approach helped us establish a robust Enterprise PMO, improve portfolio governance, and align project execution with institutional priorities. Through sustained capacity building and continuous improvement, we have advanced our project management maturity and established a stronger foundation for execution excellence.",
+          name: "Bisi Toro-Popoola",
+          role: "Deputy Director & Group Head, Enterprise Portfolio Management, Central Bank of Nigeria (CBN)",
         },
         caseStudy: {
           client: "Central Bank of Nigeria (CBN)",
@@ -579,56 +585,110 @@ export const solutionCategories: SolutionCategory[] = [
     tagline: "Accelerate Your Growth With Refined Knowledge",
     heroHeadline: "Learning & Talent",
     heroSubtext:
-      "Capable people are the engine of sustained transformation. At iCentra, we build learning and talent programs that grow leadership, skills, and capability across your organization.",
+      "In today's rapidly evolving business environment, organizations must continuously strengthen workforce capability, leadership capacity, and talent systems to remain competitive and resilient. At iCentra, we empower individuals and organizations with the knowledge, skills, and talent solutions required to drive performance, accelerate transformation, and achieve sustained business success.",
     howWeDoItIntro:
-      "At iCentra, we understand that transformation is not a one-size-fits-all journey. Our experts work collaboratively with clients to develop tailored, innovative solutions designed to optimize business performance and create lasting impact.",
+      "At iCentra, we take a holistic and strategic approach to learning and talent development by aligning our solutions with your organization's goals, operational priorities, and transformation agenda. Our team works closely with clients to design and deliver tailored capability development and talent optimization solutions that create measurable impact and long-term value.",
     ctaTitle: "Why Choose iCentra?",
     ctaSubtext:
       "Our transformation solutions are designed to help organizations evolve, innovate, and excel. By leveraging tailored strategies and cutting-edge tools, we empower businesses to achieve their goals, stay competitive, and create a lasting legacy of success.",
-    image: "/images/solution/learning-talent.jpg",
+    image: "/images/solution/learning-talent.webp",
     subcategories: [
       {
-        slug: "learning-and-development",
-        title: "Learning & Development",
-        tagline: "Empower. Equip. Elevate.",
-        subtext: "Building Capabilities That Drive Performance.",
-        image: "/images/career/hero.jpg",
-        insightCategorySlug: "executive-training",
-        heroCtaLine: "Start Building Future-Ready Talent",
-        heroCtaLabel: "Speak to a Learning Advisor",
+        slug: "workforce-capability-partnerships",
+        title: "Workforce Capability Partnerships™",
+        tagline: "Build the Workforce That Sustains Transformation.",
+        subtext:
+          "Strengthening organizational performance through structured capability development and continuous learning systems.",
+        image: "/images/solution/workforce-capability-partnerships.webp",
+        heroCtaLine: "Enable Continuous Workforce Transformation",
         overview: [
-          "In today's dynamic world, your people are your greatest asset and your most powerful catalyst for growth. But without the right skills, mindset, and learning culture, even the best strategies can fall short.",
-          "At iCentra, we deliver transformational Learning & Development solutions designed to align talent with strategy, build critical capabilities, and drive measurable business outcomes.",
-          "We don't just train: we transform people, unlock possibilities and cultivate leaders ready to meet the challenges of tomorrow.",
+          "Organizations today require more than occasional training programs to remain competitive. Sustained performance depends on the ability to continuously develop workforce capability, strengthen leadership capacity, and align learning initiatives with strategic business objectives.",
+          "At iCentra, our Workforce Capability Partnerships™ are designed to help organizations build future-ready workforce systems that support transformation, improve execution capability, and drive measurable business impact.",
         ],
-        servicesIntro: "Our Learning & Development Solutions Include:",
+        servicesIntro:
+          "We partner with organizations to design and implement long-term capability development systems tailored to their operational priorities and transformation goals. Our Workforce Capability Partnership Solutions Include:",
         services: [
-          { title: "Corporate Learning Programs", description: "Tailored training solutions across leadership, management, technology, softskills." },
-          { title: "Capacity Support", description: "We augment internal teams with skilled professionals, trainers, and learning consultants to support short- and long-term capacity building." },
-          { title: "Digital Learning & Blended Delivery", description: "Flexible, interactive formats (onsite, virtual, or hybrid) to maximize reach and retention." },
-          { title: "Certification Programs", description: "Industry-recognized training to empower professionals with globally relevant credentials (PMI, PECB, ISACA etc)." },
+          { title: "Capability Assessment & Gap Analysis", description: "We evaluate workforce capability, identify critical skill gaps, and assess organizational readiness to support strategic objectives and transformation initiatives." },
+          { title: "Learning Roadmaps & Development Frameworks", description: "We develop structured learning pathways and capability development frameworks aligned to business priorities, leadership needs, and operational performance goals." },
+          { title: "Certification & Professional Development Programs", description: "We design and implement certification pathways and professional development initiatives that strengthen technical, leadership, and execution capability across the organization." },
+          { title: "Continuous Workforce Development Programs", description: "Through ongoing learning initiatives, leadership development sessions, and performance-focused capability interventions, we help organizations build sustainable workforce transformation systems." },
+        ],
+        midCtaLine: "Ready to Strengthen Workforce Capability?",
+        process: [
+          { title: "Assess Capability & Business Needs", description: "We evaluate workforce capability, organizational priorities, and transformation objectives to identify capability gaps and development opportunities." },
+          { title: "Design Capability Development Strategy", description: "Our experts develop tailored workforce capability frameworks, learning pathways, and development programs aligned to business goals." },
+          { title: "Implement Learning & Development Initiatives", description: "We deploy targeted capability development programs, leadership initiatives, and certification pathways across teams and functions." },
+          { title: "Monitor, Measure & Improve", description: "Through continuous assessment, performance tracking, and feedback loops, we ensure learning translates into measurable business outcomes." },
+        ],
+        closingCtaLine: "Build a Future-Ready Workforce.",
+      },
+      {
+        slug: "corporate-training-programs",
+        title: "Corporate Training Programs",
+        tagline: "Practical Learning. Measurable Business Impact.",
+        subtext: "Customized corporate training programs aligned to organizational performance and operational excellence.",
+        image: "/images/solution/corporate-training-programs.webp",
+        heroCtaLine: "Strengthen Workforce Performance",
+        overview: [
+          "In today's rapidly changing business environment, organizations must continuously equip their teams with the knowledge, skills, and capabilities required to improve performance, enhance execution, and adapt to evolving business demands.",
+          "At iCentra, we design and deliver customized Corporate Training Programs that address specific organizational needs while ensuring direct alignment between learning initiatives and business objectives.",
+        ],
+        servicesIntro:
+          "Our Corporate Training Programs are designed to improve operational effectiveness, leadership capability, and workforce productivity across technical, business, and functional areas. Our solutions include:",
+        services: [
+          { title: "Leadership & Management Training", description: "Programs designed to strengthen leadership capability, decision-making, communication, and team management effectiveness across all organizational levels." },
+          { title: "Technical & Professional Skills Development", description: "Specialized learning programs focused on industry-specific technical capability, professional certifications, and operational excellence." },
+          { title: "Strategy Execution & Project Management Training", description: "Capability development programs that improve execution discipline, governance, agile delivery, and project performance across organizations." },
+          { title: "Customized Enterprise Learning Solutions", description: "Tailored corporate learning interventions designed specifically around organizational priorities, workforce needs, and business outcomes." },
         ],
         trainingLinks: [
           { label: "For Corporate", href: "https://learning.icentra.com/" },
           { label: "For Individuals", href: "https://careercentra.icentra.com/" },
         ],
-        midCtaLine: "Find a Training that Suits Your Needs",
-        midCtaLabel: "Speak to a Learning Advisor",
+        midCtaLine: "Ready to Improve Workforce Performance?",
         process: [
-          { title: "Assess & Align", description: "We start by understanding your goals and assessing existing skills to identify capability gaps." },
-          { title: "Design & Customize", description: "We craft a tailored learning strategy and curriculum aligned with business objectives and roles." },
-          { title: "Deliver & Engage", description: "Our certified facilitators deliver dynamic, engaging sessions through in-person, virtual, or hybrid methods." },
-          { title: "Measure & Improve", description: "We track progress, assess impact, and continuously refine learning to ensure lasting performance improvement." },
+          { title: "Identify Learning Needs", description: "We work with your organization to assess workforce capability gaps, operational priorities, and performance objectives." },
+          { title: "Design Customized Learning Programs", description: "Our experts develop tailored learning interventions aligned to your organizational goals and workforce requirements." },
+          { title: "Deliver High-Impact Training", description: "We implement engaging and practical training programs through virtual, physical, or hybrid delivery models." },
+          { title: "Measure Learning Impact", description: "We assess training effectiveness through performance tracking, feedback mechanisms, and business outcome evaluation." },
         ],
-        closingCtaLine: "Transform Your Workforce Into a Strategic Asset",
-        closingCtaLabel: "Speak to a Learning Advisor",
+        closingCtaLine: "Develop High-Performing Teams.",
+      },
+      {
+        slug: "executive-programs",
+        title: "Executive Programs",
+        tagline: "Developing Leaders for Enterprise Transformation.",
+        subtext: "Equipping executives with the strategic insight and leadership capability required to drive sustained organizational success.",
+        image: "/images/solution/executive-programs.webp",
+        insightCategorySlug: "executive-training",
+        heroCtaLine: "Empower Strategic Leadership",
+        overview: [
+          "Organizations thrive when leaders possess the vision, governance capability, and execution discipline required to navigate complexity, lead transformation, and sustain performance in a rapidly evolving business environment.",
+          "At iCentra, our Executive Programs are designed to strengthen leadership effectiveness, strategic thinking, and transformation capability across senior executives, business leaders, and decision-makers.",
+        ],
+        servicesIntro:
+          "Our executive learning experiences combine practical insight, strategic frameworks, and real-world application to help leaders drive enterprise transformation and organizational growth. Our Executive Programs Include:",
+        services: [
+          { title: "Leadership & Executive Development", description: "Programs focused on strategic leadership, organizational performance, executive communication, and decision-making capability." },
+          { title: "Enterprise Transformation & Innovation Programs", description: "Executive learning sessions designed around AI, digital transformation, agile leadership, innovation, and organizational transformation." },
+          { title: "Governance & Strategy Execution Programs", description: "Programs that strengthen governance capability, strategy execution discipline, portfolio management, and enterprise oversight." },
+          { title: "Industry & Specialized Executive Sessions", description: "Customized executive programs tailored to sector-specific priorities, leadership challenges, and emerging business trends." },
+        ],
+        midCtaLine: "Ready to Strengthen Executive Leadership?",
+        process: [
+          { title: "Assess Leadership Priorities", description: "We identify leadership capability needs, organizational challenges, and strategic priorities." },
+          { title: "Design Executive Learning Experience", description: "Our experts develop tailored executive learning journeys aligned to transformation and business objectives." },
+          { title: "Deliver Executive Programs", description: "We facilitate impactful executive learning sessions through immersive, practical, and interactive formats." },
+          { title: "Reinforce Leadership Capability", description: "Through continuous engagement and post-program support, we help leaders translate learning into enterprise impact." },
+        ],
+        closingCtaLine: "Lead Transformation with Confidence.",
       },
       {
         slug: "talent-optimization",
         title: "Talent Optimization",
         tagline: "Right People. Right Skills. Real Impact.",
         subtext: "Empowering your organization with scalable, high-impact talent solutions.",
-        image: "/images/partnerships/workforce-capability.jpg",
+        image: "/images/solution/talent-optimization.webp",
         insightCategorySlug: "project-resourcing",
         heroCtaLine: "Optimize Your Workforce",
         overview: [
