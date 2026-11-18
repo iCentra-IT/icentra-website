@@ -5,13 +5,23 @@
    No endpoint requires auth. Every submission endpoint expects a
    `cf-turnstile-response` field and is rate-limited per IP and per email.
    Every error uses one envelope: {"error": {"code", "detail", "fields"}}.
+
+   Built on axios. `apiRequest`/`apiGet`/`apiPostJson`/`apiPostForm` keep
+   their original fetch-shaped signatures (a path + a RequestInit-like init)
+   so every caller in lib/api/*.ts stays unchanged — only the transport
+   underneath them is axios now.
 ───────────────────────────────────────── */
+
+import axios from "axios";
 
 if (!process.env.NEXT_PUBLIC_API_BASE_URL) {
   throw new Error("NEXT_PUBLIC_API_BASE_URL is not set. Add it to .env.local.");
 }
 
 export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+const http = axios.create({ baseURL: API_BASE_URL });
+
 export interface ApiErrorBody {
   code: string;
   detail?: string;
@@ -38,30 +48,35 @@ export class ApiError extends Error {
   }
 }
 
-async function parseErrorBody(res: Response): Promise<ApiErrorBody | null> {
-  try {
-    const json = await res.json();
-    return json?.error ?? null;
-  } catch {
-    return null;
+/** The backend's error envelope is `{ error: {...} }` — axios already parses JSON bodies for us. */
+function extractErrorBody(data: unknown): ApiErrorBody | null {
+  if (data && typeof data === "object" && "error" in data) {
+    return (data as { error?: ApiErrorBody }).error ?? null;
   }
+  return null;
 }
 
 /**
  * apiRequest
- * Thin fetch wrapper: builds the full URL, throws ApiError on non-2xx,
- * and returns parsed JSON (or undefined for empty 204 responses).
+ * Thin axios wrapper: builds the full URL, throws ApiError on non-2xx (or
+ * on a network-level failure, with status 0), and returns the parsed body
+ * (or undefined for empty 204 responses).
  */
 export async function apiRequest<T>(path: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(`${API_BASE_URL}${path}`, init);
-
-  if (!res.ok) {
-    throw new ApiError(res.status, await parseErrorBody(res));
+  try {
+    const res = await http.request<T>({
+      url: path,
+      method: init?.method || "GET",
+      headers: init?.headers as Record<string, string> | undefined,
+      data: init?.body,
+    });
+    return res.status === 204 ? (undefined as T) : res.data;
+  } catch (err) {
+    if (axios.isAxiosError(err)) {
+      throw new ApiError(err.response?.status ?? 0, extractErrorBody(err.response?.data));
+    }
+    throw err;
   }
-  if (res.status === 204) return undefined as T;
-
-  const text = await res.text();
-  return text ? (JSON.parse(text) as T) : (undefined as T);
 }
 
 export function apiGet<T>(path: string, init?: RequestInit): Promise<T> {

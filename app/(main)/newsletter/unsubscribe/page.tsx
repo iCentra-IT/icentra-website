@@ -3,27 +3,27 @@
 import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { FormCard, FormField, FormTextarea, FormSubmit } from "@/components/forms/form-component";
-import { unsubscribeNewsletter } from "@/lib/api/newsletter";
 import { ApiError } from "@/lib/api/client";
+import { useUnsubscribeNewsletter } from "@/lib/queries/newsletter";
+
+function errorText(err: unknown): string {
+  return err instanceof ApiError ? err.firstFieldError ?? err.message : "Something went wrong. Please try again.";
+}
 
 function UnsubscribeForm() {
   const searchParams = useSearchParams();
   const [email, setEmail] = useState(searchParams.get("email") ?? "");
   const [reason, setReason] = useState("");
-  const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const { mutateAsync: unsubscribe, isPending: submitting, error } = useUnsubscribeNewsletter();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitting(true);
-    setError(null);
     try {
-      await unsubscribeNewsletter(email, reason || undefined);
+      await unsubscribe({ email, reason: reason || undefined });
       setDone(true);
-    } catch (err) {
-      setError(err instanceof ApiError ? err.firstFieldError ?? err.message : "Something went wrong. Please try again.");
-      setSubmitting(false);
+    } catch {
+      // error state is already surfaced below via the mutation's own `error`.
     }
   }
 
@@ -65,7 +65,7 @@ function UnsubscribeForm() {
           onChange={(e) => setReason(e.target.value)}
           placeholder="Let us know why you're unsubscribing..."
         />
-        {error && <p className="text-red-600 text-sm text-center">{error}</p>}
+        {error && <p className="text-red-600 text-sm text-center">{errorText(error)}</p>}
         <FormSubmit label={submitting ? "Unsubscribing…" : "Unsubscribe"} />
       </form>
     </FormCard>

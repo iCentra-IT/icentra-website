@@ -22,6 +22,19 @@ export const metadata: Metadata = pageMetadata({
 /* ─────────────────────────────────────────
    DATA
 ───────────────────────────────────────── */
+// Maps each solution category's slug to the `interest` enum value the
+// /api/v1/solutions/inquiries/ endpoint expects.
+const SOLUTION_INTEREST_MAP: Record<string, string> = {
+  "enterprise-transformation": "enterprise_transformation",
+  "cybersecurity-and-grc": "cybersecurity_grc",
+  "strategy-execution": "strategy_execution",
+  "learning-and-talent": "learning_talent",
+};
+const solutionInterestOptions = solutionCategories.map((c) => ({
+  label: c.title,
+  value: SOLUTION_INTEREST_MAP[c.slug] ?? "",
+}));
+
 const iceSteps = [
   {
     icon: "identify",
@@ -279,9 +292,10 @@ export default function OurSolutionsPage() {
               </p>
               <InquiryModal
                 formTitle="Start Your Transformation"
+                inquiryType="solutions"
                 contextLabel="Solutions Enquiry"
                 selectLabel="Which solution are you interested in?"
-                selectOptions={solutionCategories.map((c) => c.title)}
+                interestOptions={solutionInterestOptions}
                 messageLabel="Tell us about your goals"
                 messagePlaceholder="What challenge are you looking to solve?"
                 triggerLabel="Start Transformation"
@@ -379,7 +393,7 @@ export default function OurSolutionsPage() {
         bgClassName="bg-[#25429A]"
         primaryAction={
           <ConsultationRequestModal
-            solutionOptions={solutionCategories.map((c) => c.title)}
+            solutionOptions={solutionInterestOptions}
             triggerLabel="Book a Consultation"
             triggerClassName="inline-flex items-center px-8 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors"
           />

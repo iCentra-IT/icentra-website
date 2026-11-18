@@ -18,8 +18,15 @@ export interface JobOpening {
   location: string;
   is_remote: boolean;
   employment_type: EmploymentType;
+  /** "About iCentra" — shown before the role. */
+  about_icentra: string;
+  /** "The role". */
   description: string;
+  /** "What you will do" — shown after the role. */
+  role_description: string;
+  /** "What you will bring". */
   requirements: string;
+  /** "Why join us". */
   benefits: string;
   application_deadline: string | null;
   is_accepting_applications: boolean;
@@ -98,7 +105,9 @@ export interface JobOpeningInput {
   location?: string;
   is_remote?: boolean;
   employment_type?: EmploymentType;
+  about_icentra?: string;
   description: string;
+  role_description?: string;
   requirements?: string;
   benefits?: string;
   status?: JobStatus;

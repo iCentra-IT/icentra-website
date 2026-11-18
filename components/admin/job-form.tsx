@@ -81,7 +81,9 @@ export default function JobForm({ initial, submitLabel, onSubmit, extraActions }
   const [status, setStatus] = useState<JobStatus>(initial?.status ?? "draft");
   const [isPublic, setIsPublic] = useState(initial?.is_public ?? false);
   const [deadline, setDeadline] = useState(toDatetimeLocal(initial?.application_deadline));
+  const [aboutIcentra, setAboutIcentra] = useState(initial?.about_icentra ?? "");
   const [description, setDescription] = useState(initial?.description ?? "");
+  const [roleDescription, setRoleDescription] = useState(initial?.role_description ?? "");
   const [requirements, setRequirements] = useState(initial?.requirements ?? "");
   const [benefits, setBenefits] = useState(initial?.benefits ?? "");
   const [submitting, setSubmitting] = useState(false);
@@ -102,7 +104,9 @@ export default function JobForm({ initial, submitLabel, onSubmit, extraActions }
         status,
         is_public: isPublic,
         application_deadline: deadline ? new Date(deadline).toISOString() : null,
+        about_icentra: aboutIcentra,
         description,
+        role_description: roleDescription,
         requirements,
         benefits,
       });
@@ -161,12 +165,26 @@ export default function JobForm({ initial, submitLabel, onSubmit, extraActions }
 
       <div className="bg-white rounded-2xl border border-[#DCE0E8] p-6 lg:p-8 flex flex-col gap-5">
         <FormTextarea
+          label="About iCentra"
+          rows={4}
+          value={aboutIcentra}
+          onChange={(e) => setAboutIcentra(e.target.value)}
+          placeholder="Optional — shown before the role. Leave blank to omit this section."
+        />
+        <FormTextarea
           label="Description"
           required
           rows={6}
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder={`What the role is and what the day-to-day looks like. You can mix in a bulleted section too, e.g.:\n\nWhat you will do:\n- Set up the PMO charter, operating rhythm, and reporting formats.\n- Run project intake and stage-gate reviews.`}
+          placeholder={`What the role is. Shown under "The Role". You can mix in a bulleted section too, e.g.:\n\n- Set up the PMO charter, operating rhythm, and reporting formats.\n- Run project intake and stage-gate reviews.`}
+        />
+        <FormTextarea
+          label="What You Will Do"
+          rows={5}
+          value={roleDescription}
+          onChange={(e) => setRoleDescription(e.target.value)}
+          placeholder="Optional — shown after the role, as day-to-day responsibilities. One per line — lines starting with - render as a bulleted list."
         />
         <FormTextarea
           label="Requirements"

@@ -71,20 +71,24 @@ export default async function JobDetailPage({
 
       <section className="bg-white py-14 lg:py-20">
         <div className="max-w-215 mx-auto px-6 flex flex-col gap-10">
-          {/* <Reveal>
-            <h2 className="text-[#1A274F] text-xl lg:text-[24px] font-bold mb-4">About iCentra</h2>
-            <p className="text-[#374151] text-base leading-[1.9]">
-              iCentra is a global technology and business solutions company that partners with governments,
-              financial institutions, and enterprises across Africa, Europe, and North America to deliver complex
-              transformation. With 17+ years of experience and offices in Texas, London, and Abuja, we build the
-              strategy, portfolio, and execution capability our clients need to perform at the highest level.
-            </p>
-          </Reveal> */}
+          {job.about_icentra && (
+            <Reveal>
+              <h2 className="text-[#1A274F] text-xl lg:text-[24px] font-bold mb-4">About iCentra</h2>
+              <TextBlock text={job.about_icentra} />
+            </Reveal>
+          )}
 
           <Reveal delay={0.05}>
-            <h2 className="text-[#1A274F] text-xl lg:text-[24px] font-bold mb-4">About iCentra</h2>
+            <h2 className="text-[#1A274F] text-xl lg:text-[24px] font-bold mb-4">The Role</h2>
             <TextBlock text={job.description} />
           </Reveal>
+
+          {job.role_description && (
+            <Reveal delay={0.08}>
+              <h2 className="text-[#1A274F] text-xl lg:text-[24px] font-bold mb-4">What You Will Do</h2>
+              <TextBlock text={job.role_description} />
+            </Reveal>
+          )}
 
           {job.requirements && (
             <Reveal delay={0.1}>

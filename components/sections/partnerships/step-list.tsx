@@ -15,11 +15,11 @@ interface StepListProps {
  */
 export default function StepList({ steps, layout = "column", italic = false }: StepListProps) {
   return (
-    <StaggerGroup className={`flex flex-col md:flex-row md:items-stretch gap-4 ${layout === "row" ? "md:flex-row" : ""}`}>
+    <StaggerGroup className={`flex flex-col md:flex-row md:items-stretch gap-2 ${layout === "row" ? "md:flex-row" : ""}`}>
       {steps.map((step, i) => (
         <div key={step.title} className={layout === "row" ? "flex-1 flex items-stretch gap-4 min-w-0" : ""}>
           <StaggerItem
-            className={`bg-white rounded-2xl border border-[#DCE0E8] p-6 flex gap-5 items-start flex-1 min-w-0 ${
+            className={`bg-white rounded-2xl border border-[#DCE0E8] p-6 space-y-3 gap-5 items-start flex-1 min-w-0 ${
               layout === "column" ? "flex-col" : ""
             }`}
           >

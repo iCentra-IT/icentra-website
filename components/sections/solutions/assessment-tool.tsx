@@ -4,8 +4,8 @@ import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import TurnstileWidget, { type TurnstileWidgetHandle } from "@/components/forms/turnstile-widget";
 import { IcentraCheckbox } from "@/components/forms/form-component";
-import { submitContactInquiry } from "@/lib/api/contact";
 import { ApiError } from "@/lib/api/client";
+import { useSubmitContactInquiry } from "@/lib/queries/contact";
 import { trackEvent } from "@/lib/analytics/track";
 import type { AssessmentConfig } from "@/lib/types/assessment";
 
@@ -26,10 +26,10 @@ export default function AssessmentTool({ config }: AssessmentToolProps) {
   const [organization, setOrganization] = useState("");
   const [agreed, setAgreed] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
-  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
+  const { mutateAsync: submitInquiry, isPending: submitting, error: mutationError } = useSubmitContactInquiry();
+  const error = mutationError ? errorText(mutationError) : null;
 
   const totalQuestions = config.questions.length;
   const onLeadStep = step === totalQuestions;
@@ -55,8 +55,6 @@ export default function AssessmentTool({ config }: AssessmentToolProps) {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitting(true);
-    setError(null);
 
     const tier = resultTier();
     const breakdown = config.questions
@@ -67,7 +65,7 @@ export default function AssessmentTool({ config }: AssessmentToolProps) {
       .join("\n\n");
 
     try {
-      await submitContactInquiry({
+      await submitInquiry({
         first_name: name,
         email,
         organization,
@@ -78,11 +76,8 @@ export default function AssessmentTool({ config }: AssessmentToolProps) {
       });
       trackEvent("assessment_lead", { topic: config.topicLabel, result_tier: tier.label });
       setSubmitted(true);
-    } catch (err) {
+    } catch {
       turnstileRef.current?.reset();
-      setError(errorText(err));
-    } finally {
-      setSubmitting(false);
     }
   }
 

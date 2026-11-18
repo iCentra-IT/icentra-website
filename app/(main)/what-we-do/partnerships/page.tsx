@@ -57,6 +57,19 @@ function PartnershipIcon({ slug }: { slug: string }) {
   );
 }
 
+// Maps each partnership's slug to the `interest` enum value the
+// /api/v1/partnerships/inquiries/ endpoint expects.
+const PARTNERSHIP_INTEREST_MAP: Record<string, string> = {
+  "workforce-capability": "workforce_capability",
+  "ai-transformation": "ai_transformation",
+  "pmocentra": "pmo",
+  "complycentra": "compliance",
+};
+const partnershipInterestOptions = partnerships.map((p) => ({
+  label: p.name,
+  value: PARTNERSHIP_INTEREST_MAP[p.slug] ?? "",
+}));
+
 export default function PartnershipsPage() {
   return (
     <main className="w-full overflow-x-hidden">
@@ -80,9 +93,10 @@ export default function PartnershipsPage() {
           </Link>
           <InquiryModal
             formTitle="Request a Proposal"
+            inquiryType="partnerships"
             contextLabel="Partnership Enquiry"
             selectLabel="Which partnership are you interested in?"
-            selectOptions={partnerships.map((p) => p.name)}
+            interestOptions={partnershipInterestOptions}
             messageLabel="Tell us about your goals"
             messagePlaceholder="What would you like the partnership to address?"
             triggerLabel="Request a Proposal"
@@ -239,9 +253,10 @@ export default function PartnershipsPage() {
         secondaryAction={
           <InquiryModal
             formTitle="Request a Proposal"
+            inquiryType="partnerships"
             contextLabel="Partnership Enquiry"
             selectLabel="Which partnership are you interested in?"
-            selectOptions={partnerships.map((p) => p.name)}
+            interestOptions={partnershipInterestOptions}
             messageLabel="Tell us about your goals"
             messagePlaceholder="What would you like the partnership to address?"
             triggerLabel="Request a Proposal"

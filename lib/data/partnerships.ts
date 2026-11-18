@@ -140,7 +140,7 @@ export const partnerships: Partnership[] = [
     slug: "workforce-capability",
     image: "/images/partnerships/workforce-capability.jpg",
     eyebrow: "Learning & Talent · Retainer",
-    name: "Workforce Capability Partnerships™",
+    name: "Workforce Capability Partnership",
     tagline: "Build the Workforce Your Transformation Needs",
     description:
       "We align capability building directly to your transformation priorities, from assessment to certification to measurable business impact.",
@@ -220,7 +220,7 @@ export const partnerships: Partnership[] = [
     slug: "ai-transformation",
     image: "/images/partnerships/ai-transformation.jpg",
     eyebrow: "Enterprise Transformation · Retainer / Phased Program",
-    name: "AI Transformation Partnership™",
+    name: "AI Transformation Partnership",
     tagline: "From AI Experiments to Governed Enterprise Value",
     description:
       "We build the strategy, governance, and workforce enablement that make AI adoption durable, not a one-off experiment.",
@@ -304,7 +304,7 @@ export const partnerships: Partnership[] = [
     slug: "pmocentra",
     image: "/images/partnerships/pmocentra.jpg",
     eyebrow: "Strategy & Execution · Retainer → Platform Roadmap",
-    name: "PMO Partnerships",
+    name: "PMO Partnership",
     subtitle: "",
     tagline: "Your Projects. Our Expertise. Guaranteed Results.",
     description:

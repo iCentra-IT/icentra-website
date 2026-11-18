@@ -1,16 +1,21 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { FormCard, FormField, FormFileUpload, FormModal, FormRow, FormSelect, FormSubmit, FormTextarea, IcentraCheckbox, WebinarBanner } from "../form-component";
 import TurnstileWidget, { type TurnstileWidgetHandle } from "../turnstile-widget";
 import { ApiError } from "@/lib/api/client";
-import { applyToJob } from "@/lib/api/jobs";
-import { submitContactInquiry } from "@/lib/api/contact";
-import { listNewsletterCategories, subscribeNewsletter, type NewsletterCategory } from "@/lib/api/newsletter";
-import { registerForEvent } from "@/lib/api/events";
-import { listVolunteerSkills, listVolunteerAvailability, submitVolunteerApplication, type VolunteerSkill, type VolunteerAvailabilitySlot } from "@/lib/api/volunteer";
-import { listPillars, type PillarItem } from "@/lib/api/pillars";
-import { submitSpeakerApplication, PREFERRED_QUARTER_LABELS, HOW_HEARD_LABELS, type PreferredQuarter, type HowHeard } from "@/lib/api/speakers";
+import { PREFERRED_QUARTER_LABELS, HOW_HEARD_LABELS, type PreferredQuarter, type HowHeard } from "@/lib/api/speakers";
+import { useSubmitContactInquiry } from "@/lib/queries/contact";
+import { useSubmitSolutionInquiry } from "@/lib/queries/solutions";
+import type { SolutionInterest } from "@/lib/api/solutions";
+import { useSubmitPartnershipInquiry } from "@/lib/queries/partnerships";
+import type { PartnershipInterest } from "@/lib/api/partnerships";
+import { useNewsletterCategories, useSubscribeNewsletter } from "@/lib/queries/newsletter";
+import { useVolunteerSkills, useVolunteerAvailability, useSubmitVolunteerApplication } from "@/lib/queries/volunteer";
+import { usePillars } from "@/lib/queries/pillars";
+import { useSubmitSpeakerApplication } from "@/lib/queries/speakers";
+import { useRegisterForEvent } from "@/lib/queries/events";
+import { useApplyToJob } from "@/lib/queries/jobs";
 import { trackEvent } from "@/lib/analytics/track";
 
 /* ─────────────────────────────────────────────────
@@ -164,15 +169,12 @@ function ApplicationSuccess({
 export function GeneralContactFormA() {
   const [agreed, setAgreed] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
-  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
+  const { mutateAsync: submitInquiry, isPending, error } = useSubmitContactInquiry();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitting(true);
-    setError(null);
 
     const f = formEntriesToObject(e.currentTarget);
     // The consultation-specific fields (company size, timing, urgency, etc.)
@@ -188,7 +190,7 @@ export function GeneralContactFormA() {
     const message = [f.projectDesc, extra.join("\n")].filter(Boolean).join("\n\n") || "(No additional details provided.)";
 
     try {
-      await submitContactInquiry({
+      await submitInquiry({
         first_name: f.firstName,
         last_name: f.lastName,
         email: f.email,
@@ -201,10 +203,8 @@ export function GeneralContactFormA() {
       });
       trackEvent("consultation_request", { consultation_type: f.consultationType });
       setSubmitted(true);
-    } catch (err) {
+    } catch {
       turnstileRef.current?.reset();
-      setError(errorText(err));
-      setSubmitting(false);
     }
   }
 
@@ -213,10 +213,7 @@ export function GeneralContactFormA() {
       <ApplicationSuccess
         title="Message Sent"
         message="Thanks for reaching out. Our team will review your message and get back to you shortly."
-        onClose={() => {
-          setSubmitted(false);
-          setSubmitting(false);
-        }}
+        onClose={() => setSubmitted(false)}
       />
     );
   }
@@ -246,8 +243,8 @@ export function GeneralContactFormA() {
         </FormRow>
         <IcentraCheckbox checked={agreed} onChange={setAgreed} />
         <TurnstileWidget ref={turnstileRef} onVerify={setTurnstileToken} />
-        {error && <p className="text-red-600 text-sm text-center">{error}</p>}
-        <FormSubmit label={submitting ? "Sending…" : "Submit"} />
+        {error && <p className="text-red-600 text-sm text-center">{errorText(error)}</p>}
+        <FormSubmit label={isPending ? "Sending…" : "Submit"} />
       </form>
     </FormCard>
   );
@@ -261,15 +258,12 @@ export function GeneralContactFormA() {
 export function GeneralContactFormB() {
   const [agreed, setAgreed] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
-  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
+  const { mutateAsync: submitInquiry, isPending, error } = useSubmitContactInquiry();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitting(true);
-    setError(null);
 
     const f = formEntriesToObject(e.currentTarget);
     const extra = [
@@ -279,7 +273,7 @@ export function GeneralContactFormB() {
     const message = [f.motivation, extra.join("\n")].filter(Boolean).join("\n\n") || "(No additional details provided.)";
 
     try {
-      await submitContactInquiry({
+      await submitInquiry({
         first_name: f.firstName,
         last_name: f.lastName,
         email: f.email,
@@ -291,10 +285,8 @@ export function GeneralContactFormB() {
       });
       trackEvent("contact_form_submit", { subject: f.subject });
       setSubmitted(true);
-    } catch (err) {
+    } catch {
       turnstileRef.current?.reset();
-      setError(errorText(err));
-      setSubmitting(false);
     }
   }
 
@@ -303,10 +295,7 @@ export function GeneralContactFormB() {
       <ApplicationSuccess
         title="Message Sent"
         message="Thanks for reaching out. Our team will review your message and get back to you shortly."
-        onClose={() => {
-          setSubmitted(false);
-          setSubmitting(false);
-        }}
+        onClose={() => setSubmitted(false)}
       />
     );
   }
@@ -324,8 +313,8 @@ export function GeneralContactFormB() {
         <FormSelect  label="Urgency Level"                    name="urgencyLevel" options={URGENCY_OPTS}        placeholder="Select Level" />
         <IcentraCheckbox checked={agreed} onChange={setAgreed} />
         <TurnstileWidget ref={turnstileRef} onVerify={setTurnstileToken} />
-        {error && <p className="text-red-600 text-sm text-center">{error}</p>}
-        <FormSubmit label={submitting ? "Sending…" : "Submit"} />
+        {error && <p className="text-red-600 text-sm text-center">{errorText(error)}</p>}
+        <FormSubmit label={isPending ? "Sending…" : "Submit"} />
       </form>
     </FormCard>
   );
@@ -341,19 +330,16 @@ export function GeneralContactFormB() {
 export function ContactInquiryForm() {
   const [agreed, setAgreed] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
-  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
+  const { mutateAsync: submitInquiry, isPending, error } = useSubmitContactInquiry();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitting(true);
-    setError(null);
     const f = formEntriesToObject(e.currentTarget);
 
     try {
-      await submitContactInquiry({
+      await submitInquiry({
         first_name: f.firstName,
         last_name: f.lastName,
         email: f.email,
@@ -365,10 +351,8 @@ export function ContactInquiryForm() {
       });
       trackEvent("contact_form_submit", { industry: f.industry });
       setSubmitted(true);
-    } catch (err) {
+    } catch {
       turnstileRef.current?.reset();
-      setError(errorText(err));
-      setSubmitting(false);
     }
   }
 
@@ -386,10 +370,7 @@ export function ContactInquiryForm() {
             Thanks for reaching out. Our team will review your message and get back to you shortly.
           </p>
           <button
-            onClick={() => {
-              setSubmitted(false);
-              setSubmitting(false);
-            }}
+            onClick={() => setSubmitted(false)}
             className="mt-2 px-7 py-3 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] transition-colors cursor-pointer"
           >
             Send Another Message
@@ -417,14 +398,14 @@ export function ContactInquiryForm() {
         <FormTextarea label="How Can we help you?" name="message" rows={4} placeholder="Tell us how we can help..." />
         <IcentraCheckbox checked={agreed} onChange={setAgreed} />
         <TurnstileWidget ref={turnstileRef} onVerify={setTurnstileToken} />
-        {error && <p className="text-red-600 text-sm text-center">{error}</p>}
+        {error && <p className="text-red-600 text-sm text-center">{errorText(error)}</p>}
         <div className="flex justify-center mt-2">
           <button
             type="submit"
-            disabled={submitting}
+            disabled={isPending}
             className="w-full sm:w-[220px] py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#25429A] disabled:opacity-60 transition-colors"
           >
-            {submitting ? "Sending…" : "Submit"}
+            {isPending ? "Sending…" : "Submit"}
           </button>
         </div>
       </form>
@@ -510,35 +491,33 @@ function WebinarRegistrationContent({
 }) {
   const [agreed, setAgreed] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
+  const { mutateAsync: registerForEvent, isPending, error } = useRegisterForEvent();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitting(true);
-    setError(null);
     const f = formEntriesToObject(e.currentTarget);
 
     try {
-      await registerForEvent(eventSlug, {
-        first_name: f.firstName,
-        last_name: f.lastName,
-        email: f.email,
-        organization: f.organization,
-        job_title: f.jobTitle,
-        timezone: f.timezone,
-        questions_for_host: f.hostQs,
-        marketing_consent: agreed,
-        reminder_offsets: f.reminder ? [Number(f.reminder)] : undefined,
-        ...(turnstileToken && { "cf-turnstile-response": turnstileToken }),
+      await registerForEvent({
+        slug: eventSlug,
+        data: {
+          first_name: f.firstName,
+          last_name: f.lastName,
+          email: f.email,
+          organization: f.organization,
+          job_title: f.jobTitle,
+          timezone: f.timezone,
+          questions_for_host: f.hostQs,
+          marketing_consent: agreed,
+          reminder_offsets: f.reminder ? [Number(f.reminder)] : undefined,
+          ...(turnstileToken && { "cf-turnstile-response": turnstileToken }),
+        },
       });
       trackEvent("webinar_registration", { event_slug: eventSlug, event_title: eventTitle });
       onSuccess();
-    } catch (err) {
+    } catch {
       turnstileRef.current?.reset();
-      setError(errorText(err));
-      setSubmitting(false);
     }
   }
 
@@ -565,8 +544,8 @@ function WebinarRegistrationContent({
         <FormSelect  label="Remind Me"                   name="reminder" options={REMINDER_OPTS} placeholder="Select a reminder" />
         <IcentraCheckbox checked={agreed} onChange={setAgreed} />
         <TurnstileWidget ref={turnstileRef} onVerify={setTurnstileToken} />
-        {error && <p className="text-red-600 text-sm text-center">{error}</p>}
-        <FormSubmit label={submitting ? "Registering…" : "Register"} />
+        {error && <p className="text-red-600 text-sm text-center">{errorText(error)}</p>}
+        <FormSubmit label={isPending ? "Registering…" : "Register"} />
       </form>
     </FormCard>
   );
@@ -647,39 +626,37 @@ function JobApplicationContent({
   const [resume, setResume] = useState<File | null>(null);
   const [coverLetter, setCoverLetter] = useState<File | null>(null);
   const [turnstileToken, setTurnstileToken] = useState("");
-  const [submitting, setSubmitting] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [localError, setLocalError] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
+  const { mutateAsync: applyToJob, isPending, error } = useApplyToJob();
+
+  const errorMessage = localError ?? (error ? errorText(error) : null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!resume) {
-      setErrorMessage("Please attach your resume.");
+      setLocalError("Please attach your resume.");
       return;
     }
+    setLocalError(null);
 
-    setSubmitting(true);
-    setErrorMessage(null);
-
-    const data = new FormData(e.currentTarget);
+    const formData = new FormData(e.currentTarget);
     // Optional fields left blank would otherwise submit as "", which the
     // backend's enum/URL validation rejects — omit them so it falls back to its own defaults.
-    for (const [key, value] of Array.from(data.entries())) {
-      if (typeof value === "string" && value.trim() === "") data.delete(key);
+    for (const [key, value] of Array.from(formData.entries())) {
+      if (typeof value === "string" && value.trim() === "") formData.delete(key);
     }
-    data.set("resume", resume);
-    if (coverLetter) data.set("cover_letter", coverLetter);
-    data.set("marketing_consent", agreed ? "true" : "false");
-    if (turnstileToken) data.set("cf-turnstile-response", turnstileToken);
+    formData.set("resume", resume);
+    if (coverLetter) formData.set("cover_letter", coverLetter);
+    formData.set("marketing_consent", agreed ? "true" : "false");
+    if (turnstileToken) formData.set("cf-turnstile-response", turnstileToken);
 
     try {
-      await applyToJob(jobSlug, data);
+      await applyToJob({ slug: jobSlug, formData });
       trackEvent("job_application", { job_slug: jobSlug, job_title: jobTitle });
       onSuccess();
-    } catch (err) {
+    } catch {
       turnstileRef.current?.reset();
-      setErrorMessage(err instanceof ApiError ? err.firstFieldError ?? err.message : "Something went wrong. Please try again.");
-      setSubmitting(false);
     }
   }
 
@@ -708,7 +685,7 @@ function JobApplicationContent({
         <IcentraCheckbox checked={agreed} onChange={setAgreed} />
         <TurnstileWidget ref={turnstileRef} onVerify={setTurnstileToken} />
         {errorMessage && <p className="text-red-600 text-sm text-center">{errorMessage}</p>}
-        <FormSubmit label={submitting ? "Submitting…" : "Submit Application"} />
+        <FormSubmit label={isPending ? "Submitting…" : "Submit Application"} />
       </form>
     </FormCard>
   );
@@ -762,31 +739,17 @@ export function JobApplicationModal({
 ─────────────────────────────────────────────────── */
 function NewsletterContent({ onSuccess }: { onSuccess: () => void }) {
   const [agreed, setAgreed] = useState(false);
-  const [categories, setCategories] = useState<NewsletterCategory[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [turnstileToken, setTurnstileToken] = useState("");
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
 
-  useEffect(() => {
-    let cancelled = false;
-    listNewsletterCategories()
-      .then((data) => {
-        if (!cancelled) setCategories(data);
-      })
-      .catch(() => {
-        /* Category picker is optional — subscribing still works without it. */
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  // Category picker is optional — subscribing still works without it, so a
+  // fetch failure here is silently ignored (CheckboxGroup renders nothing).
+  const { data: categories = [] } = useNewsletterCategories();
+  const { mutateAsync: subscribeNewsletter, isPending, error } = useSubscribeNewsletter();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitting(true);
-    setError(null);
     const f = formEntriesToObject(e.currentTarget);
 
     try {
@@ -800,10 +763,8 @@ function NewsletterContent({ onSuccess }: { onSuccess: () => void }) {
       });
       trackEvent("newsletter_signup", { frequency: f.frequency });
       onSuccess();
-    } catch (err) {
+    } catch {
       turnstileRef.current?.reset();
-      setError(errorText(err));
-      setSubmitting(false);
     }
   }
 
@@ -821,8 +782,8 @@ function NewsletterContent({ onSuccess }: { onSuccess: () => void }) {
         <FormSelect label="Frequency Preference" name="frequency" options={FREQUENCY_OPTS} placeholder="Select frequency" />
         <IcentraCheckbox checked={agreed} onChange={setAgreed} />
         <TurnstileWidget ref={turnstileRef} onVerify={setTurnstileToken} />
-        {error && <p className="text-red-600 text-sm text-center">{error}</p>}
-        <FormSubmit label={submitting ? "Subscribing…" : "Subscribe"} />
+        {error && <p className="text-red-600 text-sm text-center">{errorText(error)}</p>}
+        <FormSubmit label={isPending ? "Subscribing…" : "Subscribe"} />
       </form>
     </FormCard>
   );
@@ -1056,35 +1017,19 @@ export function CorporateSolutionModal({
 ─────────────────────────────────────────────────── */
 function VolunteerRegistrationContent({ onSuccess }: { onSuccess: () => void }) {
   const [agreed, setAgreed] = useState(false);
-  const [skills, setSkills] = useState<VolunteerSkill[]>([]);
-  const [availability, setAvailability] = useState<VolunteerAvailabilitySlot[]>([]);
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   const [selectedAvailability, setSelectedAvailability] = useState<string[]>([]);
   const [turnstileToken, setTurnstileToken] = useState("");
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
 
-  useEffect(() => {
-    let cancelled = false;
-    Promise.all([listVolunteerSkills(), listVolunteerAvailability()])
-      .then(([skillData, availabilityData]) => {
-        if (cancelled) return;
-        setSkills(skillData);
-        setAvailability(availabilityData);
-      })
-      .catch(() => {
-        /* Reference-data pickers are optional — submitting still works without them. */
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  // Reference-data pickers are optional — submitting still works without
+  // them, so a fetch failure here is silently ignored (lists render empty).
+  const { data: skills = [] } = useVolunteerSkills();
+  const { data: availability = [] } = useVolunteerAvailability();
+  const { mutateAsync: submitVolunteerApplication, isPending, error } = useSubmitVolunteerApplication();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitting(true);
-    setError(null);
     const f = formEntriesToObject(e.currentTarget);
 
     try {
@@ -1100,10 +1045,8 @@ function VolunteerRegistrationContent({ onSuccess }: { onSuccess: () => void }) 
       });
       trackEvent("volunteer_application");
       onSuccess();
-    } catch (err) {
+    } catch {
       turnstileRef.current?.reset();
-      setError(errorText(err));
-      setSubmitting(false);
     }
   }
 
@@ -1128,8 +1071,8 @@ function VolunteerRegistrationContent({ onSuccess }: { onSuccess: () => void }) 
         <FormTextarea label="Motivation" required name="motivation" rows={5} placeholder="Type here..." />
         <IcentraCheckbox checked={agreed} onChange={setAgreed} />
         <TurnstileWidget ref={turnstileRef} onVerify={setTurnstileToken} />
-        {error && <p className="text-red-600 text-sm text-center">{error}</p>}
-        <FormSubmit label={submitting ? "Submitting…" : "Submit"} />
+        {error && <p className="text-red-600 text-sm text-center">{errorText(error)}</p>}
+        <FormSubmit label={isPending ? "Submitting…" : "Submit"} />
       </form>
     </FormCard>
   );
@@ -1178,30 +1121,16 @@ export function VolunteerRegistrationModal({
    POST /api/v1/speaker-applications/
 ─────────────────────────────────────────────────── */
 function SpeakerApplicationContent({ onSuccess }: { onSuccess: () => void }) {
-  const [pillars, setPillars] = useState<PillarItem[]>([]);
   const [turnstileToken, setTurnstileToken] = useState("");
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
 
-  useEffect(() => {
-    let cancelled = false;
-    listPillars()
-      .then((data) => {
-        if (!cancelled) setPillars(data);
-      })
-      .catch(() => {
-        /* Pillar picker is optional — the proposal just won't be tied to one. */
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  // Pillar picker is optional — the proposal just won't be tied to one, so a
+  // fetch failure here is silently ignored (the select renders empty).
+  const { data: pillars = [] } = usePillars();
+  const { mutateAsync: submitSpeakerApplication, isPending, error } = useSubmitSpeakerApplication();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitting(true);
-    setError(null);
     const f = formEntriesToObject(e.currentTarget);
 
     try {
@@ -1220,10 +1149,8 @@ function SpeakerApplicationContent({ onSuccess }: { onSuccess: () => void }) {
       });
       trackEvent("speaker_application", { pillar: f.pillar, preferred_quarter: f.quarter });
       onSuccess();
-    } catch (err) {
+    } catch {
       turnstileRef.current?.reset();
-      setError(errorText(err));
-      setSubmitting(false);
     }
   }
 
@@ -1251,9 +1178,9 @@ function SpeakerApplicationContent({ onSuccess }: { onSuccess: () => void }) {
         <FormTextarea label="Previous Speaking Experience"                          name="experience" rows={4} placeholder="Brief summary of past speaking engagements (optional)" />
         <FormField    label="LinkedIn Profile URL"                                  name="linkedin"   type="url" placeholder="https://linkedin.com/in/..." />
         <FormSelect   label="How did you hear about us?"                            name="referral"   options={HOW_HEARD_OPTS} placeholder="Select..." />
-        {error && <p className="text-red-600 text-sm">{error}</p>}
+        {error && <p className="text-red-600 text-sm">{errorText(error)}</p>}
         <TurnstileWidget ref={turnstileRef} onVerify={setTurnstileToken} />
-        <FormSubmit label={submitting ? "Submitting…" : "Submit application"} align="left" tone="navy" />
+        <FormSubmit label={isPending ? "Submitting…" : "Submit application"} align="left" tone="navy" />
         <p className="text-[#9CA3AF] text-xs leading-relaxed">
           Submits to events@icentra.com. Auto-response confirms receipt and a 5 to 7 business day review window.
         </p>
@@ -1309,55 +1236,55 @@ export function SpeakerApplicationModal({
 ─────────────────────────────────────────────────── */
 function InquiryFormContent({
   formTitle,
+  inquiryType,
   contextLabel,
   selectLabel,
-  selectOptions,
+  interestOptions,
   messageLabel = "How can we help?",
   messagePlaceholder = "Tell us about your goals...",
   onSuccess,
 }: {
   formTitle: string;
+  /** Picks which dedicated backend endpoint this inquiry posts to. */
+  inquiryType: "solutions" | "partnerships";
   contextLabel: string;
   selectLabel?: string;
-  selectOptions?: string[];
+  interestOptions?: { label: string; value: string }[];
   messageLabel?: string;
   messagePlaceholder?: string;
   onSuccess: () => void;
 }) {
   const [agreed, setAgreed] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
+  const solutionInquiry = useSubmitSolutionInquiry();
+  const partnershipInquiry = useSubmitPartnershipInquiry();
+  const { isPending, error } = inquiryType === "solutions" ? solutionInquiry : partnershipInquiry;
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitting(true);
-    setError(null);
     const f = formEntriesToObject(e.currentTarget);
-
-    const message =
-      [f.interest && `Interested in: ${f.interest}`, f.message].filter(Boolean).join("\n\n") ||
-      "(No additional details provided.)";
+    const shared = {
+      first_name: f.firstName,
+      last_name: f.lastName,
+      email: f.email,
+      organization: f.organization,
+      phone: f.phone,
+      goals: f.message,
+      marketing_consent: agreed,
+      ...(turnstileToken && { "cf-turnstile-response": turnstileToken }),
+    };
 
     try {
-      await submitContactInquiry({
-        first_name: f.firstName,
-        last_name: f.lastName,
-        email: f.email,
-        organization: f.organization,
-        phone: f.phone,
-        subject: contextLabel,
-        message,
-        marketing_consent: agreed,
-        ...(turnstileToken && { "cf-turnstile-response": turnstileToken }),
-      });
+      if (inquiryType === "solutions") {
+        await solutionInquiry.mutateAsync({ ...shared, interest: f.interest as SolutionInterest | undefined });
+      } else {
+        await partnershipInquiry.mutateAsync({ ...shared, interest: f.interest as PartnershipInterest | undefined });
+      }
       trackEvent("inquiry_form_submit", { context: contextLabel, interest: f.interest });
       onSuccess();
-    } catch (err) {
+    } catch {
       turnstileRef.current?.reset();
-      setError(errorText(err));
-      setSubmitting(false);
     }
   }
 
@@ -1373,14 +1300,14 @@ function InquiryFormContent({
           <FormField label="Phone Number" name="phone" type="tel" placeholder="Enter phone number" />
         </FormRow>
         <FormField label="Organization" name="organization" type="text" placeholder="Enter your organization" />
-        {selectOptions && selectOptions.length > 0 && (
-          <FormSelect label={selectLabel ?? "Area of Interest"} name="interest" options={selectOptions} placeholder="Select an option" />
+        {interestOptions && interestOptions.length > 0 && (
+          <FormSelect label={selectLabel ?? "Area of Interest"} name="interest" options={interestOptions} placeholder="Select an option" />
         )}
         <FormTextarea label={messageLabel} name="message" rows={5} placeholder={messagePlaceholder} />
         <IcentraCheckbox checked={agreed} onChange={setAgreed} />
         <TurnstileWidget ref={turnstileRef} onVerify={setTurnstileToken} />
-        {error && <p className="text-red-600 text-sm text-center">{error}</p>}
-        <FormSubmit label={submitting ? "Sending…" : "Submit"} />
+        {error && <p className="text-red-600 text-sm text-center">{errorText(error)}</p>}
+        <FormSubmit label={isPending ? "Sending…" : "Submit"} />
       </form>
     </FormCard>
   );
@@ -1388,9 +1315,10 @@ function InquiryFormContent({
 
 export function InquiryModal({
   formTitle,
+  inquiryType,
   contextLabel,
   selectLabel,
-  selectOptions,
+  interestOptions,
   messageLabel,
   messagePlaceholder,
   successTitle = "Message Sent",
@@ -1399,9 +1327,10 @@ export function InquiryModal({
   triggerClassName,
 }: {
   formTitle: string;
+  inquiryType: "solutions" | "partnerships";
   contextLabel: string;
   selectLabel?: string;
-  selectOptions?: string[];
+  interestOptions?: { label: string; value: string }[];
   messageLabel?: string;
   messagePlaceholder?: string;
   successTitle?: string;
@@ -1432,9 +1361,10 @@ export function InquiryModal({
         ) : (
           <InquiryFormContent
             formTitle={formTitle}
+            inquiryType={inquiryType}
             contextLabel={contextLabel}
             selectLabel={selectLabel}
-            selectOptions={selectOptions}
+            interestOptions={interestOptions}
             messageLabel={messageLabel}
             messagePlaceholder={messagePlaceholder}
             onSuccess={() => setSubmitted(true)}
@@ -1465,14 +1395,11 @@ const MATURITY_OPTS = ["Strong", "Developing", "At Risk", "Not Sure"];
 function AssessmentRequestContent({ onSuccess }: { onSuccess: () => void }) {
   const [agreed, setAgreed] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
+  const { mutateAsync: submitInquiry, isPending, error } = useSubmitContactInquiry();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitting(true);
-    setError(null);
     const f = formEntriesToObject(e.currentTarget);
 
     const ratings = ASSESSMENT_PILLARS.map(
@@ -1487,7 +1414,7 @@ function AssessmentRequestContent({ onSuccess }: { onSuccess: () => void }) {
       .join("\n\n");
 
     try {
-      await submitContactInquiry({
+      await submitInquiry({
         first_name: f.firstName,
         last_name: f.lastName,
         email: f.email,
@@ -1501,10 +1428,8 @@ function AssessmentRequestContent({ onSuccess }: { onSuccess: () => void }) {
       });
       trackEvent("assessment_request", { industry: f.industry });
       onSuccess();
-    } catch (err) {
+    } catch {
       turnstileRef.current?.reset();
-      setError(errorText(err));
-      setSubmitting(false);
     }
   }
 
@@ -1550,8 +1475,8 @@ function AssessmentRequestContent({ onSuccess }: { onSuccess: () => void }) {
         />
         <IcentraCheckbox checked={agreed} onChange={setAgreed} />
         <TurnstileWidget ref={turnstileRef} onVerify={setTurnstileToken} />
-        {error && <p className="text-red-600 text-sm text-center">{error}</p>}
-        <FormSubmit label={submitting ? "Sending…" : "Request My Assessment"} />
+        {error && <p className="text-red-600 text-sm text-center">{errorText(error)}</p>}
+        <FormSubmit label={isPending ? "Sending…" : "Request My Assessment"} />
       </form>
     </FormCard>
   );
@@ -1601,30 +1526,28 @@ export function AssessmentRequestModal({
    /what-we-do/solutions — a scheduling-style intake (preferred date/time,
    contact method, urgency) rather than a generic one-field inquiry, so the
    form matches what "booking a consultation" actually implies.
-   POST /api/v1/contact/inquiries/ — temporary until a dedicated
-   consultation-booking endpoint exists.
+   POST /api/v1/solutions/inquiries/ — `solution` maps to that endpoint's
+   `interest` enum; the scheduling details have no dedicated field, so they
+   fold into `goals` alongside the free-text project description.
 ─────────────────────────────────────────────────── */
 function ConsultationRequestContent({
   solutionOptions,
   onSuccess,
 }: {
-  solutionOptions: string[];
+  solutionOptions: { label: string; value: string }[];
   onSuccess: () => void;
 }) {
   const [agreed, setAgreed] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
+  const { mutateAsync: submitInquiry, isPending, error } = useSubmitSolutionInquiry();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitting(true);
-    setError(null);
     const f = formEntriesToObject(e.currentTarget);
 
-    const message = [
-      f.solution && `Interested in: ${f.solution}`,
+    const goals = [
+      f.industry && `Industry: ${f.industry}`,
       f.companySize && `Company size: ${f.companySize}`,
       f.preferredDateTime && `Preferred date/time: ${f.preferredDateTime}`,
       f.contactMethod && `Preferred contact method: ${f.contactMethod}`,
@@ -1635,24 +1558,21 @@ function ConsultationRequestContent({
       .join("\n\n");
 
     try {
-      await submitContactInquiry({
+      await submitInquiry({
         first_name: f.firstName,
         last_name: f.lastName,
         email: f.email,
         organization: f.companyName,
-        industry: f.industry,
         phone: f.phone,
-        subject: "Solutions Consultation",
-        message,
+        interest: f.solution as SolutionInterest | undefined,
+        goals,
         marketing_consent: agreed,
         ...(turnstileToken && { "cf-turnstile-response": turnstileToken }),
       });
       trackEvent("consultation_request", { solution: f.solution, urgency: f.urgencyLevel });
       onSuccess();
-    } catch (err) {
+    } catch {
       turnstileRef.current?.reset();
-      setError(errorText(err));
-      setSubmitting(false);
     }
   }
 
@@ -1683,8 +1603,8 @@ function ConsultationRequestContent({
         <FormTextarea label="What would you like to cover?" name="projectDesc" rows={4} placeholder="Tell us about your goals for this consultation..." />
         <IcentraCheckbox checked={agreed} onChange={setAgreed} />
         <TurnstileWidget ref={turnstileRef} onVerify={setTurnstileToken} />
-        {error && <p className="text-red-600 text-sm text-center">{error}</p>}
-        <FormSubmit label={submitting ? "Sending…" : "Request Consultation"} />
+        {error && <p className="text-red-600 text-sm text-center">{errorText(error)}</p>}
+        <FormSubmit label={isPending ? "Sending…" : "Request Consultation"} />
       </form>
     </FormCard>
   );
@@ -1695,7 +1615,7 @@ export function ConsultationRequestModal({
   triggerLabel = "Book a Consultation",
   triggerClassName,
 }: {
-  solutionOptions: string[];
+  solutionOptions: { label: string; value: string }[];
   triggerLabel?: string;
   triggerClassName?: string;
 }) {

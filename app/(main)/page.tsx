@@ -161,7 +161,7 @@ export default async function HomePage() {
           modal: <ResourceDownloadModal triggerLabel="Download Brochure" />,
         }}
         secondaryCta={{ label: "Explore Capabilities", href: "/what-we-do/solutions" }}
-        image="/images/banner/discover-icentra.jpg"
+        image="/images/banner/support.jpg"
         imageAlt={"Banner Image"}
       />
 
@@ -172,7 +172,7 @@ export default async function HomePage() {
         headline={"Build Capability.\nAccelerate Performance."}
         subtext="Globally aligned certifications, executive programs, and workforce capability solutions designed to deliver measurable business outcomes."
         primaryCta={{ label: "Explore iCentra Learning", href: "https://learning.icentra.com/" }}
-        image="/images/career/hero.jpg"
+        image="/images/career/learning-talent.webp"
         imageAlt="iCentra Learning executive training session"
         imagePosition="left"
       />

@@ -1,7 +1,7 @@
 "use client";
 
-import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
-import { getTurnstileConfig } from "@/lib/api/turnstile";
+import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef } from "react";
+import { useTurnstileConfig } from "@/lib/queries/turnstile";
 
 declare global {
   interface Window {
@@ -58,24 +58,15 @@ const TurnstileWidget = forwardRef<TurnstileWidgetHandle, TurnstileWidgetProps>(
   function TurnstileWidget({ onVerify }, ref) {
     const containerRef = useRef<HTMLDivElement>(null);
     const widgetId = useRef<string | null>(null);
-    const [config, setConfig] = useState<{ enabled: boolean; sitekey: string; script_url: string } | null>(null);
     const onVerifyRef = useRef(onVerify);
     onVerifyRef.current = onVerify;
 
-    useEffect(() => {
-      let cancelled = false;
-      getTurnstileConfig()
-        .then((c) => {
-          if (!cancelled) setConfig(c);
-        })
-        .catch(() => {
-          // Backend unreachable — treat as disabled rather than block the form.
-          if (!cancelled) setConfig({ enabled: false, sitekey: "", script_url: "" });
-        });
-      return () => {
-        cancelled = true;
-      };
-    }, []);
+    const { data: fetchedConfig, isError } = useTurnstileConfig();
+    // Backend unreachable — treat as disabled rather than block the form. Memoized
+    // so this fallback keeps a stable reference across renders (it would otherwise
+    // be a new object every render, re-triggering the effect below needlessly).
+    const disabledConfig = useMemo(() => ({ enabled: false, sitekey: "", script_url: "" }), []);
+    const config = fetchedConfig ?? (isError ? disabledConfig : null);
 
     useEffect(() => {
       if (!config?.enabled || !containerRef.current) return;
