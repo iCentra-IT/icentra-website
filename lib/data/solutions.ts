@@ -47,6 +47,8 @@ export interface SolutionSubcategory {
   image: string;
   /** Sanity category slug to pull real "Insight Article" posts from, when a confident match exists */
   insightCategorySlug?: string;
+  /** Exact Sanity post slugs to feature as "Insight Article" instead of a category feed — takes priority over insightCategorySlug when set */
+  insightSlugs?: string[];
 
   heroCtaLine: string;
   heroCtaLabel?: string;
@@ -64,6 +66,8 @@ export interface SolutionSubcategory {
 
   closingCtaLine: string;
   closingCtaLabel?: string;
+  /** Small-print note shown under the closing CTA — e.g. certification/accreditation disclaimers */
+  closingNote?: string;
 
   /** Only present for Learning & Development's "Find a Training that Suits Your Needs" block */
   trainingLinks?: SolutionLink[];
@@ -655,33 +659,42 @@ export const solutionCategories: SolutionCategory[] = [
         closingCtaLine: "Develop High-Performing Teams.",
       },
       {
-        slug: "executive-programs",
-        title: "Executive Programs",
-        tagline: "Developing Leaders for Enterprise Transformation.",
-        subtext: "Equipping executives with the strategic insight and leadership capability required to drive sustained organizational success.",
+        slug: "corporate-certification-programs",
+        title: "Corporate Certification Programs",
+        tagline: "Building Certified Teams for Enterprise Performance.",
+        subtext:
+          "Preparing professionals to earn globally recognized credentials that strengthen capability, credibility, and execution across the organization.",
         image: "/images/solution/executive-programs.webp",
-        insightCategorySlug: "executive-training",
-        heroCtaLine: "Empower Strategic Leadership",
+        insightSlugs: ["the-digital-enterprise-has-two-governance-gaps-and-they-are-compounding-each-other"],
+        heroCtaLine: "Strengthen Workforce Credibility",
         overview: [
-          "Organizations thrive when leaders possess the vision, governance capability, and execution discipline required to navigate complexity, lead transformation, and sustain performance in a rapidly evolving business environment.",
-          "At iCentra, our Executive Programs are designed to strengthen leadership effectiveness, strategic thinking, and transformation capability across senior executives, business leaders, and decision-makers.",
+          "Organizations perform at their best when teams share a common standard of practice, apply proven methods, and can demonstrate their expertise to clients, regulators, and partners.",
+          "At iCentra, our Corporate Certification Programs prepare teams to earn internationally recognized credentials in project management, cybersecurity, governance, risk, and quality management. As an Authorized Training Partner of leading credentialing bodies, including PMI and PECB, we combine accredited course content, expert instruction, and structured exam preparation.",
         ],
         servicesIntro:
-          "Our executive learning experiences combine practical insight, strategic frameworks, and real-world application to help leaders drive enterprise transformation and organizational growth. Our Executive Programs Include:",
+          "Our certification programs pair rigorous exam readiness with practical application, so certified professionals bring stronger discipline and consistency to the work your organization depends on. Our Corporate Certification Programs Include:",
         services: [
-          { title: "Leadership & Executive Development", description: "Programs focused on strategic leadership, organizational performance, executive communication, and decision-making capability." },
-          { title: "Enterprise Transformation & Innovation Programs", description: "Executive learning sessions designed around AI, digital transformation, agile leadership, innovation, and organizational transformation." },
-          { title: "Governance & Strategy Execution Programs", description: "Programs that strengthen governance capability, strategy execution discipline, portfolio management, and enterprise oversight." },
-          { title: "Industry & Specialized Executive Sessions", description: "Customized executive programs tailored to sector-specific priorities, leadership challenges, and emerging business trends." },
+          { title: "Project, Program & Portfolio Management", description: "Globally recognized project management certification programs that build a consistent delivery standard across project teams and PMOs." },
+          { title: "Cybersecurity & Information Security", description: "Certification programs aligned to ISO/IEC 27001 and ISO/IEC 27032, for professionals who implement, audit, and manage information security." },
+          { title: "Governance, Risk & Business Continuity", description: "Certification programs aligned to ISO 31000 and ISO 22301, strengthening risk management and organizational resilience." },
+          { title: "Quality & Management Systems", description: "Certification programs aligned to ISO 9001, preparing teams to implement, maintain, and audit effective quality management systems." },
         ],
-        midCtaLine: "Ready to Strengthen Executive Leadership?",
+        midCtaLine: "Ready to Build a Certified Workforce?",
         process: [
-          { title: "Assess Leadership Priorities", description: "We identify leadership capability needs, organizational challenges, and strategic priorities." },
-          { title: "Design Executive Learning Experience", description: "Our experts develop tailored executive learning journeys aligned to transformation and business objectives." },
-          { title: "Deliver Executive Programs", description: "We facilitate impactful executive learning sessions through immersive, practical, and interactive formats." },
-          { title: "Reinforce Leadership Capability", description: "Through continuous engagement and post-program support, we help leaders translate learning into enterprise impact." },
+          { title: "Assess Capability and Credential Needs", description: "We map role requirements, current skill levels, and the certifications that matter most to your strategic and regulatory priorities." },
+          { title: "Design the Certification Pathway", description: "We build a cohort plan with the right credentials, schedule, and delivery format for each team." },
+          { title: "Deliver Exam-Focused Training", description: "Accredited instructors lead interactive sessions with practice exams and study support, delivered in person, virtually, or in a blended format." },
+          { title: "Support Certification and Application", description: "We guide participants through exam readiness, report progress to your organization, and help certified professionals apply new standards on the job." },
         ],
-        closingCtaLine: "Lead Transformation with Confidence.",
+        closingCtaLine: "Certify Your Teams with Confidence.",
+        closingNote:
+          "Participants receive an iCentra Certificate of Completion. Professional certifications are awarded by the credentialing body after the participant passes its examination. iCentra is a global technology and business company and a PMI/PECB Authorized Training Partner.",
+        testimonial: {
+          quote:
+            "Our IT Division needed capability that would last beyond a single training cycle. Over the years, iCentra has built our workforce capabilities in Agile, project management, and business analysis across our teams, aligned to how we deliver technology for the business.",
+          name: "Muniru Mai",
+          role: "Chief Technology Officer, NNPC Limited (IT Division)",
+        },
       },
       {
         slug: "talent-optimization",

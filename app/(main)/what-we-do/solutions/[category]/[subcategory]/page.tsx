@@ -16,7 +16,7 @@ import {
 } from "@/lib/data/solutions";
 import { sanityFetch } from "@/sanity/lib/live";
 import { postImageUrl } from "@/sanity/lib/image";
-import { POSTS_BY_CATEGORY_QUERY } from "@/sanity/lib/queries";
+import { POSTS_BY_CATEGORY_QUERY, POSTS_BY_SLUGS_QUERY } from "@/sanity/lib/queries";
 import { formatPostDate, estimateReadTimeFromText } from "@/sanity/lib/format";
 
 interface PageProps {
@@ -68,9 +68,17 @@ export default async function SolutionSubcategoryPage({ params }: PageProps) {
   const { category, subcategory: sub } = match;
 
   let insightItems: RawPost[] = [];
-  if (sub.insightCategorySlug) {
+  if (sub.insightSlugs && sub.insightSlugs.length > 0) {
     // Defensive: this is supplementary content — a Sanity hiccup here
     // shouldn't take down a page whose primary data already resolved.
+    const { data } = await sanityFetch({
+      query: POSTS_BY_SLUGS_QUERY,
+      params: { slugs: sub.insightSlugs },
+    }).catch(() => ({ data: null }));
+    const bySlug = new Map(((data ?? []) as RawPost[]).map((post) => [post.slug, post]));
+    // Preserve the curated order from insightSlugs rather than the query's.
+    insightItems = sub.insightSlugs.map((slug) => bySlug.get(slug)).filter((post): post is RawPost => Boolean(post));
+  } else if (sub.insightCategorySlug) {
     const { data } = await sanityFetch({
       query: POSTS_BY_CATEGORY_QUERY,
       params: { slug: sub.insightCategorySlug },
@@ -194,6 +202,11 @@ export default async function SolutionSubcategoryPage({ params }: PageProps) {
         ctaLabel={sub.closingCtaLabel ?? DEFAULT_CTA_LABEL}
         bgClassName="bg-[#25429A]"
       />
+      {sub.closingNote && (
+        <p className="text-[#9CA3AF] text-xs leading-relaxed text-center max-w-[760px] mx-auto px-6 py-6">
+          {sub.closingNote}
+        </p>
+      )}
 
       {/* ══════════════════════════════════════
           8. TESTIMONIAL — only when provided

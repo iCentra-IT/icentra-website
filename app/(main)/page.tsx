@@ -172,7 +172,7 @@ export default async function HomePage() {
         headline={"Build Capability.\nAccelerate Performance."}
         subtext="Globally aligned certifications, executive programs, and workforce capability solutions designed to deliver measurable business outcomes."
         primaryCta={{ label: "Explore iCentra Learning", href: "https://learning.icentra.com/" }}
-        image="/images/career/learning-talent.webp"
+        image="/images/banner/learning-talent.webp"
         imageAlt="iCentra Learning executive training session"
         imagePosition="left"
       />

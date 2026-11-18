@@ -45,6 +45,23 @@ export const POSTS_BY_CATEGORY_QUERY = `
   }
 `;
 
+// Posts matching exact post slugs, in the given order — used when a page
+// wants to feature specific articles rather than a whole category feed.
+export const POSTS_BY_SLUGS_QUERY = `
+  *[
+    _type == "post" &&
+    slug.current in $slugs
+  ] {
+    _id,
+    title,
+    "slug": slug.current,
+    excerpt,
+    mainImage,
+    publishedAt,
+    "plainBody": pt::text(body)
+  }
+`;
+
 // Posts belonging to any of the given top-level category slugs (or their
 // sub-categories) — powers the /news listing page.
 export const POSTS_FOR_SLUGS_QUERY = `

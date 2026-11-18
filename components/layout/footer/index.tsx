@@ -77,7 +77,7 @@ export default function Footer() {
           <div className="flex flex-col gap-6">
             <Link href="/" className="inline-flex">
               <Image
-                src="/logo.svg"
+                src="/logo-white.svg"
                 alt="iCentra"
                 width={130}
                 height={38}
