@@ -106,7 +106,6 @@ const accordionItems: AccordionItem[] = [
 
 const teamVideos: TeamVideo[] = [
   { name: "", role: "", youtubeId: "2N7Kpm4Rn1M" },
-  { name: "", role: "", youtubeId: "Iczg9iE2N6M" },
   { name: "", role: "", youtubeId: "rRabi9K4bKk" },
   { name: "", role: "", youtubeId: "y6j47Z84E7w" },
 ];
@@ -167,8 +166,8 @@ export default function CareersPage() {
           >
             <div className="relative w-full h-90 rounded-2xl overflow-hidden">
               <Image
-                src="/images/career/hero.jpg"
-                alt="iCentra team collaboration"
+                src="/images/OneDrive/S3.png"
+                alt="Working at iCentra"
                 fill
                 className="object-cover"
                 sizes="360px"

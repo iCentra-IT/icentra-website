@@ -28,7 +28,7 @@ export default function TeamVideos({ videos }: { videos: TeamVideo[] }) {
 
   return (
     <>
-      <StaggerGroup className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+      <StaggerGroup className="grid grid-cols-2 lg:grid-cols-3 gap-5">
         {videos.map((member, i) => (
           <StaggerItem key={`${member.name}-${i}`} className="flex flex-col gap-3">
             <button

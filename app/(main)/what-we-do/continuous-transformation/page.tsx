@@ -18,7 +18,7 @@ import { formatPostDate, estimateReadTimeFromText } from "@/sanity/lib/format";
 export const metadata: Metadata = pageMetadata({
   title: "Continuous Transformation",
   description:
-    "iCentra helps leaders build the operating system that keeps strategy, execution, people, and value delivery aligned — diagnosed by the Continuous Transformation Index™, aligned by the 4P Alignment Architecture™, delivered through the IMPACT™ Methodology.",
+    "iCentra helps leaders build the operating system that keeps strategy, execution, people, and value delivery aligned — diagnosed by the Continuous Transformation Index, aligned by the 4P Alignment Architecture, delivered through the IMPACT Methodology.",
   path: "/what-we-do/continuous-transformation",
   image: "/images/cont-trans/cont1.jpg",
 });
@@ -46,20 +46,20 @@ const howWeWork = [
   {
     step: "01",
     name: "Diagnose",
-    framework: "Continuous Transformation Index™",
+    framework: "Continuous Transformation Index",
     desc: "Measures transformation maturity and shows where misalignment is costing the most.",
   },
   {
     step: "02",
     name: "Align",
-    framework: "4P Alignment Architecture™",
+    framework: "4P Alignment Architecture",
     desc: "Redesigns portfolio, project, people, and product systems so they reinforce each other.",
     highlight: true,
   },
   {
     step: "03",
     name: "Deliver",
-    framework: "IMPACT™ Methodology",
+    framework: "IMPACT Methodology",
     desc: "Insight → Model → Protect → Activate → Capability → Transform. How iCentra delivers the change.",
   },
 ];
@@ -152,7 +152,7 @@ export default async function ContinuousTransformationPage() {
       ══════════════════════════════════════ */}
       <PageHero
         eyebrow="What We Do · Continuous Transformation"
-        headline="Transformation Is a Capability, Not a Project."
+        headline={"Transformation Is a Capability,\nNot a Project."}
         subtext="iCentra helps leaders build the operating system that keeps strategy, execution, people, and value delivery aligned, so performance holds long after the program ends."
       >
         <div className="flex flex-wrap items-center gap-4">
@@ -210,64 +210,56 @@ export default async function ContinuousTransformationPage() {
       </section>
 
       {/* ══════════════════════════════════════
-          3. THE OPERATING MODEL — 4P Alignment Architecture™
+          3. THE OPERATING MODEL — 4P Alignment Architecture
       ══════════════════════════════════════ */}
       <section className="bg-[#F7F9FC] py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-[#0066FF] text-xs font-bold tracking-[0.14em] uppercase mb-3">Framework</p>
           <SectionHeading
-            title="The 4P Alignment Architecture™"
+            title="The 4P Alignment Architecture"
             subtitle="A continuous loop that aligns strategy with capability."
             className="mb-10"
           />
 
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-            {/* Diagram — clockwise: Portfolio (top) → Project (right) → People (bottom) → Product (left) */}
-            <Reveal className="relative w-full max-w-85 aspect-square mx-auto shrink-0">
-              {/* Connecting ring */}
-              <div className="absolute inset-[18%] rounded-full border-2 border-[#00C2A2]" />
-
-              {/* Center */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-28 h-28 rounded-full bg-[#1A274F] flex items-center justify-center text-center px-3">
-                  <span className="text-white text-[11px] font-bold leading-tight tracking-[0.04em] uppercase">
-                    Continuous
-                    <br />
-                    Alignment
-                  </span>
-                </div>
-              </div>
+            {/* Diagram — concentric rings, clockwise: Portfolio (top) → Project (right) → People (bottom) → Product (left) */}
+            <Reveal className="relative w-full max-w-96 aspect-square mx-auto shrink-0">
+              {/* Concentric rings */}
+              <div className="absolute inset-[6%] rounded-full bg-[#0B1B4D]" />
+              <div className="absolute inset-[21%] rounded-full bg-[#2F4F9E]" />
+              <div className="absolute inset-[36%] rounded-full bg-[#CBDAF7]" />
+              <div className="absolute inset-[46%] rounded-full bg-[#00DBFF]" />
 
               {/* Portfolio — top */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5">
-                <div className="w-16 h-16 rounded-full bg-[#1A274F] flex items-center justify-center text-white text-xs font-bold text-center px-1">
-                  Portfolio
+              <div className="absolute top-[6%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5">
+                <div className="w-16 h-16 rounded-full bg-[#0B1B4D] border-2 border-[#00DBFF] flex items-center justify-center text-center px-1">
+                  <span className="text-white font-mono text-[10px] font-bold tracking-wide uppercase">Portfolio</span>
                 </div>
-                <span className="text-[#00C2A2] text-[11px] font-medium">Strategy</span>
+                <span className="text-[#00DBFF] text-[11px] font-medium">Strategy</span>
               </div>
 
               {/* Project — right */}
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5">
-                <div className="w-16 h-16 rounded-full bg-[#1A274F] flex items-center justify-center text-white text-xs font-bold text-center px-1">
-                  Project
+              <div className="absolute right-[6%] top-1/2 translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5">
+                <div className="w-16 h-16 rounded-full bg-[#0B1B4D] border-2 border-white/30 flex items-center justify-center text-center px-1">
+                  <span className="text-white font-mono text-[10px] font-bold tracking-wide uppercase">Project</span>
                 </div>
-                <span className="text-[#00C2A2] text-[11px] font-medium">Execution</span>
+                <span className="text-[#00DBFF] text-[11px] font-medium">Execution</span>
               </div>
 
               {/* People — bottom */}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5">
-                <span className="text-[#00C2A2] text-[11px] font-medium order-2">Capability</span>
-                <div className="w-16 h-16 rounded-full bg-[#1A274F] flex items-center justify-center text-white text-xs font-bold text-center px-1 order-1">
-                  People
+              <div className="absolute bottom-[6%] left-1/2 -translate-x-1/2 translate-y-1/2 flex flex-col items-center gap-1.5">
+                <span className="text-[#00DBFF] text-[11px] font-medium order-2">Capability</span>
+                <div className="w-16 h-16 rounded-full bg-[#0B1B4D] border-2 border-white/30 flex items-center justify-center text-center px-1 order-1">
+                  <span className="text-white font-mono text-[10px] font-bold tracking-wide uppercase">People</span>
                 </div>
               </div>
 
               {/* Product — left */}
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5">
-                <div className="w-16 h-16 rounded-full bg-[#1A274F] flex items-center justify-center text-white text-xs font-bold text-center px-1">
-                  Product
+              <div className="absolute left-[6%] top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5">
+                <div className="w-16 h-16 rounded-full bg-[#0B1B4D] border-2 border-white/30 flex items-center justify-center text-center px-1">
+                  <span className="text-white font-mono text-[10px] font-bold tracking-wide uppercase">Product</span>
                 </div>
-                <span className="text-[#00C2A2] text-[11px] font-medium">Value</span>
+                <span className="text-[#00DBFF] text-[11px] font-medium">Value</span>
               </div>
             </Reveal>
 
@@ -337,7 +329,7 @@ export default async function ContinuousTransformationPage() {
               The Framework Behind the Work
             </h2>
             <p className="text-white/70 text-base leading-[1.8] max-w-2xl mx-auto">
-              The 4P Alignment Architecture™ is the subject of Taopheek Babayeju&apos;s book,{" "}
+              The 4P Alignment Architecture is the subject of Taopheek Babayeju&apos;s book,{" "}
               <em className="not-italic font-semibold text-white">The Architecture of Enterprise Alignment</em>.
               Read it, lead with it, or apply it in your organization.
             </p>
@@ -381,7 +373,7 @@ export default async function ContinuousTransformationPage() {
               <p className="text-light-blue text-[11px] font-bold tracking-[0.1em] uppercase">Apply It</p>
               <h4 className="text-white text-base font-bold">Assessment and Partnership</h4>
               <p className="text-white/65 text-sm leading-relaxed flex-1">
-                Start with the Transformation Readiness Assessment™, then sustain the work through an iCentra
+                Start with the Transformation Readiness Assessment, then sustain the work through an iCentra
                 partnership.
               </p>
               <Link
@@ -489,18 +481,18 @@ export default async function ContinuousTransformationPage() {
       </section>
 
       {/* ══════════════════════════════════════
-          8. TRANSFORMATION READINESS ASSESSMENT™
+          8. TRANSFORMATION READINESS ASSESSMENT
       ══════════════════════════════════════ */}
       <section id="assessment" className="bg-white py-16 lg:py-20 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-[#0066FF] text-xs font-bold tracking-[0.14em] uppercase mb-3">Start Here</p>
-          <SectionHeading title="Transformation Readiness Assessment™" className="mb-10" />
+          <SectionHeading title="Transformation Readiness Assessment" className="mb-10" />
 
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
             <Reveal className="flex-1 min-w-0">
               <p className="text-[#374151] text-base leading-[1.8] mb-5">
                 Find out where your organization stands. Your results are scored on the Continuous Transformation
-                Index™ across the four 4P pillars and the governance layer.
+                Index across the four 4P pillars and the governance layer.
               </p>
               <p className="text-[#1A274F] text-base font-semibold mb-3">You receive:</p>
               <ul className="flex flex-col gap-2">

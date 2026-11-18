@@ -94,10 +94,10 @@ export const solutionCards = [
     description:
       "Scalable digital platforms that accelerate delivery, improve visibility, and create lasting competitive advantage.",
     list: [
+      "Workforce Capability Partnership",
       "AI Transformation Partnership",
       "PMO Partnership",
-      "Compliance Partnership",
-      "Workforce Capability Partnership",
+      "Compliance Partnerships",
     ],
     href: "/what-we-do/partnerships",
   },

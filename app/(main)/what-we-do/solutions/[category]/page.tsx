@@ -51,7 +51,7 @@ export default async function SolutionCategoryPage({ params }: PageProps) {
         items={category.subcategories.map((sub) => ({
           image: sub.image,
           title: sub.title,
-          description: sub.subtext,
+          description: sub.blurb ?? sub.subtext,
           href: `/what-we-do/solutions/${category.slug}/${sub.slug}`,
         }))}
       />

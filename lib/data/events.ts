@@ -34,7 +34,7 @@ export const aboutWebinar = {
   title: "About the Transform Webinar",
   paragraphs: [
     "The Transform Webinar is iCentra's monthly executive forum, a 90-minute virtual session bringing together senior enterprise leaders, practitioners, and decision-makers to engage with the strategic arguments driving organizational performance.",
-    "Each edition is themed around a dimension of iCentra's Continuous Transformation™ framework. Sessions are CEO-moderated, panel-led, and grounded in practitioner evidence from real client engagements.",
+    "Each edition is themed around a dimension of iCentra's Continuous Transformation framework. Sessions are CEO-moderated, panel-led, and grounded in practitioner evidence from real client engagements.",
     "The Transform Webinar is built for leaders who are responsible for making transformation work, not observing it.",
   ],
   pillars: ["Enterprise Transformation", "Cybersecurity & GRC", "Strategy & Execution", "Learning & Talent"],

@@ -1376,7 +1376,7 @@ export function InquiryModal({
 }
 
 /* ───────────────────────────────────────────────────
-   13. TRANSFORMATION READINESS ASSESSMENT™ REQUEST FORM
+   13. TRANSFORMATION READINESS ASSESSMENT REQUEST FORM
    /what-we-do/continuous-transformation — asks a quick self-rating
    across the same four 4P pillars the page scores the assessment on,
    so the intake itself mirrors what the visitor is told they'll get back.
@@ -1434,7 +1434,7 @@ function AssessmentRequestContent({ onSuccess }: { onSuccess: () => void }) {
   }
 
   return (
-    <FormCard title="Transformation Readiness Assessment™">
+    <FormCard title="Transformation Readiness Assessment">
       <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
         <FormRow>
           <FormField label="First Name" required name="firstName" type="text" placeholder="Enter first name" />
@@ -1510,7 +1510,7 @@ export function AssessmentRequestModal({
         {submitted ? (
           <ApplicationSuccess
             title="Request Received"
-            message="Thanks for requesting your Transformation Readiness Assessment™. A member of our team will reach out to schedule it and walk through your results."
+            message="Thanks for requesting your Transformation Readiness Assessment. A member of our team will reach out to schedule it and walk through your results."
             onClose={handleClose}
           />
         ) : (

@@ -5,7 +5,6 @@ import { TeamCard } from "@/components/ui/cards/team-card";
 import PageHero from "@/components/ui/page-hero";
 import SectionHeading from "@/components/ui/section-heading";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
-import CeoVideo from "@/components/sections/about/ceo-video";
 import Image from "next/image";
 import { pageMetadata } from "@/lib/seo";
 
@@ -174,9 +173,17 @@ export default function AboutPage() {
             </p>
           </Reveal>
 
-          {/* Right — CEO video */}
+          {/* Right — reception image */}
           <Reveal delay={0.15} className="flex flex-col gap-4 shrink-0 w-full lg:w-90">
-            <CeoVideo youtubeId="Iczg9iE2N6M" title="My iCentra Experience — CEO" />
+            <div className="relative w-full h-90 rounded-2xl overflow-hidden">
+              <Image
+                src="/images/OneDrive/front-desk.png"
+                alt="iCentra reception"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 360px"
+              />
+            </div>
           </Reveal>
         </div>
       </section>

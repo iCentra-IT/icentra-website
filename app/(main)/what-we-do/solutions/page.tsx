@@ -203,10 +203,10 @@ export default function OurSolutionsPage() {
                 {/* Category header — copy + dedicated category photo */}
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-8 items-center mb-8 pb-6 border-b border-[#DCE0E8]">
                   <div>
-                    <p className="text-[#0066FF] text-xs font-bold tracking-[0.14em] uppercase mb-2">
-                      {String(i + 1).padStart(2, "0")} · {category.title}
-                    </p>
-                    <h3 className="text-[#1A274F] text-xl lg:text-2xl font-extrabold mb-2">{category.tagline}</h3>
+                    <h3 className="text-[#1A274F] text-xl lg:text-2xl font-extrabold mb-2">
+                      <span className="text-[#0066FF]">{String(i + 1).padStart(2, "0")} ·</span> {category.title}
+                    </h3>
+                    <p className="text-[#6B7280] text-sm font-medium mb-3">{category.tagline}</p>
                     <p className="text-[#6B7280] text-sm leading-relaxed mb-4">{category.howWeDoItIntro}</p>
                     <Link
                       href={`/what-we-do/solutions/${category.slug}`}
@@ -251,7 +251,7 @@ export default function OurSolutionsPage() {
                         </div>
                         <div className="p-5">
                           <h4 className="text-[#1A274F] text-sm font-bold mb-1.5">{sub.title}</h4>
-                          <p className="text-[#6B7280] text-xs leading-relaxed line-clamp-3">{sub.subtext}</p>
+                          <p className="text-[#6B7280] text-xs leading-relaxed line-clamp-4">{sub.blurb ?? sub.subtext}</p>
                           <span className="inline-flex items-center gap-1 text-[#0066FF] text-xs font-semibold mt-3 group-hover:gap-2 transition-all">
                             Learn more
                             <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
