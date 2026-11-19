@@ -14,6 +14,15 @@ images: {
     { protocol: "https", hostname: "*.r2.cloudflarestorage.com" },
   ],
 },
+  async redirects() {
+    return [
+      // /careers was renamed to /career, and single job pages moved under
+      // /career/opportunities/[slug] — redirect old links so nothing 404s.
+      { source: "/careers", destination: "/career", permanent: true },
+      { source: "/careers/opportunities", destination: "/career/opportunities", permanent: true },
+      { source: "/careers/:slug", destination: "/career/opportunities/:slug", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

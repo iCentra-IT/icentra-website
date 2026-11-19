@@ -24,7 +24,7 @@ const navLinks = [
   { label: "Industries", href: "/industry" },
   { label: "News & Insights", href: "/news" },
   { label: "Events", href: "/events" },
-  { label: "Career", href: "/careers" },
+  { label: "Career", href: "/career" },
 ];
 
 // Exact match for "/", prefix match for everything else so nested routes

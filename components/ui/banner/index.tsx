@@ -28,7 +28,7 @@
 //       backgroundImage: "url('/images/bg.jpg')"
 //     }}
 //       >
-        
+
 //         {/* Content */}
 //         <div className="relative z-10 max-w-130 m-auto">
 //           {/* Headline */}
@@ -119,7 +119,7 @@ function CtaButton({
   return (
     <Link
       href={cta.href ?? "#"}
-      className="inline-flex items-center px-6 py-3 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-[#00DBFF] hover:text-[#1A274F] transition-colors"
+      className="inline-flex items-center px-6 py-3 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors"
     >
       {cta.label}
     </Link>
@@ -167,7 +167,9 @@ export default function DiscoverBanner({
   );
 
   const imagePanel = (
-    <div className={`relative w-full min-h-[280px] lg:min-h-0 ${imagePosition === "left" ? "lg:order-1" : ""}`}>
+    <div
+      className={`relative w-full min-h-[280px] lg:min-h-0 ${imagePosition === "left" ? "lg:order-1" : ""}`}
+    >
       <Image
         src={image}
         alt={imageAlt}

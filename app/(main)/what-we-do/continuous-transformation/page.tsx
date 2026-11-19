@@ -5,7 +5,11 @@ import StatsBar from "@/components/sections/home/stat";
 import TrustedPartners from "@/components/sections/home/partners";
 import BlogCard from "@/components/ui/cards/blog-card";
 import SectionHeading from "@/components/ui/section-heading";
-import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
+import {
+  Reveal,
+  StaggerGroup,
+  StaggerItem,
+} from "@/components/ui/motion/reveal";
 import { pageMetadata } from "@/lib/seo";
 import { getPartnershipBySlug } from "@/lib/data/partnerships";
 import { AssessmentRequestModal } from "@/components/forms/all-forms";
@@ -36,10 +40,26 @@ const symptoms = [
 ];
 
 const fourPs = [
-  { label: "Portfolio", tag: "Strategy", desc: "Strategic direction and investment priorities." },
-  { label: "Project", tag: "Execution", desc: "The execution architecture that turns priorities into action." },
-  { label: "People", tag: "Capability", desc: "The capability systems that sustain delivery." },
-  { label: "Product", tag: "Value", desc: "The value stakeholders actually receive." },
+  {
+    label: "Portfolio",
+    tag: "Strategy",
+    desc: "Strategic direction and investment priorities.",
+  },
+  {
+    label: "Project",
+    tag: "Execution",
+    desc: "The execution architecture that turns priorities into action.",
+  },
+  {
+    label: "People",
+    tag: "Capability",
+    desc: "The capability systems that sustain delivery.",
+  },
+  {
+    label: "Product",
+    tag: "Value",
+    desc: "The value stakeholders actually receive.",
+  },
 ];
 
 const howWeWork = [
@@ -135,18 +155,22 @@ type RawPost = {
    PAGE
 ───────────────────────────────────────── */
 export default async function ContinuousTransformationPage() {
-  const { data: insightPosts } = await sanityFetch({ query: POSTS_BY_CATEGORY_QUERY, params: { slug: "insights" } });
-  const blogCards = ((insightPosts ?? []) as RawPost[]).slice(0, 3).map((post) => ({
-    image: postImageUrl(post.mainImage) ?? "/images/bg.jpg",
-    title: post.title,
-    date: formatPostDate(post.publishedAt),
-    readTime: estimateReadTimeFromText(post.plainBody),
-    href: `/news/${post.slug}`,
-  }));
+  const { data: insightPosts } = await sanityFetch({
+    query: POSTS_BY_CATEGORY_QUERY,
+    params: { slug: "insights" },
+  });
+  const blogCards = ((insightPosts ?? []) as RawPost[])
+    .slice(0, 3)
+    .map((post) => ({
+      image: postImageUrl(post.mainImage) ?? "/images/bg.jpg",
+      title: post.title,
+      date: formatPostDate(post.publishedAt),
+      readTime: estimateReadTimeFromText(post.plainBody),
+      href: `/news/${post.slug}`,
+    }));
 
   return (
     <main className="w-full overflow-x-hidden">
-
       {/* ══════════════════════════════════════
           1. HERO — PageHero (reused)
       ══════════════════════════════════════ */}
@@ -186,24 +210,34 @@ export default async function ContinuousTransformationPage() {
               Most transformation problems are alignment problems in disguise.
             </h2>
             <p className="text-[#374151] text-base leading-[1.8]">
-              Technology, governance expectations, cyber risk, and workforce dynamics are changing faster than
-              one-time programs can keep up with. The organizations that win embed transformation into how they
-              operate, not just what they pursue.
+              Technology, governance expectations, cyber risk, and workforce
+              dynamics are changing faster than one-time programs can keep up
+              with. The organizations that win embed transformation into how
+              they operate, not just what they pursue.
             </p>
           </Reveal>
 
-          <Reveal delay={0.15} className="lg:w-100 shrink-0 bg-[#F7F9FC] rounded-2xl p-7">
-            <p className="text-[#1A274F] text-base font-semibold mb-4">Many organizations experience:</p>
+          <Reveal
+            delay={0.15}
+            className="lg:w-100 shrink-0 bg-[#F7F9FC] rounded-2xl p-7"
+          >
+            <p className="text-[#1A274F] text-base font-semibold mb-4">
+              Many organizations experience:
+            </p>
             <ul className="flex flex-col gap-3 mb-5">
               {symptoms.map((item) => (
-                <li key={item} className="flex items-start gap-2.5 text-[#374151] text-sm leading-relaxed">
+                <li
+                  key={item}
+                  className="flex items-start gap-2.5 text-[#374151] text-sm leading-relaxed"
+                >
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0066FF] shrink-0" />
                   {item}
                 </li>
               ))}
             </ul>
             <p className="text-[#1A274F] text-sm font-semibold border-t border-[#DCE0E8] pt-4">
-              The result: repeated transformation efforts without lasting performance.
+              The result: repeated transformation efforts without lasting
+              performance.
             </p>
           </Reveal>
         </div>
@@ -214,7 +248,9 @@ export default async function ContinuousTransformationPage() {
       ══════════════════════════════════════ */}
       <section className="bg-[#F7F9FC] py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-[#0066FF] text-xs font-bold tracking-[0.14em] uppercase mb-3">Framework</p>
+          <p className="text-[#0066FF] text-xs font-bold tracking-[0.14em] uppercase mb-3">
+            Framework
+          </p>
           <SectionHeading
             title="The 4P Alignment Architecture"
             subtitle="A continuous loop that aligns strategy with capability."
@@ -228,48 +264,73 @@ export default async function ContinuousTransformationPage() {
               <div className="absolute inset-[6%] rounded-full bg-[#0B1B4D]" />
               <div className="absolute inset-[21%] rounded-full bg-[#2F4F9E]" />
               <div className="absolute inset-[36%] rounded-full bg-[#CBDAF7]" />
-              <div className="absolute inset-[46%] rounded-full bg-[#00DBFF]" />
+              <div className="absolute inset-[46%] rounded-full bg-light-blue" />
 
               {/* Portfolio — top */}
               <div className="absolute top-[6%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5">
-                <div className="w-16 h-16 rounded-full bg-[#0B1B4D] border-2 border-[#00DBFF] flex items-center justify-center text-center px-1">
-                  <span className="text-white font-mono text-[10px] font-bold tracking-wide uppercase">Portfolio</span>
+                <div className="w-16 h-16 rounded-full bg-[#0B1B4D] border-2 border-light-blue flex items-center justify-center text-center px-1">
+                  <span className="text-white font-mono text-[10px] font-bold tracking-wide uppercase">
+                    Portfolio
+                  </span>
                 </div>
-                <span className="text-[#00DBFF] text-[11px] font-medium">Strategy</span>
+                <span className="text-light-blue text-[11px] font-medium">
+                  Strategy
+                </span>
               </div>
 
               {/* Project — right */}
               <div className="absolute right-[6%] top-1/2 translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5">
                 <div className="w-16 h-16 rounded-full bg-[#0B1B4D] border-2 border-white/30 flex items-center justify-center text-center px-1">
-                  <span className="text-white font-mono text-[10px] font-bold tracking-wide uppercase">Project</span>
+                  <span className="text-white font-mono text-[10px] font-bold tracking-wide uppercase">
+                    Project
+                  </span>
                 </div>
-                <span className="text-[#00DBFF] text-[11px] font-medium">Execution</span>
+                <span className="text-light-blue text-[11px] font-medium">
+                  Execution
+                </span>
               </div>
 
               {/* People — bottom */}
               <div className="absolute bottom-[6%] left-1/2 -translate-x-1/2 translate-y-1/2 flex flex-col items-center gap-1.5">
-                <span className="text-[#00DBFF] text-[11px] font-medium order-2">Capability</span>
+                <span className="text-light-blue text-[11px] font-medium order-2">
+                  Capability
+                </span>
                 <div className="w-16 h-16 rounded-full bg-[#0B1B4D] border-2 border-white/30 flex items-center justify-center text-center px-1 order-1">
-                  <span className="text-white font-mono text-[10px] font-bold tracking-wide uppercase">People</span>
+                  <span className="text-white font-mono text-[10px] font-bold tracking-wide uppercase">
+                    People
+                  </span>
                 </div>
               </div>
 
               {/* Product — left */}
               <div className="absolute left-[6%] top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5">
                 <div className="w-16 h-16 rounded-full bg-[#0B1B4D] border-2 border-white/30 flex items-center justify-center text-center px-1">
-                  <span className="text-white font-mono text-[10px] font-bold tracking-wide uppercase">Product</span>
+                  <span className="text-white font-mono text-[10px] font-bold tracking-wide uppercase">
+                    Product
+                  </span>
                 </div>
-                <span className="text-[#00DBFF] text-[11px] font-medium">Value</span>
+                <span className="text-light-blue text-[11px] font-medium">
+                  Value
+                </span>
               </div>
             </Reveal>
 
             {/* Pillar descriptions */}
             <StaggerGroup className="flex-1 min-w-0 grid grid-cols-1 sm:grid-cols-2 gap-6">
               {fourPs.map((p) => (
-                <StaggerItem key={p.label} className="bg-white rounded-2xl p-6 border border-[#DCE0E8]">
-                  <p className="text-[#0066FF] text-[11px] font-bold tracking-[0.1em] uppercase mb-1.5">{p.tag}</p>
-                  <h4 className="text-[#1A274F] text-base font-bold mb-2">{p.label}</h4>
-                  <p className="text-[#6B7280] text-sm leading-relaxed">{p.desc}</p>
+                <StaggerItem
+                  key={p.label}
+                  className="bg-white rounded-2xl p-6 border border-[#DCE0E8]"
+                >
+                  <p className="text-[#0066FF] text-[11px] font-bold tracking-[0.1em] uppercase mb-1.5">
+                    {p.tag}
+                  </p>
+                  <h4 className="text-[#1A274F] text-base font-bold mb-2">
+                    {p.label}
+                  </h4>
+                  <p className="text-[#6B7280] text-sm leading-relaxed">
+                    {p.desc}
+                  </p>
                 </StaggerItem>
               ))}
             </StaggerGroup>
@@ -282,7 +343,9 @@ export default async function ContinuousTransformationPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-[#0066FF] text-xs font-bold tracking-[0.14em] uppercase mb-3">How We Work</p>
+          <p className="text-[#0066FF] text-xs font-bold tracking-[0.14em] uppercase mb-3">
+            How We Work
+          </p>
           <SectionHeading
             title="Diagnose. Align. Deliver."
             subtitle="Three proprietary frameworks, used in sequence on every engagement."
@@ -301,15 +364,19 @@ export default async function ContinuousTransformationPage() {
               >
                 <span
                   className={`text-[32px] font-extrabold leading-none ${
-                    step.highlight ? "text-[#00DBFF]" : "text-[#DCE0E8]"
+                    step.highlight ? "text-light-blue" : "text-[#DCE0E8]"
                   }`}
                 >
                   {step.step}
                 </span>
-                <h4 className={`text-lg font-bold ${step.highlight ? "text-white" : "text-[#1A274F]"}`}>
+                <h4
+                  className={`text-lg font-bold ${step.highlight ? "text-white" : "text-[#1A274F]"}`}
+                >
                   {step.name.toUpperCase()} — {step.framework}
                 </h4>
-                <p className={`text-sm leading-relaxed ${step.highlight ? "text-white/70" : "text-[#6B7280]"}`}>
+                <p
+                  className={`text-sm leading-relaxed ${step.highlight ? "text-white/70" : "text-[#6B7280]"}`}
+                >
                   {step.desc}
                 </p>
               </StaggerItem>
@@ -324,23 +391,33 @@ export default async function ContinuousTransformationPage() {
       <section className="bg-[#0B1B4D] py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
           <Reveal className="text-center mb-12">
-            <p className="text-light-blue text-xs font-bold tracking-[0.14em] uppercase mb-3">Enterprise Alignment</p>
+            <p className="text-light-blue text-xs font-bold tracking-[0.14em] uppercase mb-3">
+              Enterprise Alignment
+            </p>
             <h2 className="text-white text-2xl lg:text-[32px] font-extrabold leading-tight mb-4">
               The Framework Behind the Work
             </h2>
             <p className="text-white/70 text-base leading-[1.8] max-w-2xl mx-auto">
-              The 4P Alignment Architecture is the subject of Taopheek Babayeju&apos;s book,{" "}
-              <em className="not-italic font-semibold text-white">The Architecture of Enterprise Alignment</em>.
-              Read it, lead with it, or apply it in your organization.
+              The 4P Alignment Architecture is the subject of Taopheek
+              Babayeju&apos;s book,{" "}
+              <em className="not-italic font-semibold text-white">
+                The Architecture of Enterprise Alignment
+              </em>
+              . Read it, lead with it, or apply it in your organization.
             </p>
           </Reveal>
 
           <StaggerGroup className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <StaggerItem className="bg-white/5 border border-white/10 rounded-2xl p-7 flex flex-col gap-4">
-              <p className="text-light-blue text-[11px] font-bold tracking-[0.1em] uppercase">Read It</p>
-              <h4 className="text-white text-base font-bold">The Architecture of Enterprise Alignment</h4>
+              <p className="text-light-blue text-[11px] font-bold tracking-[0.1em] uppercase">
+                Read It
+              </p>
+              <h4 className="text-white text-base font-bold">
+                The Architecture of Enterprise Alignment
+              </h4>
               <p className="text-white/65 text-sm leading-relaxed flex-1">
-                Why good strategies fail to produce sustained results, and how to design an enterprise that delivers.
+                Why good strategies fail to produce sustained results, and how
+                to design an enterprise that delivers.
               </p>
               <Link
                 href="https://www.enterprisealignment.org/"
@@ -353,11 +430,16 @@ export default async function ContinuousTransformationPage() {
             </StaggerItem>
 
             <StaggerItem className="bg-white/5 border border-white/10 rounded-2xl p-7 flex flex-col gap-4">
-              <p className="text-light-blue text-[11px] font-bold tracking-[0.1em] uppercase">Lead With It</p>
-              <h4 className="text-white text-base font-bold">Enterprise Alignment (Executive Program)</h4>
+              <p className="text-light-blue text-[11px] font-bold tracking-[0.1em] uppercase">
+                Lead With It
+              </p>
+              <h4 className="text-white text-base font-bold">
+                Enterprise Alignment (Executive Program)
+              </h4>
               <p className="text-white/65 text-sm leading-relaxed flex-1">
-                A 3-day iCentra Learning program for senior executives. Participants leave as designated 4P Leaders
-                with a 90-Day Enterprise Alignment Execution Plan.
+                A 3-day iCentra Learning program for senior executives.
+                Participants leave as designated 4P Leaders with a 90-Day
+                Enterprise Alignment Execution Plan.
               </p>
               <Link
                 href="https://learning.icentra.com/"
@@ -370,11 +452,15 @@ export default async function ContinuousTransformationPage() {
             </StaggerItem>
 
             <StaggerItem className="bg-white/5 border border-white/10 rounded-2xl p-7 flex flex-col gap-4">
-              <p className="text-light-blue text-[11px] font-bold tracking-[0.1em] uppercase">Apply It</p>
-              <h4 className="text-white text-base font-bold">Assessment and Partnership</h4>
+              <p className="text-light-blue text-[11px] font-bold tracking-[0.1em] uppercase">
+                Apply It
+              </p>
+              <h4 className="text-white text-base font-bold">
+                Assessment and Partnership
+              </h4>
               <p className="text-white/65 text-sm leading-relaxed flex-1">
-                Start with the Transformation Readiness Assessment, then sustain the work through an iCentra
-                partnership.
+                Start with the Transformation Readiness Assessment, then sustain
+                the work through an iCentra partnership.
               </p>
               <Link
                 href="#assessment"
@@ -393,8 +479,18 @@ export default async function ContinuousTransformationPage() {
               className="inline-flex items-center gap-1.5 text-light-blue text-sm font-semibold hover:gap-2.5 transition-all"
             >
               Explore the framework in depth at enterprisealignment.org
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M5 12h14M13 6l6 6-6 6"
+                />
               </svg>
             </Link>
           </Reveal>
@@ -406,8 +502,13 @@ export default async function ContinuousTransformationPage() {
       ══════════════════════════════════════ */}
       <section className="bg-white py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-[#0066FF] text-xs font-bold tracking-[0.14em] uppercase mb-3">Our Solutions</p>
-          <SectionHeading title="Four Pillars. One Transformation System." className="mb-10" />
+          <p className="text-[#0066FF] text-xs font-bold tracking-[0.14em] uppercase mb-3">
+            Our Solutions
+          </p>
+          <SectionHeading
+            title="Four Pillars. One Transformation System."
+            className="mb-10"
+          />
 
           <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {solutionPillars.map((pillar, i) => (
@@ -416,16 +517,30 @@ export default async function ContinuousTransformationPage() {
                   href={pillar.href}
                   className="group block h-full rounded-2xl border border-[#DCE0E8] p-7 hover:border-[#0066FF] hover:shadow-lg hover:shadow-[#0066FF]/5 transition-all"
                 >
-                  <div className="h-1 rounded-full bg-[#00DBFF] mb-5 -mt-7 -mx-7" />
+                  <div className="h-1 rounded-full bg-light-blue mb-5 -mt-7 -mx-7" />
                   <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[#1A274F] text-white text-xs font-bold mb-4">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h4 className="text-[#1A274F] text-base font-bold mb-2">{pillar.title}</h4>
-                  <p className="text-[#6B7280] text-sm leading-relaxed mb-4">{pillar.desc}</p>
+                  <h4 className="text-[#1A274F] text-base font-bold mb-2">
+                    {pillar.title}
+                  </h4>
+                  <p className="text-[#6B7280] text-sm leading-relaxed mb-4">
+                    {pillar.desc}
+                  </p>
                   <span className="inline-flex items-center gap-1.5 text-[#0066FF] text-sm font-semibold group-hover:gap-2.5 transition-all">
                     Learn more
-                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    <svg
+                      className="w-3.5 h-3.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9 5l7 7-7 7"
+                      />
                     </svg>
                   </span>
                 </Link>
@@ -440,7 +555,9 @@ export default async function ContinuousTransformationPage() {
       ══════════════════════════════════════ */}
       <section className="bg-[#F7F9FC] py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-[#0066FF] text-xs font-bold tracking-[0.14em] uppercase mb-3">Partnership Models</p>
+          <p className="text-[#0066FF] text-xs font-bold tracking-[0.14em] uppercase mb-3">
+            Partnership Models
+          </p>
           <SectionHeading
             title="Four Ways to Work With Us"
             subtitle="Pick the model that fits the moment, from advisory through long-term partnership."
@@ -452,14 +569,24 @@ export default async function ContinuousTransformationPage() {
               const partnership = getPartnershipBySlug(model.slug);
               if (!partnership) return null;
               return (
-                <StaggerItem key={model.slug} className="bg-white rounded-2xl p-6 border border-[#DCE0E8] flex flex-col gap-3">
+                <StaggerItem
+                  key={model.slug}
+                  className="bg-white rounded-2xl p-6 border border-[#DCE0E8] flex flex-col gap-3"
+                >
                   <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-[#1A274F] text-white text-xs font-bold">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h4 className="text-[#1A274F] text-sm font-bold leading-snug">{partnership.name}</h4>
-                  <p className="text-[#6B7280] text-sm leading-relaxed flex-1">{model.desc}</p>
+                  <h4 className="text-[#1A274F] text-sm font-bold leading-snug">
+                    {partnership.name}
+                  </h4>
+                  <p className="text-[#6B7280] text-sm leading-relaxed flex-1">
+                    {model.desc}
+                  </p>
                   <p className="text-[#374151] text-xs leading-relaxed border-t border-[#DCE0E8] pt-3">
-                    <span className="font-semibold text-[#1A274F]">Best for:</span> {model.bestFor}
+                    <span className="font-semibold text-[#1A274F]">
+                      Best for:
+                    </span>{" "}
+                    {model.bestFor}
                   </p>
                 </StaggerItem>
               );
@@ -472,8 +599,18 @@ export default async function ContinuousTransformationPage() {
               className="inline-flex items-center gap-1.5 text-[#0066FF] text-sm font-semibold hover:gap-2.5 transition-all"
             >
               Explore Partnerships
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M5 12h14M13 6l6 6-6 6"
+                />
               </svg>
             </Link>
           </Reveal>
@@ -485,19 +622,30 @@ export default async function ContinuousTransformationPage() {
       ══════════════════════════════════════ */}
       <section id="assessment" className="bg-white py-16 lg:py-20 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-[#0066FF] text-xs font-bold tracking-[0.14em] uppercase mb-3">Start Here</p>
-          <SectionHeading title="Transformation Readiness Assessment" className="mb-10" />
+          <p className="text-[#0066FF] text-xs font-bold tracking-[0.14em] uppercase mb-3">
+            Start Here
+          </p>
+          <SectionHeading
+            title="Transformation Readiness Assessment"
+            className="mb-10"
+          />
 
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
             <Reveal className="flex-1 min-w-0">
               <p className="text-[#374151] text-base leading-[1.8] mb-5">
-                Find out where your organization stands. Your results are scored on the Continuous Transformation
-                Index across the four 4P pillars and the governance layer.
+                Find out where your organization stands. Your results are scored
+                on the Continuous Transformation Index across the four 4P
+                pillars and the governance layer.
               </p>
-              <p className="text-[#1A274F] text-base font-semibold mb-3">You receive:</p>
+              <p className="text-[#1A274F] text-base font-semibold mb-3">
+                You receive:
+              </p>
               <ul className="flex flex-col gap-2">
                 {assessmentReceive.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-[#374151] text-base leading-relaxed">
+                  <li
+                    key={item}
+                    className="flex items-start gap-2.5 text-[#374151] text-base leading-relaxed"
+                  >
                     <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0066FF] shrink-0" />
                     {item}
                   </li>
@@ -505,10 +653,16 @@ export default async function ContinuousTransformationPage() {
               </ul>
             </Reveal>
 
-            <Reveal delay={0.15} className="lg:w-95 shrink-0 w-full bg-[#F7F9FC] rounded-2xl p-8 text-center">
-              <h4 className="text-[#1A274F] text-lg font-bold mb-2">Request Your Assessment</h4>
+            <Reveal
+              delay={0.15}
+              className="lg:w-95 shrink-0 w-full bg-[#F7F9FC] rounded-2xl p-8 text-center"
+            >
+              <h4 className="text-[#1A274F] text-lg font-bold mb-2">
+                Request Your Assessment
+              </h4>
               <p className="text-[#6B7280] text-sm leading-relaxed mb-6">
-                Tell us about your organization and a member of our team will reach out to schedule your assessment.
+                Tell us about your organization and a member of our team will
+                reach out to schedule your assessment.
               </p>
               <AssessmentRequestModal
                 triggerLabel="Request Your Assessment"
@@ -516,7 +670,10 @@ export default async function ContinuousTransformationPage() {
               />
               <p className="text-[#6B7280] text-sm">
                 Or email{" "}
-                <a href="mailto:solutions@icentra.com" className="text-[#0066FF] font-semibold hover:underline">
+                <a
+                  href="mailto:solutions@icentra.com"
+                  className="text-[#0066FF] font-semibold hover:underline"
+                >
                   solutions@icentra.com
                 </a>
               </p>
@@ -541,22 +698,44 @@ export default async function ContinuousTransformationPage() {
         <section className="bg-white py-14 lg:py-20">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex items-center justify-between flex-wrap gap-4 mb-10">
-              <SectionHeading title="Insights on Continuous Transformation" className="mb-0" />
+              <SectionHeading
+                title="Insights on Continuous Transformation"
+                className="mb-0"
+              />
               <Link
                 href="/news?tab=insights"
                 className="inline-flex items-center gap-1.5 text-[#0066FF] text-sm font-semibold hover:gap-2.5 transition-all"
               >
                 View all insights
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M5 12h14M13 6l6 6-6 6"
+                  />
                 </svg>
               </Link>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {blogCards.map((card) => (
-                <div key={card.href} className="[&>div]:max-w-none [&>div]:w-full">
-                  <BlogCard image={card.image} title={card.title} date={card.date} readTime={card.readTime} href={card.href} />
+                <div
+                  key={card.href}
+                  className="[&>div]:max-w-none [&>div]:w-full"
+                >
+                  <BlogCard
+                    image={card.image}
+                    title={card.title}
+                    date={card.date}
+                    readTime={card.readTime}
+                    href={card.href}
+                  />
                 </div>
               ))}
             </div>
@@ -573,8 +752,9 @@ export default async function ContinuousTransformationPage() {
             Build the Capability to Transform Continuously
           </h2>
           <p className="text-white/55 text-base leading-relaxed">
-            Start with a 30-minute discovery call. We will identify where misalignment is costing you most and the
-            right entry point for your organization.
+            Start with a 30-minute discovery call. We will identify where
+            misalignment is costing you most and the right entry point for your
+            organization.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-3 mt-2">
             <Link
@@ -594,13 +774,15 @@ export default async function ContinuousTransformationPage() {
           </div>
           <p className="text-white/50 text-sm">
             Or email{" "}
-            <a href="mailto:solutions@icentra.com" className="text-light-blue font-semibold hover:underline">
+            <a
+              href="mailto:solutions@icentra.com"
+              className="text-light-blue font-semibold hover:underline"
+            >
               solutions@icentra.com
             </a>
           </p>
         </Reveal>
       </section>
-
     </main>
   );
 }

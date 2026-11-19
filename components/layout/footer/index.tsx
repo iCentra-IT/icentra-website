@@ -11,7 +11,7 @@ const quickLinks = [
 const aboutLinks = [
   { label: "About Us", href: "/about" },
   { label: "Events", href: "/event" },
-  { label: "Careers", href: "/careers" },
+  { label: "Careers", href: "/career" },
   { label: "Contact Us", href: "/contact" },
 ];
 

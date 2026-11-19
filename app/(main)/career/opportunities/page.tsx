@@ -9,7 +9,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Career Opportunities",
   description:
     "Explore current openings at iCentra. Bring your experience to a team transforming people and organizations across Africa, Europe, and North America.",
-  path: "/careers/opportunities",
+  path: "/career/opportunities",
   image: "/images/career/hero.jpg",
 });
 
@@ -24,7 +24,7 @@ export default function CareerOpportunitiesPage() {
         subtext="We are always on the lookout for people who are curious, committed, and ready to lead change. Explore our current openings and find the role that matches your experience."
       >
         <Link
-          href="/careers"
+          href="/career"
           className="inline-flex items-center gap-2 text-white/70 text-sm font-medium hover:text-white transition-colors w-fit"
         >
           <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>

@@ -133,7 +133,7 @@ export const RELATED_POSTS_QUERY = `
 `;
 
 // Slugs of every post EXCEPT job-listings and case studies — those have their
-// own dedicated routes (/careers/[slug], /industry/case-study/[slug]) and
+// own dedicated routes (/career/opportunities/[slug], /industry/case-study/[slug]) and
 // should not also be reachable/duplicated at /news/[slug].
 export const ALL_POST_SLUGS_QUERY = `
   *[

@@ -33,10 +33,10 @@ function LocationIcon() {
 export default function JobCard({ slug, title, dept, location, type }: JobCardProps) {
   return (
     <MotionLink
-      href={`/careers/${slug}`}
+      href={`/career/opportunities/${slug}`}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
-      className="group relative flex flex-col gap-4 bg-white rounded-2xl border border-[#E5E7EB] p-6 hover:border-[#0066FF] hover:shadow-lg hover:shadow-[#0066FF]/10 transition-[border-color,box-shadow] duration-300"
+      className="group relative flex flex-col gap-4 h-full bg-white rounded-2xl border border-[#E5E7EB] p-6 hover:border-[#0066FF] hover:shadow-lg hover:shadow-[#0066FF]/10 transition-[border-color,box-shadow] duration-300"
     >
       <div className="flex items-start justify-between gap-3">
         <div className="w-11 h-11 rounded-xl bg-[#EAF3FB] flex items-center justify-center text-[#0066FF] shrink-0 group-hover:bg-[#0066FF] group-hover:text-white transition-colors duration-300">
@@ -47,19 +47,21 @@ export default function JobCard({ slug, title, dept, location, type }: JobCardPr
         </span>
       </div>
 
-      <div>
-        <h3 className="text-[#1A274F] text-lg font-bold leading-snug group-hover:text-[#0066FF] transition-colors">
+      <div className="min-h-[76px]">
+        <h3 className="text-[#1A274F] text-lg font-bold leading-snug line-clamp-2 group-hover:text-[#0066FF] transition-colors">
           {title}
         </h3>
         <p className="text-[#9CA3AF] text-sm mt-1">{dept}</p>
       </div>
 
-      {location && (
-        <div className="flex items-center gap-1.5 text-[#6B7280] text-sm">
-          <LocationIcon />
-          {location}
-        </div>
-      )}
+      <div className="flex items-center gap-1.5 text-[#6B7280] text-sm min-h-5">
+        {location && (
+          <>
+            <LocationIcon />
+            {location}
+          </>
+        )}
+      </div>
 
       <div className="flex items-center gap-2 text-[#0066FF] text-sm font-semibold mt-auto pt-4 border-t border-[#F0F1F3] group-hover:gap-3 transition-all">
         View Details

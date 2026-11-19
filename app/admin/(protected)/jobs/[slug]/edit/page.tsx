@@ -68,7 +68,7 @@ export default function EditJobPage({ params }: { params: Promise<{ slug: string
             <h1 className="text-[#1A274F] text-xl lg:text-2xl font-bold">Edit Job Opening</h1>
             {job.is_public && job.status === "open" && (
               <Link
-                href={`/careers/${job.slug}`}
+                href={`/career/opportunities/${job.slug}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#0066FF] text-sm font-semibold hover:text-[#25429A] transition-colors shrink-0"

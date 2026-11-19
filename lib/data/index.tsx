@@ -291,4 +291,4 @@ export function getArticleBySlug(slug: string): Article | undefined {
 }
 
 // Job listings now come from the backend API — see lib/api/jobs.ts,
-// used by /careers and /careers/[slug].
+// used by /career/opportunities and /career/opportunities/[slug].

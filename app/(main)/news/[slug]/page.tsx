@@ -120,7 +120,7 @@ export default async function ArticlePage({
 
     // Job listings and case studies have their own dedicated templates —
     // send visitors there instead of rendering the generic news layout.
-    if (categorySlugs.includes("job-listing")) redirect(`/careers/${slug}`);
+    if (categorySlugs.includes("job-listing")) redirect(`/career/opportunities/${slug}`);
     if (categorySlugs.includes("case-study")) redirect(`/industry/case-study/${slug}`);
 
     const { data: related } = await sanityFetch({

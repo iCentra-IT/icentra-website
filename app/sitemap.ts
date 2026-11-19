@@ -9,7 +9,8 @@ import { listEvents } from "@/lib/api/events";
 const STATIC_ROUTES: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
   { path: "/", priority: 1, changeFrequency: "weekly" },
   { path: "/about", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/careers", priority: 0.8, changeFrequency: "weekly" },
+  { path: "/career", priority: 0.8, changeFrequency: "weekly" },
+  { path: "/career/opportunities", priority: 0.7, changeFrequency: "weekly" },
   { path: "/contact", priority: 0.7, changeFrequency: "monthly" },
   { path: "/events", priority: 0.7, changeFrequency: "weekly" },
   { path: "/industry", priority: 0.8, changeFrequency: "weekly" },
@@ -65,7 +66,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const jobEntries: MetadataRoute.Sitemap = jobs.map((job) => ({
-    url: `${SITE_URL}/careers/${job.slug}`,
+    url: `${SITE_URL}/career/opportunities/${job.slug}`,
     lastModified: now,
     changeFrequency: "weekly",
     priority: 0.5,

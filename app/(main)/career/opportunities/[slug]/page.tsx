@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return pageMetadata({
     title: `${job.title} | Careers`,
     description: job.description.slice(0, 160),
-    path: `/careers/${job.slug}`,
+    path: `/career/opportunities/${job.slug}`,
     image: "/images/career/hero.jpg",
   });
 }
@@ -73,7 +73,7 @@ export default async function JobDetailPage({
         <div className="max-w-215 mx-auto px-6 flex flex-col gap-10">
           {job.about_icentra && (
             <Reveal>
-              <h2 className="text-[#1A274F] text-xl lg:text-[24px] font-bold mb-4">About iCentra</h2>
+              {/* <h2 className="text-[#1A274F] text-xl lg:text-[24px] font-bold mb-4">About iCentra</h2> */}
               <TextBlock text={job.about_icentra} />
             </Reveal>
           )}
@@ -141,7 +141,7 @@ export default async function JobDetailPage({
           </Reveal>
 
           <Link
-            href="/careers"
+            href="/career"
             className="inline-flex items-center gap-2 text-[#0066FF] text-sm font-semibold hover:gap-3 transition-all w-fit"
           >
             ← Back to all openings

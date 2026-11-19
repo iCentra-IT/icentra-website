@@ -22,7 +22,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Careers",
   description:
     "Join iCentra and help organizations transform. Explore current openings, our culture, career levels, and what it's like to work with us.",
-  path: "/careers",
+  path: "/career",
   image: "/images/career/hero.jpg",
 });
 
@@ -334,7 +334,7 @@ export default function CareersPage() {
                 North America. Explore our current openings.
               </p>
               <Link
-                href="/careers/opportunities"
+                href="/career/opportunities"
                 className="relative z-10 inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors w-fit"
               >
                 View Openings
