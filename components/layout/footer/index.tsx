@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const quickLinks = [
-  { label: "Home", href: "/" },
+  // { label: "Home", href: "/" },
   { label: "iCentra Learning", href: "https://learning.icentra.com/" },
   { label: "CareerCentra", href: "https://careercentra.icentra.com/" },
   { label: "Enterprise Alignment", href: "https://www.enterprisealignment.org/" },

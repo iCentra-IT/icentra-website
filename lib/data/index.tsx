@@ -17,8 +17,8 @@ export function getYearsOfExperience(
 
 export const getStats = () => [
   { value: `${getYearsOfExperience()}+ Years`, label: "Transformation & Capability Experience" },
-  { value: "150+", label: "Enterprise Engagements" },
   { value: "3 Continents", label: "Global Presence Across Africa, Europe & North America" },
+  { value: "250+", label: "Enterprise Engagements" },
 ];
 
 export const insightCards = [
@@ -90,7 +90,7 @@ export const solutionCards = [
   {
     image:
       "/images/solution/platforms.png",
-    title: "Partnership",
+    title: "Partnerships",
     description:
       "Scalable digital platforms that accelerate delivery, improve visibility, and create lasting competitive advantage.",
     list: [

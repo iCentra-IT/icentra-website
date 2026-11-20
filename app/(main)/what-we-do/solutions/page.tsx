@@ -137,7 +137,7 @@ export default function OurSolutionsPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-16 items-center">
           {/* Left — copy + CTA */}
           <div>
-            <span className="inline-block text-[var(--color-light-blue)] text-xs font-bold tracking-[0.18em] uppercase border border-white/20 rounded-full px-4 py-1.5 mb-5">
+            <span className="inline-block text-light-blue text-xs font-bold tracking-[0.18em] uppercase border border-white/20 rounded-full px-4 py-1.5 mb-5">
               Four Domains · One Firm
             </span>
             <h1 className="text-white text-[32px] sm:text-[40px] lg:text-[48px] font-extrabold leading-[1.1] mb-5">
@@ -170,7 +170,7 @@ export default function OurSolutionsPage() {
                   href={`#${cat.slug}`}
                   className="group block h-full bg-white/5 border border-white/15 rounded-2xl p-5 flex flex-col gap-3 hover:bg-white/10 hover:border-white/30 transition-colors"
                 >
-                  <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-[var(--color-light-blue)] group-hover:bg-[#0066FF] group-hover:text-white transition-colors">
+                  <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-light-blue group-hover:bg-[#0066FF] group-hover:text-white transition-colors">
                     <PillarIcon slug={cat.slug} />
                   </span>
                   <span className="text-white text-sm font-semibold leading-snug">{cat.title}</span>
@@ -218,7 +218,7 @@ export default function OurSolutionsPage() {
                       </svg>
                     </Link>
                   </div>
-                  <Link
+                  {/* <Link
                     href={`/what-we-do/solutions/${category.slug}`}
                     className="relative block w-full h-40 lg:h-full lg:min-h-35 rounded-2xl overflow-hidden shrink-0"
                   >
@@ -229,7 +229,7 @@ export default function OurSolutionsPage() {
                       className="object-cover"
                       sizes="(max-width: 1024px) 100vw, 280px"
                     />
-                  </Link>
+                  </Link> */}
                 </div>
 
                 {/* Subcategory mini-cards */}

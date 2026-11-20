@@ -47,7 +47,7 @@ const slides: Slide[] = [
     sideImage: "/form.jpg",
     overlayImage: "/overlay-city-skyline-night.jpg",
     badge: "FOUR CORE DOMAINS · ONE FIRM",
-    headlineItalic: "Integrated Solutions.",
+    headlineItalic: "Integrated Solutions",
     headlineBold: "For Enterprise Performance.\n",
     ctas: [
       { label: "Explore Solutions", href: "/what-we-do/solutions", primary: true },

@@ -11,6 +11,7 @@ import {
   StaggerItem,
 } from "@/components/ui/motion/reveal";
 import { pageMetadata } from "@/lib/seo";
+import { ArchitectureDiagram } from "@/components/sections/continuous-transformation/architecture-diagram";
 import { getPartnershipBySlug } from "@/lib/data/partnerships";
 import { AssessmentRequestModal } from "@/components/forms/all-forms";
 import { CALENDLY_URL } from "@/lib/constants";
@@ -258,62 +259,9 @@ export default async function ContinuousTransformationPage() {
           />
 
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-            {/* Diagram — concentric rings, clockwise: Portfolio (top) → Project (right) → People (bottom) → Product (left) */}
-            <Reveal className="relative w-full max-w-96 aspect-square mx-auto shrink-0">
-              {/* Concentric rings */}
-              <div className="absolute inset-[6%] rounded-full bg-[#0B1B4D]" />
-              <div className="absolute inset-[21%] rounded-full bg-[#2F4F9E]" />
-              <div className="absolute inset-[36%] rounded-full bg-[#CBDAF7]" />
-              <div className="absolute inset-[46%] rounded-full bg-light-blue" />
-
-              {/* Portfolio — top */}
-              <div className="absolute top-[6%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5">
-                <div className="w-16 h-16 rounded-full bg-[#0B1B4D] border-2 border-light-blue flex items-center justify-center text-center px-1">
-                  <span className="text-white font-mono text-[10px] font-bold tracking-wide uppercase">
-                    Portfolio
-                  </span>
-                </div>
-                <span className="text-light-blue text-[11px] font-medium">
-                  Strategy
-                </span>
-              </div>
-
-              {/* Project — right */}
-              <div className="absolute right-[6%] top-1/2 translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5">
-                <div className="w-16 h-16 rounded-full bg-[#0B1B4D] border-2 border-white/30 flex items-center justify-center text-center px-1">
-                  <span className="text-white font-mono text-[10px] font-bold tracking-wide uppercase">
-                    Project
-                  </span>
-                </div>
-                <span className="text-light-blue text-[11px] font-medium">
-                  Execution
-                </span>
-              </div>
-
-              {/* People — bottom */}
-              <div className="absolute bottom-[6%] left-1/2 -translate-x-1/2 translate-y-1/2 flex flex-col items-center gap-1.5">
-                <span className="text-light-blue text-[11px] font-medium order-2">
-                  Capability
-                </span>
-                <div className="w-16 h-16 rounded-full bg-[#0B1B4D] border-2 border-white/30 flex items-center justify-center text-center px-1 order-1">
-                  <span className="text-white font-mono text-[10px] font-bold tracking-wide uppercase">
-                    People
-                  </span>
-                </div>
-              </div>
-
-              {/* Product — left */}
-              <div className="absolute left-[6%] top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5">
-                <div className="w-16 h-16 rounded-full bg-[#0B1B4D] border-2 border-white/30 flex items-center justify-center text-center px-1">
-                  <span className="text-white font-mono text-[10px] font-bold tracking-wide uppercase">
-                    Product
-                  </span>
-                </div>
-                <span className="text-light-blue text-[11px] font-medium">
-                  Value
-                </span>
-              </div>
-            </Reveal>
+            {/* Diagram — Portfolio, Project, People and Product scatter, then
+                converge on the alignment centre as this section scrolls in. */}
+            <ArchitectureDiagram fourPs={fourPs} />
 
             {/* Pillar descriptions */}
             <StaggerGroup className="flex-1 min-w-0 grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -322,7 +270,7 @@ export default async function ContinuousTransformationPage() {
                   key={p.label}
                   className="bg-white rounded-2xl p-6 border border-[#DCE0E8]"
                 >
-                  <p className="text-[#0066FF] text-[11px] font-bold tracking-[0.1em] uppercase mb-1.5">
+                  <p className="text-[#0066FF] text-[11px] font-bold tracking-widest uppercase mb-1.5">
                     {p.tag}
                   </p>
                   <h4 className="text-[#1A274F] text-base font-bold mb-2">
@@ -409,7 +357,7 @@ export default async function ContinuousTransformationPage() {
 
           <StaggerGroup className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <StaggerItem className="bg-white/5 border border-white/10 rounded-2xl p-7 flex flex-col gap-4">
-              <p className="text-light-blue text-[11px] font-bold tracking-[0.1em] uppercase">
+              <p className="text-light-blue text-[11px] font-bold tracking-widest uppercase">
                 Read It
               </p>
               <h4 className="text-white text-base font-bold">
@@ -430,7 +378,7 @@ export default async function ContinuousTransformationPage() {
             </StaggerItem>
 
             <StaggerItem className="bg-white/5 border border-white/10 rounded-2xl p-7 flex flex-col gap-4">
-              <p className="text-light-blue text-[11px] font-bold tracking-[0.1em] uppercase">
+              <p className="text-light-blue text-[11px] font-bold tracking-widest uppercase">
                 Lead With It
               </p>
               <h4 className="text-white text-base font-bold">
@@ -452,7 +400,7 @@ export default async function ContinuousTransformationPage() {
             </StaggerItem>
 
             <StaggerItem className="bg-white/5 border border-white/10 rounded-2xl p-7 flex flex-col gap-4">
-              <p className="text-light-blue text-[11px] font-bold tracking-[0.1em] uppercase">
+              <p className="text-light-blue text-[11px] font-bold tracking-widest uppercase">
                 Apply It
               </p>
               <h4 className="text-white text-base font-bold">

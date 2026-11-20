@@ -247,12 +247,6 @@ export const solutionCategories: SolutionCategory[] = [
           { title: "Sustain & Evolve", description: "We embed continuous learning, measurement, and feedback systems to sustain momentum and evolve agility over time." },
         ],
         closingCtaLine: "Let's Turn Agility Into a Competitive Advantage",
-        testimonial: {
-          quote:
-            "iCentra has been a valuable partner in our Agile transformation journey. Their expertise and hands-on approach helped us strengthen collaboration, accelerate project delivery, and embed agile ways of working across our teams. Beyond introducing new methodologies, iCentra helped us build the internal capabilities and mindset required to sustain continuous improvement and deliver greater business value.",
-          name: "Muniru Mai",
-          role: "Chief Technology Officer, NNPC Limited (IT Division)",
-        },
         caseStudyIntro:
           "See how iCentra has collaborated with organizations like yours, enabling them to overcome challenges and achieve excellent results.",
         caseStudy: {
