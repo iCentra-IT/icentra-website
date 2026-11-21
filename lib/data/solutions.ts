@@ -131,7 +131,8 @@ export const solutionCategories: SolutionCategory[] = [
         tagline: "Smarter. Faster. Scalable.",
         subtext: "Unlock the future of work with AI-powered intelligence and automation.",
         blurb: "Artificial Intelligence is transforming industries by enabling smarter decisions, predictive insights, and intelligent operations. At iCentra, we help organizations harness AI and automation to unlock new opportunities, drive efficiency, and deliver personalized customer experiences. From machine learning models to workflow automation, our solutions empower businesses to move from traditional operations to intelligent enterprises.",
-        image: "/images/partnerships/ai-transformation.jpg",
+        image: "/images/solution/enterprise-transformation.png",
+        imageAlt: "Abstract illustration of a glowing blue caterpillar transforming into a butterfly, symbolizing enterprise transformation",
         heroCtaLine: "Start Your AI Journey Today",
         overview: [
           "Artificial Intelligence (AI) and Intelligent Automation are redefining how businesses operate. From predictive insights to process automation, organizations can now achieve unprecedented efficiency, accuracy, and innovation. Yet, many struggle with fragmented tools, lack of expertise, or resistance to change, leaving opportunities untapped.",
@@ -162,7 +163,8 @@ export const solutionCategories: SolutionCategory[] = [
         tagline: "Reimagine. Reinvent. Accelerate.",
         subtext: "Empowering your business to thrive in a digital-first world.",
         blurb: "In today's fast-paced and ever-changing environment, embracing the right digital technologies is essential for staying competitive and resilient. At iCentra, we partner with clients to implement strategic digital transformation initiatives. Our approach ensures alignment with your corporate objectives, enabling innovation, improving efficiency, and fostering sustained growth.",
-        image: "/images/about/hero.jpg",
+        image: "/images/solution/enterprise-transformation.png",
+        imageAlt: "Abstract illustration of a glowing blue caterpillar transforming into a butterfly, symbolizing enterprise transformation",
         insightCategorySlug: "digital-transformation",
         heroCtaLine: "Start Your Digital Journey Today",
         overview: [
@@ -194,7 +196,8 @@ export const solutionCategories: SolutionCategory[] = [
         tagline: "Evolve from Within. Lead with Impact.",
         subtext: "Transforming your structure, culture, and capabilities for sustainable success.",
         blurb: "The path to excellence requires aligning people, processes, and technology. At iCentra, we work with you to redefine your organizational structures and culture, transforming your operations to meet future demands. Our holistic approach ensures your organization delivers exceptional value to stakeholders and remains ahead in a competitive landscape.",
-        image: "/images/about/discover-icentra.jpg",
+        image: "/images/solution/enterprise-transformation.png",
+        imageAlt: "Abstract illustration of a glowing blue caterpillar transforming into a butterfly, symbolizing enterprise transformation",
         insightCategorySlug: "organizational-transformation",
         heroCtaLine: "Ready to Transform Your Organization?",
         overview: [
@@ -226,7 +229,8 @@ export const solutionCategories: SolutionCategory[] = [
         tagline: "Be Fast. Be Flexible. Be Future-Ready.",
         subtext: "Empowering your teams to deliver value at speed and scale.",
         blurb: "Agility is no longer an option; it's a necessity in today's business world. At iCentra, we help organizations adopt agile methodologies that transform the way teams work and deliver value. Our experienced agile experts guide your journey, enabling faster delivery cycles, improved collaboration, and greater adaptability to market dynamics.",
-        image: "/images/cont-trans/cont1.jpg",
+        image: "/images/solution/enterprise-transformation.png",
+        imageAlt: "Abstract illustration of a glowing blue caterpillar transforming into a butterfly, symbolizing enterprise transformation",
         insightCategorySlug: "agile-transformation",
         heroCtaLine: "Embrace Agility, Empower Innovation",
         overview: [
@@ -295,7 +299,8 @@ export const solutionCategories: SolutionCategory[] = [
         tagline: "Secure Today. Safeguard Tomorrow.",
         subtext: "Protecting your business against evolving threats in a digital world.",
         blurb: "In an age where digital threats are increasingly sophisticated, protecting your organization's critical assets is paramount. At iCentra, we provide a comprehensive suite of cybersecurity solutions to mitigate vulnerabilities, defend against cyber threats, and secure your data and systems. Our expertise ensures business continuity and resilience in the face of evolving challenges.",
-        image: "/images/industry/whitepaper-cybersecurity.jpg",
+        image: "/images/solution/cybersecurity-and-grc.png",
+        imageAlt: "Digital illustration of a glowing security shield at the center of a connected network, representing cybersecurity and governance",
         insightCategorySlug: "cybersecurity",
         heroCtaLine: "Stay Secure, Stay Resilient",
         overview: [
@@ -329,7 +334,8 @@ export const solutionCategories: SolutionCategory[] = [
         tagline: "Control. Align. Deliver.",
         subtext: "Driving business value through structured and strategic IT oversight.",
         blurb: "Effective IT governance is the backbone of operational excellence. iCentra equips your organization with structured frameworks to manage IT services efficiently and consistently deliver quality. We work to align your IT operations with strategic business goals, ensuring seamless service delivery both internally and through third-party providers.",
-        image: "/images/cont-trans/cont2.jpg",
+        image: "/images/solution/cybersecurity-and-grc.png",
+        imageAlt: "Digital illustration of a glowing security shield at the center of a connected network, representing cybersecurity and governance",
         heroCtaLine: "Turn IT Into a Strategic Advantage",
         overview: [
           "In many organizations, IT investments are made in silos, leading to misalignment with business goals, wasted resources, and unmanaged risk. Without proper governance, IT can become a barrier instead of an enabler.",
@@ -360,7 +366,8 @@ export const solutionCategories: SolutionCategory[] = [
         tagline: "See Ahead. Act Decisively. Stay in Control.",
         subtext: "Empowering organizations to anticipate threats, reduce uncertainty, and build resilient operations.",
         blurb: "Risk is inherent in every business decision. At iCentra, we go beyond mitigating threats to help organizations leverage risk as an opportunity for growth. Our experts collaborate with you to design customized frameworks for identifying, assessing, and managing risks, enabling you to make informed decisions and stay ahead of uncertainties.",
-        image: "/images/career/accordion-behave.jpg",
+        image: "/images/solution/cybersecurity-and-grc.png",
+        imageAlt: "Digital illustration of a glowing security shield at the center of a connected network, representing cybersecurity and governance",
         insightCategorySlug: "risk-management",
         heroCtaLine: "Turn Risk Into Strategic Advantage",
         overview: [
@@ -393,7 +400,8 @@ export const solutionCategories: SolutionCategory[] = [
         tagline: "Build Trust. Stay Aligned. Be Audit-Ready.",
         subtext: "Achieving operational excellence through robust regulatory and standards adherence.",
         blurb: "Staying compliant is more than ticking boxes—it's about building trust, mitigating risk, and enabling sustainable growth. At iCentra, we guide organizations through complex regulatory environments with clarity and confidence. Our solutions ensure adherence to global and industry-specific standards including ISO, GDPR, NDPR, PCI-DSS, SOC 1 & 2, NIST, COBIT, HIPAA, HITRUST, Cyber Essentials, and more.",
-        image: "/images/partnerships/complycentra.jpg",
+        image: "/images/solution/cybersecurity-and-grc.png",
+        imageAlt: "Digital illustration of a glowing security shield at the center of a connected network, representing cybersecurity and governance",
         insightCategorySlug: "isms-iso",
         heroCtaLine: "Confidence Through Compliance",
         overview: [
@@ -455,7 +463,8 @@ export const solutionCategories: SolutionCategory[] = [
         tagline: "Strategize. Align. Execute.",
         subtext: "Turning Vision into Value with Strategic Precision.",
         blurb: "Success begins with a well-crafted strategy. iCentra's team of experts works collaboratively with your organization to design actionable strategies that not only address current challenges but also position you to outpace competitors. We foster a culture of innovation and value creation, enabling sustained success over the long term.",
-        image: "/images/career/accordion-qualities.jpg",
+        image: "/images/solution/strategy-execution.png",
+        imageAlt: "Close-up of blue glass chess pieces on a board, representing strategic planning and execution",
         insightCategorySlug: "strategy-management",
         heroCtaLine: "Unlock Your Strategic Advantage",
         overview: [
@@ -493,7 +502,8 @@ export const solutionCategories: SolutionCategory[] = [
         tagline: "Lead Change. Inspire Growth. Sustain Results.",
         subtext: "Empowering Organizations to Navigate and Embrace Change with Confidence.",
         blurb: "Navigating change is a critical part of achieving strategic goals. iCentra offers tailored change management solutions that minimize disruptions and support smooth transitions. From strategy formulation to implementation, we design approaches that help individuals and teams adapt effectively, ensuring organizational stability and progress.",
-        image: "/images/career/accordion-relate.jpg",
+        image: "/images/solution/strategy-execution.png",
+        imageAlt: "Close-up of blue glass chess pieces on a board, representing strategic planning and execution",
         heroCtaLine: "Drive Successful Change",
         overview: [
           "In today's dynamic business landscape, change is not optional; it's essential. Yet, many organizations struggle with failed transformations, employee resistance, and initiative fatigue. Without a structured change management approach, even the best strategies and technologies can fall flat.",
@@ -524,7 +534,8 @@ export const solutionCategories: SolutionCategory[] = [
         tagline: "Structure. Scale. Succeed.",
         subtext: "Empowering Project Excellence Through High-Impact PMO Solutions.",
         blurb: "A high-performing Project Management Office (PMO) is integral to strategic alignment and execution. At iCentra, we deliver PMO solutions built on best practices, industry standards, and proven methodologies. Our expertise ensures improved project governance, alignment with organizational goals, and the successful realization of business strategies.",
-        image: "/images/event/partner-with-us.jpg",
+        image: "/images/solution/strategy-execution.png",
+        imageAlt: "Close-up of blue glass chess pieces on a board, representing strategic planning and execution",
         insightCategorySlug: "pmo-solution",
         heroCtaLine: "Build a Value-Driven PMO Today",
         overview: [
@@ -577,7 +588,8 @@ export const solutionCategories: SolutionCategory[] = [
         tagline: "Clarity. Confidence. Competitive Edge.",
         subtext: "Empowering Leaders with Strategic Insights for Sustainable Success.",
         blurb: "Our advisory solutions are designed to help organizations address complex challenges, seize new opportunities, and achieve strategic objectives with clarity and precision. By providing actionable insights, innovative strategies, and hands-on support across business, technology and projects, we transform ideas into measurable outcomes.",
-        image: "/images/partnerships/pmocentra.jpg",
+        image: "/images/solution/strategy-execution.png",
+        imageAlt: "Close-up of blue glass chess pieces on a board, representing strategic planning and execution",
         heroCtaLine: "Get Expert Advisory.",
         overview: [
           "In an increasingly complex and fast-changing world, leaders are expected to make critical decisions amid uncertainty. Without the right insights, expertise, and strategic alignment, organizations risk stagnation, inefficiencies, or costly missteps.",

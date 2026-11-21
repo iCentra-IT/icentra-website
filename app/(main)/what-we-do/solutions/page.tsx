@@ -350,7 +350,7 @@ export default function OurSolutionsPage() {
                 key={sub.slug}
                 className="bg-[#F7F9FC] rounded-2xl p-7 lg:p-8 border border-[#DCE0E8] flex flex-col gap-4"
               >
-                <p className="text-[#0066FF] text-xs font-bold tracking-[0.1em] uppercase">
+                <p className="text-[#0066FF] text-xs font-bold tracking-widest uppercase">
                   {category.title} · Case Study
                 </p>
                 <p className="text-[#1A274F] text-base font-bold">{sub.caseStudy!.client}</p>
