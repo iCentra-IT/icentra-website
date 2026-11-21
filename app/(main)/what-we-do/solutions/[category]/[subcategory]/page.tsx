@@ -159,7 +159,7 @@ export default async function SolutionSubcategoryPage({ params }: PageProps) {
         <div className="relative w-full h-[240px] sm:h-[320px] lg:h-[400px] rounded-2xl overflow-hidden">
           <Image
             src={sub.image}
-            alt={sub.title}
+            alt={sub.imageAlt ?? sub.title}
             fill
             className="object-cover"
             sizes="100vw"

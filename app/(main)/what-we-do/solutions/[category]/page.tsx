@@ -61,7 +61,7 @@ export default async function SolutionCategoryPage({ params }: PageProps) {
           <Reveal delay={0.15} className="relative w-full h-64 lg:h-96 rounded-2xl overflow-hidden shrink-0">
             <Image
               src={category.image}
-              alt={category.title}
+              alt={category.imageAlt ?? category.title}
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 480px"

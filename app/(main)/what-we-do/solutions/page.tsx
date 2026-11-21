@@ -243,7 +243,7 @@ export default function OurSolutionsPage() {
                         <div className="relative w-full h-28">
                           <Image
                             src={sub.image}
-                            alt={sub.title}
+                            alt={sub.imageAlt ?? sub.title}
                             fill
                             className="object-cover"
                             sizes="(max-width: 1024px) 50vw, 25vw"

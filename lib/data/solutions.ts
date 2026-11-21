@@ -49,6 +49,8 @@ export interface SolutionSubcategory {
    *  before clicking through. Falls back to `subtext` when not set. */
   blurb?: string;
   image: string;
+  /** Descriptive alt text for `image` — falls back to `title` when not set. */
+  imageAlt?: string;
   /** Sanity category slug to pull real "Insight Article" posts from, when a confident match exists */
   insightCategorySlug?: string;
   /** Exact Sanity post slugs to feature as "Insight Article" instead of a category feed — takes priority over insightCategorySlug when set */
@@ -97,6 +99,8 @@ export interface SolutionCategory {
   ctaSubtext: string;
   /** Card image used on the /what-we-do/solutions index page */
   image: string;
+  /** Descriptive alt text for `image` — falls back to `title` when not set. */
+  imageAlt?: string;
   subcategories: SolutionSubcategory[];
 }
 
@@ -118,7 +122,8 @@ export const solutionCategories: SolutionCategory[] = [
     ctaTitle: "Why Choose iCentra?",
     ctaSubtext:
       "Our transformation solutions are designed to help organizations evolve, innovate, and excel. By leveraging tailored strategies and cutting-edge tools, we empower businesses to achieve their goals, stay competitive, and create a lasting legacy of success.",
-    image: "/images/solution/enterprise-transformation.jpg",
+    image: "/images/solution/enterprise-transformation.png",
+    imageAlt: "Abstract illustration of a glowing blue caterpillar transforming into a butterfly, symbolizing enterprise transformation",
     subcategories: [
       {
         slug: "ai-intelligent-automation",
@@ -281,7 +286,8 @@ export const solutionCategories: SolutionCategory[] = [
     ctaTitle: "Why iCentra?",
     ctaSubtext:
       "With our integrated approach to Security, Governance, Risk and Compliance, we enable organizations to not only address present challenges but also anticipate and adapt to future risks. Partner with iCentra to protect what matters, navigate complexity, and achieve operational resilience.",
-    image: "/images/OneDrive/cybersecurity.png",
+    image: "/images/solution/cybersecurity-and-grc.png",
+    imageAlt: "Digital illustration of a glowing security shield at the center of a connected network, representing cybersecurity and governance",
     subcategories: [
       {
         slug: "cyber-security",
@@ -440,7 +446,8 @@ export const solutionCategories: SolutionCategory[] = [
     ctaTitle: "Why Choose iCentra?",
     ctaSubtext:
       "Our transformation solutions are designed to help organizations evolve, innovate, and excel. By leveraging tailored strategies and cutting-edge tools, we empower businesses to achieve their goals, stay competitive, and create a lasting legacy of success.",
-    image: "/images/solution/strategy-execution.jpg",
+    image: "/images/solution/strategy-execution.png",
+    imageAlt: "Close-up of blue glass chess pieces on a board, representing strategic planning and execution",
     subcategories: [
       {
         slug: "strategy-management",
@@ -611,7 +618,8 @@ export const solutionCategories: SolutionCategory[] = [
     ctaTitle: "Why Choose iCentra?",
     ctaSubtext:
       "Our transformation solutions are designed to help organizations evolve, innovate, and excel. By leveraging tailored strategies and cutting-edge tools, we empower businesses to achieve their goals, stay competitive, and create a lasting legacy of success.",
-    image: "/images/solution/learning-talent.webp",
+    image: "/images/solution/learning-and-talent.png",
+    imageAlt: "Illustration of an open book emerging from a laptop screen, representing digital learning and talent development",
     subcategories: [
       {
         slug: "workforce-capability-partnerships",
@@ -620,7 +628,8 @@ export const solutionCategories: SolutionCategory[] = [
         subtext:
           "Strengthening organizational performance through structured capability development and continuous learning systems.",
         blurb: "Sustainable transformation requires more than isolated training initiatives; it requires structured workforce capability systems aligned to enterprise objectives. At iCentra, we partner with organizations to design and implement long-term capability development programs that strengthen leadership capacity, improve workforce performance, and support continuous transformation through integrated capability assessments, learning roadmaps, certification pathways, and continuous development initiatives that deliver measurable business outcomes.",
-        image: "/images/solution/workforce-capability-partnerships.webp",
+        image: "/images/solution/workforce-capability-partnerships.png",
+        imageAlt: "Three business professionals standing together in an office, representing workforce capability partnerships",
         heroCtaLine: "Enable Continuous Workforce Transformation",
         overview: [
           "Organizations today require more than occasional training programs to remain competitive. Sustained performance depends on the ability to continuously develop workforce capability, strengthen leadership capacity, and align learning initiatives with strategic business objectives.",
@@ -655,7 +664,8 @@ export const solutionCategories: SolutionCategory[] = [
         tagline: "Practical Learning. Measurable Business Impact.",
         subtext: "Customized corporate training programs aligned to organizational performance and operational excellence.",
         blurb: "Building high-performing teams requires targeted capability development aligned to business priorities. At iCentra, we design and deliver customized corporate training programs that enhance technical, operational, leadership, and execution capabilities across organizations, helping teams improve productivity, strengthen execution discipline, and drive operational excellence through practical, results-oriented learning experiences.",
-        image: "/images/solution/corporate-training-programs.webp",
+        image: "/images/solution/corporate-training-programs.png",
+        imageAlt: "Two business professionals in conversation holding a tablet in a corporate office setting, representing corporate training programs",
         heroCtaLine: "Strengthen Workforce Performance",
         overview: [
           "In today's rapidly changing business environment, organizations must continuously equip their teams with the knowledge, skills, and capabilities required to improve performance, enhance execution, and adapt to evolving business demands.",
@@ -689,7 +699,8 @@ export const solutionCategories: SolutionCategory[] = [
         subtext:
           "Preparing professionals to earn globally recognized credentials that strengthen capability, credibility, and execution across the organization.",
         blurb: "Globally recognized credentials strengthen workforce credibility and build a common standard of practice across teams. As an Authorized Training Partner of leading credentialing bodies, iCentra delivers structured, exam-focused certification programs for corporate teams in project management, cybersecurity, governance, risk, and quality management. These programs prepare professionals to earn internationally recognized credentials, while aligning certification pathways with organizational capability goals and transformation priorities.",
-        image: "/images/solution/executive-programs.webp",
+        image: "/images/solution/corporate-certification-programs.jpg",
+        imageAlt: "Professionals in a conference room discussing around a table with laptops open, representing a corporate certification training session",
         insightSlugs: ["the-digital-enterprise-has-two-governance-gaps-and-they-are-compounding-each-other"],
         heroCtaLine: "Strengthen Workforce Credibility",
         overview: [
@@ -721,7 +732,8 @@ export const solutionCategories: SolutionCategory[] = [
         tagline: "Right People. Right Skills. Real Impact.",
         subtext: "Empowering your organization with scalable, high-impact talent solutions.",
         blurb: "Access to the right talent is essential for organizational agility and sustained performance. At iCentra, we provide strategic talent optimization solutions that help organizations strengthen workforce capability, bridge critical skill gaps, and improve operational efficiency through flexible outsourcing and outstaffing models that deliver scalable, cost-effective talent solutions tailored to business needs, ensuring organizations have access to the right people, with the right skills, at the right time.",
-        image: "/images/solution/talent-optimization.webp",
+        image: "/images/solution/talent-optimization.png",
+        imageAlt: "A business professional smiling while holding a laptop in front of a modern office building, representing talent optimization",
         insightCategorySlug: "project-resourcing",
         heroCtaLine: "Optimize Your Workforce",
         overview: [
