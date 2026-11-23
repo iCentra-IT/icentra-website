@@ -371,3 +371,33 @@ export async function staffListEventRegistrations(
   }
   return items;
 }
+
+export interface EventRegistrationWithEvent extends EventRegistration {
+  eventTitle: string;
+  eventSlug: string;
+}
+
+/**
+ * Every registration across every event, newest first. There's no single
+ * backend endpoint for this — registrations are scoped per event — so this
+ * fetches the event list, then each event's registrations, and flattens them.
+ */
+export async function staffListAllEventRegistrations(accessToken: string): Promise<EventRegistrationWithEvent[]> {
+  const events = await staffListEvents(accessToken);
+  const perEvent = await Promise.all(
+    events.map(async (event) => {
+      const regs = await staffListEventRegistrations(accessToken, event.slug);
+      return regs.map((reg) => ({ ...reg, eventTitle: event.title, eventSlug: event.slug }));
+    })
+  );
+  return perEvent.flat().sort((a, b) => b.registered_at.localeCompare(a.registered_at));
+}
+
+/** Just the total registration count for one event — cheap, for a list-page badge. */
+export async function staffCountEventRegistrations(accessToken: string, slug: string): Promise<number> {
+  const page = await apiGet<EventRegistrationPage>(`/api/v1/staff/events/${encodeURIComponent(slug)}/registrations/?page_size=1`, {
+    headers: authHeaders(accessToken),
+    cache: "no-store",
+  });
+  return page.count;
+}

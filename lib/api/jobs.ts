@@ -266,3 +266,33 @@ export async function staffListJobApplications(
   }
   return items;
 }
+
+export interface JobApplicationWithJob extends JobApplication {
+  jobTitle: string;
+  jobSlug: string;
+}
+
+/**
+ * Every application across every job opening, newest first. There's no
+ * single backend endpoint for this — applications are scoped per job — so
+ * this fetches the job list, then each job's applications, and flattens them.
+ */
+export async function staffListAllJobApplications(accessToken: string): Promise<JobApplicationWithJob[]> {
+  const jobs = await staffListJobs(accessToken);
+  const perJob = await Promise.all(
+    jobs.map(async (job) => {
+      const apps = await staffListJobApplications(accessToken, job.slug);
+      return apps.map((app) => ({ ...app, jobTitle: job.title, jobSlug: job.slug }));
+    })
+  );
+  return perJob.flat().sort((a, b) => b.created_at.localeCompare(a.created_at));
+}
+
+/** Just the total applicant count for one job — cheap, for a list-page badge. */
+export async function staffCountJobApplications(accessToken: string, slug: string): Promise<number> {
+  const page = await apiGet<JobApplicationPage>(`/api/v1/staff/jobs/${encodeURIComponent(slug)}/applications/?page_size=1`, {
+    headers: authHeaders(accessToken),
+    cache: "no-store",
+  });
+  return page.count;
+}

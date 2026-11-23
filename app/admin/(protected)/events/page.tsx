@@ -7,7 +7,14 @@ import { useConfirm } from "@/components/admin/confirm-dialog";
 import { ListSkeleton, EmptyState, ErrorState } from "@/components/admin/list-states";
 import { CalendarIcon } from "@/components/admin/icons";
 import { useStaffMutation, useStaffQuery } from "@/lib/admin/queries";
-import { staffListEvents, staffDeleteEvent, EVENT_STATUS_LABELS, formatEventSchedule, type StaffEvent } from "@/lib/api/events";
+import {
+  staffListEvents,
+  staffDeleteEvent,
+  staffCountEventRegistrations,
+  EVENT_STATUS_LABELS,
+  formatEventSchedule,
+  type StaffEvent,
+} from "@/lib/api/events";
 
 const STATUS_STYLES: Record<StaffEvent["status"], string> = {
   draft: "bg-[#F7F9FC] text-[#6B7280]",
@@ -16,6 +23,24 @@ const STATUS_STYLES: Record<StaffEvent["status"], string> = {
   completed: "bg-[#EAF3FB] text-[#0066FF]",
   archived: "bg-[#F3F4F6] text-[#9CA3AF]",
 };
+
+/** Small pill linking to the event's registrations panel — hidden while loading. */
+function RegistrationCountBadge({ slug }: { slug: string }) {
+  const countQuery = useStaffQuery(["event-registrations-count", slug], (token) => staffCountEventRegistrations(token, slug));
+  if (countQuery.data === undefined) return null;
+  const count = countQuery.data;
+  return (
+    <Link
+      href={`/admin/events/${slug}/edit`}
+      title={`${count} registration${count === 1 ? "" : "s"}`}
+      className={`shrink-0 px-2 py-0.5 rounded-full text-xs font-semibold transition-colors ${
+        count > 0 ? "bg-[#EAF3FB] text-[#0066FF] hover:bg-[#0066FF] hover:text-white" : "bg-[#F7F9FC] text-[#9CA3AF]"
+      }`}
+    >
+      {count} reg{count === 1 ? "" : "s"}
+    </Link>
+  );
+}
 
 export default function AdminEventsPage() {
   const queryClient = useQueryClient();
@@ -76,9 +101,12 @@ export default function AdminEventsPage() {
               key={event.id}
               className={`flex items-center justify-between gap-4 px-6 py-4 ${i !== 0 ? "border-t border-[#DCE0E8]" : ""}`}
             >
-              <div className="min-w-0">
-                <p className="text-[#1A274F] text-sm font-semibold truncate">{event.title}</p>
-                <p className="text-[#9CA3AF] text-xs truncate mt-0.5">{formatEventSchedule(event)}</p>
+              <div className="min-w-0 flex items-center gap-2">
+                <div className="min-w-0">
+                  <p className="text-[#1A274F] text-sm font-semibold truncate">{event.title}</p>
+                  <p className="text-[#9CA3AF] text-xs truncate mt-0.5">{formatEventSchedule(event)}</p>
+                </div>
+                <RegistrationCountBadge slug={event.slug} />
               </div>
               <div className="flex items-center gap-3 shrink-0">
                 {!event.is_public && (

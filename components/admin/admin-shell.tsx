@@ -44,6 +44,13 @@ const NAV_GROUPS: { label: string; items: NavLink[] }[] = [
     ],
   },
   {
+    label: "Submissions",
+    items: [
+      { label: "Job Applications", href: "/admin/applications", icon: BriefcaseIcon },
+      { label: "Event Registrations", href: "/admin/registrations", icon: CalendarIcon },
+    ],
+  },
+  {
     label: "Reference Data",
     items: [
       { label: "Pillars", href: "/admin/taxonomy/pillars", icon: LayersIcon },

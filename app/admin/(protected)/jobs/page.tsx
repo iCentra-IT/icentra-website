@@ -7,13 +7,38 @@ import { useConfirm } from "@/components/admin/confirm-dialog";
 import { ListSkeleton, EmptyState, ErrorState } from "@/components/admin/list-states";
 import { BriefcaseIcon } from "@/components/admin/icons";
 import { useStaffMutation, useStaffQuery } from "@/lib/admin/queries";
-import { staffListJobs, staffDeleteJob, EMPLOYMENT_TYPE_LABELS, JOB_STATUS_LABELS, type StaffJobOpening } from "@/lib/api/jobs";
+import {
+  staffListJobs,
+  staffDeleteJob,
+  staffCountJobApplications,
+  EMPLOYMENT_TYPE_LABELS,
+  JOB_STATUS_LABELS,
+  type StaffJobOpening,
+} from "@/lib/api/jobs";
 
 const STATUS_BADGE: Record<string, string> = {
   draft: "bg-[#F7F9FC] text-[#6B7280]",
   open: "bg-[#DCFCE7] text-[#15803D]",
   closed: "bg-[#FEE2E2] text-[#B91C1C]",
 };
+
+/** Small pill linking to the job's applicants panel — hidden while loading. */
+function ApplicantCountBadge({ slug }: { slug: string }) {
+  const countQuery = useStaffQuery(["job-applications-count", slug], (token) => staffCountJobApplications(token, slug));
+  if (countQuery.data === undefined) return null;
+  const count = countQuery.data;
+  return (
+    <Link
+      href={`/admin/jobs/${slug}/edit`}
+      title={`${count} applicant${count === 1 ? "" : "s"}`}
+      className={`shrink-0 px-2 py-0.5 rounded-full text-xs font-semibold transition-colors ${
+        count > 0 ? "bg-[#EAF3FB] text-[#0066FF] hover:bg-[#0066FF] hover:text-white" : "bg-[#F7F9FC] text-[#9CA3AF]"
+      }`}
+    >
+      {count} applicant{count === 1 ? "" : "s"}
+    </Link>
+  );
+}
 
 export default function AdminJobsPage() {
   const queryClient = useQueryClient();
@@ -83,9 +108,12 @@ export default function AdminJobsPage() {
                 i !== 0 ? "border-t border-[#DCE0E8]" : ""
               }`}
             >
-              <div className="min-w-0">
-                <p className="text-[#1A274F] text-sm font-semibold truncate">{job.title}</p>
-                <p className="text-[#9CA3AF] text-xs truncate">{job.department || "—"}</p>
+              <div className="min-w-0 flex items-center gap-2">
+                <div className="min-w-0">
+                  <p className="text-[#1A274F] text-sm font-semibold truncate">{job.title}</p>
+                  <p className="text-[#9CA3AF] text-xs truncate">{job.department || "—"}</p>
+                </div>
+                <ApplicantCountBadge slug={job.slug} />
               </div>
               <span className="text-[#6B7280] text-sm">{EMPLOYMENT_TYPE_LABELS[job.employment_type]}</span>
               <span className={`w-fit px-2.5 py-1 rounded-full text-xs font-medium ${STATUS_BADGE[job.status]}`}>
