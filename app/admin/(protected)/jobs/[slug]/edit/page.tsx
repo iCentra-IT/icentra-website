@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import JobForm from "@/components/admin/job-form";
+import JobApplicationsPanel from "@/components/admin/job-applications-panel";
 import { useConfirm } from "@/components/admin/confirm-dialog";
 import { useStaffMutation, useStaffQuery } from "@/lib/admin/queries";
 import { staffGetJob, staffUpdateJob, staffDeleteJob, type JobOpeningInput, type StaffJobOpening } from "@/lib/api/jobs";
@@ -92,6 +93,10 @@ export default function EditJobPage({ params }: { params: Promise<{ slug: string
               </button>
             }
           />
+
+          <div className="mt-8">
+            <JobApplicationsPanel slug={job.slug} />
+          </div>
         </>
       )}
     </div>

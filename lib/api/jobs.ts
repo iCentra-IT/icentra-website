@@ -113,6 +113,8 @@ export interface JobOpeningInput {
   status?: JobStatus;
   application_deadline?: string | null;
   is_public?: boolean;
+  /** Name/slug of the email template sent on a successful application. */
+  application_success_email_template?: string;
 }
 
 interface StaffJobPage {
@@ -177,4 +179,90 @@ export function staffDeleteJob(accessToken: string, slug: string): Promise<void>
     method: "DELETE",
     headers: authHeaders(accessToken),
   });
+}
+
+/* ─────────────────────────────────────────
+   STAFF — /api/v1/staff/jobs/{slug}/applications/
+───────────────────────────────────────── */
+
+export type JobApplicationStatus =
+  | "new"
+  | "reviewing"
+  | "shortlisted"
+  | "interview"
+  | "offer"
+  | "rejected"
+  | "hired"
+  | "withdrawn";
+
+export const JOB_APPLICATION_STATUS_LABELS: Record<JobApplicationStatus, string> = {
+  new: "New",
+  reviewing: "Reviewing",
+  shortlisted: "Shortlisted",
+  interview: "Interview",
+  offer: "Offer",
+  rejected: "Rejected",
+  hired: "Hired",
+  withdrawn: "Withdrawn",
+};
+
+export type ReferralSource = "website" | "linkedin" | "referral" | "job_board" | "agency" | "other";
+
+export const REFERRAL_SOURCE_LABELS: Record<ReferralSource, string> = {
+  website: "Website",
+  linkedin: "LinkedIn",
+  referral: "Employee referral",
+  job_board: "Job board",
+  agency: "Recruitment agency",
+  other: "Other",
+};
+
+export interface JobApplication {
+  id: number;
+  job: number;
+  full_name: string;
+  email: string;
+  phone: string;
+  linkedin_url: string;
+  location: string;
+  resume: string | null;
+  cover_letter: string | null;
+  /** Optional portfolio or additional document. */
+  supporting_document: string | null;
+  cover_letter_text: string;
+  referral_source: ReferralSource;
+  availability_date: string | null;
+  expected_salary: string;
+  notice_period: string;
+  status: JobApplicationStatus;
+  created_at: string;
+}
+
+interface JobApplicationPage {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: JobApplication[];
+}
+
+/** GET /api/v1/staff/jobs/{slug}/applications/ — every applicant, newest first. */
+export async function staffListJobApplications(
+  accessToken: string,
+  slug: string,
+  params?: { status?: JobApplicationStatus }
+): Promise<JobApplication[]> {
+  const search = new URLSearchParams({ page_size: "100" });
+  if (params?.status) search.set("status", params.status);
+
+  const items: JobApplication[] = [];
+  let path: string | null = `/api/v1/staff/jobs/${encodeURIComponent(slug)}/applications/?${search.toString()}`;
+  while (path) {
+    const page: JobApplicationPage = await apiGet<JobApplicationPage>(path, {
+      headers: authHeaders(accessToken),
+      cache: "no-store",
+    });
+    items.push(...page.results);
+    path = page.next ? page.next.replace(/^https?:\/\/[^/]+/, "") : null;
+  }
+  return items;
 }

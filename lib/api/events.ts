@@ -311,3 +311,63 @@ export function staffDeleteEvent(accessToken: string, slug: string): Promise<voi
     headers: authHeaders(accessToken),
   });
 }
+
+/* ─────────────────────────────────────────
+   STAFF — /api/v1/staff/events/{slug}/registrations/
+───────────────────────────────────────── */
+
+export type EventRegistrationStatus = "registered" | "cancelled" | "attended" | "no_show" | "waitlisted";
+
+export const EVENT_REGISTRATION_STATUS_LABELS: Record<EventRegistrationStatus, string> = {
+  registered: "Registered",
+  cancelled: "Cancelled",
+  attended: "Attended",
+  no_show: "No-show",
+  waitlisted: "Waitlisted",
+};
+
+export interface EventRegistration {
+  id: number;
+  event: number;
+  full_name: string;
+  email: string;
+  organization: string;
+  job_title: string;
+  /** Attendee's timezone. */
+  timezone: string;
+  questions_for_host: string;
+  status: EventRegistrationStatus;
+  registered_at: string;
+  cancelled_at: string | null;
+  attended_at: string | null;
+  source: string;
+}
+
+interface EventRegistrationPage {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: EventRegistration[];
+}
+
+/** GET /api/v1/staff/events/{slug}/registrations/ — every registration, newest first. */
+export async function staffListEventRegistrations(
+  accessToken: string,
+  slug: string,
+  params?: { status?: EventRegistrationStatus }
+): Promise<EventRegistration[]> {
+  const search = new URLSearchParams({ page_size: "100" });
+  if (params?.status) search.set("status", params.status);
+
+  const items: EventRegistration[] = [];
+  let path: string | null = `/api/v1/staff/events/${encodeURIComponent(slug)}/registrations/?${search.toString()}`;
+  while (path) {
+    const page: EventRegistrationPage = await apiGet<EventRegistrationPage>(path, {
+      headers: authHeaders(accessToken),
+      cache: "no-store",
+    });
+    items.push(...page.results);
+    path = page.next ? page.next.replace(/^https?:\/\/[^/]+/, "") : null;
+  }
+  return items;
+}

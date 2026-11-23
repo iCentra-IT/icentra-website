@@ -81,6 +81,7 @@ export default function JobForm({ initial, submitLabel, onSubmit, extraActions }
   const [status, setStatus] = useState<JobStatus>(initial?.status ?? "draft");
   const [isPublic, setIsPublic] = useState(initial?.is_public ?? false);
   const [deadline, setDeadline] = useState(toDatetimeLocal(initial?.application_deadline));
+  const [successEmailTemplate, setSuccessEmailTemplate] = useState(initial?.application_success_email_template ?? "");
   const [aboutIcentra, setAboutIcentra] = useState(initial?.about_icentra ?? "");
   const [description, setDescription] = useState(initial?.description ?? "");
   const [roleDescription, setRoleDescription] = useState(initial?.role_description ?? "");
@@ -104,6 +105,7 @@ export default function JobForm({ initial, submitLabel, onSubmit, extraActions }
         status,
         is_public: isPublic,
         application_deadline: deadline ? new Date(deadline).toISOString() : null,
+        application_success_email_template: successEmailTemplate,
         about_icentra: aboutIcentra,
         description,
         role_description: roleDescription,
@@ -146,12 +148,20 @@ export default function JobForm({ initial, submitLabel, onSubmit, extraActions }
             onChange={(e) => setStatus(e.target.value as JobStatus)}
           />
         </FormRow>
-        <FormField
-          label="Application Deadline"
-          type="datetime-local"
-          value={deadline}
-          onChange={(e) => setDeadline(e.target.value)}
-        />
+        <FormRow>
+          <FormField
+            label="Application Deadline"
+            type="datetime-local"
+            value={deadline}
+            onChange={(e) => setDeadline(e.target.value)}
+          />
+          <FormField
+            label="Success Email Template"
+            value={successEmailTemplate}
+            onChange={(e) => setSuccessEmailTemplate(e.target.value)}
+            placeholder="Optional — template name sent when someone applies"
+          />
+        </FormRow>
         <div className="flex flex-col sm:flex-row gap-5">
           <AdminCheckbox label="Remote" description="Can be done from anywhere." checked={isRemote} onChange={setIsRemote} />
           <AdminCheckbox

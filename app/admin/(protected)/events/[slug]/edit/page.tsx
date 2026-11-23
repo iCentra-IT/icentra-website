@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import EventForm from "@/components/admin/event-form";
+import EventRegistrationsPanel from "@/components/admin/event-registrations-panel";
 import { useConfirm } from "@/components/admin/confirm-dialog";
 import { useStaffMutation, useStaffQuery } from "@/lib/admin/queries";
 import { staffGetEvent, staffUpdateEvent, staffDeleteEvent, type EventInput, type StaffEvent } from "@/lib/api/events";
@@ -82,6 +83,10 @@ export default function EditEventPage({ params }: { params: Promise<{ slug: stri
               </button>
             }
           />
+
+          <div className="mt-8">
+            <EventRegistrationsPanel slug={event.slug} />
+          </div>
         </>
       )}
     </div>
