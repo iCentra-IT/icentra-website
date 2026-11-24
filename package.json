@@ -13,6 +13,8 @@
     "@sanity/image-url": "^2.1.1",
     "@sanity/vision": "^5.31.1",
     "@tanstack/react-query": "^5.104.3",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.1.0",
     "@vnedyalk0v/react19-simple-maps": "^2.0.10",
     "axios": "^1.21.1",
     "d3-geo": "^3.1.1",
