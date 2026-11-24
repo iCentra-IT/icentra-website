@@ -169,7 +169,7 @@ export default function Footer() {
 
             {/* Legal Terms */}
             <div>
-              <h3 className="text-base font-semibold text-white mb-5">Legal &nbsp; Terms</h3>
+              <h3 className="text-base font-semibold text-white mb-5">Legal Terms</h3>
               <ul className="flex flex-col gap-3">
                 {legalLinks.map((l) => (
                   <li key={l.label}>
@@ -191,7 +191,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-6 text-center text-sm text-white/50">
-          © {new Date().getFullYear()} iCentra. All rights reserved .
+          © {new Date().getFullYear()} iCentra. All rights reserved.
         </div>
       </div>
     </footer>

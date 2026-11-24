@@ -13,7 +13,7 @@ const partners = [
   { name: "Nigerian Economic Summit Group", src: "/images/partners/nesg.png" },
   { name: "Microvis MFBank", src: "/images/partners/microvis.png" },
   { name: "Institute of Transport", src: "/images/partners/NITTZ.png" },
-  { name: "Seal", src: "/images/partners/Ogun.png" },
+  { name: "Ogun State", src: "/images/partners/Ogun.png" },
   { name: "Health Procurement Africa", src: "/images/partners/hpa.png" },
 ];
 
@@ -78,10 +78,14 @@ export default function TrustedPartners({
           className="flex w-max items-center gap-16 will-change-transform"
         >
           {[...partners, ...partners].map((p, i) => (
-            <div key={`${p.name}-${i}`} className="relative h-18 w-24 shrink-0">
+            <div
+              key={`${p.name}-${i}`}
+              className="relative h-18 w-24 shrink-0"
+              aria-hidden={i >= partners.length}
+            >
               <Image
                 src={p.src}
-                alt={p.name}
+                alt={i >= partners.length ? "" : p.name}
                 fill
                 className="object-contain object-left w-full h-full"
                 // sizes="500px"

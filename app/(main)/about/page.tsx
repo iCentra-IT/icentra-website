@@ -7,6 +7,7 @@ import SectionHeading from "@/components/ui/section-heading";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/ui/motion/reveal";
 import Image from "next/image";
 import { pageMetadata } from "@/lib/seo";
+import { getYearsOfExperience } from "@/lib/data";
 
 export const metadata: Metadata = pageMetadata({
   title: "About Us",
@@ -24,10 +25,10 @@ const leaders = [
     image:
       "/images/about/mansur.png",
     name: "Mansur Ahmed",
-    role: "Non-Executive Director",
+    role: "Chairman",
     linkedin: "https://linkedin.com",
     bio: [
-      "Mansur Ahmed is a highly respected Non-Executive Director with over 25 years of board-level experience across financial services, telecommunications, and public sector organizations.",
+      "Mansur Ahmed is a highly respected Chairman with over 25 years of board-level experience across financial services, telecommunications, and public sector organizations.",
       "He brings strategic governance expertise and a deep understanding of regulatory environments across West Africa and the UK, helping iCentra navigate complex markets while maintaining the highest standards of corporate integrity.",
     ],
   },
@@ -155,7 +156,7 @@ export default function AboutPage() {
               change in the global business ecosystem.
             </p>
             <p className="text-[#374151] text-base leading-[1.8]">
-              Over one and a half decades, iCentra has evolved into a dynamic
+              Over {getYearsOfExperience()} years, iCentra has evolved into a dynamic
               and globally recognized business and technology solutions company.
               From its West African root, iCentra has expanded its global
               footprint with strategic offices established in Texas, United
@@ -201,7 +202,7 @@ export default function AboutPage() {
             >
               <h3 className="text-white text-lg font-bold">Our Vision</h3>
               <p className="text-white/65 text-base leading-relaxed">
-                To be the Centre of excellence where people and organizations find
+                To be the center of excellence where people and organizations find
                 tools and resources to thrive, innovate, and create new
                 opportunities.
               </p>

@@ -4,7 +4,7 @@
 export function getYearsOfExperience(
   startYear = 2009,
   anchorMonth = 10, // October
-  anchorDay = 19
+  anchorDay = 19,
 ) {
   const now = new Date();
   const anchor = new Date(now.getFullYear(), anchorMonth - 1, anchorDay);
@@ -16,8 +16,14 @@ export function getYearsOfExperience(
 }
 
 export const getStats = () => [
-  { value: `${getYearsOfExperience()}+ Years`, label: "Transformation & Capability Experience" },
-  { value: "3 Continents", label: "Global Presence Across Africa, Europe & North America" },
+  {
+    value: `${getYearsOfExperience()}+ Years`,
+    label: "Transformation & Capability Experience",
+  },
+  {
+    value: "3 Continents",
+    label: "Global Presence Across Africa, Europe & North America",
+  },
   { value: "250+", label: "Enterprise Engagements" },
 ];
 
@@ -66,16 +72,14 @@ export const insightCards = [
 
 export const solutionCards = [
   {
-    image:
-      "/images/solution/continuous-transformation.png",
+    image: "/images/solution/continuous-transformation.png",
     title: "Continuous Transformation",
     description:
       "We help organizations build the capability to continuously evolve, from strategy through to execution and beyond.",
     href: "/what-we-do/continuous-transformation",
   },
   {
-    image:
-      "/images/solution/solutions.png",
+    image: "/images/solution/solutions.png",
     title: "Solutions",
     description:
       "End-to-end technology and business solutions tailored to your sector's specific challenges and growth ambitions.",
@@ -88,8 +92,7 @@ export const solutionCards = [
     href: "/what-we-do/solutions",
   },
   {
-    image:
-      "/images/solution/platforms.png",
+    image: "/images/solution/platforms.png",
     title: "Partnerships",
     description:
       "Scalable digital platforms that accelerate delivery, improve visibility, and create lasting competitive advantage.",
@@ -97,7 +100,7 @@ export const solutionCards = [
       "Workforce Capability Partnership",
       "AI Transformation Partnership",
       "PMO Partnership",
-      "Compliance Partnerships",
+      "Compliance Partnership",
     ],
     href: "/what-we-do/partnerships",
   },
@@ -208,7 +211,8 @@ export const blogCards = [
 
 export const spotlightCards = [
   {
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
     title: "iCentra Bags Global Awards",
     date: "2nd Sep 2025",
     readTime: "2 min",
@@ -217,7 +221,8 @@ export const spotlightCards = [
     category: "Spotlight" as const,
   },
   {
-    image: "https://images.unsplash.com/photo-1560472355-536de3962603?w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1560472355-536de3962603?w=600&q=80",
     title: "AI & Cybersecurity Governance: Getting Leadership By-In",
     date: "2nd Sep 2025",
     readTime: "2 min",
@@ -226,7 +231,8 @@ export const spotlightCards = [
     category: "Spotlight" as const,
   },
   {
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80",
     title: "5 Ai Driven Threats Organizations Can't Ignore In 2026",
     date: "2nd Sep 2025",
     readTime: "2 min",
@@ -238,7 +244,8 @@ export const spotlightCards = [
 
 export const newsCards = [
   {
-    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80",
     title: "The New Operating Model for Sustained Performance",
     date: "2nd Sep 2025",
     readTime: "2 min",
@@ -247,7 +254,8 @@ export const newsCards = [
     category: "News" as const,
   },
   {
-    image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80",
     title: "AI & Cybersecurity Governance: Getting Leadership By-In",
     date: "2nd Sep 2025",
     readTime: "2 min",
@@ -256,7 +264,8 @@ export const newsCards = [
     category: "News" as const,
   },
   {
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80",
     title: "5 Ai Driven Threats Organizations Can't Ignore In 2026",
     date: "2nd Sep 2025",
     readTime: "2 min",

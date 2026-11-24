@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
+import { CALENDLY_URL } from "@/lib/constants";
 
 /* ─────────────────────────────────────────
    SLIDE DATA
@@ -28,7 +29,7 @@ const slides: Slide[] = [
     headlineItalic: "Experience ",
     headlineBold: "Transformation.\n Sustain Performance.",
     ctas: [
-      { label: "Explore iCentra", href: "/about", primary: true },
+      { label: "Book a Discovery Call", href: CALENDLY_URL, primary: true },
     ],
     helperText: "Transforming people and organizations for sustainable performance",
   },
@@ -237,17 +238,22 @@ export default function HeroSlider({ overlay = false, initialSlide = 0 }: HeroSl
 
                 {/* CTAs */}
                 <div className="flex flex-row flex-wrap justify-start gap-3 mt-6 sm:mt-8">
-                  {slide.ctas.map((cta) => (
-                    <Link
-                      key={cta.label}
-                      href={cta.href}
-                      className={`px-6 sm:px-7 py-3 sm:py-3.5 rounded-md text-sm sm:text-sm font-semibold text-center transition-colors ${
-                        cta.primary ? theme.ctaPrimary : theme.ctaSecondary
-                      }`}
-                    >
-                      {cta.label}
-                    </Link>
-                  ))}
+                  {slide.ctas.map((cta) => {
+                    const external = cta.href.startsWith("http");
+                    return (
+                      <Link
+                        key={cta.label}
+                        href={cta.href}
+                        target={external ? "_blank" : undefined}
+                        rel={external ? "noopener noreferrer" : undefined}
+                        className={`px-6 sm:px-7 py-3 sm:py-3.5 rounded-md text-sm sm:text-sm font-semibold text-center transition-colors ${
+                          cta.primary ? theme.ctaPrimary : theme.ctaSecondary
+                        }`}
+                      >
+                        {cta.label}
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
 

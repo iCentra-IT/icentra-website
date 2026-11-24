@@ -68,11 +68,26 @@ export const partnershipsHub = {
   ],
 
   comparisonRows: [
-    { project: "Defined scope, fixed end date", partnership: "Ongoing scope that evolves with your priorities" },
-    { project: "Handover at completion", partnership: "Continuous delivery and accountability" },
-    { project: "Knowledge leaves with the team", partnership: "Institutional knowledge builds over time" },
-    { project: "Outputs (reports, frameworks)", partnership: "Outcomes (adoption, performance, resilience)" },
-    { project: "You manage implementation", partnership: "We stay accountable through implementation" },
+    {
+      project: "Defined scope, fixed end date",
+      partnership: "Ongoing scope that evolves with your priorities",
+    },
+    {
+      project: "Handover at completion",
+      partnership: "Continuous delivery and accountability",
+    },
+    {
+      project: "Knowledge leaves with the team",
+      partnership: "Institutional knowledge builds over time",
+    },
+    {
+      project: "Outputs (reports, frameworks)",
+      partnership: "Outcomes (adoption, performance, resilience)",
+    },
+    {
+      project: "You manage implementation",
+      partnership: "We stay accountable through implementation",
+    },
   ] satisfies ComparisonRow[],
 
   partnershipsIntro:
@@ -160,33 +175,51 @@ export const partnerships: Partnership[] = [
     valueProps: [
       {
         title: "Strategy-Aligned Capability",
-        description: "Every learning investment ties back to a transformation priority, not a generic course catalog.",
+        description:
+          "Every learning investment ties back to a transformation priority, not a generic course catalog.",
       },
       {
         title: "Stronger Leadership Pipeline",
-        description: "Build the bench you need for the next stage of growth, not just today's roles.",
+        description:
+          "Build the bench you need for the next stage of growth, not just today's roles.",
       },
       {
         title: "Higher Adoption",
-        description: "Workforce that's genuinely capable of adopting new ways of working, not just trained on paper.",
+        description:
+          "Workforce that's genuinely capable of adopting new ways of working, not just trained on paper.",
       },
       {
         title: "Measurable ROI",
-        description: "A capability scorecard that shows the business impact of the investment.",
+        description:
+          "A capability scorecard that shows the business impact of the investment.",
       },
     ],
     howItWorks: [
       {
         title: "Capability Assessment",
-        description: "Identify capability gaps against your transformation and strategic priorities.",
+        description:
+          "Identify capability gaps against your transformation and strategic priorities.",
       },
-      { title: "Learning Roadmap", description: "Build an annual plan that sequences capability building against business need." },
+      {
+        title: "Learning Roadmap",
+        description:
+          "Build an annual plan that sequences capability building against business need.",
+      },
       {
         title: "Academy & Certification Pathways",
-        description: "Structured pathways, not one-off courses, with recognized certification.",
+        description:
+          "Structured pathways, not one-off courses, with recognized certification.",
       },
-      { title: "Ongoing Delivery", description: "Continuous program delivery, not a single training event." },
-      { title: "Impact Measurement", description: "Track capability growth against a scorecard tied to business outcomes." },
+      {
+        title: "Ongoing Delivery",
+        description:
+          "Continuous program delivery, not a single training event.",
+      },
+      {
+        title: "Impact Measurement",
+        description:
+          "Track capability growth against a scorecard tied to business outcomes.",
+      },
     ],
     deliverables: [
       "Capability framework",
@@ -204,15 +237,18 @@ export const partnerships: Partnership[] = [
     tiers: [
       {
         name: "Essentials",
-        included: "Capability assessment and learning roadmap, up to 200 learners.",
+        included:
+          "Capability assessment and learning roadmap, up to 200 learners.",
       },
       {
         name: "Standard",
-        included: "Adds competency frameworks and leadership pipeline design, up to 500 learners.",
+        included:
+          "Adds competency frameworks and leadership pipeline design, up to 500 learners.",
       },
       {
         name: "Enterprise",
-        included: "Full capability partnership with workforce analytics, unlimited learner population.",
+        included:
+          "Full capability partnership with workforce analytics, unlimited learner population.",
       },
     ],
   },
@@ -240,36 +276,50 @@ export const partnerships: Partnership[] = [
     valueProps: [
       {
         title: "Governed Adoption",
-        description: "Move from experimentation to enterprise-wide AI use with governance built in from day one.",
+        description:
+          "Move from experimentation to enterprise-wide AI use with governance built in from day one.",
       },
       {
         title: "Prioritized Use-Case Portfolio",
-        description: "Stop chasing every AI idea, focus investment on the use cases with real business value.",
+        description:
+          "Stop chasing every AI idea, focus investment on the use cases with real business value.",
       },
       {
         title: "Reduced AI Risk Exposure",
-        description: "Responsible-AI governance and risk frameworks keep adoption within your risk appetite.",
+        description:
+          "Responsible-AI governance and risk frameworks keep adoption within your risk appetite.",
       },
       {
         title: "Workforce Enablement",
-        description: "Your teams use AI tools with confidence, not just your innovation lab.",
+        description:
+          "Your teams use AI tools with confidence, not just your innovation lab.",
       },
     ],
     howItWorks: [
       {
         title: "Readiness Assessment",
-        description: "Evaluate strategy, data, governance, technology, use cases, and workforce readiness for AI.",
+        description:
+          "Evaluate strategy, data, governance, technology, use cases, and workforce readiness for AI.",
       },
       {
         title: "Use-Case Portfolio & Prioritization",
-        description: "Identify and rank AI use cases by business value and feasibility.",
+        description:
+          "Identify and rank AI use cases by business value and feasibility.",
       },
-      { title: "Governance Design", description: "Establish AI governance and responsible-AI guardrails before scaling." },
+      {
+        title: "Governance Design",
+        description:
+          "Establish AI governance and responsible-AI guardrails before scaling.",
+      },
       {
         title: "Pilots & Automation Deployment",
-        description: "Run prioritized pilots and deploy intelligent process automation.",
+        description:
+          "Run prioritized pilots and deploy intelligent process automation.",
       },
-      { title: "Workforce Enablement", description: "Train and equip teams to use AI tools with confidence." },
+      {
+        title: "Workforce Enablement",
+        description: "Train and equip teams to use AI tools with confidence.",
+      },
     ],
     deliverables: [
       "AI strategy",
@@ -288,15 +338,18 @@ export const partnerships: Partnership[] = [
     tiers: [
       {
         name: "Essentials",
-        included: "AI Readiness Assessment + Strategy & Roadmap. Monthly advisory office hours.",
+        included:
+          "AI Readiness Assessment + Strategy & Roadmap. Monthly advisory office hours.",
       },
       {
         name: "Standard",
-        included: "Essentials + use-case portfolio, governance framework design, pilot oversight.",
+        included:
+          "Essentials + use-case portfolio, governance framework design, pilot oversight.",
       },
       {
         name: "Enterprise",
-        included: "Embedded governance, multi-use-case build support, workforce enablement at scale.",
+        included:
+          "Embedded governance, multi-use-case build support, workforce enablement at scale.",
       },
     ],
   },
@@ -325,33 +378,51 @@ export const partnerships: Partnership[] = [
     valueProps: [
       {
         title: "Instant PMO Capability",
-        description: "Launch or enhance your PMO without the delays of building from scratch.",
+        description:
+          "Launch or enhance your PMO without the delays of building from scratch.",
       },
       {
         title: "Expert-Driven Governance",
-        description: "Proven frameworks that ensure consistent delivery and measurable results.",
+        description:
+          "Proven frameworks that ensure consistent delivery and measurable results.",
       },
       {
         title: "Technology-Enabled Delivery",
-        description: "Dashboards, reporting tools, and automation for real-time portfolio insight.",
+        description:
+          "Dashboards, reporting tools, and automation for real-time portfolio insight.",
       },
       {
         title: "Cost-Effective",
-        description: "Reduce PMO setup and operating costs while maintaining top-tier delivery quality.",
+        description:
+          "Reduce PMO setup and operating costs while maintaining top-tier delivery quality.",
       },
     ],
     howItWorks: [
       {
         title: "PMO Maturity Baseline",
-        description: "Assess your current project delivery environment, pain points, and objectives.",
+        description:
+          "Assess your current project delivery environment, pain points, and objectives.",
       },
-      { title: "Operating Model Design", description: "Establish governance framework, processes, and reporting templates." },
-      { title: "Portfolio Governance", description: "Stand up prioritization, alignment, and risk oversight across initiatives." },
+      {
+        title: "Operating Model Design",
+        description:
+          "Establish governance framework, processes, and reporting templates.",
+      },
+      {
+        title: "Portfolio Governance",
+        description:
+          "Stand up prioritization, alignment, and risk oversight across initiatives.",
+      },
       {
         title: "Recurring Reporting & Assurance",
-        description: "Monthly dashboards, portfolio performance reports, risk and issue logs.",
+        description:
+          "Monthly dashboards, portfolio performance reports, risk and issue logs.",
       },
-      { title: "Benefits Reviews", description: "Track whether projects are actually delivering the value they promised." },
+      {
+        title: "Benefits Reviews",
+        description:
+          "Track whether projects are actually delivering the value they promised.",
+      },
     ],
     deliverables: [
       "PMO playbook",
@@ -373,11 +444,13 @@ export const partnerships: Partnership[] = [
       },
       {
         name: "Standard",
-        included: "Monthly reporting, on-demand PMO experts, portfolio dashboards.",
+        included:
+          "Monthly reporting, on-demand PMO experts, portfolio dashboards.",
       },
       {
         name: "Enterprise",
-        included: "Dedicated PMO manager, continuous governance, real-time performance analytics.",
+        included:
+          "Dedicated PMO manager, continuous governance, real-time performance analytics.",
       },
     ],
   },
@@ -385,7 +458,7 @@ export const partnerships: Partnership[] = [
     slug: "complycentra",
     image: "/images/partnerships/complycentra.jpg",
     eyebrow: "Cybersecurity & GRC · Retainer → Platform Roadmap",
-    name: "Compliance Partnerships",
+    name: "Compliance Partnership",
     subtitle: "",
     tagline: "Build Trust. Stay Compliant. Be Audit-Ready.",
     description:
@@ -407,30 +480,51 @@ export const partnerships: Partnership[] = [
     valueProps: [
       {
         title: "End-to-End Oversight",
-        description: "From assessments to audits, we proactively manage every step of your compliance journey.",
+        description:
+          "From assessments to audits, we proactively manage every step of your compliance journey.",
       },
       {
         title: "Reduced Risk of Non-Compliance",
-        description: "Spot and resolve issues before they impact certification or operations.",
+        description:
+          "Spot and resolve issues before they impact certification or operations.",
       },
       {
         title: "Predictable & Sustainable Costs",
-        description: "Access expertise on retainer without the overhead of full-time hires.",
+        description:
+          "Access expertise on retainer without the overhead of full-time hires.",
       },
       {
         title: "Stronger Trust",
-        description: "Demonstrable commitment to quality, security, and governance for customers and partners.",
+        description:
+          "Demonstrable commitment to quality, security, and governance for customers and partners.",
       },
     ],
     howItWorks: [
       {
         title: "Compliance Baseline",
-        description: "Baseline and periodic compliance health checks against your target frameworks.",
+        description:
+          "Baseline and periodic compliance health checks against your target frameworks.",
       },
-      { title: "Framework Implementation", description: "Stand up the policies, controls, and documentation your standards require." },
-      { title: "Control Monitoring", description: "Ongoing monitoring so drift gets caught before an auditor finds it." },
-      { title: "Evidence Management", description: "A digital evidence repository that makes audits fast, not frantic." },
-      { title: "Risk & Audit Reviews", description: "Scheduled internal audits, mock audits, and remediation support." },
+      {
+        title: "Framework Implementation",
+        description:
+          "Stand up the policies, controls, and documentation your standards require.",
+      },
+      {
+        title: "Control Monitoring",
+        description:
+          "Ongoing monitoring so drift gets caught before an auditor finds it.",
+      },
+      {
+        title: "Evidence Management",
+        description:
+          "A digital evidence repository that makes audits fast, not frantic.",
+      },
+      {
+        title: "Risk & Audit Reviews",
+        description:
+          "Scheduled internal audits, mock audits, and remediation support.",
+      },
     ],
     deliverables: [
       "Compliance register",
@@ -449,15 +543,18 @@ export const partnerships: Partnership[] = [
     tiers: [
       {
         name: "Essentials",
-        included: "1 ISO standard, quarterly health checks, 1 internal audit/year, shared consultant team.",
+        included:
+          "1 ISO standard, quarterly health checks, 1 internal audit/year, shared consultant team.",
       },
       {
         name: "Standard",
-        included: "Certification/renewal prep, monthly health checks, priority support, monthly dashboard.",
+        included:
+          "Certification/renewal prep, monthly health checks, priority support, monthly dashboard.",
       },
       {
         name: "Enterprise",
-        included: "Multi-standard/multi-site, continuous monitoring, dedicated named consultant, board-ready reporting.",
+        included:
+          "Multi-standard/multi-site, continuous monitoring, dedicated named consultant, board-ready reporting.",
       },
     ],
   },
