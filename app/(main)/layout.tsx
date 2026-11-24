@@ -13,9 +13,9 @@ export default function MainLayout({
   return (
     <QueryProvider>
       <GoogleTagManager />
-      <div className="min-h-full flex flex-col">
+      <div className="min-h-screen flex flex-col">
         <Navbar />
-        {children}
+        <div className="flex-1">{children}</div>
         <Footer />
         <SanityLive />
       </div>

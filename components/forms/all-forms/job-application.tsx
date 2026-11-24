@@ -32,6 +32,10 @@ function JobApplicationContent({
       setLocalError("Please attach your resume.");
       return;
     }
+    if (!coverLetter) {
+      setLocalError("Please attach a cover letter.");
+      return;
+    }
     setLocalError(null);
 
     const formData = new FormData(e.currentTarget);
@@ -65,13 +69,13 @@ function JobApplicationContent({
         <FormField label="Full Name" required name="full_name" type="text" placeholder="Your full name" />
         <FormRow>
           <FormField label="Email" required name="email" type="email" placeholder="Enter your active mail" />
-          <FormField label="Phone Number" name="phone" type="tel" placeholder="Enter phone number" />
+          <FormField label="Phone Number" required name="phone" type="tel" placeholder="Enter phone number" />
         </FormRow>
-        <FormField label="Location" name="location" type="text" placeholder="City, Country" />
+        <FormField label="Location" required name="location" type="text" placeholder="City, Country" />
         <FormFileUpload label="Resume" required accept=".pdf,.doc,.docx" onFileChange={setResume} />
-        <FormFileUpload label="Cover Letter (optional)" accept=".pdf,.doc,.docx" onFileChange={setCoverLetter} />
-        <FormField label="LinkedIn Profile" name="linkedin_url" type="url" placeholder="https://linkedin.com/in/..." />
-        <FormSelect label="How did you hear about this role?" name="referral_source" options={REFERRAL_SOURCE_OPTS} placeholder="Select" />
+        <FormFileUpload label="Cover Letter" required accept=".pdf,.doc,.docx" onFileChange={setCoverLetter} />
+        <FormField label="LinkedIn Profile" required name="linkedin_url" type="url" placeholder="https://linkedin.com/in/..." />
+        <FormSelect label="How did you hear about this role?" required name="referral_source" options={REFERRAL_SOURCE_OPTS} placeholder="Select" />
         <FormRow>
           <FormField label="Availability Date" name="availability_date" type="date" />
           <FormField label="Expected Salary" name="expected_salary" type="text" placeholder="Optional" />
