@@ -13,7 +13,7 @@ images: {
     { protocol: "https", hostname: "api-web.icentra.com" },
     { protocol: "https", hostname: "*.r2.cloudflarestorage.com" },
   ],
-   unoptimized: false,
+  //  unoptimized: false,
 },
   async redirects() {
     return [
