@@ -368,7 +368,7 @@ export default async function ContinuousTransformationPage() {
                 to design an enterprise that delivers.
               </p>
               <Link
-                href="https://www.enterprisealignment.org/"
+                href="https://www.enterprisealignment.org/book"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors w-fit"
@@ -390,7 +390,7 @@ export default async function ContinuousTransformationPage() {
                 Enterprise Alignment Execution Plan.
               </p>
               <Link
-                href="https://learning.icentra.com/"
+                href="https://learning.icentra.com/executive-learning/enterprise-alignment"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#0066FF] text-white text-sm font-semibold hover:bg-light-blue hover:text-[#1A274F] transition-colors w-fit"
